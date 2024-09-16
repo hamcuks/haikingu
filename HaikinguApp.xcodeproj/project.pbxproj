@@ -17,6 +17,20 @@
 		E7D0BA512C9839CC00324E3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA502C9839CC00324E3D /* Assets.xcassets */; };
 		E7D0BA542C9839CC00324E3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E7DEE7222C983C0C00549E05 /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7212C983C0C00549E05 /* OnboardingExtension.swift */; };
+		E7DEE7242C983C1E00549E05 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7232C983C1E00549E05 /* OnboardingVC.swift */; };
+		E7DEE7262C983C5F00549E05 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7252C983C5F00549E05 /* SampleView.swift */; };
+		E7DEE7282C983C8600549E05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7272C983C8600549E05 /* User.swift */; };
+		E7DEE72E2C983CF800549E05 /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE72D2C983CF800549E05 /* SampleLabel.swift */; };
+		E7DEE7302C983D0C00549E05 /* AlterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE72F2C983D0C00549E05 /* AlterVC.swift */; };
+		E7DEE7322C983D2B00549E05 /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7312C983D2B00549E05 /* SampleItemView.swift */; };
+		E7DEE7342C983D4600549E05 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7332C983D4600549E05 /* AppButton.swift */; };
+		E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7352C983D5000549E05 /* HealthManager.swift */; };
+		E7DEE7382C983D5B00549E05 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7372C983D5B00549E05 /* HealthService.swift */; };
+		E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7392C983D7000549E05 /* SampleDB.swift */; };
+		E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE73B2C983D8000549E05 /* Date+Extension.swift */; };
+		E7DEE7442C983DE100549E05 /* ScreenA.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7432C983DE100549E05 /* ScreenA.swift */; };
+		E7DEE7462C983DEA00549E05 /* ViewModelA.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7452C983DEA00549E05 /* ViewModelA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +70,21 @@
 		E7D0BA4E2C9839CB00324E3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E7D0BA502C9839CC00324E3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E7DEE7212C983C0C00549E05 /* OnboardingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExtension.swift; sourceTree = "<group>"; };
+		E7DEE7232C983C1E00549E05 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		E7DEE7252C983C5F00549E05 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
+		E7DEE7272C983C8600549E05 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E7DEE72D2C983CF800549E05 /* SampleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLabel.swift; sourceTree = "<group>"; };
+		E7DEE72F2C983D0C00549E05 /* AlterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlterVC.swift; sourceTree = "<group>"; };
+		E7DEE7312C983D2B00549E05 /* SampleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleItemView.swift; sourceTree = "<group>"; };
+		E7DEE7332C983D4600549E05 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		E7DEE7352C983D5000549E05 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		E7DEE7372C983D5B00549E05 /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		E7DEE7392C983D7000549E05 /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
+		E7DEE73B2C983D8000549E05 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		E7DEE73F2C983D9900549E05 /* Telaga Bidadari Batam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Telaga Bidadari Batam.gpx"; sourceTree = "<group>"; };
+		E7DEE7432C983DE100549E05 /* ScreenA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenA.swift; sourceTree = "<group>"; };
+		E7DEE7452C983DEA00549E05 /* ViewModelA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +126,14 @@
 		E7D0BA312C9839AD00324E3D /* HaikinguApp */ = {
 			isa = PBXGroup;
 			children = (
-				E7D0BA322C9839AD00324E3D /* AppDelegate.swift */,
-				E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */,
-				E7D0BA362C9839AD00324E3D /* ViewController.swift */,
-				E7D0BA3B2C9839AF00324E3D /* Assets.xcassets */,
-				E7D0BA3D2C9839AF00324E3D /* LaunchScreen.storyboard */,
+				E7DEE71B2C983B5000549E05 /* Resources */,
+				E7DEE71A2C983B4400549E05 /* LocalDataSources */,
+				E7DEE7192C983B3B00549E05 /* Services */,
+				E7DEE7182C983B3000549E05 /* Managers */,
+				E7DEE7152C983B1600549E05 /* Shareds */,
+				E7DEE7142C983B0B00549E05 /* Models */,
+				E7DEE7132C983AFD00549E05 /* Supports */,
+				E7DEE7122C983AF500549E05 /* Screens */,
 				E7D0BA402C9839AF00324E3D /* Info.plist */,
 			);
 			path = HaikinguApp;
@@ -110,8 +142,9 @@
 		E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				E7D0BA4C2C9839CB00324E3D /* HaikinguApp.swift */,
-				E7D0BA4E2C9839CB00324E3D /* ContentView.swift */,
+				E7DEE7472C983DF000549E05 /* Supports */,
+				E7DEE7412C983DC300549E05 /* Screens */,
+				E7DEE7402C983DAD00549E05 /* ViewModels */,
 				E7D0BA502C9839CC00324E3D /* Assets.xcassets */,
 				E7D0BA522C9839CC00324E3D /* Preview Content */,
 			);
@@ -124,6 +157,193 @@
 				E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E7DEE7122C983AF500549E05 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE71D2C983B8300549E05 /* Onboarding */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E7DEE7132C983AFD00549E05 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				E7D0BA322C9839AD00324E3D /* AppDelegate.swift */,
+				E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */,
+				E7D0BA362C9839AD00324E3D /* ViewController.swift */,
+				E7D0BA3D2C9839AF00324E3D /* LaunchScreen.storyboard */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		E7DEE7142C983B0B00549E05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7272C983C8600549E05 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E7DEE7152C983B1600549E05 /* Shareds */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7172C983B2700549E05 /* Components */,
+				E7DEE7162C983B1B00549E05 /* Extensions */,
+			);
+			path = Shareds;
+			sourceTree = "<group>";
+		};
+		E7DEE7162C983B1B00549E05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE73B2C983D8000549E05 /* Date+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7DEE7172C983B2700549E05 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE72C2C983CE700549E05 /* Labels */,
+				E7DEE72B2C983CB000549E05 /* ViewControllers */,
+				E7DEE72A2C983C9700549E05 /* Views */,
+				E7DEE7292C983C9000549E05 /* Buttons */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E7DEE7182C983B3000549E05 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7352C983D5000549E05 /* HealthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E7DEE7192C983B3B00549E05 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7372C983D5B00549E05 /* HealthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E7DEE71A2C983B4400549E05 /* LocalDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7392C983D7000549E05 /* SampleDB.swift */,
+			);
+			path = LocalDataSources;
+			sourceTree = "<group>";
+		};
+		E7DEE71B2C983B5000549E05 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E7D0BA3B2C9839AF00324E3D /* Assets.xcassets */,
+				E7DEE71C2C983B5500549E05 /* GPXAssets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E7DEE71C2C983B5500549E05 /* GPXAssets */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE73F2C983D9900549E05 /* Telaga Bidadari Batam.gpx */,
+			);
+			path = GPXAssets;
+			sourceTree = "<group>";
+		};
+		E7DEE71D2C983B8300549E05 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7202C983BF000549E05 /* Extensions */,
+				E7DEE71F2C983BDD00549E05 /* ViewControllers */,
+				E7DEE71E2C983B9400549E05 /* SubViews */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E7DEE71E2C983B9400549E05 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7252C983C5F00549E05 /* SampleView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E7DEE71F2C983BDD00549E05 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7232C983C1E00549E05 /* OnboardingVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7DEE7202C983BF000549E05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7212C983C0C00549E05 /* OnboardingExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7DEE7292C983C9000549E05 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7332C983D4600549E05 /* AppButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		E7DEE72A2C983C9700549E05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7312C983D2B00549E05 /* SampleItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E7DEE72B2C983CB000549E05 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE72F2C983D0C00549E05 /* AlterVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7DEE72C2C983CE700549E05 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE72D2C983CF800549E05 /* SampleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		E7DEE7402C983DAD00549E05 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7452C983DEA00549E05 /* ViewModelA.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E7DEE7412C983DC300549E05 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E7DEE7432C983DE100549E05 /* ScreenA.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E7DEE7472C983DF000549E05 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				E7D0BA4C2C9839CB00324E3D /* HaikinguApp.swift */,
+				E7D0BA4E2C9839CB00324E3D /* ContentView.swift */,
+			);
+			path = Supports;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +448,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DEE7342C983D4600549E05 /* AppButton.swift in Sources */,
+				E7DEE7222C983C0C00549E05 /* OnboardingExtension.swift in Sources */,
+				E7DEE7382C983D5B00549E05 /* HealthService.swift in Sources */,
+				E7DEE7322C983D2B00549E05 /* SampleItemView.swift in Sources */,
 				E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */,
+				E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */,
+				E7DEE7302C983D0C00549E05 /* AlterVC.swift in Sources */,
+				E7DEE7242C983C1E00549E05 /* OnboardingVC.swift in Sources */,
 				E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */,
+				E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */,
+				E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */,
+				E7DEE7262C983C5F00549E05 /* SampleView.swift in Sources */,
 				E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */,
+				E7DEE72E2C983CF800549E05 /* SampleLabel.swift in Sources */,
+				E7DEE7282C983C8600549E05 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +470,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DEE7462C983DEA00549E05 /* ViewModelA.swift in Sources */,
+				E7DEE7442C983DE100549E05 /* ScreenA.swift in Sources */,
 				E7D0BA4F2C9839CB00324E3D /* ContentView.swift in Sources */,
 				E7D0BA4D2C9839CB00324E3D /* HaikinguApp.swift in Sources */,
 			);
