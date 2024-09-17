@@ -1,0 +1,38 @@
+PODS:
+  - CoreGPX (0.9.0)
+  - RxCocoa (6.7.1):
+    - RxRelay (= 6.7.1)
+    - RxSwift (= 6.7.1)
+  - RxRelay (6.7.1):
+    - RxSwift (= 6.7.1)
+  - RxSwift (6.7.1)
+  - SnapKit (5.0.1)
+  - Swinject (2.9.1)
+
+DEPENDENCIES:
+  - CoreGPX
+  - RxCocoa (~> 6.0)
+  - RxSwift (~> 6.0)
+  - SnapKit (~> 5.0.1)
+  - Swinject
+
+SPEC REPOS:
+  trunk:
+    - CoreGPX
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - Swinject
+
+SPEC CHECKSUMS:
+  CoreGPX: 1381c8c47428c3a6bcac2f93d25ca1c5e3525811
+  RxCocoa: f5609cb4637587a7faa99c5d5787e3ad582b75a4
+  RxRelay: 4151ba01152436b08271e08410135e099880eae5
+  RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Swinject: a827d508c6270da03ec74e558e728917a888fa9b
+
+PODFILE CHECKSUM: 9295655b0344a20a75dfb3dc57c154f45d8dced5
+
+COCOAPODS: 1.15.2
