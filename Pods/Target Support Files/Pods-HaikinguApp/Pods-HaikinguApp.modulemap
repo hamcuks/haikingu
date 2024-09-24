@@ -1,0 +1,6 @@
+framework module Pods_HaikinguApp {
+  umbrella header "Pods-HaikinguApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
