@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        #warning("Change the root view controller later!")
+        
         window.rootViewController = UINavigationController(rootViewController: ViewController())
         
         window.makeKeyAndVisible()
