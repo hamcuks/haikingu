@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031A6BEC2CA72562003AFD6C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031A6BEB2CA72562003AFD6C /* HomeScreen.swift */; };
 		0C8DBA871B0D5999FBFD2EB8 /* Pods_HaikinguApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E8B65C535F97E19D9A5BFC /* Pods_HaikinguApp.framework */; };
 		4CF0AE1D2F9638231E39F61A /* Pods_Haikingu_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B11FF0552B6F57A27CAFF4 /* Pods_Haikingu_Watch_App.framework */; };
 		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
@@ -31,7 +32,6 @@
 		E7DEE7382C983D5B00549E05 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7372C983D5B00549E05 /* HealthService.swift */; };
 		E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7392C983D7000549E05 /* SampleDB.swift */; };
 		E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE73B2C983D8000549E05 /* Date+Extension.swift */; };
-		E7DEE7442C983DE100549E05 /* ScreenA.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7432C983DE100549E05 /* ScreenA.swift */; };
 		E7DEE7462C983DEA00549E05 /* ViewModelA.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7452C983DEA00549E05 /* ViewModelA.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		01C690C35EC784B922C7FB9A /* Pods-Haikingu Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haikingu Watch App.release.xcconfig"; path = "Target Support Files/Pods-Haikingu Watch App/Pods-Haikingu Watch App.release.xcconfig"; sourceTree = "<group>"; };
+		031A6BEB2CA72562003AFD6C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		04BA5ACF0FBC88A75EA9887E /* Pods-HaikinguApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaikinguApp.release.xcconfig"; path = "Target Support Files/Pods-HaikinguApp/Pods-HaikinguApp.release.xcconfig"; sourceTree = "<group>"; };
 		17B11FF0552B6F57A27CAFF4 /* Pods_Haikingu_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haikingu_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E8B65C535F97E19D9A5BFC /* Pods_HaikinguApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaikinguApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,10 +91,17 @@
 		E7DEE7392C983D7000549E05 /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
 		E7DEE73B2C983D8000549E05 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		E7DEE73F2C983D9900549E05 /* Telaga Bidadari Batam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Telaga Bidadari Batam.gpx"; sourceTree = "<group>"; };
-		E7DEE7432C983DE100549E05 /* ScreenA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenA.swift; sourceTree = "<group>"; };
 		E7DEE7452C983DEA00549E05 /* ViewModelA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelA.swift; sourceTree = "<group>"; };
 		EB6D01D4C4C604E052720E79 /* Pods-Haikingu Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haikingu Watch App.debug.xcconfig"; path = "Target Support Files/Pods-Haikingu Watch App/Pods-Haikingu Watch App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		031A6BE52CA71527003AFD6C /* Shareds */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shareds; sourceTree = "<group>"; };
+		031A6BF12CA7B756003AFD6C /* LeadScreen */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LeadScreen; sourceTree = "<group>"; };
+		031A6BF22CA7B78D003AFD6C /* MemberScreen */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MemberScreen; sourceTree = "<group>"; };
+		031A6BF32CA7D279003AFD6C /* MetricsScreen */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MetricsScreen; sourceTree = "<group>"; };
+		03CD92D32CA84DCC00A538E3 /* SummaryScreen */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SummaryScreen; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E7D0BA2C2C9839AD00324E3D /* Frameworks */ = {
@@ -123,7 +131,6 @@
 				BF799B6F21C28378FA9ADFA9 /* Pods-HaikinguApp.debug.xcconfig */,
 				04BA5ACF0FBC88A75EA9887E /* Pods-HaikinguApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -175,6 +182,7 @@
 		E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				031A6BE52CA71527003AFD6C /* Shareds */,
 				E7DEE7472C983DF000549E05 /* Supports */,
 				E7DEE7412C983DC300549E05 /* Screens */,
 				E7DEE7402C983DAD00549E05 /* ViewModels */,
@@ -365,7 +373,11 @@
 		E7DEE7412C983DC300549E05 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E7DEE7432C983DE100549E05 /* ScreenA.swift */,
+				03CD92D32CA84DCC00A538E3 /* SummaryScreen */,
+				031A6BF32CA7D279003AFD6C /* MetricsScreen */,
+				031A6BF22CA7B78D003AFD6C /* MemberScreen */,
+				031A6BF12CA7B756003AFD6C /* LeadScreen */,
+				031A6BEB2CA72562003AFD6C /* HomeScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -416,6 +428,13 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				031A6BE52CA71527003AFD6C /* Shareds */,
+				031A6BF12CA7B756003AFD6C /* LeadScreen */,
+				031A6BF22CA7B78D003AFD6C /* MemberScreen */,
+				031A6BF32CA7D279003AFD6C /* MetricsScreen */,
+				03CD92D32CA84DCC00A538E3 /* SummaryScreen */,
 			);
 			name = "Haikingu Watch App";
 			productName = "Haikingu Watch App";
@@ -589,8 +608,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DEE7462C983DEA00549E05 /* ViewModelA.swift in Sources */,
-				E7DEE7442C983DE100549E05 /* ScreenA.swift in Sources */,
 				E7D0BA4F2C9839CB00324E3D /* ContentView.swift in Sources */,
+				031A6BEC2CA72562003AFD6C /* HomeScreen.swift in Sources */,
 				E7D0BA4D2C9839CB00324E3D /* HaikinguApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -745,7 +764,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = F44CLK4937;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -774,7 +794,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = F44CLK4937;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -803,8 +824,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = F44CLK4937;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -834,8 +856,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = F44CLK4937;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
