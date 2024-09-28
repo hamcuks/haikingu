@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		0C8DBA871B0D5999FBFD2EB8 /* Pods_HaikinguApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E8B65C535F97E19D9A5BFC /* Pods_HaikinguApp.framework */; };
 		4CF0AE1D2F9638231E39F61A /* Pods_Haikingu_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B11FF0552B6F57A27CAFF4 /* Pods_Haikingu_Watch_App.framework */; };
+		8A64679F2CA858600074BBB4 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64679E2CA858600074BBB4 /* WorkoutManager.swift */; };
+		8A6467A02CA858600074BBB4 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64679E2CA858600074BBB4 /* WorkoutManager.swift */; };
+		8A6467A22CA858CE0074BBB4 /* WorkoutManager+watchOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467A12CA858CE0074BBB4 /* WorkoutManager+watchOS.swift */; };
+		8A6467A62CA859330074BBB4 /* WorkoutManager+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467A52CA859330074BBB4 /* WorkoutManager+iOS.swift */; };
+		8A6467A82CA859AA0074BBB4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467A72CA859AA0074BBB4 /* Logger.swift */; };
+		8A6467A92CA859AA0074BBB4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467A72CA859AA0074BBB4 /* Logger.swift */; };
+		8A6467AB2CA85B5B0074BBB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467AA2CA85B5B0074BBB4 /* AppDelegate.swift */; };
+		8A6467AD2CA864F40074BBB4 /* MetricsTimelineSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467AC2CA864F40074BBB4 /* MetricsTimelineSchedule.swift */; };
+		8A6467AF2CA8688C0074BBB4 /* ElapsedTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467AE2CA8688C0074BBB4 /* ElapsedTimeView.swift */; };
+		8A6467B12CA869100074BBB4 /* RemainingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B02CA869100074BBB4 /* RemainingTimeView.swift */; };
 		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
 		E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */; };
 		E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA362C9839AD00324E3D /* ViewController.swift */; };
@@ -64,6 +74,14 @@
 		04BA5ACF0FBC88A75EA9887E /* Pods-HaikinguApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaikinguApp.release.xcconfig"; path = "Target Support Files/Pods-HaikinguApp/Pods-HaikinguApp.release.xcconfig"; sourceTree = "<group>"; };
 		17B11FF0552B6F57A27CAFF4 /* Pods_Haikingu_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haikingu_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E8B65C535F97E19D9A5BFC /* Pods_HaikinguApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaikinguApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A64679E2CA858600074BBB4 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		8A6467A12CA858CE0074BBB4 /* WorkoutManager+watchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS.swift"; sourceTree = "<group>"; };
+		8A6467A52CA859330074BBB4 /* WorkoutManager+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+iOS.swift"; sourceTree = "<group>"; };
+		8A6467A72CA859AA0074BBB4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8A6467AA2CA85B5B0074BBB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8A6467AC2CA864F40074BBB4 /* MetricsTimelineSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsTimelineSchedule.swift; sourceTree = "<group>"; };
+		8A6467AE2CA8688C0074BBB4 /* ElapsedTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElapsedTimeView.swift; sourceTree = "<group>"; };
+		8A6467B02CA869100074BBB4 /* RemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingTimeView.swift; sourceTree = "<group>"; };
 		BF799B6F21C28378FA9ADFA9 /* Pods-HaikinguApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaikinguApp.debug.xcconfig"; path = "Target Support Files/Pods-HaikinguApp/Pods-HaikinguApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA322C9839AD00324E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,7 +141,6 @@
 				BF799B6F21C28378FA9ADFA9 /* Pods-HaikinguApp.debug.xcconfig */,
 				04BA5ACF0FBC88A75EA9887E /* Pods-HaikinguApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -136,9 +153,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8A64679D2CA8582E0074BBB4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8A64679E2CA858600074BBB4 /* WorkoutManager.swift */,
+				8A6467A12CA858CE0074BBB4 /* WorkoutManager+watchOS.swift */,
+				8A6467A52CA859330074BBB4 /* WorkoutManager+iOS.swift */,
+				8A6467A72CA859AA0074BBB4 /* Logger.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		E7D0BA262C9839AD00324E3D = {
 			isa = PBXGroup;
 			children = (
+				8A64679D2CA8582E0074BBB4 /* Shared */,
 				E7D0BA312C9839AD00324E3D /* HaikinguApp */,
 				E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */,
 				E7D0BA302C9839AD00324E3D /* Products */,
@@ -366,6 +395,9 @@
 			isa = PBXGroup;
 			children = (
 				E7DEE7432C983DE100549E05 /* ScreenA.swift */,
+				8A6467AC2CA864F40074BBB4 /* MetricsTimelineSchedule.swift */,
+				8A6467AE2CA8688C0074BBB4 /* ElapsedTimeView.swift */,
+				8A6467B02CA869100074BBB4 /* RemainingTimeView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -375,6 +407,7 @@
 			children = (
 				E7D0BA4C2C9839CB00324E3D /* HaikinguApp.swift */,
 				E7D0BA4E2C9839CB00324E3D /* ContentView.swift */,
+				8A6467AA2CA85B5B0074BBB4 /* AppDelegate.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -568,15 +601,18 @@
 			files = (
 				E7DEE7342C983D4600549E05 /* AppButton.swift in Sources */,
 				E7DEE7222C983C0C00549E05 /* OnboardingExtension.swift in Sources */,
+				8A6467A62CA859330074BBB4 /* WorkoutManager+iOS.swift in Sources */,
 				E7DEE7382C983D5B00549E05 /* HealthService.swift in Sources */,
 				E7DEE7322C983D2B00549E05 /* SampleItemView.swift in Sources */,
 				E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */,
+				8A64679F2CA858600074BBB4 /* WorkoutManager.swift in Sources */,
 				E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */,
 				E7DEE7302C983D0C00549E05 /* AlterVC.swift in Sources */,
 				E7DEE7242C983C1E00549E05 /* OnboardingVC.swift in Sources */,
 				E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */,
 				E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */,
 				E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */,
+				8A6467A82CA859AA0074BBB4 /* Logger.swift in Sources */,
 				E7DEE7262C983C5F00549E05 /* SampleView.swift in Sources */,
 				E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */,
 				E7DEE72E2C983CF800549E05 /* SampleLabel.swift in Sources */,
@@ -588,9 +624,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6467AB2CA85B5B0074BBB4 /* AppDelegate.swift in Sources */,
 				E7DEE7462C983DEA00549E05 /* ViewModelA.swift in Sources */,
+				8A6467AF2CA8688C0074BBB4 /* ElapsedTimeView.swift in Sources */,
+				8A6467B12CA869100074BBB4 /* RemainingTimeView.swift in Sources */,
 				E7DEE7442C983DE100549E05 /* ScreenA.swift in Sources */,
+				8A6467A02CA858600074BBB4 /* WorkoutManager.swift in Sources */,
+				8A6467A22CA858CE0074BBB4 /* WorkoutManager+watchOS.swift in Sources */,
+				8A6467A92CA859AA0074BBB4 /* Logger.swift in Sources */,
 				E7D0BA4F2C9839CB00324E3D /* ContentView.swift in Sources */,
+				8A6467AD2CA864F40074BBB4 /* MetricsTimelineSchedule.swift in Sources */,
 				E7D0BA4D2C9839CB00324E3D /* HaikinguApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -745,7 +788,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = P5G5Z7L546;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -774,7 +818,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = P5G5Z7L546;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -803,8 +848,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = P5G5Z7L546;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -834,8 +880,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = P5G5Z7L546;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

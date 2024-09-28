@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct Haikingu_Watch_AppApp: App {
+    @WKApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+//    private let workoutManager = WorkoutManager.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
