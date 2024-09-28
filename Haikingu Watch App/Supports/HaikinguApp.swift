@@ -11,7 +11,7 @@ import SwiftUI
 struct Haikingu_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            SummaryScreen()
+            HomeScreen()
         }
     }
 }

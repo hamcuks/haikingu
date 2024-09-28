@@ -15,15 +15,6 @@ struct HomeScreen: View {
         NavigationStack(path: $stack) {
             VStack(alignment: .leading, spacing: 10){
                 
-//                HStack(alignment: .top){
-//                    Text("Haikingu")
-//                        .foregroundStyle(.orange)
-//                        .font(Font.system(size: 20, weight: .medium))
-//    //                    .padding(.leading, 12)
-//                }
-//    //            .padding(.all, 10)
-//    //            .border(.red, width: 1)
-//                Spacer()
                 ScrollView {
                     
                     if isReturnHome {

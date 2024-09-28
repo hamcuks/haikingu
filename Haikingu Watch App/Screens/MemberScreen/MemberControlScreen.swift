@@ -26,23 +26,18 @@ struct MemberControlScreen: View {
                         Text("Request Rest")
                             .font(Font.system(.body, weight: .semibold))
                     }
-//                    .padding(.bottom, 30)
-                    
                 } else {
                     VStack(alignment: .center, spacing: 16){
-
+                        
                         HKCircleButton(imageButton: "clock.fill", imageWidth: 35, imageHeight: 35, padding: 0, imageColor: .black, buttonColor: .orange) {
                             
                             //MARK: Another function triggered
                             
-                            isRequestRest = false
-                            
+                            isRequestRest = false   
                         }
-                        
                         Text("Requested")
                             .font(Font.system(.body, weight: .semibold))
                     }
-//                    .padding(.bottom, 30)
                     .onAppear {
                         //MARK: Something Triggered
                     }
