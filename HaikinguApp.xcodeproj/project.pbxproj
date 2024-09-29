@@ -14,6 +14,7 @@
 		8A6467B62CA92A060074BBB4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B52CA92A060074BBB4 /* Logger.swift */; };
 		8A6467B72CA92A060074BBB4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B52CA92A060074BBB4 /* Logger.swift */; };
 		8A6467B92CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */; };
+		8A6467BB2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467BA2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift */; };
 		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
 		E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */; };
 		E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA362C9839AD00324E3D /* ViewController.swift */; };
@@ -72,6 +73,7 @@
 		8A6467B22CA929980074BBB4 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		8A6467B52CA92A060074BBB4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+iOS+Extension.swift"; sourceTree = "<group>"; };
+		8A6467BA2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BF799B6F21C28378FA9ADFA9 /* Pods-HaikinguApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaikinguApp.debug.xcconfig"; path = "Target Support Files/Pods-HaikinguApp/Pods-HaikinguApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA322C9839AD00324E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			children = (
 				E7DEE73B2C983D8000549E05 /* Date+Extension.swift */,
 				8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */,
+				8A6467BA2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				E7DEE7462C983DEA00549E05 /* ViewModelA.swift in Sources */,
 				8A6467B72CA92A060074BBB4 /* Logger.swift in Sources */,
 				E7DEE7442C983DE100549E05 /* ScreenA.swift in Sources */,
+				8A6467BB2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift in Sources */,
 				8A6467B42CA929980074BBB4 /* WorkoutManager.swift in Sources */,
 				E7D0BA4F2C9839CB00324E3D /* ContentView.swift in Sources */,
 				E7D0BA4D2C9839CB00324E3D /* HaikinguApp.swift in Sources */,
