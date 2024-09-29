@@ -13,6 +13,7 @@
 		8A6467B42CA929980074BBB4 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B22CA929980074BBB4 /* WorkoutManager.swift */; };
 		8A6467B62CA92A060074BBB4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B52CA92A060074BBB4 /* Logger.swift */; };
 		8A6467B72CA92A060074BBB4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B52CA92A060074BBB4 /* Logger.swift */; };
+		8A6467B92CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */; };
 		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
 		E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */; };
 		E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA362C9839AD00324E3D /* ViewController.swift */; };
@@ -70,6 +71,7 @@
 		47E8B65C535F97E19D9A5BFC /* Pods_HaikinguApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaikinguApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6467B22CA929980074BBB4 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		8A6467B52CA92A060074BBB4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+iOS+Extension.swift"; sourceTree = "<group>"; };
 		BF799B6F21C28378FA9ADFA9 /* Pods-HaikinguApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaikinguApp.debug.xcconfig"; path = "Target Support Files/Pods-HaikinguApp/Pods-HaikinguApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA322C9839AD00324E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				E7DEE73B2C983D8000549E05 /* Date+Extension.swift */,
+				8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DEE7342C983D4600549E05 /* AppButton.swift in Sources */,
+				8A6467B92CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift in Sources */,
 				E7DEE7222C983C0C00549E05 /* OnboardingExtension.swift in Sources */,
 				E7DEE7382C983D5B00549E05 /* HealthService.swift in Sources */,
 				E7DEE7322C983D2B00549E05 /* SampleItemView.swift in Sources */,
