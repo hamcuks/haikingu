@@ -7,32 +7,26 @@
 
 import SwiftUI
 
-struct MetricsScreen: View {
-    var stopwatchTimer: Timer = Timer()
-    var timer: String = "24.59"
-    var timerDistance: Int = 1670
-    var bpmValue: Int = 100
-    var restAmount: Int = 1
-    var leftLength: Int = 4270
-    
-    
+struct MetricsView: View {
+
+    @EnvironmentObject var metricsVM : MetricsVM
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 2) {
             VStack(alignment: .leading, spacing: 0) {
                 VStack(alignment: .leading,spacing: 0) {
-                    Text("\(stopwatchTimer.timeInterval)")
+                    Text("\(metricsVM.stopwatchTimer.timeInterval)")
                         .font(Font.system(size: 16, weight: .medium))
                     
-                    Text("\(timer)")
+                    Text("\(metricsVM.timer)")
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
                         .font(Font.system(size: 34, weight: .bold))
                         .foregroundStyle(Color(.orange))
                 }
                 
-                Text("Hike Time for \(timerDistance) M")
+                Text("Hike Time for \(metricsVM.timerDistance) M")
                     .lineLimit(5)
                     .multilineTextAlignment(.leading)
                     .font(Font.system(size: 14, weight: .medium))
@@ -42,7 +36,7 @@ struct MetricsScreen: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 HStack{
-                    Text("\(bpmValue)")
+                    Text("\(metricsVM.bpmValue)")
                         
                     Image(systemName: "heart.fill")
                         .foregroundStyle(.red)
@@ -51,17 +45,17 @@ struct MetricsScreen: View {
                 .font(Font.system(size: 24, weight: .semibold))
 //                .border(.red)
                 
-                HKMetricBiggerText(intvalue: restAmount, intMeasure: "x", intDesc: "Rest taken")
+                HKMetricBiggerText(intvalue: metricsVM.restAmount, intMeasure: "x", intDesc: "Rest taken")
 //                    .border(.green)
-                HKMetricBiggerText(intvalue: leftLength, intMeasure: "M", intDesc: "Left length")
+                HKMetricBiggerText(intvalue: metricsVM.leftLength, intMeasure: "M", intDesc: "Left length")
 //                    .border(.yellow)
             }
-            Spacer()
+//            Spacer()
         }
 
     }
 }
 
 #Preview {
-    MetricsScreen()
+    MetricsView()
 }

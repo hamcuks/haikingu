@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SummaryScreen: View {
     
-    @State var stack: [Int] = [Int]()
-    @State var isLeader: Bool = false
+    @EnvironmentObject var userServices: UserServices
+    @EnvironmentObject var navigationServices: NavigationServices
     @State var isBackHome: Bool = true
     
     var body: some View {
-        NavigationStack(path: $stack) {
+//        NavigationStack(path: navigationServices.$path) {
             ScrollView {
                 VStack(alignment: .center, spacing: 12) {
                     SummaryFirstView(
@@ -25,9 +25,21 @@ struct SummaryScreen: View {
                     Divider()
                     Text("\(isBackHome ? "" : "Just keep in mind to set a time to head back and try to get home before it gets too late!")")
                         .font(Font.system(size: 12, weight: .light))
-                    HKTextButton(titleButton: "\(isBackHome ? "Return Home" : (isLeader ? "Request to leader" : "Set a reminder"))", widthButton: 173, heightButton: 54) {
-                        //MARK: TODO Navigate into Another Screen
-                        print("\(isBackHome ? "Return Home" : (isLeader ? "Request to leader" : "Set reminder tapped"))")
+                    
+                    HKTextButton(
+                        titleButton: "\(isBackHome ? "Return Home" : (userServices.userType == .leader ? "Request to leader" : "Set a reminder"))",
+                        widthButton: 173, heightButton: 54) {
+                            
+                        //MARK: TODO Navigate / add path into Another Screen
+                            if isBackHome {
+                                navigationServices.path.removeLast(navigationServices.path.count)
+                            } else {
+                                if userServices.userType == .leader {
+                                    navigationServices.path.append("reminder")
+                                } else {
+                                    navigationServices.path.removeLast(navigationServices.path.count)
+                                }
+                            }
                     }
                 }
             }
@@ -36,7 +48,7 @@ struct SummaryScreen: View {
             .navigationBarTitleDisplayMode(.inline)
             
         }
-    }
+//    }
 }
 
 

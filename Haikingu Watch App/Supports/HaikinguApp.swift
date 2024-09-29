@@ -12,6 +12,8 @@ struct Haikingu_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             HomeScreen()
+                .environmentObject(HomeVM())
+                .environmentObject(UserServices())
         }
     }
 }

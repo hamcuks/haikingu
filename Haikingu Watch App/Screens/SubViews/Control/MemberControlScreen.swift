@@ -1,5 +1,5 @@
 //
-//  MemberControlScreen.swift
+//  MemberControlView.swift
 //  Haikingu Watch App
 //
 //  Created by Bayu Septyan Nur Hidayat on 28/09/24.
@@ -7,19 +7,18 @@
 
 import SwiftUI
 
-struct MemberControlScreen: View {
+struct MemberControlView: View {
     
-    @State var isRequestRest: Bool = true
-    @State var stack = [Int]()
+    @EnvironmentObject var metricsVM: MetricsVM
     
     var body: some View {
-        NavigationStack(path: $stack) {
+        NavigationStack {
             VStack {
                 
-                if !isRequestRest {
+                if !metricsVM.isMemberRequestRest {
                     VStack(alignment: .center, spacing: 16){
                         HKCircleButton(imageButton: "pause.fill", imageWidth: 35, imageHeight: 35, padding: 0, imageColor: .black, buttonColor: .orange) {
-                            isRequestRest = true
+                            metricsVM.isMemberRequestRest = true
                             print("Request Tapped")
                         }
                         
@@ -33,7 +32,7 @@ struct MemberControlScreen: View {
                             
                             //MARK: Another function triggered
                             
-                            isRequestRest = false   
+                            metricsVM.isMemberRequestRest = false   
                         }
                         Text("Requested")
                             .font(Font.system(.body, weight: .semibold))
@@ -49,5 +48,5 @@ struct MemberControlScreen: View {
 }
 
 #Preview {
-    MemberControlScreen()
+    MemberControlView()
 }
