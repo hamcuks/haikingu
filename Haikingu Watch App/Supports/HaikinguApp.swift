@@ -11,7 +11,9 @@ import SwiftUI
 struct Haikingu_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreen()
+                .environmentObject(HomeVM())
+                .environmentObject(UserServices())
         }
     }
 }
