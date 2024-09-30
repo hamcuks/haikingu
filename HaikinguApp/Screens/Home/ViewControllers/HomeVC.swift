@@ -9,9 +9,21 @@ import UIKit
 import SnapKit
 
 class HomeVC: UIViewController {
+    /// Managers
+    var peripheralManager: PeripheralBLEService?
     
     let headerView: HomeHeaderView = HomeHeaderView()
-
+    
+    init(peripheralManager: PeripheralBLEService?) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.peripheralManager = peripheralManager
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

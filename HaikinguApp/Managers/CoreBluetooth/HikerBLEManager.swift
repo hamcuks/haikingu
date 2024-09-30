@@ -31,9 +31,7 @@ class HikerBLEManager: NSObject {
     
     let username: String = UserDefaults.standard.string(forKey: "username") ?? "Unknown"
     
-    static let shared = HikerBLEManager()
-    
-    override private init() {
+    override init() {
         super.init()
         self.configureCentral()
         self.configurePeripheral()
