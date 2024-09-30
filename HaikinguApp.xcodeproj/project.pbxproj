@@ -18,6 +18,7 @@
 		038904522CAB127C00E6F1E9 /* PersonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038904512CAB127C00E6F1E9 /* PersonImageView.swift */; };
 		038904552CAB1B1900E6F1E9 /* AlertRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038904542CAB1B1900E6F1E9 /* AlertRangeView.swift */; };
 		038904572CAB1F5500E6F1E9 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038904562CAB1F5500E6F1E9 /* AddFriendView.swift */; };
+		038904592CAB33C900E6F1E9 /* DetailEstTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038904582CAB33C900E6F1E9 /* DetailEstTimeVC.swift */; };
 		03E274E72CA9160300EF2D5F /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274E62CA9160300EF2D5F /* SummaryScreen.swift */; };
 		03E274F02CA916E200EF2D5F /* NavigationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */; };
 		03E274F52CA923E500EF2D5F /* MetricsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F42CA923E500EF2D5F /* MetricsScreen.swift */; };
@@ -106,6 +107,7 @@
 		038904512CAB127C00E6F1E9 /* PersonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageView.swift; sourceTree = "<group>"; };
 		038904542CAB1B1900E6F1E9 /* AlertRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRangeView.swift; sourceTree = "<group>"; };
 		038904562CAB1F5500E6F1E9 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
+		038904582CAB33C900E6F1E9 /* DetailEstTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEstTimeVC.swift; sourceTree = "<group>"; };
 		03E274E62CA9160300EF2D5F /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
 		03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationServices.swift; sourceTree = "<group>"; };
 		03E274F42CA923E500EF2D5F /* MetricsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsScreen.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			children = (
 				038904542CAB1B1900E6F1E9 /* AlertRangeView.swift */,
 				038904562CAB1F5500E6F1E9 /* AddFriendView.swift */,
+				038904582CAB33C900E6F1E9 /* DetailEstTimeVC.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */,
 				E78015FC2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
 				E7EAEF532CAA82C30028DDFE /* HomeVC.swift in Sources */,
+				038904592CAB33C900E6F1E9 /* DetailEstTimeVC.swift in Sources */,
 				038904502CAB016900E6F1E9 /* TextIconButton.swift in Sources */,
 				038904522CAB127C00E6F1E9 /* PersonImageView.swift in Sources */,
 				0389039A2CAAC9EA00E6F1E9 /* HikingCell.swift in Sources */,
