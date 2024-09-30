@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol HikingInvitationDelegate: AnyObject {
+    func didRespondToInvitation(with respond: HaikinguRequestResponseEnum)
+}
+
 class HikingInvitationVC: UIViewController {
     
-    let avatarView: UIImageView = {
+    /// Delegates
+    var delegate: HikingInvitationDelegate?
+    
+    lazy var avatarView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "person.circle")
         
@@ -20,7 +27,7 @@ class HikingInvitationVC: UIViewController {
         return view
     }()
     
-    let nameLabel: UILabel = {
+    lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Fitra"
         label.font = .preferredFont(forTextStyle: .headline)
@@ -28,7 +35,7 @@ class HikingInvitationVC: UIViewController {
         return label
     }()
     
-    let descLabel: UILabel = {
+    lazy var descLabel: UILabel = {
         let label = UILabel()
         label.text = "Hi, Bayu! I invite you to the team. Let's hiking and reach the destination together"
         label.font = .preferredFont(forTextStyle: .body)
@@ -114,14 +121,12 @@ class HikingInvitationVC: UIViewController {
     
     @objc func joinInvitation() {
         self.dismiss(animated: true)
-        
-        #warning("call join invitation function")
+        self.delegate?.didRespondToInvitation(with: .accepted)
     }
     
     @objc func rejectInvitation() {
         self.dismiss(animated: true)
-        
-        #warning("call reject invitation function")
+        self.delegate?.didRespondToInvitation(with: .rejected)
     }
 
 }

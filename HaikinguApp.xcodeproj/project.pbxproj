@@ -27,6 +27,7 @@
 		E78015F62CAAA62300E658A1 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F52CAAA62300E658A1 /* HikerBLEManager.swift */; };
 		E78015FA2CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F92CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift */; };
 		E78015FC2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015FB2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift */; };
+		E78016002CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */; };
 		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
 		E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */; };
 		E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA362C9839AD00324E3D /* ViewController.swift */; };
@@ -103,6 +104,7 @@
 		E78015F52CAAA62300E658A1 /* HikerBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerBLEManager.swift; sourceTree = "<group>"; };
 		E78015F92CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
 		E78015FB2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
+		E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA322C9839AD00324E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +226,14 @@
 				E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */,
 			);
 			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
+		E78015FE2CAAA9E400E658A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E7D0BA262C9839AD00324E3D = {
@@ -488,6 +498,7 @@
 		E7EAEF4F2CAA82A20028DDFE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E78015FE2CAAA9E400E658A1 /* Extensions */,
 				E7EAEF9A2CAA899E0028DDFE /* SubViews */,
 				E7EAEF502CAA82AA0028DDFE /* ViewControllers */,
 			);
@@ -731,6 +742,7 @@
 				E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */,
 				E78015E22CAA932B00E658A1 /* HikingInvitationVC.swift in Sources */,
 				E78015E82CAAA4E600E658A1 /* CentralBLEService.swift in Sources */,
+				E78016002CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift in Sources */,
 				E7DEE72E2C983CF800549E05 /* SampleLabel.swift in Sources */,
 				E7DEE7282C983C8600549E05 /* User.swift in Sources */,
 			);
