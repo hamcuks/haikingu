@@ -65,6 +65,7 @@ class HomeVC: UIViewController {
             make.top.equalTo(headerView.snp.bottom).offset(24)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(46)
         }
     }
 
