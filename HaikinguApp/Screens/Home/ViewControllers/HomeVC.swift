@@ -131,3 +131,7 @@ class HomeVC: UIViewController {
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")
     }
 }
+
+#Preview(traits: .defaultLayout, body: {
+    HomeVC(peripheralManager: HikerBLEManager())
+})
