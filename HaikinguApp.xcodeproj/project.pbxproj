@@ -22,6 +22,8 @@
 		E78015EB2CAAA50C00E658A1 /* Hiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EA2CAAA50C00E658A1 /* Hiker.swift */; };
 		E78015ED2CAAA53600E658A1 /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */; };
 		E78015EF2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */; };
+		E78015F22CAAA59900E658A1 /* PeripheralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */; };
+		E78015F42CAAA5C400E658A1 /* HaikinguRequestReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */; };
 		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
 		E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */; };
 		E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA362C9839AD00324E3D /* ViewController.swift */; };
@@ -93,6 +95,8 @@
 		E78015EA2CAAA50C00E658A1 /* Hiker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiker.swift; sourceTree = "<group>"; };
 		E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRestEnum.swift; sourceTree = "<group>"; };
 		E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguServiceBLEUUID.swift; sourceTree = "<group>"; };
+		E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEService.swift; sourceTree = "<group>"; };
+		E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguRequestReponse.swift; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA322C9839AD00324E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 				E78015EA2CAAA50C00E658A1 /* Hiker.swift */,
 				E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */,
 				E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */,
+				E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			children = (
 				E7DEE7372C983D5B00549E05 /* HealthService.swift */,
 				E78015E72CAAA4E600E658A1 /* CentralBLEService.swift */,
+				E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -673,12 +679,14 @@
 				E7DEE7322C983D2B00549E05 /* SampleItemView.swift in Sources */,
 				E7EAEF552CAA833B0028DDFE /* Swinject+Extension.swift in Sources */,
 				E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */,
+				E78015F42CAAA5C400E658A1 /* HaikinguRequestReponse.swift in Sources */,
 				E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */,
 				E78015ED2CAAA53600E658A1 /* TypeOfRestEnum.swift in Sources */,
 				E7DEE7302C983D0C00549E05 /* AlterVC.swift in Sources */,
 				E7DEE7242C983C1E00549E05 /* OnboardingVC.swift in Sources */,
 				E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */,
 				E7EAEF532CAA82C30028DDFE /* HomeVC.swift in Sources */,
+				E78015F22CAAA59900E658A1 /* PeripheralBLEService.swift in Sources */,
 				E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */,
 				E7EAEF9C2CAA89B90028DDFE /* HomeHeaderView.swift in Sources */,
 				E78015E62CAA9B7500E658A1 /* SecondaryButton.swift in Sources */,

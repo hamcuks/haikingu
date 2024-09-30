@@ -6,3 +6,21 @@
 //
 
 import Foundation
+
+protocol CentralBLEService {
+    func startScanning()
+    func stopScanning()
+    
+    func setDelegate(_ delegate: CentralBLEManagerDelegate)
+    func requestRest(for type: TypeOfRestEnum, exclude hiker: Hiker?)
+    func connect(to hiker: Hiker, plan: String)
+}
+
+protocol CentralBLEManagerDelegate {
+    func centralBLEManagerDidUpdateState(poweredOn: Bool)
+    func centralBLEManager(didDiscover hikers: Set<Hiker>)
+    func centralBLEManager(didConnect hiker: Hiker)
+    func centralBLEManager(didDisconnect hiker: Hiker)
+    func centralBLEManager(didReceiveRequestForRest restType: TypeOfRestEnum, from hiker: Hiker)
+    func centralBLEManager(didReceiveInvitationResponse response: HaikinguRequestResponseEnum, from hiker: Hiker)
+}

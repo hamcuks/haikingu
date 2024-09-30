@@ -373,7 +373,7 @@
 		73454E65778F992E2125C5646C21A865 /* WKWebView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FBD0E9E20C41F9427C657D85FC955D /* WKWebView+Rx.swift */; };
 		7361665809329A8F33B174B8F6A240FF /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C39A49F86F0398CD0BDA0C00778851 /* Assembly.swift */; };
 		73A5D071470DD62A4513A56E3E75AFDF /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E2A6FEA5A0D5E0CB7C01E4E6722CF /* Window.swift */; };
-		73D19096D43D0369F80361A760E39960 /* Swinject-watchOS-Swinject in Resources */ = {isa = PBXBuildFile; fileRef = 81D6791FAFBD0A42AB70903D813B4083 /* Swinject-watchOS-Swinject */; };
+		73D19096D43D0369F80361A760E39960 /* Swinject.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 81D6791FAFBD0A42AB70903D813B4083 /* Swinject.bundle */; };
 		7447739296429E636B3F6E38A7FE1ACF /* KVORepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317E565B776BCD7D896573F0F7C74312 /* KVORepresentable.swift */; };
 		748AEEB1463E4D8CE5DDD5BB0F398E1D /* ScheduledDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D04D729EFB71ADE391750526E220F /* ScheduledDisposable.swift */; };
 		74BAF978513A15F1B4666E6E3BE6096D /* GPXPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C93DF103FDDEB213FEA4324F1679EC /* GPXPerson.swift */; };
@@ -389,7 +389,7 @@
 		78501C1AC69B758B7D10C632952397C8 /* Maybe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A20F3D086BFC849CB5E64390B3603C /* Maybe.swift */; };
 		7875096233236810F45C8AC92F1D4316 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CBA55D3F6F52E8DFADA778463AB8B9E5 /* PrivacyInfo.xcprivacy */; };
 		791FB20EA3E9D1142B96B9D0C6A14B7E /* Container.Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6BCE40DE5A7226BB31FBEFE13BC37 /* Container.Logging.swift */; };
-		795C411E491E3F17E3483F76132CB4E3 /* Swinject-iOS-Swinject in Resources */ = {isa = PBXBuildFile; fileRef = 6A9013201186CF385BAE58BFF1CE2EAF /* Swinject-iOS-Swinject */; };
+		795C411E491E3F17E3483F76132CB4E3 /* Swinject.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A9013201186CF385BAE58BFF1CE2EAF /* Swinject.bundle */; };
 		79CDA0F8D6903770F8715C84D6D68F89 /* Concat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E77D67A1F4BBAB66F9A4B59F2749D /* Concat.swift */; };
 		7A03768D198C9BFEA626BDA30643E232 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439A62EB4085415B6BEB093A4C2BB94 /* Buffer.swift */; };
 		7AC62BBC826043D207879BB5C2FD41C5 /* First.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF260EAAC14631BB9AF1EA90F1E91E /* First.swift */; };
@@ -915,7 +915,7 @@
 		0C3A52D400F3CDB79F4663D16D4894F4 /* Scan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Scan.swift; path = RxSwift/Observables/Scan.swift; sourceTree = "<group>"; };
 		0CC7F13F65A25C2B6AED9C16E8CAC9DC /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
 		0DCC00D8901DB88DF25734C6FAFBC844 /* RxTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTarget.swift; path = RxCocoa/Common/RxTarget.swift; sourceTree = "<group>"; };
-		0DE2B69C1E0F741B50F330C8B8382D25 /* Pods-Haikingu Watch App */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Haikingu Watch App"; path = Pods_Haikingu_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DE2B69C1E0F741B50F330C8B8382D25 /* Pods_Haikingu_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haikingu_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E667B7E936CD6FE7EA20F15B8FE56C9 /* Never.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Never.swift; path = RxSwift/Observables/Never.swift; sourceTree = "<group>"; };
 		0E884B8370B4413B61A5C3D5D62732B0 /* Disposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disposable.swift; path = RxSwift/Disposable.swift; sourceTree = "<group>"; };
 		0F3F7D131193FEAE88DBDD7AAF99A879 /* RxScrollViewDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxScrollViewDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxScrollViewDelegateProxy.swift; sourceTree = "<group>"; };
@@ -930,7 +930,7 @@
 		12FA9EEC83C8F8FF7C68CDFD757D63CD /* Swinject-watchOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Swinject-watchOS.modulemap"; path = "../Swinject-watchOS/Swinject-watchOS.modulemap"; sourceTree = "<group>"; };
 		13FF575F15E82FA37EA9F94E64570234 /* SerialDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SerialDisposable.swift; path = RxSwift/Disposables/SerialDisposable.swift; sourceTree = "<group>"; };
 		1600A53DAB8B97D2767393C1BE7CC964 /* Deferred.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deferred.swift; path = RxSwift/Observables/Deferred.swift; sourceTree = "<group>"; };
-		16570AFB5AB2191086D6933D2614ED99 /* Swinject-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Swinject-iOS"; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16570AFB5AB2191086D6933D2614ED99 /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		168C0B3C830A77D800578FCD976C4BA3 /* ControlEvent+Signal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ControlEvent+Signal.swift"; path = "RxCocoa/Traits/Signal/ControlEvent+Signal.swift"; sourceTree = "<group>"; };
 		16C93DF103FDDEB213FEA4324F1679EC /* GPXPerson.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXPerson.swift; path = Classes/GPXPerson.swift; sourceTree = "<group>"; };
 		17B9856A585A92EB465FAE9BB5A6FD74 /* SynchronizedOnType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SynchronizedOnType.swift; path = RxSwift/Concurrency/SynchronizedOnType.swift; sourceTree = "<group>"; };
@@ -948,7 +948,7 @@
 		1B49DA1A1E87BA34EB169DCE6796E6CF /* DelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DelegateProxy.swift; path = RxCocoa/Common/DelegateProxy.swift; sourceTree = "<group>"; };
 		1B78393C79E55223C82A51ABDEAFF56C /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = RxSwift/Observables/Error.swift; sourceTree = "<group>"; };
 		1BB44A55144244E8B52F23C9E91BAFE6 /* SingleAssignmentDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleAssignmentDisposable.swift; path = RxSwift/Disposables/SingleAssignmentDisposable.swift; sourceTree = "<group>"; };
-		1C3C72C80670B0848F76821F33C51D7D /* RxRelay-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxRelay-iOS"; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C3C72C80670B0848F76821F33C51D7D /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7E2A6FEA5A0D5E0CB7C01E4E6722CF /* Window.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Window.swift; path = RxSwift/Observables/Window.swift; sourceTree = "<group>"; };
 		1E9A881B2D8515FE62BB2265C9BCBF82 /* _RXObjCRuntime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RXObjCRuntime.h; path = RxCocoa/Runtime/include/_RXObjCRuntime.h; sourceTree = "<group>"; };
 		1EDB4E306495EC373C0E739BC6724BA6 /* InfiniteSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InfiniteSequence.swift; path = Platform/DataStructures/InfiniteSequence.swift; sourceTree = "<group>"; };
@@ -975,7 +975,7 @@
 		27A7418112C21FF4355AD745A1E1D5F6 /* Swinject-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swinject-iOS-prefix.pch"; sourceTree = "<group>"; };
 		28045C1293D2CBADFAEF0065B93EF3E6 /* AsSingle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsSingle.swift; path = RxSwift/Observables/AsSingle.swift; sourceTree = "<group>"; };
 		283E80772C56D401F785B07109F8346B /* ObjectScope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectScope.swift; path = Sources/ObjectScope.swift; sourceTree = "<group>"; };
-		28C5554E65053EEED600E41558F1AF38 /* RxSwift-watchOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxSwift-watchOS"; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28C5554E65053EEED600E41558F1AF38 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D05BFC405C35B8EF70F4A2E832013A /* CompositeDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompositeDisposable.swift; path = RxSwift/Disposables/CompositeDisposable.swift; sourceTree = "<group>"; };
 		2A22B4D3FC572E4E716B622A0267A86C /* UIGestureRecognizer+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIGestureRecognizer+Rx.swift"; path = "RxCocoa/iOS/UIGestureRecognizer+Rx.swift"; sourceTree = "<group>"; };
 		2AC9CC976B2E28469CF54038E57F19A5 /* Infallible+CombineLatest+Collection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Infallible+CombineLatest+Collection.swift"; path = "RxSwift/Traits/Infallible/Infallible+CombineLatest+Collection.swift"; sourceTree = "<group>"; };
@@ -1000,7 +1000,7 @@
 		34E75E401207F8143E7E5B5D2FEA6319 /* TakeWithPredicate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeWithPredicate.swift; path = RxSwift/Observables/TakeWithPredicate.swift; sourceTree = "<group>"; };
 		3646EDE182FE916E719132ED9B54F9CE /* ConcurrentMainScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConcurrentMainScheduler.swift; path = RxSwift/Schedulers/ConcurrentMainScheduler.swift; sourceTree = "<group>"; };
 		36FF351274C65831D5FB1FC86DAB24E2 /* RxRelay-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RxRelay-iOS-Info.plist"; sourceTree = "<group>"; };
-		3882B5086E52F77788FBEE8347EC39DB /* Swinject-watchOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Swinject-watchOS"; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3882B5086E52F77788FBEE8347EC39DB /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C39A49F86F0398CD0BDA0C00778851 /* Assembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assembly.swift; path = Sources/Assembly.swift; sourceTree = "<group>"; };
 		3A1A68EC2A49FAF1EFF2FE6DD2B3F07A /* GPXFix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXFix.swift; path = Classes/GPXFix.swift; sourceTree = "<group>"; };
 		3AA4900FE0D6E700FA5E13DE0E7E26F7 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
@@ -1032,7 +1032,7 @@
 		4F4DC31591589D9B7BA48BCD5800C537 /* RxSwift-watchOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "RxSwift-watchOS-Info.plist"; path = "../RxSwift-watchOS/RxSwift-watchOS-Info.plist"; sourceTree = "<group>"; };
 		4F57269752AFDFD42D31829AF2AFE5E0 /* Swinject-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Swinject-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5094321F6E644EBC50CFA37BEC611A84 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
-		50D55F8FC16ED592BFA4A4CFBD17C140 /* RxCocoa-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxCocoa-iOS"; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D55F8FC16ED592BFA4A4CFBD17C140 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D9A5BA6EC9C43763333982FB58E440 /* SchedulerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SchedulerType.swift; path = RxSwift/SchedulerType.swift; sourceTree = "<group>"; };
 		511629B0A3C3A8B273BBEFFF0A738658 /* SharedSequence+Concurrency.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SharedSequence+Concurrency.swift"; path = "RxCocoa/Traits/SharedSequence/SharedSequence+Concurrency.swift"; sourceTree = "<group>"; };
 		51A00C03103B9440D23C9948E5A958B5 /* GPXWaypointProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXWaypointProtocol.swift; path = Classes/GPXWaypointProtocol.swift; sourceTree = "<group>"; };
@@ -1076,7 +1076,7 @@
 		68BF6A4B67087F9161E02FDBF51A29E6 /* PublishRelay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublishRelay.swift; path = RxRelay/PublishRelay.swift; sourceTree = "<group>"; };
 		6980B27106CF92B555D70C6D3EF682CF /* Pods-HaikinguApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HaikinguApp-umbrella.h"; sourceTree = "<group>"; };
 		69BDC3BAF2C7586117BBBD093A1F6717 /* ReplaySubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaySubject.swift; path = RxSwift/Subjects/ReplaySubject.swift; sourceTree = "<group>"; };
-		6A9013201186CF385BAE58BFF1CE2EAF /* Swinject-iOS-Swinject */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Swinject-iOS-Swinject"; path = Swinject.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9013201186CF385BAE58BFF1CE2EAF /* Swinject.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swinject.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACF90D16D5AAD64BC46F5533BDF7B33 /* MainScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MainScheduler.swift; path = RxSwift/Schedulers/MainScheduler.swift; sourceTree = "<group>"; };
 		6AE27FBE6D4119FF53D4E030B1155F5C /* Infallible+Create.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Infallible+Create.swift"; path = "RxSwift/Traits/Infallible/Infallible+Create.swift"; sourceTree = "<group>"; };
 		6AEC2CE75E605943ED2FA7E9A073FF94 /* SynchronizedUnsubscribeType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SynchronizedUnsubscribeType.swift; path = RxSwift/Concurrency/SynchronizedUnsubscribeType.swift; sourceTree = "<group>"; };
@@ -1092,7 +1092,7 @@
 		70822C78929D8EAA9A8EFEDA118E9A58 /* Reactive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reactive.swift; path = RxSwift/Reactive.swift; sourceTree = "<group>"; };
 		7123F5E1884522303BF147064A7D37BB /* GPXRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXRoute.swift; path = Classes/GPXRoute.swift; sourceTree = "<group>"; };
 		73867E8D191DA073EFFBFFBC783AB1B4 /* Zip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Zip.swift; path = RxSwift/Observables/Zip.swift; sourceTree = "<group>"; };
-		73E097AB8D67061734EC7A63ABBF2E20 /* CoreGPX-watchOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "CoreGPX-watchOS"; path = CoreGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73E097AB8D67061734EC7A63ABBF2E20 /* CoreGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ADF68C4674AA555D3420EAC6013711 /* Pods-Haikingu Watch App-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Haikingu Watch App-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7559D0CCBA3264159F499BD60719CDF2 /* RxCocoa-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RxCocoa-watchOS-umbrella.h"; path = "../RxCocoa-watchOS/RxCocoa-watchOS-umbrella.h"; sourceTree = "<group>"; };
 		76A5BA5CF777DEF7673077C98E2135EB /* Swinject-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Swinject-watchOS-umbrella.h"; path = "../Swinject-watchOS/Swinject-watchOS-umbrella.h"; sourceTree = "<group>"; };
@@ -1112,14 +1112,14 @@
 		7F56EF8673CB1EA836E5AD0F638CBB71 /* HistoricalScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HistoricalScheduler.swift; path = RxSwift/Schedulers/HistoricalScheduler.swift; sourceTree = "<group>"; };
 		7F8E6946FA9290354CF69AD16B14BFD4 /* RxSwift-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RxSwift-iOS-Info.plist"; sourceTree = "<group>"; };
 		7FB7E06E30B84D2C50338D22CE89C48C /* LockOwnerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LockOwnerType.swift; path = RxSwift/Concurrency/LockOwnerType.swift; sourceTree = "<group>"; };
-		800A1B78F28361CBE6C4E48AA0EBE29B /* RxRelay-watchOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxRelay-watchOS"; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		800A1B78F28361CBE6C4E48AA0EBE29B /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8029ABADA9C3D099DBAF142715F19F54 /* Decode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decode.swift; path = RxSwift/Observables/Decode.swift; sourceTree = "<group>"; };
 		81C72DEF3D9B620E3E9978569B49617C /* _RX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RX.h; path = RxCocoa/Runtime/include/_RX.h; sourceTree = "<group>"; };
-		81D6791FAFBD0A42AB70903D813B4083 /* Swinject-watchOS-Swinject */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Swinject-watchOS-Swinject"; path = Swinject.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D6791FAFBD0A42AB70903D813B4083 /* Swinject.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swinject.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		820C18F0C54E38C5E5453F47FA9A4F10 /* GPXTrackPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXTrackPoint.swift; path = Classes/GPXTrackPoint.swift; sourceTree = "<group>"; };
 		83282A968A323BF0CFF6B446A67C3AC4 /* RxRelay-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RxRelay-iOS-dummy.m"; sourceTree = "<group>"; };
 		835134C13AECD50E17D40F04796C0F50 /* Swinject-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Swinject-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		863CC097334670A594E2081DBE8E5835 /* RxCocoa-watchOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxCocoa-watchOS"; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		863CC097334670A594E2081DBE8E5835 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		875894C5D0DAF3141CF9EB8FA87F1567 /* Date+Dispatch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Dispatch.swift"; path = "RxSwift/Date+Dispatch.swift"; sourceTree = "<group>"; };
 		87EB4FFD70633FECA9FE950AC6E09806 /* CoreGPX-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CoreGPX-iOS-umbrella.h"; sourceTree = "<group>"; };
 		8862778AC41E91121A9F91AD6D8B7486 /* ObservableConvertibleType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObservableConvertibleType.swift; path = RxSwift/ObservableConvertibleType.swift; sourceTree = "<group>"; };
@@ -1137,7 +1137,7 @@
 		8B35F7AE17AFCC83B738C56FD8604FA4 /* GPXRoot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXRoot.swift; path = Classes/GPXRoot.swift; sourceTree = "<group>"; };
 		8BAA61099E6C5E81C09E7BCA408C7BCC /* AddRef.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddRef.swift; path = RxSwift/Observables/AddRef.swift; sourceTree = "<group>"; };
 		8C14B1DBAAB30C0CB93615EBD6927B20 /* RecursiveLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecursiveLock.swift; path = Platform/RecursiveLock.swift; sourceTree = "<group>"; };
-		8D3B0F251A494B4EA27F0FAA03359333 /* RxSwift-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxSwift-iOS"; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D3B0F251A494B4EA27F0FAA03359333 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF256F1A8AAEB704645DC82DF672106 /* Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resolver.swift; path = Sources/Resolver.swift; sourceTree = "<group>"; };
 		8F8DFD37D8A519D314B9BA10ED80608A /* RxRelay-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "RxRelay-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		8FCEB37360BC21052EF0A2881677F11A /* Timer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = RxSwift/Observables/Timer.swift; sourceTree = "<group>"; };
@@ -1152,9 +1152,9 @@
 		964D3CC26E2ADBC72C56BC8A22360B59 /* RxTabBarDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTabBarDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxTabBarDelegateProxy.swift; sourceTree = "<group>"; };
 		96759069152D357F0679031054445043 /* Sample.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sample.swift; path = RxSwift/Observables/Sample.swift; sourceTree = "<group>"; };
 		96D769B4BA8D48689AC0AEEEE2152CBC /* DispatchQueueConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchQueueConfiguration.swift; path = RxSwift/Schedulers/Internal/DispatchQueueConfiguration.swift; sourceTree = "<group>"; };
-		979486118B3E90C08386079D57962701 /* SnapKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9819180C8DEA76E2633B39095E0446BB /* Pods-HaikinguApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HaikinguApp-dummy.m"; sourceTree = "<group>"; };
-		9846D0DA35F7B557C812D203FBC7040C /* Pods-HaikinguApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HaikinguApp"; path = Pods_HaikinguApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9846D0DA35F7B557C812D203FBC7040C /* Pods_HaikinguApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaikinguApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EF0C5206FC8C8C0FE0F0536B5F9F82 /* Observable+Bind.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Observable+Bind.swift"; path = "RxRelay/Observable+Bind.swift"; sourceTree = "<group>"; };
 		998444CDA91F1E9194469BCBD7B40856 /* ObjectScope.Standard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectScope.Standard.swift; path = Sources/ObjectScope.Standard.swift; sourceTree = "<group>"; };
 		998CAEB9F57DD9DEB046817A0A681E3D /* GPXParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXParser.swift; path = Classes/GPXParser.swift; sourceTree = "<group>"; };
@@ -1170,7 +1170,7 @@
 		9CFA4A80DC73FE17217CC912A03D95E6 /* SwitchIfEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchIfEmpty.swift; path = RxSwift/Observables/SwitchIfEmpty.swift; sourceTree = "<group>"; };
 		9D561B176D2D55CAB7EBE8D736601908 /* Throttle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Throttle.swift; path = RxSwift/Observables/Throttle.swift; sourceTree = "<group>"; };
 		9D664E09973ABB5AD654C69C1BF0FFF7 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DD3B3BE990033D1BA8543087090D0DE /* GPXPointSegment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GPXPointSegment.swift; path = Classes/GPXPointSegment.swift; sourceTree = "<group>"; };
 		9DE91C07F7DCF24E6422462E1276AF61 /* CoreGPX-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "CoreGPX-watchOS.debug.xcconfig"; path = "../CoreGPX-watchOS/CoreGPX-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9F3B732D81B02CD70C096EE5B804388C /* RxSwift-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "RxSwift-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1270,7 +1270,7 @@
 		CA6FB0C8917A0D0CC1CA3EF36CC623F5 /* Sink.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sink.swift; path = RxSwift/Observables/Sink.swift; sourceTree = "<group>"; };
 		CA773B77C984BBC3A3AF0D80695C5179 /* Completable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Completable.swift; path = RxSwift/Traits/PrimitiveSequence/Completable.swift; sourceTree = "<group>"; };
 		CAAFCF64618C26F428BFF9D16BF4ACCA /* RxSwift-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RxSwift-watchOS-umbrella.h"; path = "../RxSwift-watchOS/RxSwift-watchOS-umbrella.h"; sourceTree = "<group>"; };
-		CBA55D3F6F52E8DFADA778463AB8B9E5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		CBA55D3F6F52E8DFADA778463AB8B9E5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		CBB2B46DD67D624FE96C41E2617D7834 /* PublishSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublishSubject.swift; path = RxSwift/Subjects/PublishSubject.swift; sourceTree = "<group>"; };
 		CC2FBAA226EAAC3C98C61964E61E55D0 /* Event.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Event.swift; path = RxSwift/Event.swift; sourceTree = "<group>"; };
 		CC8F0AE1FB497F1EAF689E2F65B910AA /* Pods-Haikingu Watch App-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Haikingu Watch App-frameworks.sh"; sourceTree = "<group>"; };
@@ -1330,10 +1330,11 @@
 		E5D4CD9587559780D9F1905C4343B3C2 /* RxRelay-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "RxRelay-watchOS.debug.xcconfig"; path = "../RxRelay-watchOS/RxRelay-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E5DE52FC16864BDACF5034BDF5B4D6B4 /* Dematerialize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dematerialize.swift; path = RxSwift/Observables/Dematerialize.swift; sourceTree = "<group>"; };
 		E62EE64C3408827A84715BAAB0FF5EC7 /* ElementAt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElementAt.swift; path = RxSwift/Observables/ElementAt.swift; sourceTree = "<group>"; };
+		E78015F02CAAA55F00E658A1 /* HaikinguRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguRequestResponse.swift; sourceTree = "<group>"; };
 		E7A7F0C8BD0581F2AC025528E75EA11F /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
 		E8E4DE57B4D420BC3A88317439565588 /* ReadWriteLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReadWriteLock.swift; path = Sources/ReadWriteLock.swift; sourceTree = "<group>"; };
 		E92CC87B522B039E5438057623298F0A /* RxCocoa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RxCocoa.h; path = RxCocoa/RxCocoa.h; sourceTree = "<group>"; };
-		E9C30547DF968C73398DDA33A4BBDFB3 /* CoreGPX-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "CoreGPX-iOS"; path = CoreGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C30547DF968C73398DDA33A4BBDFB3 /* CoreGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCC1E89720BF2199BCA72648A874C46 /* ControlTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControlTarget.swift; path = RxCocoa/Common/ControlTarget.swift; sourceTree = "<group>"; };
 		ED6A7A55B7F37E0E83CA4FEB0F588463 /* DisposeBag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DisposeBag.swift; path = RxSwift/Disposables/DisposeBag.swift; sourceTree = "<group>"; };
 		EEB84AEFE2124EB3A2977EFDF230FBBC /* CoreGPX-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CoreGPX-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -1699,7 +1700,6 @@
 				54FC20641DF866AF13EB1B51A467462B /* Zip+Collection.swift */,
 				49BD12037079911241BE7AB1C437E5BF /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -1713,7 +1713,6 @@
 				18B7FDAEE2A6CAF34909FD1A3DBCB57F /* Utils.swift */,
 				2124F87F50CEF8D0173F1402BF7305FD /* Support Files */,
 			);
-			name = RxRelay;
 			path = RxRelay;
 			sourceTree = "<group>";
 		};
@@ -1800,7 +1799,6 @@
 				D245FE1A7BF08ED3535C50B8ABE654AE /* NSMutableString+XML.swift */,
 				86794C7E9E0AC742F94533FA235B1DC2 /* Support Files */,
 			);
-			name = CoreGPX;
 			path = CoreGPX;
 			sourceTree = "<group>";
 		};
@@ -1920,7 +1918,6 @@
 				99FBD0E9E20C41F9427C657D85FC955D /* WKWebView+Rx.swift */,
 				C35AF4D3693C9BD7075A9EA07E63F75F /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -1944,21 +1941,21 @@
 		8329DC12A21FBBBC25FA582AF013749C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E9C30547DF968C73398DDA33A4BBDFB3 /* CoreGPX-iOS */,
-				73E097AB8D67061734EC7A63ABBF2E20 /* CoreGPX-watchOS */,
-				0DE2B69C1E0F741B50F330C8B8382D25 /* Pods-Haikingu Watch App */,
-				9846D0DA35F7B557C812D203FBC7040C /* Pods-HaikinguApp */,
-				50D55F8FC16ED592BFA4A4CFBD17C140 /* RxCocoa-iOS */,
-				863CC097334670A594E2081DBE8E5835 /* RxCocoa-watchOS */,
-				1C3C72C80670B0848F76821F33C51D7D /* RxRelay-iOS */,
-				800A1B78F28361CBE6C4E48AA0EBE29B /* RxRelay-watchOS */,
-				8D3B0F251A494B4EA27F0FAA03359333 /* RxSwift-iOS */,
-				28C5554E65053EEED600E41558F1AF38 /* RxSwift-watchOS */,
-				979486118B3E90C08386079D57962701 /* SnapKit */,
-				16570AFB5AB2191086D6933D2614ED99 /* Swinject-iOS */,
-				6A9013201186CF385BAE58BFF1CE2EAF /* Swinject-iOS-Swinject */,
-				3882B5086E52F77788FBEE8347EC39DB /* Swinject-watchOS */,
-				81D6791FAFBD0A42AB70903D813B4083 /* Swinject-watchOS-Swinject */,
+				E9C30547DF968C73398DDA33A4BBDFB3 /* CoreGPX.framework */,
+				73E097AB8D67061734EC7A63ABBF2E20 /* CoreGPX.framework */,
+				0DE2B69C1E0F741B50F330C8B8382D25 /* Pods_Haikingu_Watch_App.framework */,
+				9846D0DA35F7B557C812D203FBC7040C /* Pods_HaikinguApp.framework */,
+				50D55F8FC16ED592BFA4A4CFBD17C140 /* RxCocoa.framework */,
+				863CC097334670A594E2081DBE8E5835 /* RxCocoa.framework */,
+				1C3C72C80670B0848F76821F33C51D7D /* RxRelay.framework */,
+				800A1B78F28361CBE6C4E48AA0EBE29B /* RxRelay.framework */,
+				8D3B0F251A494B4EA27F0FAA03359333 /* RxSwift.framework */,
+				28C5554E65053EEED600E41558F1AF38 /* RxSwift.framework */,
+				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
+				16570AFB5AB2191086D6933D2614ED99 /* Swinject.framework */,
+				6A9013201186CF385BAE58BFF1CE2EAF /* Swinject.bundle */,
+				3882B5086E52F77788FBEE8347EC39DB /* Swinject.framework */,
+				81D6791FAFBD0A42AB70903D813B4083 /* Swinject.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2059,7 +2056,6 @@
 				3C3BA29BF5ADECAED6B0389827E59739 /* Resources */,
 				8628EC7668EEA53A2F89384B23F3C63F /* Support Files */,
 			);
-			name = Swinject;
 			path = Swinject;
 			sourceTree = "<group>";
 		};
@@ -2088,6 +2084,7 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				E78015F02CAAA55F00E658A1 /* HaikinguRequestResponse.swift */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				54CCD06893F300F5B2C02DAFD57093E1 /* Frameworks */,
 				8E4AF807DA937C459BF535791E70EA5D /* Pods */,
@@ -2152,7 +2149,6 @@
 				6663B1748E4C13F154E2FB7A2FBB3021 /* UILayoutSupport+Extensions.swift */,
 				DA1952C8A02198DFE4A05B5D89599726 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -2302,7 +2298,7 @@
 			);
 			name = SnapKit;
 			productName = SnapKit;
-			productReference = 979486118B3E90C08386079D57962701 /* SnapKit */;
+			productReference = 979486118B3E90C08386079D57962701 /* SnapKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		2A0D0F10AC3D99E665E49C3F9C706508 /* Pods-HaikinguApp */ = {
@@ -2326,7 +2322,7 @@
 			);
 			name = "Pods-HaikinguApp";
 			productName = Pods_HaikinguApp;
-			productReference = 9846D0DA35F7B557C812D203FBC7040C /* Pods-HaikinguApp */;
+			productReference = 9846D0DA35F7B557C812D203FBC7040C /* Pods_HaikinguApp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		2CF7DBA2D03E772A3E7D1B719DC0F605 /* RxCocoa-watchOS */ = {
@@ -2346,7 +2342,7 @@
 			);
 			name = "RxCocoa-watchOS";
 			productName = RxCocoa;
-			productReference = 863CC097334670A594E2081DBE8E5835 /* RxCocoa-watchOS */;
+			productReference = 863CC097334670A594E2081DBE8E5835 /* RxCocoa.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3F3F1AB09D6852392F8574A567B748F3 /* CoreGPX-iOS */ = {
@@ -2364,7 +2360,7 @@
 			);
 			name = "CoreGPX-iOS";
 			productName = CoreGPX;
-			productReference = E9C30547DF968C73398DDA33A4BBDFB3 /* CoreGPX-iOS */;
+			productReference = E9C30547DF968C73398DDA33A4BBDFB3 /* CoreGPX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		44198E09922F87F08714316C85D85764 /* RxSwift-iOS */ = {
@@ -2382,7 +2378,7 @@
 			);
 			name = "RxSwift-iOS";
 			productName = RxSwift;
-			productReference = 8D3B0F251A494B4EA27F0FAA03359333 /* RxSwift-iOS */;
+			productReference = 8D3B0F251A494B4EA27F0FAA03359333 /* RxSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		486A045AB8803E9D9E51B49409C19965 /* RxRelay-watchOS */ = {
@@ -2401,7 +2397,7 @@
 			);
 			name = "RxRelay-watchOS";
 			productName = RxRelay;
-			productReference = 800A1B78F28361CBE6C4E48AA0EBE29B /* RxRelay-watchOS */;
+			productReference = 800A1B78F28361CBE6C4E48AA0EBE29B /* RxRelay.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		49D7889F08DCEF99965AA9D62037EBB1 /* Swinject-watchOS-Swinject */ = {
@@ -2418,7 +2414,7 @@
 			);
 			name = "Swinject-watchOS-Swinject";
 			productName = Swinject;
-			productReference = 81D6791FAFBD0A42AB70903D813B4083 /* Swinject-watchOS-Swinject */;
+			productReference = 81D6791FAFBD0A42AB70903D813B4083 /* Swinject.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		4C2B2DA58DD8D3DBCC7F4A3A1A00D4D4 /* RxRelay-iOS */ = {
@@ -2437,7 +2433,7 @@
 			);
 			name = "RxRelay-iOS";
 			productName = RxRelay;
-			productReference = 1C3C72C80670B0848F76821F33C51D7D /* RxRelay-iOS */;
+			productReference = 1C3C72C80670B0848F76821F33C51D7D /* RxRelay.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		52F3F24B8D3936CDB41CBC3C1FED4E8C /* CoreGPX-watchOS */ = {
@@ -2455,7 +2451,7 @@
 			);
 			name = "CoreGPX-watchOS";
 			productName = CoreGPX;
-			productReference = 73E097AB8D67061734EC7A63ABBF2E20 /* CoreGPX-watchOS */;
+			productReference = 73E097AB8D67061734EC7A63ABBF2E20 /* CoreGPX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		6933E08FF8DA6D3940A266C124C3E092 /* Swinject-watchOS */ = {
@@ -2474,7 +2470,7 @@
 			);
 			name = "Swinject-watchOS";
 			productName = Swinject;
-			productReference = 3882B5086E52F77788FBEE8347EC39DB /* Swinject-watchOS */;
+			productReference = 3882B5086E52F77788FBEE8347EC39DB /* Swinject.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8BAB16A995C063292E6235D65EC751AE /* RxSwift-watchOS */ = {
@@ -2492,7 +2488,7 @@
 			);
 			name = "RxSwift-watchOS";
 			productName = RxSwift;
-			productReference = 28C5554E65053EEED600E41558F1AF38 /* RxSwift-watchOS */;
+			productReference = 28C5554E65053EEED600E41558F1AF38 /* RxSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8F76CD8322B40EF106BF75BF8808AB6B /* Pods-Haikingu Watch App */ = {
@@ -2515,7 +2511,7 @@
 			);
 			name = "Pods-Haikingu Watch App";
 			productName = Pods_Haikingu_Watch_App;
-			productReference = 0DE2B69C1E0F741B50F330C8B8382D25 /* Pods-Haikingu Watch App */;
+			productReference = 0DE2B69C1E0F741B50F330C8B8382D25 /* Pods_Haikingu_Watch_App.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A13AEE7031618C11F538CB76F422EA35 /* Swinject-iOS-Swinject */ = {
@@ -2532,7 +2528,7 @@
 			);
 			name = "Swinject-iOS-Swinject";
 			productName = Swinject;
-			productReference = 6A9013201186CF385BAE58BFF1CE2EAF /* Swinject-iOS-Swinject */;
+			productReference = 6A9013201186CF385BAE58BFF1CE2EAF /* Swinject.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		E7539898D30C07AD09BE45C92CCD4478 /* Swinject-iOS */ = {
@@ -2551,7 +2547,7 @@
 			);
 			name = "Swinject-iOS";
 			productName = Swinject;
-			productReference = 16570AFB5AB2191086D6933D2614ED99 /* Swinject-iOS */;
+			productReference = 16570AFB5AB2191086D6933D2614ED99 /* Swinject.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		FBEBD5EC5D304ABDBD9E8CC73C2561EF /* RxCocoa-iOS */ = {
@@ -2571,7 +2567,7 @@
 			);
 			name = "RxCocoa-iOS";
 			productName = RxCocoa;
-			productReference = 50D55F8FC16ED592BFA4A4CFBD17C140 /* RxCocoa-iOS */;
+			productReference = 50D55F8FC16ED592BFA4A4CFBD17C140 /* RxCocoa.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -2620,7 +2616,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				795C411E491E3F17E3483F76132CB4E3 /* Swinject-iOS-Swinject in Resources */,
+				795C411E491E3F17E3483F76132CB4E3 /* Swinject.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2649,7 +2645,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73D19096D43D0369F80361A760E39960 /* Swinject-watchOS-Swinject in Resources */,
+				73D19096D43D0369F80361A760E39960 /* Swinject.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
