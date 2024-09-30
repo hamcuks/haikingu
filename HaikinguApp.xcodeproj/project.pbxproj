@@ -64,6 +64,7 @@
 		E7CFD04E2CAADDAA000FAD7B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E7CFD04D2CAADDAA000FAD7B /* Swinject */; };
 		E7CFD0502CAADDAF000FAD7B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E7CFD04F2CAADDAF000FAD7B /* Swinject */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E7EDAA452CAAE729006F3ED0 /* BackToHomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA442CAAE729006F3ED0 /* BackToHomeMessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA402C9839AF00324E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haikingu Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7EDAA442CAAE729006F3ED0 /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 		E7CFCFCE2CAADCFE000FAD7B /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				E7EDAA442CAAE729006F3ED0 /* BackToHomeMessageView.swift */,
 				E7CFCFCC2CAADCFE000FAD7B /* HikingModeControlView.swift */,
 				E7CFCFCD2CAADCFE000FAD7B /* HomeHeaderView.swift */,
 			);
@@ -701,6 +704,7 @@
 				E7CFD00F2CAADCFE000FAD7B /* ViewController.swift in Sources */,
 				E7CFD0102CAADCFE000FAD7B /* AppButton.swift in Sources */,
 				E7CFD0112CAADCFE000FAD7B /* HikingModeControlView.swift in Sources */,
+				E7EDAA452CAAE729006F3ED0 /* BackToHomeMessageView.swift in Sources */,
 				E7CFD0122CAADCFE000FAD7B /* AppDelegate.swift in Sources */,
 				E7CFD0132CAADCFE000FAD7B /* User.swift in Sources */,
 				E7CFD0142CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
