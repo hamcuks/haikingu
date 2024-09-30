@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		031A6BEC2CA72562003AFD6C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031A6BEB2CA72562003AFD6C /* HomeScreen.swift */; };
+		038903922CAABF4B00E6F1E9 /* DestinationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903912CAABF4B00E6F1E9 /* DestinationModel.swift */; };
+		038903952CAAC4B400E6F1E9 /* DestinationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903942CAAC4B400E6F1E9 /* DestinationListVC.swift */; };
+		0389039A2CAAC9EA00E6F1E9 /* HikingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903992CAAC9EA00E6F1E9 /* HikingCell.swift */; };
 		03E274E72CA9160300EF2D5F /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274E62CA9160300EF2D5F /* SummaryScreen.swift */; };
 		03E274F02CA916E200EF2D5F /* NavigationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */; };
 		03E274F52CA923E500EF2D5F /* MetricsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F42CA923E500EF2D5F /* MetricsScreen.swift */; };
@@ -86,6 +89,9 @@
 /* Begin PBXFileReference section */
 		01C690C35EC784B922C7FB9A /* Pods-Haikingu Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haikingu Watch App.release.xcconfig"; path = "Target Support Files/Pods-Haikingu Watch App/Pods-Haikingu Watch App.release.xcconfig"; sourceTree = "<group>"; };
 		031A6BEB2CA72562003AFD6C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		038903912CAABF4B00E6F1E9 /* DestinationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationModel.swift; sourceTree = "<group>"; };
+		038903942CAAC4B400E6F1E9 /* DestinationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationListVC.swift; sourceTree = "<group>"; };
+		038903992CAAC9EA00E6F1E9 /* HikingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingCell.swift; sourceTree = "<group>"; };
 		03E274E62CA9160300EF2D5F /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
 		03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationServices.swift; sourceTree = "<group>"; };
 		03E274F42CA923E500EF2D5F /* MetricsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsScreen.swift; sourceTree = "<group>"; };
@@ -169,6 +175,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		038903932CAAC49B00E6F1E9 /* DestinationList */ = {
+			isa = PBXGroup;
+			children = (
+				038903982CAAC4D500E6F1E9 /* Extensions */,
+				038903972CAAC4C200E6F1E9 /* SubViews */,
+				038903962CAAC4BB00E6F1E9 /* ViewControllers */,
+			);
+			path = DestinationList;
+			sourceTree = "<group>";
+		};
+		038903962CAAC4BB00E6F1E9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				038903942CAAC4B400E6F1E9 /* DestinationListVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		038903972CAAC4C200E6F1E9 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				038903992CAAC9EA00E6F1E9 /* HikingCell.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		038903982CAAC4D500E6F1E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		03E274EE2CA916CA00EF2D5F /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +342,7 @@
 		E7DEE7122C983AF500549E05 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				038903932CAAC49B00E6F1E9 /* DestinationList */,
 				E7EAEF4F2CAA82A20028DDFE /* Home */,
 				E7DEE71D2C983B8300549E05 /* Onboarding */,
 			);
@@ -323,6 +363,7 @@
 		E7DEE7142C983B0B00549E05 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				038903912CAABF4B00E6F1E9 /* DestinationModel.swift */,
 				E7DEE7272C983C8600549E05 /* User.swift */,
 				E78015EA2CAAA50C00E658A1 /* Hiker.swift */,
 				E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */,
@@ -587,7 +628,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					E7D0BA2E2C9839AD00324E3D = {
 						CreatedOnToolsVersion = 15.2;
@@ -740,15 +781,18 @@
 				E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */,
 				E78015FC2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
 				E7EAEF532CAA82C30028DDFE /* HomeVC.swift in Sources */,
+				0389039A2CAAC9EA00E6F1E9 /* HikingCell.swift in Sources */,
 				E78016022CAAAB0300E658A1 /* HikingModeControlView.swift in Sources */,
 				E78015F22CAAA59900E658A1 /* PeripheralBLEService.swift in Sources */,
 				E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */,
+				038903922CAABF4B00E6F1E9 /* DestinationModel.swift in Sources */,
 				E7EAEF9C2CAA89B90028DDFE /* HomeHeaderView.swift in Sources */,
 				E78015F62CAAA62300E658A1 /* HikerBLEManager.swift in Sources */,
 				E78015E62CAA9B7500E658A1 /* SecondaryButton.swift in Sources */,
 				E78015FA2CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift in Sources */,
 				E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */,
 				E7DEE7262C983C5F00549E05 /* SampleView.swift in Sources */,
+				038903952CAAC4B400E6F1E9 /* DestinationListVC.swift in Sources */,
 				E78016282CAAC9B800E658A1 /* BackToHomeMessageView.swift in Sources */,
 				E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */,
 				E78015E22CAA932B00E658A1 /* HikingInvitationVC.swift in Sources */,
@@ -922,7 +966,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF799B6F21C28378FA9ADFA9 /* Pods-HaikinguApp.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -954,7 +997,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 04BA5ACF0FBC88A75EA9887E /* Pods-HaikinguApp.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
