@@ -11,6 +11,13 @@
 		038903922CAABF4B00E6F1E9 /* DestinationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903912CAABF4B00E6F1E9 /* DestinationModel.swift */; };
 		038903952CAAC4B400E6F1E9 /* DestinationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903942CAAC4B400E6F1E9 /* DestinationListVC.swift */; };
 		0389039A2CAAC9EA00E6F1E9 /* HikingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903992CAAC9EA00E6F1E9 /* HikingCell.swift */; };
+		0389044A2CAAEFF300E6F1E9 /* DetailDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038904492CAAEFF300E6F1E9 /* DetailDestinationView.swift */; };
+		0389044C2CAAF4DB00E6F1E9 /* DetailDestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0389044B2CAAF4DB00E6F1E9 /* DetailDestinationVC.swift */; };
+		0389044E2CAB00D400E6F1E9 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0389044D2CAB00D400E6F1E9 /* TeamsView.swift */; };
+		038904502CAB016900E6F1E9 /* TextIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0389044F2CAB016900E6F1E9 /* TextIconButton.swift */; };
+		038904522CAB127C00E6F1E9 /* PersonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038904512CAB127C00E6F1E9 /* PersonImageView.swift */; };
+		038904552CAB1B1900E6F1E9 /* AlertRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038904542CAB1B1900E6F1E9 /* AlertRangeView.swift */; };
+		038904572CAB1F5500E6F1E9 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038904562CAB1F5500E6F1E9 /* AddFriendView.swift */; };
 		03E274E72CA9160300EF2D5F /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274E62CA9160300EF2D5F /* SummaryScreen.swift */; };
 		03E274F02CA916E200EF2D5F /* NavigationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */; };
 		03E274F52CA923E500EF2D5F /* MetricsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F42CA923E500EF2D5F /* MetricsScreen.swift */; };
@@ -92,6 +99,13 @@
 		038903912CAABF4B00E6F1E9 /* DestinationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationModel.swift; sourceTree = "<group>"; };
 		038903942CAAC4B400E6F1E9 /* DestinationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationListVC.swift; sourceTree = "<group>"; };
 		038903992CAAC9EA00E6F1E9 /* HikingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingCell.swift; sourceTree = "<group>"; };
+		038904492CAAEFF300E6F1E9 /* DetailDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDestinationView.swift; sourceTree = "<group>"; };
+		0389044B2CAAF4DB00E6F1E9 /* DetailDestinationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDestinationVC.swift; sourceTree = "<group>"; };
+		0389044D2CAB00D400E6F1E9 /* TeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsView.swift; sourceTree = "<group>"; };
+		0389044F2CAB016900E6F1E9 /* TextIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextIconButton.swift; sourceTree = "<group>"; };
+		038904512CAB127C00E6F1E9 /* PersonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageView.swift; sourceTree = "<group>"; };
+		038904542CAB1B1900E6F1E9 /* AlertRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRangeView.swift; sourceTree = "<group>"; };
+		038904562CAB1F5500E6F1E9 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		03E274E62CA9160300EF2D5F /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
 		03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationServices.swift; sourceTree = "<group>"; };
 		03E274F42CA923E500EF2D5F /* MetricsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsScreen.swift; sourceTree = "<group>"; };
@@ -206,6 +220,48 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		038904452CAAEFA400E6F1E9 /* DetailDestination */ = {
+			isa = PBXGroup;
+			children = (
+				038904462CAAEFAC00E6F1E9 /* Extensions */,
+				038904472CAAEFB800E6F1E9 /* SubViews */,
+				038904482CAAEFBF00E6F1E9 /* ViewControllers */,
+			);
+			path = DetailDestination;
+			sourceTree = "<group>";
+		};
+		038904462CAAEFAC00E6F1E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		038904472CAAEFB800E6F1E9 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				038904492CAAEFF300E6F1E9 /* DetailDestinationView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		038904482CAAEFBF00E6F1E9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0389044B2CAAF4DB00E6F1E9 /* DetailDestinationVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		038904532CAB1ADC00E6F1E9 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				038904542CAB1B1900E6F1E9 /* AlertRangeView.swift */,
+				038904562CAB1F5500E6F1E9 /* AddFriendView.swift */,
+			);
+			path = Modals;
 			sourceTree = "<group>";
 		};
 		03E274EE2CA916CA00EF2D5F /* Services */ = {
@@ -342,6 +398,7 @@
 		E7DEE7122C983AF500549E05 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				038904452CAAEFA400E6F1E9 /* DetailDestination */,
 				038903932CAAC49B00E6F1E9 /* DestinationList */,
 				E7EAEF4F2CAA82A20028DDFE /* Home */,
 				E7DEE71D2C983B8300549E05 /* Onboarding */,
@@ -486,6 +543,7 @@
 				E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */,
 				E7DEE7332C983D4600549E05 /* AppButton.swift */,
 				E78015E32CAA983100E658A1 /* PrimaryButton.swift */,
+				0389044F2CAB016900E6F1E9 /* TextIconButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -494,6 +552,9 @@
 			isa = PBXGroup;
 			children = (
 				E7DEE7312C983D2B00549E05 /* SampleItemView.swift */,
+				0389044D2CAB00D400E6F1E9 /* TeamsView.swift */,
+				038904512CAB127C00E6F1E9 /* PersonImageView.swift */,
+				038904532CAB1ADC00E6F1E9 /* Modals */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -775,23 +836,30 @@
 				E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */,
 				E78015F42CAAA5C400E658A1 /* HaikinguRequestReponse.swift in Sources */,
 				E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */,
+				0389044C2CAAF4DB00E6F1E9 /* DetailDestinationVC.swift in Sources */,
 				E78015ED2CAAA53600E658A1 /* TypeOfRestEnum.swift in Sources */,
 				E7DEE7302C983D0C00549E05 /* AlterVC.swift in Sources */,
 				E7DEE7242C983C1E00549E05 /* OnboardingHikingProfileVC.swift in Sources */,
 				E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */,
 				E78015FC2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
 				E7EAEF532CAA82C30028DDFE /* HomeVC.swift in Sources */,
+				038904502CAB016900E6F1E9 /* TextIconButton.swift in Sources */,
+				038904522CAB127C00E6F1E9 /* PersonImageView.swift in Sources */,
 				0389039A2CAAC9EA00E6F1E9 /* HikingCell.swift in Sources */,
 				E78016022CAAAB0300E658A1 /* HikingModeControlView.swift in Sources */,
 				E78015F22CAAA59900E658A1 /* PeripheralBLEService.swift in Sources */,
 				E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */,
 				038903922CAABF4B00E6F1E9 /* DestinationModel.swift in Sources */,
+				038904552CAB1B1900E6F1E9 /* AlertRangeView.swift in Sources */,
+				0389044E2CAB00D400E6F1E9 /* TeamsView.swift in Sources */,
 				E7EAEF9C2CAA89B90028DDFE /* HomeHeaderView.swift in Sources */,
 				E78015F62CAAA62300E658A1 /* HikerBLEManager.swift in Sources */,
+				0389044A2CAAEFF300E6F1E9 /* DetailDestinationView.swift in Sources */,
 				E78015E62CAA9B7500E658A1 /* SecondaryButton.swift in Sources */,
 				E78015FA2CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift in Sources */,
 				E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */,
 				E7DEE7262C983C5F00549E05 /* SampleView.swift in Sources */,
+				038904572CAB1F5500E6F1E9 /* AddFriendView.swift in Sources */,
 				038903952CAAC4B400E6F1E9 /* DestinationListVC.swift in Sources */,
 				E78016282CAAC9B800E658A1 /* BackToHomeMessageView.swift in Sources */,
 				E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */,
