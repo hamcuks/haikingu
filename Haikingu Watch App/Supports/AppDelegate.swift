@@ -11,12 +11,12 @@ import HealthKit
 import SwiftUI
 
 class AppDelegate: NSObject, WKApplicationDelegate {
-
+    
     func handle(_ workoutConfiguration: HKWorkoutConfiguration) {
         Task {
             do {
-//                should call workout manager for function reset workout
-//                should call workout manager for function start workout
+//                WorkoutManager.shared.resetWorkout()
+//                try await WorkoutManager.shared.startWorkout(workoutConfiguration: workoutConfiguration)
                 Logger.shared.log("Successfully started workout")
             } catch {
                 Logger.shared.log("Failed started workout")

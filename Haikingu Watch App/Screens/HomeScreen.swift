@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import HealthKit
 
 struct HomeScreen: View {
     @StateObject var navigationServices = NavigationServices()
     @EnvironmentObject var homeVM: HomeVM
+//    @EnvironmentObject var workoutManager: WorkoutManager
+    
     
     var body: some View {
         NavigationStack(path: $navigationServices.path) {
@@ -73,7 +76,7 @@ struct HomeScreen: View {
 }
 
 struct ContentHomeScreen: View {
-    
+    @EnvironmentObject var workoutManager: WorkoutManager
     @ObservedObject var navigationServices : NavigationServices
     var titleHomeScreen: String
     var subtitleHomeScreen: String
@@ -106,6 +109,7 @@ struct ContentHomeScreen: View {
                     
                 }
                 HKTextButton(titleButton: "Go now!", widthButton: 148, heightButton: 40) {
+//                    startWorkout()
                     navigationServices.path.append("metrics")
                 }
             }
@@ -113,6 +117,19 @@ struct ContentHomeScreen: View {
             
         }
     }
+    
+//    private func startWorkout() {
+//        Task{
+//            do{
+//                let configuration = HKWorkoutConfiguration()
+//                configuration.activityType = .hiking
+//                configuration.locationType = .outdoor
+//                try await workoutManager.startWorkout(workoutConfiguration: configuration)
+//            }catch{
+//                print("failed to start Workout")
+//            }
+//        }
+//    }
 }
 
 //#Preview {
