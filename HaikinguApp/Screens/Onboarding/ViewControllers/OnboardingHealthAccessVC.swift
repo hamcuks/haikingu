@@ -26,13 +26,17 @@ class OnboardingHealthAccessVC: UIViewController {
 
         view.backgroundColor = .white
 
-        // Heart Icon ImageView
-        heartIconImageView.image = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
+        // Heart Icon ImageView from Assets
+        heartIconImageView.image = UIImage(named: "HealthKitIcon") // Replace with your asset image name
         heartIconImageView.contentMode = .scaleAspectFit
-        heartIconImageView.layer.cornerRadius = 20
-        heartIconImageView.layer.borderWidth = 2
-        heartIconImageView.layer.borderColor = UIColor.lightGray.cgColor
         view.addSubview(heartIconImageView)
+
+        // Setup Constraints for ImageView (264x264)
+        heartIconImageView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(60)
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(254)  // Set width and height to 264
+        }
 
         // Title Label
         titleLabel.text = "Heart Rate Monitoring"

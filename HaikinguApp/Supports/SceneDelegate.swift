@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         
-        window.rootViewController = UINavigationController(rootViewController: OnboardingHikingProfileVC())
+        window.rootViewController = UINavigationController(rootViewController: OnboardingHealthAccessVC())
         
         window.makeKeyAndVisible()
         
