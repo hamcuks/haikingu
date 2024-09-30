@@ -3,59 +3,67 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		031A6BEC2CA72562003AFD6C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031A6BEB2CA72562003AFD6C /* HomeScreen.swift */; };
-		03E274E72CA9160300EF2D5F /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274E62CA9160300EF2D5F /* SummaryScreen.swift */; };
-		03E274F02CA916E200EF2D5F /* NavigationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */; };
-		03E274F52CA923E500EF2D5F /* MetricsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F42CA923E500EF2D5F /* MetricsScreen.swift */; };
-		03E274F72CA9246200EF2D5F /* MetricsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F62CA9246200EF2D5F /* MetricsVM.swift */; };
-		03E274F92CA92F0F00EF2D5F /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F82CA92F0F00EF2D5F /* UserServices.swift */; };
-		E765508F2CAAD4D4006DE972 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E765508E2CAAD4D4006DE972 /* Swinject */; };
-		E76550912CAAD4D7006DE972 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E76550902CAAD4D7006DE972 /* SnapKit */; };
-		E76550932CAAD4EA006DE972 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E76550922CAAD4EA006DE972 /* Swinject */; };
-		E78015E22CAA932B00E658A1 /* HikingInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */; };
-		E78015E42CAA983100E658A1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015E32CAA983100E658A1 /* PrimaryButton.swift */; };
-		E78015E62CAA9B7500E658A1 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */; };
-		E78015E82CAAA4E600E658A1 /* CentralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015E72CAAA4E600E658A1 /* CentralBLEService.swift */; };
-		E78015EB2CAAA50C00E658A1 /* Hiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EA2CAAA50C00E658A1 /* Hiker.swift */; };
-		E78015ED2CAAA53600E658A1 /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */; };
-		E78015EF2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */; };
-		E78015F22CAAA59900E658A1 /* PeripheralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */; };
-		E78015F42CAAA5C400E658A1 /* HaikinguRequestReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */; };
-		E78015F62CAAA62300E658A1 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F52CAAA62300E658A1 /* HikerBLEManager.swift */; };
-		E78015FA2CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F92CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift */; };
-		E78015FC2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015FB2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift */; };
-		E78016002CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */; };
-		E78016022CAAAB0300E658A1 /* HikingModeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */; };
-		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
-		E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */; };
-		E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA362C9839AD00324E3D /* ViewController.swift */; };
-		E7D0BA3C2C9839AF00324E3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA3B2C9839AF00324E3D /* Assets.xcassets */; };
-		E7D0BA3F2C9839AF00324E3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA3D2C9839AF00324E3D /* LaunchScreen.storyboard */; };
-		E7D0BA4D2C9839CB00324E3D /* HaikinguApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA4C2C9839CB00324E3D /* HaikinguApp.swift */; };
-		E7D0BA4F2C9839CB00324E3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA4E2C9839CB00324E3D /* ContentView.swift */; };
-		E7D0BA512C9839CC00324E3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA502C9839CC00324E3D /* Assets.xcassets */; };
-		E7D0BA542C9839CC00324E3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */; };
+		E7CFCFF52CAADCFE000FAD7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CFCFC82CAADCFE000FAD7B /* Assets.xcassets */; };
+		E7CFCFF62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E7CFCFC62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx */; };
+		E7CFCFF72CAADCFE000FAD7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CFCFF12CAADCFE000FAD7B /* LaunchScreen.storyboard */; };
+		E7CFCFF82CAADCFE000FAD7B /* CentralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFDB2CAADCFE000FAD7B /* CentralBLEService.swift */; };
+		E7CFCFF92CAADCFE000FAD7B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFEB2CAADCFE000FAD7B /* Date+Extension.swift */; };
+		E7CFCFFA2CAADCFE000FAD7B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE12CAADCFE000FAD7B /* PrimaryButton.swift */; };
+		E7CFCFFB2CAADCFE000FAD7B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE22CAADCFE000FAD7B /* SecondaryButton.swift */; };
+		E7CFCFFC2CAADCFE000FAD7B /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFBC2CAADCFE000FAD7B /* HikerBLEManager.swift */; };
+		E7CFCFFD2CAADCFE000FAD7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFF22CAADCFE000FAD7B /* SceneDelegate.swift */; };
+		E7CFCFFE2CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFD72CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift */; };
+		E7CFCFFF2CAADCFE000FAD7B /* HaikinguRequestReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC02CAADCFE000FAD7B /* HaikinguRequestReponse.swift */; };
+		E7CFD0002CAADCFE000FAD7B /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE42CAADCFE000FAD7B /* SampleLabel.swift */; };
+		E7CFD0012CAADCFE000FAD7B /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFDE2CAADCFE000FAD7B /* HealthService.swift */; };
+		E7CFD0022CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFB92CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift */; };
+		E7CFD0032CAADCFE000FAD7B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFD02CAADCFE000FAD7B /* HomeVC.swift */; };
+		E7CFD0042CAADCFE000FAD7B /* Hiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC22CAADCFE000FAD7B /* Hiker.swift */; };
+		E7CFD0052CAADCFE000FAD7B /* HikingInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFCF2CAADCFE000FAD7B /* HikingInvitationVC.swift */; };
+		E7CFD0062CAADCFE000FAD7B /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFD52CAADCFE000FAD7B /* SampleView.swift */; };
+		E7CFD0072CAADCFE000FAD7B /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFBE2CAADCFE000FAD7B /* HealthManager.swift */; };
+		E7CFD0082CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFCA2CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift */; };
+		E7CFD0092CAADCFE000FAD7B /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE82CAADCFE000FAD7B /* SampleItemView.swift */; };
+		E7CFD00A2CAADCFE000FAD7B /* Swinject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFEC2CAADCFE000FAD7B /* Swinject+Extension.swift */; };
+		E7CFD00B2CAADCFE000FAD7B /* SampleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFB72CAADCFE000FAD7B /* SampleDB.swift */; };
+		E7CFD00C2CAADCFE000FAD7B /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFD32CAADCFE000FAD7B /* OnboardingExtension.swift */; };
+		E7CFD00D2CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC12CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift */; };
+		E7CFD00E2CAADCFE000FAD7B /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFCD2CAADCFE000FAD7B /* HomeHeaderView.swift */; };
+		E7CFD00F2CAADCFE000FAD7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFF32CAADCFE000FAD7B /* ViewController.swift */; };
+		E7CFD0102CAADCFE000FAD7B /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE02CAADCFE000FAD7B /* AppButton.swift */; };
+		E7CFD0112CAADCFE000FAD7B /* HikingModeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFCC2CAADCFE000FAD7B /* HikingModeControlView.swift */; };
+		E7CFD0122CAADCFE000FAD7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFEF2CAADCFE000FAD7B /* AppDelegate.swift */; };
+		E7CFD0132CAADCFE000FAD7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC42CAADCFE000FAD7B /* User.swift */; };
+		E7CFD0142CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFBA2CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift */; };
+		E7CFD0152CAADCFE000FAD7B /* AlterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE62CAADCFE000FAD7B /* AlterVC.swift */; };
+		E7CFD0162CAADCFE000FAD7B /* PeripheralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFDC2CAADCFE000FAD7B /* PeripheralBLEService.swift */; };
+		E7CFD0172CAADCFE000FAD7B /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC32CAADCFE000FAD7B /* TypeOfRestEnum.swift */; };
+		E7CFD01B2CAADD24000FAD7B /* MetricsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0192CAADD24000FAD7B /* MetricsVM.swift */; };
+		E7CFD01C2CAADD24000FAD7B /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0182CAADD24000FAD7B /* HomeVM.swift */; };
+		E7CFD0322CAADD2E000FAD7B /* HKMetricBiggerText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD02D2CAADD2E000FAD7B /* HKMetricBiggerText.swift */; };
+		E7CFD0332CAADD2E000FAD7B /* MetricsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0242CAADD2E000FAD7B /* MetricsScreen.swift */; };
+		E7CFD0342CAADD2E000FAD7B /* HKCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD02A2CAADD2E000FAD7B /* HKCircleButton.swift */; };
+		E7CFD0352CAADD2E000FAD7B /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0202CAADD2E000FAD7B /* MetricsView.swift */; };
+		E7CFD0362CAADD2E000FAD7B /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0282CAADD2E000FAD7B /* UserServices.swift */; };
+		E7CFD0372CAADD2E000FAD7B /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0252CAADD2E000FAD7B /* SummaryScreen.swift */; };
+		E7CFD0382CAADD2E000FAD7B /* LeadControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD01D2CAADD2E000FAD7B /* LeadControlView.swift */; };
+		E7CFD0392CAADD2E000FAD7B /* MemberControlScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD01E2CAADD2E000FAD7B /* MemberControlScreen.swift */; };
+		E7CFD03A2CAADD2E000FAD7B /* HKSummaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD02E2CAADD2E000FAD7B /* HKSummaryText.swift */; };
+		E7CFD03B2CAADD2E000FAD7B /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0232CAADD2E000FAD7B /* HomeScreen.swift */; };
+		E7CFD03C2CAADD2E000FAD7B /* HKTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD02B2CAADD2E000FAD7B /* HKTextButton.swift */; };
+		E7CFD03D2CAADD2E000FAD7B /* NavigationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0272CAADD2E000FAD7B /* NavigationServices.swift */; };
+		E7CFD0412CAADD38000FAD7B /* HaikinguApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD03F2CAADD38000FAD7B /* HaikinguApp.swift */; };
+		E7CFD0422CAADD38000FAD7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD03E2CAADD38000FAD7B /* ContentView.swift */; };
+		E7CFD0452CAADD42000FAD7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CFD0432CAADD42000FAD7B /* Preview Assets.xcassets */; };
+		E7CFD0472CAADD4B000FAD7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CFD0462CAADD4B000FAD7B /* Assets.xcassets */; };
+		E7CFD04C2CAADDA6000FAD7B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E7CFD04B2CAADDA6000FAD7B /* SnapKit */; };
+		E7CFD04E2CAADDAA000FAD7B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E7CFD04D2CAADDAA000FAD7B /* Swinject */; };
+		E7CFD0502CAADDAF000FAD7B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E7CFD04F2CAADDAF000FAD7B /* Swinject */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E7DEE7222C983C0C00549E05 /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7212C983C0C00549E05 /* OnboardingExtension.swift */; };
-		E7DEE7242C983C1E00549E05 /* OnboardingHikingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7232C983C1E00549E05 /* OnboardingHikingProfileVC.swift */; };
-		E7DEE7262C983C5F00549E05 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7252C983C5F00549E05 /* SampleView.swift */; };
-		E7DEE7282C983C8600549E05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7272C983C8600549E05 /* User.swift */; };
-		E7DEE72E2C983CF800549E05 /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE72D2C983CF800549E05 /* SampleLabel.swift */; };
-		E7DEE7302C983D0C00549E05 /* AlterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE72F2C983D0C00549E05 /* AlterVC.swift */; };
-		E7DEE7322C983D2B00549E05 /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7312C983D2B00549E05 /* SampleItemView.swift */; };
-		E7DEE7342C983D4600549E05 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7332C983D4600549E05 /* AppButton.swift */; };
-		E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7352C983D5000549E05 /* HealthManager.swift */; };
-		E7DEE7382C983D5B00549E05 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7372C983D5B00549E05 /* HealthService.swift */; };
-		E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7392C983D7000549E05 /* SampleDB.swift */; };
-		E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE73B2C983D8000549E05 /* Date+Extension.swift */; };
-		E7DEE7462C983DEA00549E05 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7452C983DEA00549E05 /* HomeVM.swift */; };
-		E7EAEF532CAA82C30028DDFE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAEF522CAA82C30028DDFE /* HomeVC.swift */; };
-		E7EAEF552CAA833B0028DDFE /* Swinject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAEF542CAA83360028DDFE /* Swinject+Extension.swift */; };
-		E7EAEF9C2CAA89B90028DDFE /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAEF9B2CAA89B90028DDFE /* HomeHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,70 +91,71 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		031A6BEB2CA72562003AFD6C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		03E274E62CA9160300EF2D5F /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
-		03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationServices.swift; sourceTree = "<group>"; };
-		03E274F42CA923E500EF2D5F /* MetricsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsScreen.swift; sourceTree = "<group>"; };
-		03E274F62CA9246200EF2D5F /* MetricsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsVM.swift; sourceTree = "<group>"; };
-		03E274F82CA92F0F00EF2D5F /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
-		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
-		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
-		E78015E72CAAA4E600E658A1 /* CentralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralBLEService.swift; sourceTree = "<group>"; };
-		E78015EA2CAAA50C00E658A1 /* Hiker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiker.swift; sourceTree = "<group>"; };
-		E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRestEnum.swift; sourceTree = "<group>"; };
-		E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguServiceBLEUUID.swift; sourceTree = "<group>"; };
-		E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEService.swift; sourceTree = "<group>"; };
-		E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguRequestReponse.swift; sourceTree = "<group>"; };
-		E78015F52CAAA62300E658A1 /* HikerBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerBLEManager.swift; sourceTree = "<group>"; };
-		E78015F92CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
-		E78015FB2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
-		E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
-		E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
+		E7CFCFB72CAADCFE000FAD7B /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
+		E7CFCFB92CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
+		E7CFCFBA2CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
+		E7CFCFBC2CAADCFE000FAD7B /* HikerBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerBLEManager.swift; sourceTree = "<group>"; };
+		E7CFCFBE2CAADCFE000FAD7B /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		E7CFCFC02CAADCFE000FAD7B /* HaikinguRequestReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguRequestReponse.swift; sourceTree = "<group>"; };
+		E7CFCFC12CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguServiceBLEUUID.swift; sourceTree = "<group>"; };
+		E7CFCFC22CAADCFE000FAD7B /* Hiker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiker.swift; sourceTree = "<group>"; };
+		E7CFCFC32CAADCFE000FAD7B /* TypeOfRestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRestEnum.swift; sourceTree = "<group>"; };
+		E7CFCFC42CAADCFE000FAD7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E7CFCFC62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Telaga Bidadari Batam.gpx"; sourceTree = "<group>"; };
+		E7CFCFC82CAADCFE000FAD7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7CFCFCA2CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
+		E7CFCFCC2CAADCFE000FAD7B /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
+		E7CFCFCD2CAADCFE000FAD7B /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		E7CFCFCF2CAADCFE000FAD7B /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
+		E7CFCFD02CAADCFE000FAD7B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E7CFCFD32CAADCFE000FAD7B /* OnboardingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExtension.swift; sourceTree = "<group>"; };
+		E7CFCFD52CAADCFE000FAD7B /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
+		E7CFCFD72CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHikingProfileVC.swift; sourceTree = "<group>"; };
+		E7CFCFDB2CAADCFE000FAD7B /* CentralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralBLEService.swift; sourceTree = "<group>"; };
+		E7CFCFDC2CAADCFE000FAD7B /* PeripheralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEService.swift; sourceTree = "<group>"; };
+		E7CFCFDE2CAADCFE000FAD7B /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		E7CFCFE02CAADCFE000FAD7B /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		E7CFCFE12CAADCFE000FAD7B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		E7CFCFE22CAADCFE000FAD7B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		E7CFCFE42CAADCFE000FAD7B /* SampleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLabel.swift; sourceTree = "<group>"; };
+		E7CFCFE62CAADCFE000FAD7B /* AlterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlterVC.swift; sourceTree = "<group>"; };
+		E7CFCFE82CAADCFE000FAD7B /* SampleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleItemView.swift; sourceTree = "<group>"; };
+		E7CFCFEB2CAADCFE000FAD7B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		E7CFCFEC2CAADCFE000FAD7B /* Swinject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extension.swift"; sourceTree = "<group>"; };
+		E7CFCFEF2CAADCFE000FAD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E7CFCFF02CAADCFE000FAD7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E7CFCFF22CAADCFE000FAD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E7CFCFF32CAADCFE000FAD7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7CFD0182CAADD24000FAD7B /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		E7CFD0192CAADD24000FAD7B /* MetricsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsVM.swift; sourceTree = "<group>"; };
+		E7CFD01D2CAADD2E000FAD7B /* LeadControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadControlView.swift; sourceTree = "<group>"; };
+		E7CFD01E2CAADD2E000FAD7B /* MemberControlScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberControlScreen.swift; sourceTree = "<group>"; };
+		E7CFD0202CAADD2E000FAD7B /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
+		E7CFD0232CAADD2E000FAD7B /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		E7CFD0242CAADD2E000FAD7B /* MetricsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsScreen.swift; sourceTree = "<group>"; };
+		E7CFD0252CAADD2E000FAD7B /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
+		E7CFD0272CAADD2E000FAD7B /* NavigationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationServices.swift; sourceTree = "<group>"; };
+		E7CFD0282CAADD2E000FAD7B /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		E7CFD02A2CAADD2E000FAD7B /* HKCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKCircleButton.swift; sourceTree = "<group>"; };
+		E7CFD02B2CAADD2E000FAD7B /* HKTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKTextButton.swift; sourceTree = "<group>"; };
+		E7CFD02D2CAADD2E000FAD7B /* HKMetricBiggerText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKMetricBiggerText.swift; sourceTree = "<group>"; };
+		E7CFD02E2CAADD2E000FAD7B /* HKSummaryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSummaryText.swift; sourceTree = "<group>"; };
+		E7CFD03E2CAADD38000FAD7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E7CFD03F2CAADD38000FAD7B /* HaikinguApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguApp.swift; sourceTree = "<group>"; };
+		E7CFD0432CAADD42000FAD7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E7CFD0462CAADD4B000FAD7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7D0BA322C9839AD00324E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7D0BA362C9839AD00324E3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E7D0BA3B2C9839AF00324E3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E7D0BA3E2C9839AF00324E3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7D0BA402C9839AF00324E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haikingu Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7D0BA4C2C9839CB00324E3D /* HaikinguApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguApp.swift; sourceTree = "<group>"; };
-		E7D0BA4E2C9839CB00324E3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E7D0BA502C9839CC00324E3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E7DEE7212C983C0C00549E05 /* OnboardingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExtension.swift; sourceTree = "<group>"; };
-		E7DEE7232C983C1E00549E05 /* OnboardingHikingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHikingProfileVC.swift; sourceTree = "<group>"; };
-		E7DEE7252C983C5F00549E05 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
-		E7DEE7272C983C8600549E05 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E7DEE72D2C983CF800549E05 /* SampleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLabel.swift; sourceTree = "<group>"; };
-		E7DEE72F2C983D0C00549E05 /* AlterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlterVC.swift; sourceTree = "<group>"; };
-		E7DEE7312C983D2B00549E05 /* SampleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleItemView.swift; sourceTree = "<group>"; };
-		E7DEE7332C983D4600549E05 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
-		E7DEE7352C983D5000549E05 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
-		E7DEE7372C983D5B00549E05 /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
-		E7DEE7392C983D7000549E05 /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
-		E7DEE73B2C983D8000549E05 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		E7DEE73F2C983D9900549E05 /* Telaga Bidadari Batam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Telaga Bidadari Batam.gpx"; sourceTree = "<group>"; };
-		E7DEE7452C983DEA00549E05 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
-		E7EAEF522CAA82C30028DDFE /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		E7EAEF542CAA83360028DDFE /* Swinject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extension.swift"; sourceTree = "<group>"; };
-		E7EAEF9B2CAA89B90028DDFE /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		031A6BE52CA71527003AFD6C /* Shareds */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shareds; sourceTree = "<group>"; };
-		031A6BF22CA7B78D003AFD6C /* Control */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Control; sourceTree = "<group>"; };
-		031A6BF32CA7D279003AFD6C /* Metrics */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Metrics; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E7D0BA2C2C9839AD00324E3D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E765508F2CAAD4D4006DE972 /* Swinject in Frameworks */,
-				E76550912CAAD4D7006DE972 /* SnapKit in Frameworks */,
+				E7CFD04C2CAADDA6000FAD7B /* SnapKit in Frameworks */,
+				E7CFD04E2CAADDAA000FAD7B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,71 +163,360 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E76550932CAAD4EA006DE972 /* Swinject in Frameworks */,
+				E7CFD0502CAADDAF000FAD7B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03E274EE2CA916CA00EF2D5F /* Services */ = {
+		E7CFCFB82CAADCFE000FAD7B /* LocalDataSources */ = {
 			isa = PBXGroup;
 			children = (
-				03E274F82CA92F0F00EF2D5F /* UserServices.swift */,
-				03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */,
+				E7CFCFB72CAADCFE000FAD7B /* SampleDB.swift */,
 			);
-			path = Services;
+			path = LocalDataSources;
 			sourceTree = "<group>";
 		};
-		03E274F12CA9209000EF2D5F /* SubViews */ = {
+		E7CFCFBB2CAADCFE000FAD7B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				031A6BF32CA7D279003AFD6C /* Metrics */,
-				031A6BF22CA7B78D003AFD6C /* Control */,
+				E7CFCFB92CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift */,
+				E7CFCFBA2CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7CFCFBD2CAADCFE000FAD7B /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFBB2CAADCFE000FAD7B /* Extensions */,
+				E7CFCFBC2CAADCFE000FAD7B /* HikerBLEManager.swift */,
+			);
+			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
+		E7CFCFBF2CAADCFE000FAD7B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFBD2CAADCFE000FAD7B /* CoreBluetooth */,
+				E7CFCFBE2CAADCFE000FAD7B /* HealthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E7CFCFC52CAADCFE000FAD7B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFC02CAADCFE000FAD7B /* HaikinguRequestReponse.swift */,
+				E7CFCFC12CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift */,
+				E7CFCFC22CAADCFE000FAD7B /* Hiker.swift */,
+				E7CFCFC32CAADCFE000FAD7B /* TypeOfRestEnum.swift */,
+				E7CFCFC42CAADCFE000FAD7B /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E7CFCFC72CAADCFE000FAD7B /* GPXAssets */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFC62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx */,
+			);
+			path = GPXAssets;
+			sourceTree = "<group>";
+		};
+		E7CFCFC92CAADCFE000FAD7B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFC72CAADCFE000FAD7B /* GPXAssets */,
+				E7CFCFC82CAADCFE000FAD7B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E7CFCFCB2CAADCFE000FAD7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFCA2CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7CFCFCE2CAADCFE000FAD7B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFCC2CAADCFE000FAD7B /* HikingModeControlView.swift */,
+				E7CFCFCD2CAADCFE000FAD7B /* HomeHeaderView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		E765508D2CAAD4D4006DE972 /* Frameworks */ = {
+		E7CFCFD12CAADCFE000FAD7B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFCF2CAADCFE000FAD7B /* HikingInvitationVC.swift */,
+				E7CFCFD02CAADCFE000FAD7B /* HomeVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7CFCFD22CAADCFE000FAD7B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFCB2CAADCFE000FAD7B /* Extensions */,
+				E7CFCFCE2CAADCFE000FAD7B /* SubViews */,
+				E7CFCFD12CAADCFE000FAD7B /* ViewControllers */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E7CFCFD42CAADCFE000FAD7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFD32CAADCFE000FAD7B /* OnboardingExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7CFCFD62CAADCFE000FAD7B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFD52CAADCFE000FAD7B /* SampleView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E7CFCFD82CAADCFE000FAD7B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFD72CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7CFCFD92CAADCFE000FAD7B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFD42CAADCFE000FAD7B /* Extensions */,
+				E7CFCFD62CAADCFE000FAD7B /* SubViews */,
+				E7CFCFD82CAADCFE000FAD7B /* ViewControllers */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E7CFCFDA2CAADCFE000FAD7B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFD22CAADCFE000FAD7B /* Home */,
+				E7CFCFD92CAADCFE000FAD7B /* Onboarding */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E7CFCFDD2CAADCFE000FAD7B /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFDB2CAADCFE000FAD7B /* CentralBLEService.swift */,
+				E7CFCFDC2CAADCFE000FAD7B /* PeripheralBLEService.swift */,
+			);
+			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
+		E7CFCFDF2CAADCFE000FAD7B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFDD2CAADCFE000FAD7B /* CoreBluetooth */,
+				E7CFCFDE2CAADCFE000FAD7B /* HealthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E7CFCFE32CAADCFE000FAD7B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFE02CAADCFE000FAD7B /* AppButton.swift */,
+				E7CFCFE12CAADCFE000FAD7B /* PrimaryButton.swift */,
+				E7CFCFE22CAADCFE000FAD7B /* SecondaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		E7CFCFE52CAADCFE000FAD7B /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFE42CAADCFE000FAD7B /* SampleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		E7CFCFE72CAADCFE000FAD7B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFE62CAADCFE000FAD7B /* AlterVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7CFCFE92CAADCFE000FAD7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFE82CAADCFE000FAD7B /* SampleItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E7CFCFEA2CAADCFE000FAD7B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFE32CAADCFE000FAD7B /* Buttons */,
+				E7CFCFE52CAADCFE000FAD7B /* Labels */,
+				E7CFCFE72CAADCFE000FAD7B /* ViewControllers */,
+				E7CFCFE92CAADCFE000FAD7B /* Views */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E7CFCFED2CAADCFE000FAD7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFEB2CAADCFE000FAD7B /* Date+Extension.swift */,
+				E7CFCFEC2CAADCFE000FAD7B /* Swinject+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7CFCFEE2CAADCFE000FAD7B /* Shareds */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFEA2CAADCFE000FAD7B /* Components */,
+				E7CFCFED2CAADCFE000FAD7B /* Extensions */,
+			);
+			path = Shareds;
+			sourceTree = "<group>";
+		};
+		E7CFCFF42CAADCFE000FAD7B /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFCFEF2CAADCFE000FAD7B /* AppDelegate.swift */,
+				E7CFCFF12CAADCFE000FAD7B /* LaunchScreen.storyboard */,
+				E7CFCFF22CAADCFE000FAD7B /* SceneDelegate.swift */,
+				E7CFCFF32CAADCFE000FAD7B /* ViewController.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		E7CFD01A2CAADD24000FAD7B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD0182CAADD24000FAD7B /* HomeVM.swift */,
+				E7CFD0192CAADD24000FAD7B /* MetricsVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E7CFD01F2CAADD2E000FAD7B /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD01D2CAADD2E000FAD7B /* LeadControlView.swift */,
+				E7CFD01E2CAADD2E000FAD7B /* MemberControlScreen.swift */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		E7CFD0212CAADD2E000FAD7B /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD0202CAADD2E000FAD7B /* MetricsView.swift */,
+			);
+			path = Metrics;
+			sourceTree = "<group>";
+		};
+		E7CFD0222CAADD2E000FAD7B /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD01F2CAADD2E000FAD7B /* Control */,
+				E7CFD0212CAADD2E000FAD7B /* Metrics */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E7CFD0262CAADD2E000FAD7B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD0222CAADD2E000FAD7B /* SubViews */,
+				E7CFD0232CAADD2E000FAD7B /* HomeScreen.swift */,
+				E7CFD0242CAADD2E000FAD7B /* MetricsScreen.swift */,
+				E7CFD0252CAADD2E000FAD7B /* SummaryScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E7CFD0292CAADD2E000FAD7B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD0272CAADD2E000FAD7B /* NavigationServices.swift */,
+				E7CFD0282CAADD2E000FAD7B /* UserServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E7CFD02C2CAADD2E000FAD7B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD02A2CAADD2E000FAD7B /* HKCircleButton.swift */,
+				E7CFD02B2CAADD2E000FAD7B /* HKTextButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		E7CFD02F2CAADD2E000FAD7B /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD02D2CAADD2E000FAD7B /* HKMetricBiggerText.swift */,
+				E7CFD02E2CAADD2E000FAD7B /* HKSummaryText.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		E7CFD0302CAADD2E000FAD7B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD02C2CAADD2E000FAD7B /* Button */,
+				E7CFD02F2CAADD2E000FAD7B /* Text */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E7CFD0312CAADD2E000FAD7B /* Shareds */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD0302CAADD2E000FAD7B /* Components */,
+			);
+			path = Shareds;
+			sourceTree = "<group>";
+		};
+		E7CFD0402CAADD38000FAD7B /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD03E2CAADD38000FAD7B /* ContentView.swift */,
+				E7CFD03F2CAADD38000FAD7B /* HaikinguApp.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		E7CFD0442CAADD42000FAD7B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFD0432CAADD42000FAD7B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E7CFD04A2CAADDA6000FAD7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E78015F72CAAA63700E658A1 /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				E78015F82CAAA64D00E658A1 /* Extensions */,
-				E78015F52CAAA62300E658A1 /* HikerBLEManager.swift */,
-			);
-			path = CoreBluetooth;
-			sourceTree = "<group>";
-		};
-		E78015F82CAAA64D00E658A1 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E78015F92CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift */,
-				E78015FB2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E78015FD2CAAA6DB00E658A1 /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				E78015E72CAAA4E600E658A1 /* CentralBLEService.swift */,
-				E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */,
-			);
-			path = CoreBluetooth;
-			sourceTree = "<group>";
-		};
-		E78015FE2CAAA9E400E658A1 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E7D0BA262C9839AD00324E3D = {
@@ -226,7 +524,7 @@
 			children = (
 				E7D0BA312C9839AD00324E3D /* HaikinguApp */,
 				E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */,
-				E765508D2CAAD4D4006DE972 /* Frameworks */,
+				E7CFD04A2CAADDA6000FAD7B /* Frameworks */,
 				E7D0BA302C9839AD00324E3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -243,14 +541,14 @@
 		E7D0BA312C9839AD00324E3D /* HaikinguApp */ = {
 			isa = PBXGroup;
 			children = (
-				E7DEE71B2C983B5000549E05 /* Resources */,
-				E7DEE71A2C983B4400549E05 /* LocalDataSources */,
-				E7DEE7192C983B3B00549E05 /* Services */,
-				E7DEE7182C983B3000549E05 /* Managers */,
-				E7DEE7152C983B1600549E05 /* Shareds */,
-				E7DEE7142C983B0B00549E05 /* Models */,
-				E7DEE7132C983AFD00549E05 /* Supports */,
-				E7DEE7122C983AF500549E05 /* Screens */,
+				E7CFCFB82CAADCFE000FAD7B /* LocalDataSources */,
+				E7CFCFBF2CAADCFE000FAD7B /* Managers */,
+				E7CFCFC52CAADCFE000FAD7B /* Models */,
+				E7CFCFC92CAADCFE000FAD7B /* Resources */,
+				E7CFCFDA2CAADCFE000FAD7B /* Screens */,
+				E7CFCFDF2CAADCFE000FAD7B /* Services */,
+				E7CFCFEE2CAADCFE000FAD7B /* Shareds */,
+				E7CFCFF42CAADCFE000FAD7B /* Supports */,
 				E7D0BA402C9839AF00324E3D /* Info.plist */,
 			);
 			path = HaikinguApp;
@@ -259,252 +557,15 @@
 		E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				03E274EE2CA916CA00EF2D5F /* Services */,
-				031A6BE52CA71527003AFD6C /* Shareds */,
-				E7DEE7472C983DF000549E05 /* Supports */,
-				E7DEE7412C983DC300549E05 /* Screens */,
-				E7DEE7402C983DAD00549E05 /* ViewModels */,
-				E7D0BA502C9839CC00324E3D /* Assets.xcassets */,
-				E7D0BA522C9839CC00324E3D /* Preview Content */,
+				E7CFD0462CAADD4B000FAD7B /* Assets.xcassets */,
+				E7CFD0442CAADD42000FAD7B /* Preview Content */,
+				E7CFD0402CAADD38000FAD7B /* Supports */,
+				E7CFD0262CAADD2E000FAD7B /* Screens */,
+				E7CFD0292CAADD2E000FAD7B /* Services */,
+				E7CFD0312CAADD2E000FAD7B /* Shareds */,
+				E7CFD01A2CAADD24000FAD7B /* ViewModels */,
 			);
 			path = "Haikingu Watch App";
-			sourceTree = "<group>";
-		};
-		E7D0BA522C9839CC00324E3D /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		E7DEE7122C983AF500549E05 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				E7EAEF4F2CAA82A20028DDFE /* Home */,
-				E7DEE71D2C983B8300549E05 /* Onboarding */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		E7DEE7132C983AFD00549E05 /* Supports */ = {
-			isa = PBXGroup;
-			children = (
-				E7D0BA322C9839AD00324E3D /* AppDelegate.swift */,
-				E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */,
-				E7D0BA362C9839AD00324E3D /* ViewController.swift */,
-				E7D0BA3D2C9839AF00324E3D /* LaunchScreen.storyboard */,
-			);
-			path = Supports;
-			sourceTree = "<group>";
-		};
-		E7DEE7142C983B0B00549E05 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE7272C983C8600549E05 /* User.swift */,
-				E78015EA2CAAA50C00E658A1 /* Hiker.swift */,
-				E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */,
-				E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */,
-				E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E7DEE7152C983B1600549E05 /* Shareds */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE7172C983B2700549E05 /* Components */,
-				E7DEE7162C983B1B00549E05 /* Extensions */,
-			);
-			path = Shareds;
-			sourceTree = "<group>";
-		};
-		E7DEE7162C983B1B00549E05 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E7EAEF542CAA83360028DDFE /* Swinject+Extension.swift */,
-				E7DEE73B2C983D8000549E05 /* Date+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E7DEE7172C983B2700549E05 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE72C2C983CE700549E05 /* Labels */,
-				E7DEE72B2C983CB000549E05 /* ViewControllers */,
-				E7DEE72A2C983C9700549E05 /* Views */,
-				E7DEE7292C983C9000549E05 /* Buttons */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		E7DEE7182C983B3000549E05 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				E78015F72CAAA63700E658A1 /* CoreBluetooth */,
-				E7DEE7352C983D5000549E05 /* HealthManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		E7DEE7192C983B3B00549E05 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				E78015FD2CAAA6DB00E658A1 /* CoreBluetooth */,
-				E7DEE7372C983D5B00549E05 /* HealthService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		E7DEE71A2C983B4400549E05 /* LocalDataSources */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE7392C983D7000549E05 /* SampleDB.swift */,
-			);
-			path = LocalDataSources;
-			sourceTree = "<group>";
-		};
-		E7DEE71B2C983B5000549E05 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E7D0BA3B2C9839AF00324E3D /* Assets.xcassets */,
-				E7DEE71C2C983B5500549E05 /* GPXAssets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		E7DEE71C2C983B5500549E05 /* GPXAssets */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE73F2C983D9900549E05 /* Telaga Bidadari Batam.gpx */,
-			);
-			path = GPXAssets;
-			sourceTree = "<group>";
-		};
-		E7DEE71D2C983B8300549E05 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE7202C983BF000549E05 /* Extensions */,
-				E7DEE71F2C983BDD00549E05 /* ViewControllers */,
-				E7DEE71E2C983B9400549E05 /* SubViews */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		E7DEE71E2C983B9400549E05 /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE7252C983C5F00549E05 /* SampleView.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		E7DEE71F2C983BDD00549E05 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE7232C983C1E00549E05 /* OnboardingHikingProfileVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E7DEE7202C983BF000549E05 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE7212C983C0C00549E05 /* OnboardingExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E7DEE7292C983C9000549E05 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */,
-				E7DEE7332C983D4600549E05 /* AppButton.swift */,
-				E78015E32CAA983100E658A1 /* PrimaryButton.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
-		E7DEE72A2C983C9700549E05 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE7312C983D2B00549E05 /* SampleItemView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E7DEE72B2C983CB000549E05 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE72F2C983D0C00549E05 /* AlterVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E7DEE72C2C983CE700549E05 /* Labels */ = {
-			isa = PBXGroup;
-			children = (
-				E7DEE72D2C983CF800549E05 /* SampleLabel.swift */,
-			);
-			path = Labels;
-			sourceTree = "<group>";
-		};
-		E7DEE7402C983DAD00549E05 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				03E274F62CA9246200EF2D5F /* MetricsVM.swift */,
-				E7DEE7452C983DEA00549E05 /* HomeVM.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		E7DEE7412C983DC300549E05 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				03E274F12CA9209000EF2D5F /* SubViews */,
-				031A6BEB2CA72562003AFD6C /* HomeScreen.swift */,
-				03E274E62CA9160300EF2D5F /* SummaryScreen.swift */,
-				03E274F42CA923E500EF2D5F /* MetricsScreen.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		E7DEE7472C983DF000549E05 /* Supports */ = {
-			isa = PBXGroup;
-			children = (
-				E7D0BA4C2C9839CB00324E3D /* HaikinguApp.swift */,
-				E7D0BA4E2C9839CB00324E3D /* ContentView.swift */,
-			);
-			path = Supports;
-			sourceTree = "<group>";
-		};
-		E7EAEF4F2CAA82A20028DDFE /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				E78015FE2CAAA9E400E658A1 /* Extensions */,
-				E7EAEF9A2CAA899E0028DDFE /* SubViews */,
-				E7EAEF502CAA82AA0028DDFE /* ViewControllers */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		E7EAEF502CAA82AA0028DDFE /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E7EAEF522CAA82C30028DDFE /* HomeVC.swift */,
-				E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E7EAEF9A2CAA899E0028DDFE /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				E7EAEF9B2CAA89B90028DDFE /* HomeHeaderView.swift */,
-				E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */,
-			);
-			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,11 +602,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				031A6BE52CA71527003AFD6C /* Shareds */,
-				031A6BF22CA7B78D003AFD6C /* Control */,
-				031A6BF32CA7D279003AFD6C /* Metrics */,
-			);
 			name = "Haikingu Watch App";
 			productName = "Haikingu Watch App";
 			productReference = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */;
@@ -579,8 +635,8 @@
 			);
 			mainGroup = E7D0BA262C9839AD00324E3D;
 			packageReferences = (
-				E765508B2CAAD3F9006DE972 /* XCRemoteSwiftPackageReference "Swinject" */,
-				E765508C2CAAD41F006DE972 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E7CFD0482CAADD8F000FAD7B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E7CFD0492CAADD9E000FAD7B /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = E7D0BA302C9839AD00324E3D /* Products */;
 			projectDirPath = "";
@@ -597,8 +653,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7D0BA3F2C9839AF00324E3D /* LaunchScreen.storyboard in Resources */,
-				E7D0BA3C2C9839AF00324E3D /* Assets.xcassets in Resources */,
+				E7CFCFF52CAADCFE000FAD7B /* Assets.xcassets in Resources */,
+				E7CFCFF62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx in Resources */,
+				E7CFCFF72CAADCFE000FAD7B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,8 +663,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7D0BA542C9839CC00324E3D /* Preview Assets.xcassets in Resources */,
-				E7D0BA512C9839CC00324E3D /* Assets.xcassets in Resources */,
+				E7CFD0472CAADD4B000FAD7B /* Assets.xcassets in Resources */,
+				E7CFD0452CAADD42000FAD7B /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,38 +675,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7DEE7342C983D4600549E05 /* AppButton.swift in Sources */,
-				E78015EB2CAAA50C00E658A1 /* Hiker.swift in Sources */,
-				E7DEE7222C983C0C00549E05 /* OnboardingExtension.swift in Sources */,
-				E78015E42CAA983100E658A1 /* PrimaryButton.swift in Sources */,
-				E7DEE7382C983D5B00549E05 /* HealthService.swift in Sources */,
-				E78015EF2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift in Sources */,
-				E7DEE7322C983D2B00549E05 /* SampleItemView.swift in Sources */,
-				E7EAEF552CAA833B0028DDFE /* Swinject+Extension.swift in Sources */,
-				E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */,
-				E78015F42CAAA5C400E658A1 /* HaikinguRequestReponse.swift in Sources */,
-				E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */,
-				E78015ED2CAAA53600E658A1 /* TypeOfRestEnum.swift in Sources */,
-				E7DEE7302C983D0C00549E05 /* AlterVC.swift in Sources */,
-				E7DEE7242C983C1E00549E05 /* OnboardingHikingProfileVC.swift in Sources */,
-				E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */,
-				E78015FC2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
-				E7EAEF532CAA82C30028DDFE /* HomeVC.swift in Sources */,
-				E78016022CAAAB0300E658A1 /* HikingModeControlView.swift in Sources */,
-				E78015F22CAAA59900E658A1 /* PeripheralBLEService.swift in Sources */,
-				E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */,
-				E7EAEF9C2CAA89B90028DDFE /* HomeHeaderView.swift in Sources */,
-				E78015F62CAAA62300E658A1 /* HikerBLEManager.swift in Sources */,
-				E78015E62CAA9B7500E658A1 /* SecondaryButton.swift in Sources */,
-				E78015FA2CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift in Sources */,
-				E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */,
-				E7DEE7262C983C5F00549E05 /* SampleView.swift in Sources */,
-				E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */,
-				E78015E22CAA932B00E658A1 /* HikingInvitationVC.swift in Sources */,
-				E78015E82CAAA4E600E658A1 /* CentralBLEService.swift in Sources */,
-				E78016002CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift in Sources */,
-				E7DEE72E2C983CF800549E05 /* SampleLabel.swift in Sources */,
-				E7DEE7282C983C8600549E05 /* User.swift in Sources */,
+				E7CFCFF82CAADCFE000FAD7B /* CentralBLEService.swift in Sources */,
+				E7CFCFF92CAADCFE000FAD7B /* Date+Extension.swift in Sources */,
+				E7CFCFFA2CAADCFE000FAD7B /* PrimaryButton.swift in Sources */,
+				E7CFCFFB2CAADCFE000FAD7B /* SecondaryButton.swift in Sources */,
+				E7CFCFFC2CAADCFE000FAD7B /* HikerBLEManager.swift in Sources */,
+				E7CFCFFD2CAADCFE000FAD7B /* SceneDelegate.swift in Sources */,
+				E7CFCFFE2CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift in Sources */,
+				E7CFCFFF2CAADCFE000FAD7B /* HaikinguRequestReponse.swift in Sources */,
+				E7CFD0002CAADCFE000FAD7B /* SampleLabel.swift in Sources */,
+				E7CFD0012CAADCFE000FAD7B /* HealthService.swift in Sources */,
+				E7CFD0022CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift in Sources */,
+				E7CFD0032CAADCFE000FAD7B /* HomeVC.swift in Sources */,
+				E7CFD0042CAADCFE000FAD7B /* Hiker.swift in Sources */,
+				E7CFD0052CAADCFE000FAD7B /* HikingInvitationVC.swift in Sources */,
+				E7CFD0062CAADCFE000FAD7B /* SampleView.swift in Sources */,
+				E7CFD0072CAADCFE000FAD7B /* HealthManager.swift in Sources */,
+				E7CFD0082CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift in Sources */,
+				E7CFD0092CAADCFE000FAD7B /* SampleItemView.swift in Sources */,
+				E7CFD00A2CAADCFE000FAD7B /* Swinject+Extension.swift in Sources */,
+				E7CFD00B2CAADCFE000FAD7B /* SampleDB.swift in Sources */,
+				E7CFD00C2CAADCFE000FAD7B /* OnboardingExtension.swift in Sources */,
+				E7CFD00D2CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift in Sources */,
+				E7CFD00E2CAADCFE000FAD7B /* HomeHeaderView.swift in Sources */,
+				E7CFD00F2CAADCFE000FAD7B /* ViewController.swift in Sources */,
+				E7CFD0102CAADCFE000FAD7B /* AppButton.swift in Sources */,
+				E7CFD0112CAADCFE000FAD7B /* HikingModeControlView.swift in Sources */,
+				E7CFD0122CAADCFE000FAD7B /* AppDelegate.swift in Sources */,
+				E7CFD0132CAADCFE000FAD7B /* User.swift in Sources */,
+				E7CFD0142CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
+				E7CFD0152CAADCFE000FAD7B /* AlterVC.swift in Sources */,
+				E7CFD0162CAADCFE000FAD7B /* PeripheralBLEService.swift in Sources */,
+				E7CFD0172CAADCFE000FAD7B /* TypeOfRestEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,15 +714,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03E274F52CA923E500EF2D5F /* MetricsScreen.swift in Sources */,
-				03E274F92CA92F0F00EF2D5F /* UserServices.swift in Sources */,
-				E7DEE7462C983DEA00549E05 /* HomeVM.swift in Sources */,
-				03E274E72CA9160300EF2D5F /* SummaryScreen.swift in Sources */,
-				E7D0BA4F2C9839CB00324E3D /* ContentView.swift in Sources */,
-				031A6BEC2CA72562003AFD6C /* HomeScreen.swift in Sources */,
-				03E274F02CA916E200EF2D5F /* NavigationServices.swift in Sources */,
-				03E274F72CA9246200EF2D5F /* MetricsVM.swift in Sources */,
-				E7D0BA4D2C9839CB00324E3D /* HaikinguApp.swift in Sources */,
+				E7CFD0322CAADD2E000FAD7B /* HKMetricBiggerText.swift in Sources */,
+				E7CFD0332CAADD2E000FAD7B /* MetricsScreen.swift in Sources */,
+				E7CFD0342CAADD2E000FAD7B /* HKCircleButton.swift in Sources */,
+				E7CFD0352CAADD2E000FAD7B /* MetricsView.swift in Sources */,
+				E7CFD0362CAADD2E000FAD7B /* UserServices.swift in Sources */,
+				E7CFD0372CAADD2E000FAD7B /* SummaryScreen.swift in Sources */,
+				E7CFD0412CAADD38000FAD7B /* HaikinguApp.swift in Sources */,
+				E7CFD0422CAADD38000FAD7B /* ContentView.swift in Sources */,
+				E7CFD0382CAADD2E000FAD7B /* LeadControlView.swift in Sources */,
+				E7CFD0392CAADD2E000FAD7B /* MemberControlScreen.swift in Sources */,
+				E7CFD03A2CAADD2E000FAD7B /* HKSummaryText.swift in Sources */,
+				E7CFD03B2CAADD2E000FAD7B /* HomeScreen.swift in Sources */,
+				E7CFD03C2CAADD2E000FAD7B /* HKTextButton.swift in Sources */,
+				E7CFD03D2CAADD2E000FAD7B /* NavigationServices.swift in Sources */,
+				E7CFD01B2CAADD24000FAD7B /* MetricsVM.swift in Sources */,
+				E7CFD01C2CAADD24000FAD7B /* HomeVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,10 +744,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E7D0BA3D2C9839AF00324E3D /* LaunchScreen.storyboard */ = {
+		E7CFCFF12CAADCFE000FAD7B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E7D0BA3E2C9839AF00324E3D /* Base */,
+				E7CFCFF02CAADCFE000FAD7B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -806,7 +870,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -814,31 +878,25 @@
 		E7D0BA442C9839AF00324E3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 57BYB3NG56;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				DEVELOPMENT_TEAM = 57BYB3NG56;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.almond.HaikinguApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Haikingu - Dev - iOS";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -848,31 +906,25 @@
 		E7D0BA452C9839AF00324E3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 57BYB3NG56;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				DEVELOPMENT_TEAM = 57BYB3NG56;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.almond.HaikinguApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Haikingu - Dev - iOS";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -884,28 +936,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=watchos*]" = 57BYB3NG56;
+				DEVELOPMENT_TEAM = 57BYB3NG56;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.HaikinguApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.almond.HaikinguApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -920,28 +966,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=watchos*]" = 57BYB3NG56;
+				DEVELOPMENT_TEAM = 57BYB3NG56;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.HaikinguApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.almond.HaikinguApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -984,15 +1024,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E765508B2CAAD3F9006DE972 /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject.git";
-			requirement = {
-				kind = exactVersion;
-				version = 2.8.8;
-			};
-		};
-		E765508C2CAAD41F006DE972 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		E7CFD0482CAADD8F000FAD7B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -1000,22 +1032,30 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		E7CFD0492CAADD9E000FAD7B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E765508E2CAAD4D4006DE972 /* Swinject */ = {
+		E7CFD04B2CAADDA6000FAD7B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E765508B2CAAD3F9006DE972 /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
-		E76550902CAAD4D7006DE972 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E765508C2CAAD41F006DE972 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = E7CFD0482CAADD8F000FAD7B /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		E76550922CAAD4EA006DE972 /* Swinject */ = {
+		E7CFD04D2CAADDAA000FAD7B /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E765508B2CAAD3F9006DE972 /* XCRemoteSwiftPackageReference "Swinject" */;
+			package = E7CFD0492CAADD9E000FAD7B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		E7CFD04F2CAADDAF000FAD7B /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7CFD0492CAADD9E000FAD7B /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
