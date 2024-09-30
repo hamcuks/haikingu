@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AF3B97E2CAAF3C8008C5891 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B97D2CAAF3C8008C5891 /* WorkoutManager.swift */; };
+		8AF3B97F2CAAF3C8008C5891 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B97D2CAAF3C8008C5891 /* WorkoutManager.swift */; };
+		8AF3B9812CAAF41C008C5891 /* WorkoutManager+iOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9802CAAF41C008C5891 /* WorkoutManager+iOS+Extension.swift */; };
+		8AF3B9832CAAF4AE008C5891 /* WorkoutServiceIos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9822CAAF4AE008C5891 /* WorkoutServiceIos.swift */; };
+		8AF3B9862CAAF4FA008C5891 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9852CAAF4F9008C5891 /* Logger.swift */; };
+		8AF3B9872CAAF4FA008C5891 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9852CAAF4F9008C5891 /* Logger.swift */; };
+		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
+		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E7EDAB022CAAEE5E006F3ED0 /* HKSummaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFB2CAAEE5E006F3ED0 /* HKSummaryText.swift */; };
 		E7EDAB032CAAEE5E006F3ED0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFF2CAAEE5E006F3ED0 /* HomeVM.swift */; };
@@ -96,6 +104,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8AF3B97D2CAAF3C8008C5891 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		8AF3B9802CAAF41C008C5891 /* WorkoutManager+iOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+iOS+Extension.swift"; sourceTree = "<group>"; };
+		8AF3B9822CAAF4AE008C5891 /* WorkoutServiceIos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceIos.swift; sourceTree = "<group>"; };
+		8AF3B9852CAAF4F9008C5891 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
+		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
 		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
 		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -196,6 +210,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8AF3B9662CAAF2CD008C5891 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8AF3B9842CAAF4E9008C5891 /* Supports */,
+				8AF3B97B2CAAF3A9008C5891 /* Managers */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8AF3B97B2CAAF3A9008C5891 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8AF3B97D2CAAF3C8008C5891 /* WorkoutManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8AF3B9842CAAF4E9008C5891 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				8AF3B9852CAAF4F9008C5891 /* Logger.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		8AF3B98A2CAAF608008C5891 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		E7CFD04A2CAADDA6000FAD7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +253,7 @@
 		E7D0BA262C9839AD00324E3D = {
 			isa = PBXGroup;
 			children = (
+				8AF3B9662CAAF2CD008C5891 /* Shared */,
 				E7D0BA312C9839AD00324E3D /* HaikinguApp */,
 				E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */,
 				E7CFD04A2CAADDA6000FAD7B /* Frameworks */,
@@ -242,6 +290,7 @@
 		E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				8AF3B98A2CAAF608008C5891 /* Managers */,
 				E7EDAB222CAAEE84006F3ED0 /* Assets.xcassets */,
 				E7EDAB202CAAEE7B006F3ED0 /* Preview Content */,
 				E7EDAB132CAAEE6A006F3ED0 /* Screens */,
@@ -281,6 +330,7 @@
 			children = (
 				E7EDAAF42CAAEE5E006F3ED0 /* NavigationServices.swift */,
 				E7EDAAF52CAAEE5E006F3ED0 /* UserServices.swift */,
+				8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -414,6 +464,7 @@
 			children = (
 				E7EDAB522CAAEFDD006F3ED0 /* CoreBluetooth */,
 				E7EDAB532CAAEFDD006F3ED0 /* HealthManager.swift */,
+				8AF3B9802CAAF41C008C5891 /* WorkoutManager+iOS+Extension.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -569,6 +620,7 @@
 			children = (
 				E7EDAB7A2CAAEFDD006F3ED0 /* CoreBluetooth */,
 				E7EDAB7B2CAAEFDD006F3ED0 /* HealthService.swift */,
+				8AF3B9822CAAF4AE008C5891 /* WorkoutServiceIos.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -758,11 +810,13 @@
 				E7EDAB962CAAEFDD006F3ED0 /* PeripheralBLEService.swift in Sources */,
 				E7EDAB972CAAEFDD006F3ED0 /* HikingInvitationVC.swift in Sources */,
 				E7EDAB982CAAEFDD006F3ED0 /* HikerBLEManager+Central+Extension.swift in Sources */,
+				8AF3B9812CAAF41C008C5891 /* WorkoutManager+iOS+Extension.swift in Sources */,
 				E7EDAB992CAAEFDD006F3ED0 /* OnboardingHikingProfileVC.swift in Sources */,
 				E7EDAB9A2CAAEFDD006F3ED0 /* ViewController.swift in Sources */,
 				E7EDAB9B2CAAEFDD006F3ED0 /* TypeOfRestEnum.swift in Sources */,
 				E7EDAB9C2CAAEFDD006F3ED0 /* SampleItemView.swift in Sources */,
 				E7EDAB9D2CAAEFDD006F3ED0 /* HikerBLEManager.swift in Sources */,
+				8AF3B97E2CAAF3C8008C5891 /* WorkoutManager.swift in Sources */,
 				E7EDAB9E2CAAEFDD006F3ED0 /* PrimaryButton.swift in Sources */,
 				E7EDAB9F2CAAEFDD006F3ED0 /* SampleView.swift in Sources */,
 				E7EDABA02CAAEFDD006F3ED0 /* HomeVC.swift in Sources */,
@@ -772,11 +826,13 @@
 				E7EDABA42CAAEFDD006F3ED0 /* DestinationListVC.swift in Sources */,
 				E7EDABA52CAAEFDD006F3ED0 /* SampleLabel.swift in Sources */,
 				E7EDABA62CAAEFDD006F3ED0 /* CentralBLEService.swift in Sources */,
+				8AF3B9862CAAF4FA008C5891 /* Logger.swift in Sources */,
 				E7EDABA72CAAEFDD006F3ED0 /* OnboardingHealthAccessVC.swift in Sources */,
 				E7EDABA82CAAEFDD006F3ED0 /* AppButton.swift in Sources */,
 				E7EDABA92CAAEFDD006F3ED0 /* DestinationModel.swift in Sources */,
 				E7EDABAA2CAAEFDD006F3ED0 /* BackToHomeMessageView.swift in Sources */,
 				E7EDABAB2CAAEFDD006F3ED0 /* Swinject+Extension.swift in Sources */,
+				8AF3B9832CAAF4AE008C5891 /* WorkoutServiceIos.swift in Sources */,
 				E7EDABAC2CAAEFDD006F3ED0 /* SceneDelegate.swift in Sources */,
 				E7EDABAD2CAAEFDD006F3ED0 /* Date+Extension.swift in Sources */,
 				E7EDABAE2CAAEFDD006F3ED0 /* SampleDB.swift in Sources */,
@@ -799,10 +855,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7EDAB022CAAEE5E006F3ED0 /* HKSummaryText.swift in Sources */,
+				8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */,
 				E7EDAB032CAAEE5E006F3ED0 /* HomeVM.swift in Sources */,
 				E7EDAB042CAAEE5E006F3ED0 /* HKCircleButton.swift in Sources */,
 				E7EDAB172CAAEE6A006F3ED0 /* ContentView.swift in Sources */,
 				E7EDAB182CAAEE6A006F3ED0 /* MemberControlScreen.swift in Sources */,
+				8AF3B97F2CAAF3C8008C5891 /* WorkoutManager.swift in Sources */,
 				E7EDAB192CAAEE6A006F3ED0 /* MetricsScreen.swift in Sources */,
 				E7EDAB1A2CAAEE6A006F3ED0 /* HaikinguApp.swift in Sources */,
 				E7EDAB1B2CAAEE6A006F3ED0 /* SummaryScreen.swift in Sources */,
@@ -810,10 +868,12 @@
 				E7EDAB1D2CAAEE6A006F3ED0 /* LeadControlView.swift in Sources */,
 				E7EDAB1E2CAAEE6A006F3ED0 /* HomeScreen.swift in Sources */,
 				E7EDAB052CAAEE5E006F3ED0 /* UserServices.swift in Sources */,
+				8AF3B9872CAAF4FA008C5891 /* Logger.swift in Sources */,
 				E7EDAB062CAAEE5E006F3ED0 /* HKMetricBiggerText.swift in Sources */,
 				E7EDAB072CAAEE5E006F3ED0 /* HKTextButton.swift in Sources */,
 				E7EDAB082CAAEE5E006F3ED0 /* NavigationServices.swift in Sources */,
 				E7EDAB092CAAEE5E006F3ED0 /* MetricsVM.swift in Sources */,
+				8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
