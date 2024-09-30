@@ -12,7 +12,8 @@ import WatchConnectivity
 
 // MARK: - Workout session management
 //
-extension WorkoutManager {
+extension WorkoutManager: WorkoutServiceiOS {
+    
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws {
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = workoutType

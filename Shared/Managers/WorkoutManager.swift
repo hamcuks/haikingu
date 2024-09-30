@@ -14,9 +14,8 @@ import Combine
 
 @MainActor
 
-class WorkoutManager: NSObject, ObservableObject {
-    
-    
+class WorkoutManager: NSObject, ObservableObject{
+
     
     let pedometerManager = CMPedometer()
     
@@ -292,7 +291,7 @@ extension WorkoutManager {
         }
     }
     
-    func requestAccessMotion(){
+    func requestMotionPermission(){
         guard CMPedometer.isPaceAvailable() else {
             print("Pedometer pace data is not available.")
             return

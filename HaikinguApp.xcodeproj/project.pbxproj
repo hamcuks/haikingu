@@ -15,6 +15,9 @@
 		8A6467B72CA92A060074BBB4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B52CA92A060074BBB4 /* Logger.swift */; };
 		8A6467B92CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */; };
 		8A6467BB2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467BA2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift */; };
+		8A6467BD2CA930040074BBB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6467BC2CA930040074BBB4 /* AppDelegate.swift */; };
+		8AD59D9E2CAA908F00BF67E8 /* WorkoutServiceiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD59D9D2CAA908F00BF67E8 /* WorkoutServiceiOS.swift */; };
+		8AD59DA32CAA912300BF67E8 /* WorkoutServicewatchOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD59DA22CAA912300BF67E8 /* WorkoutServicewatchOS.swift */; };
 		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
 		E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */; };
 		E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA362C9839AD00324E3D /* ViewController.swift */; };
@@ -74,6 +77,9 @@
 		8A6467B52CA92A060074BBB4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+iOS+Extension.swift"; sourceTree = "<group>"; };
 		8A6467BA2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
+		8A6467BC2CA930040074BBB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8AD59D9D2CAA908F00BF67E8 /* WorkoutServiceiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceiOS.swift; sourceTree = "<group>"; };
+		8AD59DA22CAA912300BF67E8 /* WorkoutServicewatchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServicewatchOS.swift; sourceTree = "<group>"; };
 		BF799B6F21C28378FA9ADFA9 /* Pods-HaikinguApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaikinguApp.debug.xcconfig"; path = "Target Support Files/Pods-HaikinguApp/Pods-HaikinguApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA322C9839AD00324E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,9 +151,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8AD59D982CAA8F1000BF67E8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8AD59D9B2CAA8F3600BF67E8 /* Extension */,
+				8AD59D9A2CAA8F2600BF67E8 /* Managers */,
+				8AD59D992CAA8F1D00BF67E8 /* Services */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8AD59D992CAA8F1D00BF67E8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8AD59D9A2CAA8F2600BF67E8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8A6467B22CA929980074BBB4 /* WorkoutManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8AD59D9B2CAA8F3600BF67E8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8AD59D9C2CAA8F6800BF67E8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8A6467BA2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8AD59D9F2CAA90B200BF67E8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8AD59DA22CAA912300BF67E8 /* WorkoutServicewatchOS.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E7D0BA262C9839AD00324E3D = {
 			isa = PBXGroup;
 			children = (
+				8AD59D982CAA8F1000BF67E8 /* Shared */,
 				E7D0BA312C9839AD00324E3D /* HaikinguApp */,
 				E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */,
 				E7D0BA302C9839AD00324E3D /* Products */,
@@ -184,6 +239,8 @@
 		E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				8AD59D9F2CAA90B200BF67E8 /* Services */,
+				8AD59D9C2CAA8F6800BF67E8 /* Managers */,
 				E7DEE7472C983DF000549E05 /* Supports */,
 				E7DEE7412C983DC300549E05 /* Screens */,
 				E7DEE7402C983DAD00549E05 /* ViewModels */,
@@ -243,7 +300,6 @@
 			children = (
 				E7DEE73B2C983D8000549E05 /* Date+Extension.swift */,
 				8A6467B82CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift */,
-				8A6467BA2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				E7DEE7352C983D5000549E05 /* HealthManager.swift */,
-				8A6467B22CA929980074BBB4 /* WorkoutManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -272,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				E7DEE7372C983D5B00549E05 /* HealthService.swift */,
+				8AD59D9D2CAA908F00BF67E8 /* WorkoutServiceiOS.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -388,6 +444,7 @@
 			children = (
 				E7D0BA4C2C9839CB00324E3D /* HaikinguApp.swift */,
 				E7D0BA4E2C9839CB00324E3D /* ContentView.swift */,
+				8A6467BC2CA930040074BBB4 /* AppDelegate.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -582,6 +639,7 @@
 				E7DEE7342C983D4600549E05 /* AppButton.swift in Sources */,
 				8A6467B92CA92B380074BBB4 /* WorkoutManager+iOS+Extension.swift in Sources */,
 				E7DEE7222C983C0C00549E05 /* OnboardingExtension.swift in Sources */,
+				8AD59D9E2CAA908F00BF67E8 /* WorkoutServiceiOS.swift in Sources */,
 				E7DEE7382C983D5B00549E05 /* HealthService.swift in Sources */,
 				E7DEE7322C983D2B00549E05 /* SampleItemView.swift in Sources */,
 				E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */,
@@ -604,7 +662,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6467BD2CA930040074BBB4 /* AppDelegate.swift in Sources */,
 				E7DEE7462C983DEA00549E05 /* ViewModelA.swift in Sources */,
+				8AD59DA32CAA912300BF67E8 /* WorkoutServicewatchOS.swift in Sources */,
 				8A6467B72CA92A060074BBB4 /* Logger.swift in Sources */,
 				E7DEE7442C983DE100549E05 /* ScreenA.swift in Sources */,
 				8A6467BB2CA92D4A0074BBB4 /* WorkoutManager+watchOS+Extension.swift in Sources */,
@@ -762,9 +822,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P5G5Z7L546;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 57BYB3NG56;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -776,8 +839,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.HaikinguApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Haikingu - Dev - iOS";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -791,9 +856,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P5G5Z7L546;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 57BYB3NG56;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -805,8 +873,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.HaikinguApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Haikingu - Dev - iOS";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -819,11 +889,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = P5G5Z7L546;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = 57BYB3NG56;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -833,8 +906,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.HaikinguApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -850,11 +925,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = P5G5Z7L546;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = 57BYB3NG56;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -864,8 +942,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.HaikinguApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

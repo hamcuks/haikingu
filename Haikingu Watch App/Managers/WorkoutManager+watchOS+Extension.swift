@@ -13,7 +13,11 @@ import WatchConnectivity
 
 // MARK: - Workout session management
 //
-extension WorkoutManager: WCSessionDelegate {
+
+extension WorkoutManager: WCSessionDelegate, WorkoutServicewatchOS {
+
+    
+    
     /**
      Use healthStore.requestAuthorization to request authorization in watchOS when
      healthDataAccessRequest isn't available yet.
