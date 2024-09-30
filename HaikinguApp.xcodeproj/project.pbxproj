@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7CE20F12CAAF6BF004A3223 /* HomeVC+PeripheralBLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE20F02CAAF6BF004A3223 /* HomeVC+PeripheralBLE+Extension.swift */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E7EDAB022CAAEE5E006F3ED0 /* HKSummaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFB2CAAEE5E006F3ED0 /* HKSummaryText.swift */; };
 		E7EDAB032CAAEE5E006F3ED0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFF2CAAEE5E006F3ED0 /* HomeVM.swift */; };
@@ -112,6 +113,7 @@
 		E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
 		E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
 		E78016272CAAC9B800E658A1 /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
+		E7CE20F02CAAF6BF004A3223 /* HomeVC+PeripheralBLE+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+PeripheralBLE+Extension.swift"; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA402C9839AF00324E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haikingu Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -477,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				E7EDAB652CAAEFDD006F3ED0 /* HomeVC+HikingInvitation+Extension.swift */,
+				E7CE20F02CAAF6BF004A3223 /* HomeVC+PeripheralBLE+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				E7EDAB9F2CAAEFDD006F3ED0 /* SampleView.swift in Sources */,
 				E7EDABA02CAAEFDD006F3ED0 /* HomeVC.swift in Sources */,
 				E7EDABA12CAAEFDD006F3ED0 /* AlterVC.swift in Sources */,
+				E7CE20F12CAAF6BF004A3223 /* HomeVC+PeripheralBLE+Extension.swift in Sources */,
 				E7EDABA22CAAEFDD006F3ED0 /* SecondaryButton.swift in Sources */,
 				E7EDABA32CAAEFDD006F3ED0 /* HikingCell.swift in Sources */,
 				E7EDABA42CAAEFDD006F3ED0 /* DestinationListVC.swift in Sources */,
@@ -971,6 +975,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 57BYB3NG56;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1003,6 +1008,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 57BYB3NG56;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
