@@ -36,6 +36,9 @@ class HomeVC: UIViewController {
     lazy var imageView: UIImageView = UIImageView()
     lazy var backToHomeMessageView: BackToHomeMessageView = BackToHomeMessageView()
     
+    /// Data
+    var invitor: Hiker?
+    
     /// Constructors
     init(peripheralManager: PeripheralBLEService?) {
         super.init(nibName: nil, bundle: nil)
@@ -50,11 +53,11 @@ class HomeVC: UIViewController {
     /// Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.configureVC()
         self.configureHeaderView()
         self.configureHikingModeControlView()
         self.configureContentStackView()
+        self.peripheralManager?.setDelegate(self)
         
     }
     
@@ -129,6 +132,17 @@ class HomeVC: UIViewController {
     
     @objc private func onHikingModeControlValueChanged(_ sender: HikingModeControlView) {
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")
+    }
+    
+    func showInvitationSheet(from hiker: Hiker) {
+        let vc = HikingInvitationVC()
+        vc.hiker = hiker
+        vc.delegate = self
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.sheetPresentationController?.detents = [.medium()]
+        
+        self.present(navVC, animated: true)
     }
 }
 

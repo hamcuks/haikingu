@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let vc = Container.shared.resolve(HomeVC.self) else { return }
         
-        window.rootViewController = UINavigationController(rootViewController: DestinationListVC())
+        window.rootViewController = UINavigationController(rootViewController: vc)
         
         window.makeKeyAndVisible()
         
