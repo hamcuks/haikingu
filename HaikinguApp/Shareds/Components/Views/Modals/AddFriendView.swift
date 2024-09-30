@@ -8,18 +8,60 @@
 //  TextIconButton(icon: "person.2.fill", title: "Add Friends", color: .systemBrown)
 
 import UIKit
+import SnapKit
 
-class AddFriendView: UIView {
+class AddFriendVC: UIViewController {
     
+    var header = headerAddFriendView()
+    var yourTeam : bodyAddFriendView!
+    var nearbyPerson: bodyAddFriendView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .white
+        yourTeam = bodyAddFriendView(titleText: "Your team (1/5)" )
+        nearbyPerson = bodyAddFriendView(titleText: "Nearby Person" )
+        
+        configuration()
 
+    }
+    
+    private func configuration() {
+        view.addSubview(header)
+        view.addSubview(yourTeam)
+        view.addSubview(nearbyPerson)
+        
+//        header.layer.borderColor = UIColor.black.cgColor
+//        header.layer.borderWidth = 1
+
+        header.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(20)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(20)
+        }
+        
+        yourTeam.snp.makeConstraints { make in
+            make.top.equalTo(header.snp.bottom).offset(20)
+            make.leading.trailing.equalTo(header)
+        }
+        
+        nearbyPerson.snp.makeConstraints { make in
+            make.top.equalTo(yourTeam.snp.bottom).offset(20)
+            make.leading.trailing.equalTo(yourTeam)
+        }
+        
+
+    }
 }
 
 
 class headerAddFriendView: UIView {
+    
     private var iconPerson: UIImageView = {
         let icon = UIImageView()
         icon.image = UIImage(systemName: "person.2.fill")
+        icon.contentMode = .scaleAspectFit
         icon.tintColor = .black
         return icon
     }()
@@ -28,7 +70,7 @@ class headerAddFriendView: UIView {
         let title = UILabel()
         title.text = "Add Friends"
         title.font = .systemFont(ofSize: 20, weight: .semibold)
-        title.textColor =.black
+        title.textColor = .black
         return title
     }()
     
@@ -39,7 +81,6 @@ class headerAddFriendView: UIView {
         subtitle.textColor = .black.withAlphaComponent(0.5)
         return subtitle
     }()
-    
     
     private var horizontalStack: UIStackView = {
         let horizontal = UIStackView()
@@ -85,5 +126,51 @@ class headerAddFriendView: UIView {
             make.width.equalTo(55)
             make.height.equalTo(41)
         }
+        
     }
+}
+
+
+class bodyAddFriendView: UIView {
+    
+    private var yourTeamLabel: UILabel = {
+        var label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .semibold)
+        label.textColor = .black
+        return label
+    }()
+    
+    private var personImage = PersonImageView(
+        imagePerson: "Bidadari",
+        namePerson: "Person 1"
+    )
+    
+    init(titleText: String){
+        super.init(frame: .zero)
+        configureUI(title: titleText)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    private func configureUI(title: String) {
+        addSubview(yourTeamLabel)
+        addSubview(personImage)
+        
+        yourTeamLabel.text = title
+        
+        yourTeamLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        personImage.snp.makeConstraints { make in
+            make.top.equalTo(yourTeamLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+    }
+    
 }

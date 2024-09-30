@@ -16,7 +16,7 @@ import UIKit
 class DetailDestinationVC: UIViewController {
     
     var destinationSelected: DestinationModel!
-    var teamView: TeamsView = TeamsView()
+    var teamView: TeamsView!
     var alertNotRange: AlertRangeView = AlertRangeView()
     var isInrangeLocation: Bool = false
     
@@ -59,6 +59,8 @@ class DetailDestinationVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
+        teamView = TeamsView(action: #selector(teamAction))
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
@@ -153,6 +155,24 @@ class DetailDestinationVC: UIViewController {
         
         print("Let's go button is tapped")
         
+    }
+    
+    @objc
+    func teamAction(){
+        print("add friends button tapped")
+        showModalAddFriend()
+        
+    }
+    
+    func showModalAddFriend(){
+        let addFriendVC = AddFriendVC()
+        addFriendVC.modalPresentationStyle = .formSheet
+        
+        if let sheet = addFriendVC.sheetPresentationController {
+            sheet.prefersGrabberVisible = true
+            sheet.detents = [ .medium() , .large()]
+            present(addFriendVC, animated: true)
+        }
     }
 
 }

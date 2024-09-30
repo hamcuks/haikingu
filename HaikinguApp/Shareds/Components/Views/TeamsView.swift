@@ -56,22 +56,20 @@ class TeamsView: UIView {
         return horizontal
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.configure()
+    init(action: Selector) {
+        super.init(frame: .zero)
+        configure(action: action)
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure(){
+    private func configure(action: Selector){
         
-        yourTeamLabel.text = "Your team 1/5"
+        yourTeamLabel.text = "Your team (1/5)"
         
         addSubview(verticalStack)
-        
-        addFriendsButton.addTarget(self, action: #selector(cobaButton), for: .touchUpInside)
         
 //        verticalStack.layer.borderColor = UIColor.black.cgColor
 //        verticalStack.layer.borderWidth = 1
@@ -81,6 +79,8 @@ class TeamsView: UIView {
         
         verticalStack.addArrangedSubview(horizontalStack)
         verticalStack.addArrangedSubview(roundedRectangleView)
+        
+        addFriendsButton.addTarget(nil, action: action, for: .touchUpInside)
         
         setupProfileStack()
         
@@ -105,8 +105,6 @@ class TeamsView: UIView {
 //        horizontalPersonStack.layer.borderColor = UIColor.red.cgColor
 //        horizontalPersonStack.layer.borderWidth = 1
                 
-        
-        
     }
     
     func setupProfileStack(){
@@ -122,10 +120,5 @@ class TeamsView: UIView {
         horizontalPersonStack.addArrangedSubview(person4)
         horizontalPersonStack.addArrangedSubview(person5)
     }
-    
-    @objc
-    func cobaButton(){
-        print("coba button")
-    }
-    
+
 }
