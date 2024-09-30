@@ -7,64 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E7CFCFF52CAADCFE000FAD7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CFCFC82CAADCFE000FAD7B /* Assets.xcassets */; };
-		E7CFCFF62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E7CFCFC62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx */; };
-		E7CFCFF72CAADCFE000FAD7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CFCFF12CAADCFE000FAD7B /* LaunchScreen.storyboard */; };
-		E7CFCFF82CAADCFE000FAD7B /* CentralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFDB2CAADCFE000FAD7B /* CentralBLEService.swift */; };
-		E7CFCFF92CAADCFE000FAD7B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFEB2CAADCFE000FAD7B /* Date+Extension.swift */; };
-		E7CFCFFA2CAADCFE000FAD7B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE12CAADCFE000FAD7B /* PrimaryButton.swift */; };
-		E7CFCFFB2CAADCFE000FAD7B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE22CAADCFE000FAD7B /* SecondaryButton.swift */; };
-		E7CFCFFC2CAADCFE000FAD7B /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFBC2CAADCFE000FAD7B /* HikerBLEManager.swift */; };
-		E7CFCFFD2CAADCFE000FAD7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFF22CAADCFE000FAD7B /* SceneDelegate.swift */; };
-		E7CFCFFE2CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFD72CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift */; };
-		E7CFCFFF2CAADCFE000FAD7B /* HaikinguRequestReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC02CAADCFE000FAD7B /* HaikinguRequestReponse.swift */; };
-		E7CFD0002CAADCFE000FAD7B /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE42CAADCFE000FAD7B /* SampleLabel.swift */; };
-		E7CFD0012CAADCFE000FAD7B /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFDE2CAADCFE000FAD7B /* HealthService.swift */; };
-		E7CFD0022CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFB92CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift */; };
-		E7CFD0032CAADCFE000FAD7B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFD02CAADCFE000FAD7B /* HomeVC.swift */; };
-		E7CFD0042CAADCFE000FAD7B /* Hiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC22CAADCFE000FAD7B /* Hiker.swift */; };
-		E7CFD0052CAADCFE000FAD7B /* HikingInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFCF2CAADCFE000FAD7B /* HikingInvitationVC.swift */; };
-		E7CFD0062CAADCFE000FAD7B /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFD52CAADCFE000FAD7B /* SampleView.swift */; };
-		E7CFD0072CAADCFE000FAD7B /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFBE2CAADCFE000FAD7B /* HealthManager.swift */; };
-		E7CFD0082CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFCA2CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift */; };
-		E7CFD0092CAADCFE000FAD7B /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE82CAADCFE000FAD7B /* SampleItemView.swift */; };
-		E7CFD00A2CAADCFE000FAD7B /* Swinject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFEC2CAADCFE000FAD7B /* Swinject+Extension.swift */; };
-		E7CFD00B2CAADCFE000FAD7B /* SampleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFB72CAADCFE000FAD7B /* SampleDB.swift */; };
-		E7CFD00C2CAADCFE000FAD7B /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFD32CAADCFE000FAD7B /* OnboardingExtension.swift */; };
-		E7CFD00D2CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC12CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift */; };
-		E7CFD00E2CAADCFE000FAD7B /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFCD2CAADCFE000FAD7B /* HomeHeaderView.swift */; };
-		E7CFD00F2CAADCFE000FAD7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFF32CAADCFE000FAD7B /* ViewController.swift */; };
-		E7CFD0102CAADCFE000FAD7B /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE02CAADCFE000FAD7B /* AppButton.swift */; };
-		E7CFD0112CAADCFE000FAD7B /* HikingModeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFCC2CAADCFE000FAD7B /* HikingModeControlView.swift */; };
-		E7CFD0122CAADCFE000FAD7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFEF2CAADCFE000FAD7B /* AppDelegate.swift */; };
-		E7CFD0132CAADCFE000FAD7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC42CAADCFE000FAD7B /* User.swift */; };
-		E7CFD0142CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFBA2CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift */; };
-		E7CFD0152CAADCFE000FAD7B /* AlterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFE62CAADCFE000FAD7B /* AlterVC.swift */; };
-		E7CFD0162CAADCFE000FAD7B /* PeripheralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFDC2CAADCFE000FAD7B /* PeripheralBLEService.swift */; };
-		E7CFD0172CAADCFE000FAD7B /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFCFC32CAADCFE000FAD7B /* TypeOfRestEnum.swift */; };
-		E7CFD01B2CAADD24000FAD7B /* MetricsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0192CAADD24000FAD7B /* MetricsVM.swift */; };
-		E7CFD01C2CAADD24000FAD7B /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0182CAADD24000FAD7B /* HomeVM.swift */; };
-		E7CFD0322CAADD2E000FAD7B /* HKMetricBiggerText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD02D2CAADD2E000FAD7B /* HKMetricBiggerText.swift */; };
-		E7CFD0332CAADD2E000FAD7B /* MetricsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0242CAADD2E000FAD7B /* MetricsScreen.swift */; };
-		E7CFD0342CAADD2E000FAD7B /* HKCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD02A2CAADD2E000FAD7B /* HKCircleButton.swift */; };
-		E7CFD0352CAADD2E000FAD7B /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0202CAADD2E000FAD7B /* MetricsView.swift */; };
-		E7CFD0362CAADD2E000FAD7B /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0282CAADD2E000FAD7B /* UserServices.swift */; };
-		E7CFD0372CAADD2E000FAD7B /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0252CAADD2E000FAD7B /* SummaryScreen.swift */; };
-		E7CFD0382CAADD2E000FAD7B /* LeadControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD01D2CAADD2E000FAD7B /* LeadControlView.swift */; };
-		E7CFD0392CAADD2E000FAD7B /* MemberControlScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD01E2CAADD2E000FAD7B /* MemberControlScreen.swift */; };
-		E7CFD03A2CAADD2E000FAD7B /* HKSummaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD02E2CAADD2E000FAD7B /* HKSummaryText.swift */; };
-		E7CFD03B2CAADD2E000FAD7B /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0232CAADD2E000FAD7B /* HomeScreen.swift */; };
-		E7CFD03C2CAADD2E000FAD7B /* HKTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD02B2CAADD2E000FAD7B /* HKTextButton.swift */; };
-		E7CFD03D2CAADD2E000FAD7B /* NavigationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD0272CAADD2E000FAD7B /* NavigationServices.swift */; };
-		E7CFD0412CAADD38000FAD7B /* HaikinguApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD03F2CAADD38000FAD7B /* HaikinguApp.swift */; };
-		E7CFD0422CAADD38000FAD7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFD03E2CAADD38000FAD7B /* ContentView.swift */; };
-		E7CFD0452CAADD42000FAD7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CFD0432CAADD42000FAD7B /* Preview Assets.xcassets */; };
-		E7CFD0472CAADD4B000FAD7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CFD0462CAADD4B000FAD7B /* Assets.xcassets */; };
-		E7CFD04C2CAADDA6000FAD7B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E7CFD04B2CAADDA6000FAD7B /* SnapKit */; };
-		E7CFD04E2CAADDAA000FAD7B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E7CFD04D2CAADDAA000FAD7B /* Swinject */; };
-		E7CFD0502CAADDAF000FAD7B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E7CFD04F2CAADDAF000FAD7B /* Swinject */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E7EDAA452CAAE729006F3ED0 /* BackToHomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA442CAAE729006F3ED0 /* BackToHomeMessageView.swift */; };
+		E7EDAACF2CAAEE3D006F3ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EDAACB2CAAEE3D006F3ED0 /* LaunchScreen.storyboard */; };
+		E7EDAAD02CAAEE3D006F3ED0 /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E7EDAA9E2CAAEE3D006F3ED0 /* Telaga Bidadari Batam.gpx */; };
+		E7EDAAD12CAAEE3D006F3ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7EDAAA02CAAEE3D006F3ED0 /* Assets.xcassets */; };
+		E7EDAAD22CAAEE3D006F3ED0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAC52CAAEE3D006F3ED0 /* Date+Extension.swift */; };
+		E7EDAAD32CAAEE3D006F3ED0 /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA922CAAEE3D006F3ED0 /* HikerBLEManager+Peripheral+Extension.swift */; };
+		E7EDAAD42CAAEE3D006F3ED0 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA962CAAEE3D006F3ED0 /* HealthManager.swift */; };
+		E7EDAAD52CAAEE3D006F3ED0 /* HomeVC+HikingInvitation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAA22CAAEE3D006F3ED0 /* HomeVC+HikingInvitation+Extension.swift */; };
+		E7EDAAD62CAAEE3D006F3ED0 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAAE2CAAEE3D006F3ED0 /* SampleView.swift */; };
+		E7EDAAD72CAAEE3D006F3ED0 /* HaikinguServiceBLEUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA992CAAEE3D006F3ED0 /* HaikinguServiceBLEUUID.swift */; };
+		E7EDAAD82CAAEE3D006F3ED0 /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA9B2CAAEE3D006F3ED0 /* TypeOfRestEnum.swift */; };
+		E7EDAAD92CAAEE3D006F3ED0 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA942CAAEE3D006F3ED0 /* HikerBLEManager.swift */; };
+		E7EDAADA2CAAEE3D006F3ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAC92CAAEE3D006F3ED0 /* AppDelegate.swift */; };
+		E7EDAADB2CAAEE3D006F3ED0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAACD2CAAEE3D006F3ED0 /* ViewController.swift */; };
+		E7EDAADC2CAAEE3D006F3ED0 /* HikingInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAA82CAAEE3D006F3ED0 /* HikingInvitationVC.swift */; };
+		E7EDAADD2CAAEE3D006F3ED0 /* Swinject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAC62CAAEE3D006F3ED0 /* Swinject+Extension.swift */; };
+		E7EDAADE2CAAEE3D006F3ED0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAACC2CAAEE3D006F3ED0 /* SceneDelegate.swift */; };
+		E7EDAADF2CAAEE3D006F3ED0 /* AlterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAC02CAAEE3D006F3ED0 /* AlterVC.swift */; };
+		E7EDAAE02CAAEE3D006F3ED0 /* HikingModeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAA52CAAEE3D006F3ED0 /* HikingModeControlView.swift */; };
+		E7EDAAE12CAAEE3D006F3ED0 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAABB2CAAEE3D006F3ED0 /* PrimaryButton.swift */; };
+		E7EDAAE22CAAEE3D006F3ED0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA9C2CAAEE3D006F3ED0 /* User.swift */; };
+		E7EDAAE32CAAEE3D006F3ED0 /* OnboardingHikingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAB12CAAEE3D006F3ED0 /* OnboardingHikingProfileVC.swift */; };
+		E7EDAAE42CAAEE3D006F3ED0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAA92CAAEE3D006F3ED0 /* HomeVC.swift */; };
+		E7EDAAE52CAAEE3D006F3ED0 /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA912CAAEE3D006F3ED0 /* HikerBLEManager+Central+Extension.swift */; };
+		E7EDAAE62CAAEE3D006F3ED0 /* SampleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA8F2CAAEE3D006F3ED0 /* SampleDB.swift */; };
+		E7EDAAE72CAAEE3D006F3ED0 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAA62CAAEE3D006F3ED0 /* HomeHeaderView.swift */; };
+		E7EDAAE82CAAEE3D006F3ED0 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAB82CAAEE3D006F3ED0 /* HealthService.swift */; };
+		E7EDAAE92CAAEE3D006F3ED0 /* BackToHomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAA42CAAEE3D006F3ED0 /* BackToHomeMessageView.swift */; };
+		E7EDAAEA2CAAEE3D006F3ED0 /* Hiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA9A2CAAEE3D006F3ED0 /* Hiker.swift */; };
+		E7EDAAEB2CAAEE3D006F3ED0 /* CentralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAB52CAAEE3D006F3ED0 /* CentralBLEService.swift */; };
+		E7EDAAEC2CAAEE3D006F3ED0 /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAABE2CAAEE3D006F3ED0 /* SampleLabel.swift */; };
+		E7EDAAED2CAAEE3D006F3ED0 /* HaikinguRequestReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAA982CAAEE3D006F3ED0 /* HaikinguRequestReponse.swift */; };
+		E7EDAAEE2CAAEE3D006F3ED0 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAABA2CAAEE3D006F3ED0 /* AppButton.swift */; };
+		E7EDAAEF2CAAEE3D006F3ED0 /* PeripheralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAB62CAAEE3D006F3ED0 /* PeripheralBLEService.swift */; };
+		E7EDAAF02CAAEE3D006F3ED0 /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAAC2CAAEE3D006F3ED0 /* OnboardingExtension.swift */; };
+		E7EDAAF12CAAEE3D006F3ED0 /* OnboardingHealthAccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAB02CAAEE3D006F3ED0 /* OnboardingHealthAccessVC.swift */; };
+		E7EDAAF22CAAEE3D006F3ED0 /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAC22CAAEE3D006F3ED0 /* SampleItemView.swift */; };
+		E7EDAAF32CAAEE3D006F3ED0 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAABC2CAAEE3D006F3ED0 /* SecondaryButton.swift */; };
+		E7EDAB022CAAEE5E006F3ED0 /* HKSummaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFB2CAAEE5E006F3ED0 /* HKSummaryText.swift */; };
+		E7EDAB032CAAEE5E006F3ED0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFF2CAAEE5E006F3ED0 /* HomeVM.swift */; };
+		E7EDAB042CAAEE5E006F3ED0 /* HKCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAF72CAAEE5E006F3ED0 /* HKCircleButton.swift */; };
+		E7EDAB052CAAEE5E006F3ED0 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAF52CAAEE5E006F3ED0 /* UserServices.swift */; };
+		E7EDAB062CAAEE5E006F3ED0 /* HKMetricBiggerText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFA2CAAEE5E006F3ED0 /* HKMetricBiggerText.swift */; };
+		E7EDAB072CAAEE5E006F3ED0 /* HKTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAF82CAAEE5E006F3ED0 /* HKTextButton.swift */; };
+		E7EDAB082CAAEE5E006F3ED0 /* NavigationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAF42CAAEE5E006F3ED0 /* NavigationServices.swift */; };
+		E7EDAB092CAAEE5E006F3ED0 /* MetricsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB002CAAEE5E006F3ED0 /* MetricsVM.swift */; };
+		E7EDAB172CAAEE6A006F3ED0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB142CAAEE6A006F3ED0 /* ContentView.swift */; };
+		E7EDAB182CAAEE6A006F3ED0 /* MemberControlScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB0B2CAAEE6A006F3ED0 /* MemberControlScreen.swift */; };
+		E7EDAB192CAAEE6A006F3ED0 /* MetricsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB112CAAEE6A006F3ED0 /* MetricsScreen.swift */; };
+		E7EDAB1A2CAAEE6A006F3ED0 /* HaikinguApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB152CAAEE6A006F3ED0 /* HaikinguApp.swift */; };
+		E7EDAB1B2CAAEE6A006F3ED0 /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB122CAAEE6A006F3ED0 /* SummaryScreen.swift */; };
+		E7EDAB1C2CAAEE6A006F3ED0 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB0D2CAAEE6A006F3ED0 /* MetricsView.swift */; };
+		E7EDAB1D2CAAEE6A006F3ED0 /* LeadControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB0A2CAAEE6A006F3ED0 /* LeadControlView.swift */; };
+		E7EDAB1E2CAAEE6A006F3ED0 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAB102CAAEE6A006F3ED0 /* HomeScreen.swift */; };
+		E7EDAB212CAAEE7B006F3ED0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7EDAB1F2CAAEE7B006F3ED0 /* Preview Assets.xcassets */; };
+		E7EDAB232CAAEE84006F3ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7EDAB222CAAEE84006F3ED0 /* Assets.xcassets */; };
+		E7EDAB252CAAEF4F006F3ED0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E7EDAB242CAAEF4F006F3ED0 /* SnapKit */; };
+		E7EDAB272CAAEF52006F3ED0 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E7EDAB262CAAEF52006F3ED0 /* Swinject */; };
+		E7EDAB292CAAEF58006F3ED0 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E7EDAB282CAAEF58006F3ED0 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,63 +93,80 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E7CFCFB72CAADCFE000FAD7B /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
-		E7CFCFB92CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
-		E7CFCFBA2CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
-		E7CFCFBC2CAADCFE000FAD7B /* HikerBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerBLEManager.swift; sourceTree = "<group>"; };
-		E7CFCFBE2CAADCFE000FAD7B /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
-		E7CFCFC02CAADCFE000FAD7B /* HaikinguRequestReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguRequestReponse.swift; sourceTree = "<group>"; };
-		E7CFCFC12CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguServiceBLEUUID.swift; sourceTree = "<group>"; };
-		E7CFCFC22CAADCFE000FAD7B /* Hiker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiker.swift; sourceTree = "<group>"; };
-		E7CFCFC32CAADCFE000FAD7B /* TypeOfRestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRestEnum.swift; sourceTree = "<group>"; };
-		E7CFCFC42CAADCFE000FAD7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E7CFCFC62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Telaga Bidadari Batam.gpx"; sourceTree = "<group>"; };
-		E7CFCFC82CAADCFE000FAD7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E7CFCFCA2CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
-		E7CFCFCC2CAADCFE000FAD7B /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
-		E7CFCFCD2CAADCFE000FAD7B /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
-		E7CFCFCF2CAADCFE000FAD7B /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
-		E7CFCFD02CAADCFE000FAD7B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		E7CFCFD32CAADCFE000FAD7B /* OnboardingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExtension.swift; sourceTree = "<group>"; };
-		E7CFCFD52CAADCFE000FAD7B /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
-		E7CFCFD72CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHikingProfileVC.swift; sourceTree = "<group>"; };
-		E7CFCFDB2CAADCFE000FAD7B /* CentralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralBLEService.swift; sourceTree = "<group>"; };
-		E7CFCFDC2CAADCFE000FAD7B /* PeripheralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEService.swift; sourceTree = "<group>"; };
-		E7CFCFDE2CAADCFE000FAD7B /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
-		E7CFCFE02CAADCFE000FAD7B /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
-		E7CFCFE12CAADCFE000FAD7B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		E7CFCFE22CAADCFE000FAD7B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
-		E7CFCFE42CAADCFE000FAD7B /* SampleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLabel.swift; sourceTree = "<group>"; };
-		E7CFCFE62CAADCFE000FAD7B /* AlterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlterVC.swift; sourceTree = "<group>"; };
-		E7CFCFE82CAADCFE000FAD7B /* SampleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleItemView.swift; sourceTree = "<group>"; };
-		E7CFCFEB2CAADCFE000FAD7B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		E7CFCFEC2CAADCFE000FAD7B /* Swinject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extension.swift"; sourceTree = "<group>"; };
-		E7CFCFEF2CAADCFE000FAD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7CFCFF02CAADCFE000FAD7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E7CFCFF22CAADCFE000FAD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7CFCFF32CAADCFE000FAD7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E7CFD0182CAADD24000FAD7B /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
-		E7CFD0192CAADD24000FAD7B /* MetricsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsVM.swift; sourceTree = "<group>"; };
-		E7CFD01D2CAADD2E000FAD7B /* LeadControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadControlView.swift; sourceTree = "<group>"; };
-		E7CFD01E2CAADD2E000FAD7B /* MemberControlScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberControlScreen.swift; sourceTree = "<group>"; };
-		E7CFD0202CAADD2E000FAD7B /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
-		E7CFD0232CAADD2E000FAD7B /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		E7CFD0242CAADD2E000FAD7B /* MetricsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsScreen.swift; sourceTree = "<group>"; };
-		E7CFD0252CAADD2E000FAD7B /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
-		E7CFD0272CAADD2E000FAD7B /* NavigationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationServices.swift; sourceTree = "<group>"; };
-		E7CFD0282CAADD2E000FAD7B /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
-		E7CFD02A2CAADD2E000FAD7B /* HKCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKCircleButton.swift; sourceTree = "<group>"; };
-		E7CFD02B2CAADD2E000FAD7B /* HKTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKTextButton.swift; sourceTree = "<group>"; };
-		E7CFD02D2CAADD2E000FAD7B /* HKMetricBiggerText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKMetricBiggerText.swift; sourceTree = "<group>"; };
-		E7CFD02E2CAADD2E000FAD7B /* HKSummaryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSummaryText.swift; sourceTree = "<group>"; };
-		E7CFD03E2CAADD38000FAD7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E7CFD03F2CAADD38000FAD7B /* HaikinguApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguApp.swift; sourceTree = "<group>"; };
-		E7CFD0432CAADD42000FAD7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E7CFD0462CAADD4B000FAD7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
+		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
+		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		E78015E72CAAA4E600E658A1 /* CentralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralBLEService.swift; sourceTree = "<group>"; };
+		E78015EA2CAAA50C00E658A1 /* Hiker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiker.swift; sourceTree = "<group>"; };
+		E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRestEnum.swift; sourceTree = "<group>"; };
+		E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguServiceBLEUUID.swift; sourceTree = "<group>"; };
+		E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEService.swift; sourceTree = "<group>"; };
+		E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguRequestReponse.swift; sourceTree = "<group>"; };
+		E78015F52CAAA62300E658A1 /* HikerBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerBLEManager.swift; sourceTree = "<group>"; };
+		E78015F92CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
+		E78015FB2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
+		E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
+		E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
+		E78016272CAAC9B800E658A1 /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA402C9839AF00324E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haikingu Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7EDAA442CAAE729006F3ED0 /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
+		E7EDAA8F2CAAEE3D006F3ED0 /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
+		E7EDAA912CAAEE3D006F3ED0 /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
+		E7EDAA922CAAEE3D006F3ED0 /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
+		E7EDAA942CAAEE3D006F3ED0 /* HikerBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerBLEManager.swift; sourceTree = "<group>"; };
+		E7EDAA962CAAEE3D006F3ED0 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		E7EDAA982CAAEE3D006F3ED0 /* HaikinguRequestReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguRequestReponse.swift; sourceTree = "<group>"; };
+		E7EDAA992CAAEE3D006F3ED0 /* HaikinguServiceBLEUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguServiceBLEUUID.swift; sourceTree = "<group>"; };
+		E7EDAA9A2CAAEE3D006F3ED0 /* Hiker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiker.swift; sourceTree = "<group>"; };
+		E7EDAA9B2CAAEE3D006F3ED0 /* TypeOfRestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRestEnum.swift; sourceTree = "<group>"; };
+		E7EDAA9C2CAAEE3D006F3ED0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E7EDAA9E2CAAEE3D006F3ED0 /* Telaga Bidadari Batam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Telaga Bidadari Batam.gpx"; sourceTree = "<group>"; };
+		E7EDAAA02CAAEE3D006F3ED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7EDAAA22CAAEE3D006F3ED0 /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
+		E7EDAAA42CAAEE3D006F3ED0 /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
+		E7EDAAA52CAAEE3D006F3ED0 /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
+		E7EDAAA62CAAEE3D006F3ED0 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		E7EDAAA82CAAEE3D006F3ED0 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
+		E7EDAAA92CAAEE3D006F3ED0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E7EDAAAC2CAAEE3D006F3ED0 /* OnboardingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExtension.swift; sourceTree = "<group>"; };
+		E7EDAAAE2CAAEE3D006F3ED0 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
+		E7EDAAB02CAAEE3D006F3ED0 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
+		E7EDAAB12CAAEE3D006F3ED0 /* OnboardingHikingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHikingProfileVC.swift; sourceTree = "<group>"; };
+		E7EDAAB52CAAEE3D006F3ED0 /* CentralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralBLEService.swift; sourceTree = "<group>"; };
+		E7EDAAB62CAAEE3D006F3ED0 /* PeripheralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEService.swift; sourceTree = "<group>"; };
+		E7EDAAB82CAAEE3D006F3ED0 /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		E7EDAABA2CAAEE3D006F3ED0 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		E7EDAABB2CAAEE3D006F3ED0 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		E7EDAABC2CAAEE3D006F3ED0 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		E7EDAABE2CAAEE3D006F3ED0 /* SampleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLabel.swift; sourceTree = "<group>"; };
+		E7EDAAC02CAAEE3D006F3ED0 /* AlterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlterVC.swift; sourceTree = "<group>"; };
+		E7EDAAC22CAAEE3D006F3ED0 /* SampleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleItemView.swift; sourceTree = "<group>"; };
+		E7EDAAC52CAAEE3D006F3ED0 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		E7EDAAC62CAAEE3D006F3ED0 /* Swinject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extension.swift"; sourceTree = "<group>"; };
+		E7EDAAC92CAAEE3D006F3ED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E7EDAACA2CAAEE3D006F3ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E7EDAACC2CAAEE3D006F3ED0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E7EDAACD2CAAEE3D006F3ED0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7EDAAF42CAAEE5E006F3ED0 /* NavigationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationServices.swift; sourceTree = "<group>"; };
+		E7EDAAF52CAAEE5E006F3ED0 /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		E7EDAAF72CAAEE5E006F3ED0 /* HKCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKCircleButton.swift; sourceTree = "<group>"; };
+		E7EDAAF82CAAEE5E006F3ED0 /* HKTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKTextButton.swift; sourceTree = "<group>"; };
+		E7EDAAFA2CAAEE5E006F3ED0 /* HKMetricBiggerText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKMetricBiggerText.swift; sourceTree = "<group>"; };
+		E7EDAAFB2CAAEE5E006F3ED0 /* HKSummaryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKSummaryText.swift; sourceTree = "<group>"; };
+		E7EDAAFF2CAAEE5E006F3ED0 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		E7EDAB002CAAEE5E006F3ED0 /* MetricsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsVM.swift; sourceTree = "<group>"; };
+		E7EDAB0A2CAAEE6A006F3ED0 /* LeadControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadControlView.swift; sourceTree = "<group>"; };
+		E7EDAB0B2CAAEE6A006F3ED0 /* MemberControlScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberControlScreen.swift; sourceTree = "<group>"; };
+		E7EDAB0D2CAAEE6A006F3ED0 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
+		E7EDAB102CAAEE6A006F3ED0 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		E7EDAB112CAAEE6A006F3ED0 /* MetricsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsScreen.swift; sourceTree = "<group>"; };
+		E7EDAB122CAAEE6A006F3ED0 /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
+		E7EDAB142CAAEE6A006F3ED0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E7EDAB152CAAEE6A006F3ED0 /* HaikinguApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguApp.swift; sourceTree = "<group>"; };
+		E7EDAB1F2CAAEE7B006F3ED0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E7EDAB222CAAEE84006F3ED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CFD04C2CAADDA6000FAD7B /* SnapKit in Frameworks */,
-				E7CFD04E2CAADDAA000FAD7B /* Swinject in Frameworks */,
+				E7EDAB252CAAEF4F006F3ED0 /* SnapKit in Frameworks */,
+				E7EDAB272CAAEF52006F3ED0 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,356 +183,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CFD0502CAADDAF000FAD7B /* Swinject in Frameworks */,
+				E7EDAB292CAAEF58006F3ED0 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E7CFCFB82CAADCFE000FAD7B /* LocalDataSources */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFB72CAADCFE000FAD7B /* SampleDB.swift */,
-			);
-			path = LocalDataSources;
-			sourceTree = "<group>";
-		};
-		E7CFCFBB2CAADCFE000FAD7B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFB92CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift */,
-				E7CFCFBA2CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E7CFCFBD2CAADCFE000FAD7B /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFBB2CAADCFE000FAD7B /* Extensions */,
-				E7CFCFBC2CAADCFE000FAD7B /* HikerBLEManager.swift */,
-			);
-			path = CoreBluetooth;
-			sourceTree = "<group>";
-		};
-		E7CFCFBF2CAADCFE000FAD7B /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFBD2CAADCFE000FAD7B /* CoreBluetooth */,
-				E7CFCFBE2CAADCFE000FAD7B /* HealthManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		E7CFCFC52CAADCFE000FAD7B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFC02CAADCFE000FAD7B /* HaikinguRequestReponse.swift */,
-				E7CFCFC12CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift */,
-				E7CFCFC22CAADCFE000FAD7B /* Hiker.swift */,
-				E7CFCFC32CAADCFE000FAD7B /* TypeOfRestEnum.swift */,
-				E7CFCFC42CAADCFE000FAD7B /* User.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E7CFCFC72CAADCFE000FAD7B /* GPXAssets */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFC62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx */,
-			);
-			path = GPXAssets;
-			sourceTree = "<group>";
-		};
-		E7CFCFC92CAADCFE000FAD7B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFC72CAADCFE000FAD7B /* GPXAssets */,
-				E7CFCFC82CAADCFE000FAD7B /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		E7CFCFCB2CAADCFE000FAD7B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFCA2CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E7CFCFCE2CAADCFE000FAD7B /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				E7EDAA442CAAE729006F3ED0 /* BackToHomeMessageView.swift */,
-				E7CFCFCC2CAADCFE000FAD7B /* HikingModeControlView.swift */,
-				E7CFCFCD2CAADCFE000FAD7B /* HomeHeaderView.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		E7CFCFD12CAADCFE000FAD7B /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFCF2CAADCFE000FAD7B /* HikingInvitationVC.swift */,
-				E7CFCFD02CAADCFE000FAD7B /* HomeVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E7CFCFD22CAADCFE000FAD7B /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFCB2CAADCFE000FAD7B /* Extensions */,
-				E7CFCFCE2CAADCFE000FAD7B /* SubViews */,
-				E7CFCFD12CAADCFE000FAD7B /* ViewControllers */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		E7CFCFD42CAADCFE000FAD7B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFD32CAADCFE000FAD7B /* OnboardingExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E7CFCFD62CAADCFE000FAD7B /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFD52CAADCFE000FAD7B /* SampleView.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		E7CFCFD82CAADCFE000FAD7B /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFD72CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E7CFCFD92CAADCFE000FAD7B /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFD42CAADCFE000FAD7B /* Extensions */,
-				E7CFCFD62CAADCFE000FAD7B /* SubViews */,
-				E7CFCFD82CAADCFE000FAD7B /* ViewControllers */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		E7CFCFDA2CAADCFE000FAD7B /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFD22CAADCFE000FAD7B /* Home */,
-				E7CFCFD92CAADCFE000FAD7B /* Onboarding */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		E7CFCFDD2CAADCFE000FAD7B /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFDB2CAADCFE000FAD7B /* CentralBLEService.swift */,
-				E7CFCFDC2CAADCFE000FAD7B /* PeripheralBLEService.swift */,
-			);
-			path = CoreBluetooth;
-			sourceTree = "<group>";
-		};
-		E7CFCFDF2CAADCFE000FAD7B /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFDD2CAADCFE000FAD7B /* CoreBluetooth */,
-				E7CFCFDE2CAADCFE000FAD7B /* HealthService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		E7CFCFE32CAADCFE000FAD7B /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFE02CAADCFE000FAD7B /* AppButton.swift */,
-				E7CFCFE12CAADCFE000FAD7B /* PrimaryButton.swift */,
-				E7CFCFE22CAADCFE000FAD7B /* SecondaryButton.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
-		E7CFCFE52CAADCFE000FAD7B /* Labels */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFE42CAADCFE000FAD7B /* SampleLabel.swift */,
-			);
-			path = Labels;
-			sourceTree = "<group>";
-		};
-		E7CFCFE72CAADCFE000FAD7B /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFE62CAADCFE000FAD7B /* AlterVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		E7CFCFE92CAADCFE000FAD7B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFE82CAADCFE000FAD7B /* SampleItemView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E7CFCFEA2CAADCFE000FAD7B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFE32CAADCFE000FAD7B /* Buttons */,
-				E7CFCFE52CAADCFE000FAD7B /* Labels */,
-				E7CFCFE72CAADCFE000FAD7B /* ViewControllers */,
-				E7CFCFE92CAADCFE000FAD7B /* Views */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		E7CFCFED2CAADCFE000FAD7B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFEB2CAADCFE000FAD7B /* Date+Extension.swift */,
-				E7CFCFEC2CAADCFE000FAD7B /* Swinject+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E7CFCFEE2CAADCFE000FAD7B /* Shareds */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFEA2CAADCFE000FAD7B /* Components */,
-				E7CFCFED2CAADCFE000FAD7B /* Extensions */,
-			);
-			path = Shareds;
-			sourceTree = "<group>";
-		};
-		E7CFCFF42CAADCFE000FAD7B /* Supports */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFCFEF2CAADCFE000FAD7B /* AppDelegate.swift */,
-				E7CFCFF12CAADCFE000FAD7B /* LaunchScreen.storyboard */,
-				E7CFCFF22CAADCFE000FAD7B /* SceneDelegate.swift */,
-				E7CFCFF32CAADCFE000FAD7B /* ViewController.swift */,
-			);
-			path = Supports;
-			sourceTree = "<group>";
-		};
-		E7CFD01A2CAADD24000FAD7B /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD0182CAADD24000FAD7B /* HomeVM.swift */,
-				E7CFD0192CAADD24000FAD7B /* MetricsVM.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		E7CFD01F2CAADD2E000FAD7B /* Control */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD01D2CAADD2E000FAD7B /* LeadControlView.swift */,
-				E7CFD01E2CAADD2E000FAD7B /* MemberControlScreen.swift */,
-			);
-			path = Control;
-			sourceTree = "<group>";
-		};
-		E7CFD0212CAADD2E000FAD7B /* Metrics */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD0202CAADD2E000FAD7B /* MetricsView.swift */,
-			);
-			path = Metrics;
-			sourceTree = "<group>";
-		};
-		E7CFD0222CAADD2E000FAD7B /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD01F2CAADD2E000FAD7B /* Control */,
-				E7CFD0212CAADD2E000FAD7B /* Metrics */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		E7CFD0262CAADD2E000FAD7B /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD0222CAADD2E000FAD7B /* SubViews */,
-				E7CFD0232CAADD2E000FAD7B /* HomeScreen.swift */,
-				E7CFD0242CAADD2E000FAD7B /* MetricsScreen.swift */,
-				E7CFD0252CAADD2E000FAD7B /* SummaryScreen.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		E7CFD0292CAADD2E000FAD7B /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD0272CAADD2E000FAD7B /* NavigationServices.swift */,
-				E7CFD0282CAADD2E000FAD7B /* UserServices.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		E7CFD02C2CAADD2E000FAD7B /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD02A2CAADD2E000FAD7B /* HKCircleButton.swift */,
-				E7CFD02B2CAADD2E000FAD7B /* HKTextButton.swift */,
-			);
-			path = Button;
-			sourceTree = "<group>";
-		};
-		E7CFD02F2CAADD2E000FAD7B /* Text */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD02D2CAADD2E000FAD7B /* HKMetricBiggerText.swift */,
-				E7CFD02E2CAADD2E000FAD7B /* HKSummaryText.swift */,
-			);
-			path = Text;
-			sourceTree = "<group>";
-		};
-		E7CFD0302CAADD2E000FAD7B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD02C2CAADD2E000FAD7B /* Button */,
-				E7CFD02F2CAADD2E000FAD7B /* Text */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		E7CFD0312CAADD2E000FAD7B /* Shareds */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD0302CAADD2E000FAD7B /* Components */,
-			);
-			path = Shareds;
-			sourceTree = "<group>";
-		};
-		E7CFD0402CAADD38000FAD7B /* Supports */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD03E2CAADD38000FAD7B /* ContentView.swift */,
-				E7CFD03F2CAADD38000FAD7B /* HaikinguApp.swift */,
-			);
-			path = Supports;
-			sourceTree = "<group>";
-		};
-		E7CFD0442CAADD42000FAD7B /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				E7CFD0432CAADD42000FAD7B /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		E7CFD04A2CAADDA6000FAD7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +204,7 @@
 				E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */,
 				E7CFD04A2CAADDA6000FAD7B /* Frameworks */,
 				E7D0BA302C9839AD00324E3D /* Products */,
+				E7EDAA8E2CAAEE13006F3ED0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -544,14 +220,14 @@
 		E7D0BA312C9839AD00324E3D /* HaikinguApp */ = {
 			isa = PBXGroup;
 			children = (
-				E7CFCFB82CAADCFE000FAD7B /* LocalDataSources */,
-				E7CFCFBF2CAADCFE000FAD7B /* Managers */,
-				E7CFCFC52CAADCFE000FAD7B /* Models */,
-				E7CFCFC92CAADCFE000FAD7B /* Resources */,
-				E7CFCFDA2CAADCFE000FAD7B /* Screens */,
-				E7CFCFDF2CAADCFE000FAD7B /* Services */,
-				E7CFCFEE2CAADCFE000FAD7B /* Shareds */,
-				E7CFCFF42CAADCFE000FAD7B /* Supports */,
+				E7EDAA902CAAEE3D006F3ED0 /* LocalDataSources */,
+				E7EDAA972CAAEE3D006F3ED0 /* Managers */,
+				E7EDAA9D2CAAEE3D006F3ED0 /* Models */,
+				E7EDAAA12CAAEE3D006F3ED0 /* Resources */,
+				E7EDAAB42CAAEE3D006F3ED0 /* Screens */,
+				E7EDAAB92CAAEE3D006F3ED0 /* Services */,
+				E7EDAAC82CAAEE3D006F3ED0 /* Shareds */,
+				E7EDAACE2CAAEE3D006F3ED0 /* Supports */,
 				E7D0BA402C9839AF00324E3D /* Info.plist */,
 			);
 			path = HaikinguApp;
@@ -560,15 +236,382 @@
 		E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				E7CFD0462CAADD4B000FAD7B /* Assets.xcassets */,
-				E7CFD0442CAADD42000FAD7B /* Preview Content */,
-				E7CFD0402CAADD38000FAD7B /* Supports */,
-				E7CFD0262CAADD2E000FAD7B /* Screens */,
-				E7CFD0292CAADD2E000FAD7B /* Services */,
-				E7CFD0312CAADD2E000FAD7B /* Shareds */,
-				E7CFD01A2CAADD24000FAD7B /* ViewModels */,
+				E7EDAB222CAAEE84006F3ED0 /* Assets.xcassets */,
+				E7EDAB202CAAEE7B006F3ED0 /* Preview Content */,
+				E7EDAB132CAAEE6A006F3ED0 /* Screens */,
+				E7EDAB162CAAEE6A006F3ED0 /* Supports */,
+				E7EDAAF62CAAEE5E006F3ED0 /* Services */,
+				E7EDAAFE2CAAEE5E006F3ED0 /* Shareds */,
+				E7EDAB012CAAEE5E006F3ED0 /* ViewModels */,
 			);
 			path = "Haikingu Watch App";
+			sourceTree = "<group>";
+		};
+		E7EDAA8E2CAAEE13006F3ED0 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E78015EA2CAAA50C00E658A1 /* Hiker.swift */,
+				E78015E32CAA983100E658A1 /* PrimaryButton.swift */,
+				E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */,
+				E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */,
+				E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */,
+				E78015FB2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift */,
+				E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */,
+				E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */,
+				E78015F52CAAA62300E658A1 /* HikerBLEManager.swift */,
+				E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */,
+				E78015F92CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift */,
+				E78016272CAAC9B800E658A1 /* BackToHomeMessageView.swift */,
+				E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */,
+				E78015E72CAAA4E600E658A1 /* CentralBLEService.swift */,
+				E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */,
+				BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		E7EDAA902CAAEE3D006F3ED0 /* LocalDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAA8F2CAAEE3D006F3ED0 /* SampleDB.swift */,
+			);
+			path = LocalDataSources;
+			sourceTree = "<group>";
+		};
+		E7EDAA932CAAEE3D006F3ED0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAA912CAAEE3D006F3ED0 /* HikerBLEManager+Central+Extension.swift */,
+				E7EDAA922CAAEE3D006F3ED0 /* HikerBLEManager+Peripheral+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7EDAA952CAAEE3D006F3ED0 /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAA932CAAEE3D006F3ED0 /* Extensions */,
+				E7EDAA942CAAEE3D006F3ED0 /* HikerBLEManager.swift */,
+			);
+			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
+		E7EDAA972CAAEE3D006F3ED0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAA952CAAEE3D006F3ED0 /* CoreBluetooth */,
+				E7EDAA962CAAEE3D006F3ED0 /* HealthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E7EDAA9D2CAAEE3D006F3ED0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAA982CAAEE3D006F3ED0 /* HaikinguRequestReponse.swift */,
+				E7EDAA992CAAEE3D006F3ED0 /* HaikinguServiceBLEUUID.swift */,
+				E7EDAA9A2CAAEE3D006F3ED0 /* Hiker.swift */,
+				E7EDAA9B2CAAEE3D006F3ED0 /* TypeOfRestEnum.swift */,
+				E7EDAA9C2CAAEE3D006F3ED0 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E7EDAA9F2CAAEE3D006F3ED0 /* GPXAssets */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAA9E2CAAEE3D006F3ED0 /* Telaga Bidadari Batam.gpx */,
+			);
+			path = GPXAssets;
+			sourceTree = "<group>";
+		};
+		E7EDAAA12CAAEE3D006F3ED0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAA9F2CAAEE3D006F3ED0 /* GPXAssets */,
+				E7EDAAA02CAAEE3D006F3ED0 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E7EDAAA32CAAEE3D006F3ED0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAA22CAAEE3D006F3ED0 /* HomeVC+HikingInvitation+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7EDAAA72CAAEE3D006F3ED0 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAA42CAAEE3D006F3ED0 /* BackToHomeMessageView.swift */,
+				E7EDAAA52CAAEE3D006F3ED0 /* HikingModeControlView.swift */,
+				E7EDAAA62CAAEE3D006F3ED0 /* HomeHeaderView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E7EDAAAA2CAAEE3D006F3ED0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAA82CAAEE3D006F3ED0 /* HikingInvitationVC.swift */,
+				E7EDAAA92CAAEE3D006F3ED0 /* HomeVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7EDAAAB2CAAEE3D006F3ED0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAA32CAAEE3D006F3ED0 /* Extensions */,
+				E7EDAAA72CAAEE3D006F3ED0 /* SubViews */,
+				E7EDAAAA2CAAEE3D006F3ED0 /* ViewControllers */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E7EDAAAD2CAAEE3D006F3ED0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAAC2CAAEE3D006F3ED0 /* OnboardingExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7EDAAAF2CAAEE3D006F3ED0 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAAE2CAAEE3D006F3ED0 /* SampleView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E7EDAAB22CAAEE3D006F3ED0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAB02CAAEE3D006F3ED0 /* OnboardingHealthAccessVC.swift */,
+				E7EDAAB12CAAEE3D006F3ED0 /* OnboardingHikingProfileVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7EDAAB32CAAEE3D006F3ED0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAAD2CAAEE3D006F3ED0 /* Extensions */,
+				E7EDAAAF2CAAEE3D006F3ED0 /* SubViews */,
+				E7EDAAB22CAAEE3D006F3ED0 /* ViewControllers */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E7EDAAB42CAAEE3D006F3ED0 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAAB2CAAEE3D006F3ED0 /* Home */,
+				E7EDAAB32CAAEE3D006F3ED0 /* Onboarding */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E7EDAAB72CAAEE3D006F3ED0 /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAB52CAAEE3D006F3ED0 /* CentralBLEService.swift */,
+				E7EDAAB62CAAEE3D006F3ED0 /* PeripheralBLEService.swift */,
+			);
+			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
+		E7EDAAB92CAAEE3D006F3ED0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAB72CAAEE3D006F3ED0 /* CoreBluetooth */,
+				E7EDAAB82CAAEE3D006F3ED0 /* HealthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E7EDAABD2CAAEE3D006F3ED0 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAABA2CAAEE3D006F3ED0 /* AppButton.swift */,
+				E7EDAABB2CAAEE3D006F3ED0 /* PrimaryButton.swift */,
+				E7EDAABC2CAAEE3D006F3ED0 /* SecondaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		E7EDAABF2CAAEE3D006F3ED0 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAABE2CAAEE3D006F3ED0 /* SampleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		E7EDAAC12CAAEE3D006F3ED0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAC02CAAEE3D006F3ED0 /* AlterVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7EDAAC32CAAEE3D006F3ED0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAC22CAAEE3D006F3ED0 /* SampleItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E7EDAAC42CAAEE3D006F3ED0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAABD2CAAEE3D006F3ED0 /* Buttons */,
+				E7EDAABF2CAAEE3D006F3ED0 /* Labels */,
+				E7EDAAC12CAAEE3D006F3ED0 /* ViewControllers */,
+				E7EDAAC32CAAEE3D006F3ED0 /* Views */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E7EDAAC72CAAEE3D006F3ED0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAC52CAAEE3D006F3ED0 /* Date+Extension.swift */,
+				E7EDAAC62CAAEE3D006F3ED0 /* Swinject+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7EDAAC82CAAEE3D006F3ED0 /* Shareds */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAC42CAAEE3D006F3ED0 /* Components */,
+				E7EDAAC72CAAEE3D006F3ED0 /* Extensions */,
+			);
+			path = Shareds;
+			sourceTree = "<group>";
+		};
+		E7EDAACE2CAAEE3D006F3ED0 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAC92CAAEE3D006F3ED0 /* AppDelegate.swift */,
+				E7EDAACB2CAAEE3D006F3ED0 /* LaunchScreen.storyboard */,
+				E7EDAACC2CAAEE3D006F3ED0 /* SceneDelegate.swift */,
+				E7EDAACD2CAAEE3D006F3ED0 /* ViewController.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		E7EDAAF62CAAEE5E006F3ED0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAF42CAAEE5E006F3ED0 /* NavigationServices.swift */,
+				E7EDAAF52CAAEE5E006F3ED0 /* UserServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E7EDAAF92CAAEE5E006F3ED0 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAF72CAAEE5E006F3ED0 /* HKCircleButton.swift */,
+				E7EDAAF82CAAEE5E006F3ED0 /* HKTextButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		E7EDAAFC2CAAEE5E006F3ED0 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAFA2CAAEE5E006F3ED0 /* HKMetricBiggerText.swift */,
+				E7EDAAFB2CAAEE5E006F3ED0 /* HKSummaryText.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		E7EDAAFD2CAAEE5E006F3ED0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAF92CAAEE5E006F3ED0 /* Button */,
+				E7EDAAFC2CAAEE5E006F3ED0 /* Text */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E7EDAAFE2CAAEE5E006F3ED0 /* Shareds */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAFD2CAAEE5E006F3ED0 /* Components */,
+			);
+			path = Shareds;
+			sourceTree = "<group>";
+		};
+		E7EDAB012CAAEE5E006F3ED0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAAFF2CAAEE5E006F3ED0 /* HomeVM.swift */,
+				E7EDAB002CAAEE5E006F3ED0 /* MetricsVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E7EDAB0C2CAAEE6A006F3ED0 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAB0A2CAAEE6A006F3ED0 /* LeadControlView.swift */,
+				E7EDAB0B2CAAEE6A006F3ED0 /* MemberControlScreen.swift */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		E7EDAB0E2CAAEE6A006F3ED0 /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAB0D2CAAEE6A006F3ED0 /* MetricsView.swift */,
+			);
+			path = Metrics;
+			sourceTree = "<group>";
+		};
+		E7EDAB0F2CAAEE6A006F3ED0 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAB0C2CAAEE6A006F3ED0 /* Control */,
+				E7EDAB0E2CAAEE6A006F3ED0 /* Metrics */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E7EDAB132CAAEE6A006F3ED0 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAB0F2CAAEE6A006F3ED0 /* SubViews */,
+				E7EDAB102CAAEE6A006F3ED0 /* HomeScreen.swift */,
+				E7EDAB112CAAEE6A006F3ED0 /* MetricsScreen.swift */,
+				E7EDAB122CAAEE6A006F3ED0 /* SummaryScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E7EDAB162CAAEE6A006F3ED0 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAB142CAAEE6A006F3ED0 /* ContentView.swift */,
+				E7EDAB152CAAEE6A006F3ED0 /* HaikinguApp.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		E7EDAB202CAAEE7B006F3ED0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E7EDAB1F2CAAEE7B006F3ED0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -656,9 +699,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CFCFF52CAADCFE000FAD7B /* Assets.xcassets in Resources */,
-				E7CFCFF62CAADCFE000FAD7B /* Telaga Bidadari Batam.gpx in Resources */,
-				E7CFCFF72CAADCFE000FAD7B /* LaunchScreen.storyboard in Resources */,
+				E7EDAACF2CAAEE3D006F3ED0 /* LaunchScreen.storyboard in Resources */,
+				E7EDAAD02CAAEE3D006F3ED0 /* Telaga Bidadari Batam.gpx in Resources */,
+				E7EDAAD12CAAEE3D006F3ED0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,8 +709,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CFD0472CAADD4B000FAD7B /* Assets.xcassets in Resources */,
-				E7CFD0452CAADD42000FAD7B /* Preview Assets.xcassets in Resources */,
+				E7EDAB232CAAEE84006F3ED0 /* Assets.xcassets in Resources */,
+				E7EDAB212CAAEE7B006F3ED0 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,39 +721,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CFCFF82CAADCFE000FAD7B /* CentralBLEService.swift in Sources */,
-				E7CFCFF92CAADCFE000FAD7B /* Date+Extension.swift in Sources */,
-				E7CFCFFA2CAADCFE000FAD7B /* PrimaryButton.swift in Sources */,
-				E7CFCFFB2CAADCFE000FAD7B /* SecondaryButton.swift in Sources */,
-				E7CFCFFC2CAADCFE000FAD7B /* HikerBLEManager.swift in Sources */,
-				E7CFCFFD2CAADCFE000FAD7B /* SceneDelegate.swift in Sources */,
-				E7CFCFFE2CAADCFE000FAD7B /* OnboardingHikingProfileVC.swift in Sources */,
-				E7CFCFFF2CAADCFE000FAD7B /* HaikinguRequestReponse.swift in Sources */,
-				E7CFD0002CAADCFE000FAD7B /* SampleLabel.swift in Sources */,
-				E7CFD0012CAADCFE000FAD7B /* HealthService.swift in Sources */,
-				E7CFD0022CAADCFE000FAD7B /* HikerBLEManager+Central+Extension.swift in Sources */,
-				E7CFD0032CAADCFE000FAD7B /* HomeVC.swift in Sources */,
-				E7CFD0042CAADCFE000FAD7B /* Hiker.swift in Sources */,
-				E7CFD0052CAADCFE000FAD7B /* HikingInvitationVC.swift in Sources */,
-				E7CFD0062CAADCFE000FAD7B /* SampleView.swift in Sources */,
-				E7CFD0072CAADCFE000FAD7B /* HealthManager.swift in Sources */,
-				E7CFD0082CAADCFE000FAD7B /* HomeVC+HikingInvitation+Extension.swift in Sources */,
-				E7CFD0092CAADCFE000FAD7B /* SampleItemView.swift in Sources */,
-				E7CFD00A2CAADCFE000FAD7B /* Swinject+Extension.swift in Sources */,
-				E7CFD00B2CAADCFE000FAD7B /* SampleDB.swift in Sources */,
-				E7CFD00C2CAADCFE000FAD7B /* OnboardingExtension.swift in Sources */,
-				E7CFD00D2CAADCFE000FAD7B /* HaikinguServiceBLEUUID.swift in Sources */,
-				E7CFD00E2CAADCFE000FAD7B /* HomeHeaderView.swift in Sources */,
-				E7CFD00F2CAADCFE000FAD7B /* ViewController.swift in Sources */,
-				E7CFD0102CAADCFE000FAD7B /* AppButton.swift in Sources */,
-				E7CFD0112CAADCFE000FAD7B /* HikingModeControlView.swift in Sources */,
-				E7EDAA452CAAE729006F3ED0 /* BackToHomeMessageView.swift in Sources */,
-				E7CFD0122CAADCFE000FAD7B /* AppDelegate.swift in Sources */,
-				E7CFD0132CAADCFE000FAD7B /* User.swift in Sources */,
-				E7CFD0142CAADCFE000FAD7B /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
-				E7CFD0152CAADCFE000FAD7B /* AlterVC.swift in Sources */,
-				E7CFD0162CAADCFE000FAD7B /* PeripheralBLEService.swift in Sources */,
-				E7CFD0172CAADCFE000FAD7B /* TypeOfRestEnum.swift in Sources */,
+				E7EDAAD22CAAEE3D006F3ED0 /* Date+Extension.swift in Sources */,
+				E7EDAAD32CAAEE3D006F3ED0 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
+				E7EDAAD42CAAEE3D006F3ED0 /* HealthManager.swift in Sources */,
+				E7EDAAD52CAAEE3D006F3ED0 /* HomeVC+HikingInvitation+Extension.swift in Sources */,
+				E7EDAAD62CAAEE3D006F3ED0 /* SampleView.swift in Sources */,
+				E7EDAAD72CAAEE3D006F3ED0 /* HaikinguServiceBLEUUID.swift in Sources */,
+				E7EDAAD82CAAEE3D006F3ED0 /* TypeOfRestEnum.swift in Sources */,
+				E7EDAAD92CAAEE3D006F3ED0 /* HikerBLEManager.swift in Sources */,
+				E7EDAADA2CAAEE3D006F3ED0 /* AppDelegate.swift in Sources */,
+				E7EDAADB2CAAEE3D006F3ED0 /* ViewController.swift in Sources */,
+				E7EDAADC2CAAEE3D006F3ED0 /* HikingInvitationVC.swift in Sources */,
+				E7EDAADD2CAAEE3D006F3ED0 /* Swinject+Extension.swift in Sources */,
+				E7EDAADE2CAAEE3D006F3ED0 /* SceneDelegate.swift in Sources */,
+				E7EDAADF2CAAEE3D006F3ED0 /* AlterVC.swift in Sources */,
+				E7EDAAE02CAAEE3D006F3ED0 /* HikingModeControlView.swift in Sources */,
+				E7EDAAE12CAAEE3D006F3ED0 /* PrimaryButton.swift in Sources */,
+				E7EDAAE22CAAEE3D006F3ED0 /* User.swift in Sources */,
+				E7EDAAE32CAAEE3D006F3ED0 /* OnboardingHikingProfileVC.swift in Sources */,
+				E7EDAAE42CAAEE3D006F3ED0 /* HomeVC.swift in Sources */,
+				E7EDAAE52CAAEE3D006F3ED0 /* HikerBLEManager+Central+Extension.swift in Sources */,
+				E7EDAAE62CAAEE3D006F3ED0 /* SampleDB.swift in Sources */,
+				E7EDAAE72CAAEE3D006F3ED0 /* HomeHeaderView.swift in Sources */,
+				E7EDAAE82CAAEE3D006F3ED0 /* HealthService.swift in Sources */,
+				E7EDAAE92CAAEE3D006F3ED0 /* BackToHomeMessageView.swift in Sources */,
+				E7EDAAEA2CAAEE3D006F3ED0 /* Hiker.swift in Sources */,
+				E7EDAAEB2CAAEE3D006F3ED0 /* CentralBLEService.swift in Sources */,
+				E7EDAAEC2CAAEE3D006F3ED0 /* SampleLabel.swift in Sources */,
+				E7EDAAED2CAAEE3D006F3ED0 /* HaikinguRequestReponse.swift in Sources */,
+				E7EDAAEE2CAAEE3D006F3ED0 /* AppButton.swift in Sources */,
+				E7EDAAEF2CAAEE3D006F3ED0 /* PeripheralBLEService.swift in Sources */,
+				E7EDAAF02CAAEE3D006F3ED0 /* OnboardingExtension.swift in Sources */,
+				E7EDAAF12CAAEE3D006F3ED0 /* OnboardingHealthAccessVC.swift in Sources */,
+				E7EDAAF22CAAEE3D006F3ED0 /* SampleItemView.swift in Sources */,
+				E7EDAAF32CAAEE3D006F3ED0 /* SecondaryButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,22 +762,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CFD0322CAADD2E000FAD7B /* HKMetricBiggerText.swift in Sources */,
-				E7CFD0332CAADD2E000FAD7B /* MetricsScreen.swift in Sources */,
-				E7CFD0342CAADD2E000FAD7B /* HKCircleButton.swift in Sources */,
-				E7CFD0352CAADD2E000FAD7B /* MetricsView.swift in Sources */,
-				E7CFD0362CAADD2E000FAD7B /* UserServices.swift in Sources */,
-				E7CFD0372CAADD2E000FAD7B /* SummaryScreen.swift in Sources */,
-				E7CFD0412CAADD38000FAD7B /* HaikinguApp.swift in Sources */,
-				E7CFD0422CAADD38000FAD7B /* ContentView.swift in Sources */,
-				E7CFD0382CAADD2E000FAD7B /* LeadControlView.swift in Sources */,
-				E7CFD0392CAADD2E000FAD7B /* MemberControlScreen.swift in Sources */,
-				E7CFD03A2CAADD2E000FAD7B /* HKSummaryText.swift in Sources */,
-				E7CFD03B2CAADD2E000FAD7B /* HomeScreen.swift in Sources */,
-				E7CFD03C2CAADD2E000FAD7B /* HKTextButton.swift in Sources */,
-				E7CFD03D2CAADD2E000FAD7B /* NavigationServices.swift in Sources */,
-				E7CFD01B2CAADD24000FAD7B /* MetricsVM.swift in Sources */,
-				E7CFD01C2CAADD24000FAD7B /* HomeVM.swift in Sources */,
+				E7EDAB022CAAEE5E006F3ED0 /* HKSummaryText.swift in Sources */,
+				E7EDAB032CAAEE5E006F3ED0 /* HomeVM.swift in Sources */,
+				E7EDAB042CAAEE5E006F3ED0 /* HKCircleButton.swift in Sources */,
+				E7EDAB172CAAEE6A006F3ED0 /* ContentView.swift in Sources */,
+				E7EDAB182CAAEE6A006F3ED0 /* MemberControlScreen.swift in Sources */,
+				E7EDAB192CAAEE6A006F3ED0 /* MetricsScreen.swift in Sources */,
+				E7EDAB1A2CAAEE6A006F3ED0 /* HaikinguApp.swift in Sources */,
+				E7EDAB1B2CAAEE6A006F3ED0 /* SummaryScreen.swift in Sources */,
+				E7EDAB1C2CAAEE6A006F3ED0 /* MetricsView.swift in Sources */,
+				E7EDAB1D2CAAEE6A006F3ED0 /* LeadControlView.swift in Sources */,
+				E7EDAB1E2CAAEE6A006F3ED0 /* HomeScreen.swift in Sources */,
+				E7EDAB052CAAEE5E006F3ED0 /* UserServices.swift in Sources */,
+				E7EDAB062CAAEE5E006F3ED0 /* HKMetricBiggerText.swift in Sources */,
+				E7EDAB072CAAEE5E006F3ED0 /* HKTextButton.swift in Sources */,
+				E7EDAB082CAAEE5E006F3ED0 /* NavigationServices.swift in Sources */,
+				E7EDAB092CAAEE5E006F3ED0 /* MetricsVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,10 +792,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E7CFCFF12CAADCFE000FAD7B /* LaunchScreen.storyboard */ = {
+		E7EDAACB2CAAEE3D006F3ED0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E7CFCFF02CAADCFE000FAD7B /* Base */,
+				E7EDAACA2CAAEE3D006F3ED0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1063,17 +1107,17 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E7CFD04B2CAADDA6000FAD7B /* SnapKit */ = {
+		E7EDAB242CAAEF4F006F3ED0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7CFD0482CAADD8F000FAD7B /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		E7CFD04D2CAADDAA000FAD7B /* Swinject */ = {
+		E7EDAB262CAAEF52006F3ED0 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7CFD0492CAADD9E000FAD7B /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
 		};
-		E7CFD04F2CAADDAF000FAD7B /* Swinject */ = {
+		E7EDAB282CAAEF58006F3ED0 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7CFD0492CAADD9E000FAD7B /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
