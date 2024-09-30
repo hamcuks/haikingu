@@ -26,7 +26,7 @@
 		E7D0BA542C9839CC00324E3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E7DEE7222C983C0C00549E05 /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7212C983C0C00549E05 /* OnboardingExtension.swift */; };
-		E7DEE7242C983C1E00549E05 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7232C983C1E00549E05 /* OnboardingVC.swift */; };
+		E7DEE7242C983C1E00549E05 /* OnboardingHikingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7232C983C1E00549E05 /* OnboardingHikingProfileVC.swift */; };
 		E7DEE7262C983C5F00549E05 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7252C983C5F00549E05 /* SampleView.swift */; };
 		E7DEE7282C983C8600549E05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE7272C983C8600549E05 /* User.swift */; };
 		E7DEE72E2C983CF800549E05 /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE72D2C983CF800549E05 /* SampleLabel.swift */; };
@@ -89,7 +89,7 @@
 		E7D0BA502C9839CC00324E3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7DEE7212C983C0C00549E05 /* OnboardingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExtension.swift; sourceTree = "<group>"; };
-		E7DEE7232C983C1E00549E05 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		E7DEE7232C983C1E00549E05 /* OnboardingHikingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHikingProfileVC.swift; sourceTree = "<group>"; };
 		E7DEE7252C983C5F00549E05 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		E7DEE7272C983C8600549E05 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7DEE72D2C983CF800549E05 /* SampleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLabel.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 		E7DEE71F2C983BDD00549E05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7DEE7232C983C1E00549E05 /* OnboardingVC.swift */,
+				E7DEE7232C983C1E00549E05 /* OnboardingHikingProfileVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -617,7 +617,7 @@
 				E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */,
 				E7DEE73C2C983D8000549E05 /* Date+Extension.swift in Sources */,
 				E7DEE7302C983D0C00549E05 /* AlterVC.swift in Sources */,
-				E7DEE7242C983C1E00549E05 /* OnboardingVC.swift in Sources */,
+				E7DEE7242C983C1E00549E05 /* OnboardingHikingProfileVC.swift in Sources */,
 				E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */,
 				E7DEE7362C983D5000549E05 /* HealthManager.swift in Sources */,
 				E7DEE73A2C983D7000549E05 /* SampleDB.swift in Sources */,
@@ -792,11 +792,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 57BYB3NG56;
+				DEVELOPMENT_TEAM = 58TG5WTTSX;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
@@ -809,10 +808,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.X.Haikingu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Haikingu - Dev - iOS";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -826,11 +824,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 57BYB3NG56;
+				DEVELOPMENT_TEAM = 58TG5WTTSX;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
@@ -843,10 +840,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.X.Haikingu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Haikingu - Dev - iOS";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -859,27 +855,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=watchos*]" = 57BYB3NG56;
+				DEVELOPMENT_TEAM = 58TG5WTTSX;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.X.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.X.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -895,27 +889,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Haikingu Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=watchos*]" = 57BYB3NG56;
+				DEVELOPMENT_TEAM = 58TG5WTTSX;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.X.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.X.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
