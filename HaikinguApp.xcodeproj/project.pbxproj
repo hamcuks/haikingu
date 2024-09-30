@@ -7,6 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031A6BEC2CA72562003AFD6C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031A6BEB2CA72562003AFD6C /* HomeScreen.swift */; };
+		038903922CAABF4B00E6F1E9 /* DestinationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903912CAABF4B00E6F1E9 /* DestinationModel.swift */; };
+		038903952CAAC4B400E6F1E9 /* DestinationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903942CAAC4B400E6F1E9 /* DestinationListVC.swift */; };
+		0389039A2CAAC9EA00E6F1E9 /* HikingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038903992CAAC9EA00E6F1E9 /* HikingCell.swift */; };
+		03E274E72CA9160300EF2D5F /* SummaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274E62CA9160300EF2D5F /* SummaryScreen.swift */; };
+		03E274F02CA916E200EF2D5F /* NavigationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */; };
+		03E274F52CA923E500EF2D5F /* MetricsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F42CA923E500EF2D5F /* MetricsScreen.swift */; };
+		03E274F72CA9246200EF2D5F /* MetricsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F62CA9246200EF2D5F /* MetricsVM.swift */; };
+		03E274F92CA92F0F00EF2D5F /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E274F82CA92F0F00EF2D5F /* UserServices.swift */; };
+		0C8DBA871B0D5999FBFD2EB8 /* Pods_HaikinguApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E8B65C535F97E19D9A5BFC /* Pods_HaikinguApp.framework */; };
+		4CF0AE1D2F9638231E39F61A /* Pods_Haikingu_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B11FF0552B6F57A27CAFF4 /* Pods_Haikingu_Watch_App.framework */; };
+		BA1F53692CAA9F0B00A9A9F2 /* OnboardingHealthAccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */; };
+		E78015E22CAA932B00E658A1 /* HikingInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */; };
+		E78015E42CAA983100E658A1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015E32CAA983100E658A1 /* PrimaryButton.swift */; };
+		E78015E62CAA9B7500E658A1 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */; };
+		E78015E82CAAA4E600E658A1 /* CentralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015E72CAAA4E600E658A1 /* CentralBLEService.swift */; };
+		E78015EB2CAAA50C00E658A1 /* Hiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EA2CAAA50C00E658A1 /* Hiker.swift */; };
+		E78015ED2CAAA53600E658A1 /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EC2CAAA53600E658A1 /* TypeOfRestEnum.swift */; };
+		E78015EF2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015EE2CAAA54E00E658A1 /* HaikinguServiceBLEUUID.swift */; };
+		E78015F22CAAA59900E658A1 /* PeripheralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F12CAAA59900E658A1 /* PeripheralBLEService.swift */; };
+		E78015F42CAAA5C400E658A1 /* HaikinguRequestReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F32CAAA5C400E658A1 /* HaikinguRequestReponse.swift */; };
+		E78015F62CAAA62300E658A1 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F52CAAA62300E658A1 /* HikerBLEManager.swift */; };
+		E78015FA2CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015F92CAAA66100E658A1 /* HikerBLEManager+Central+Extension.swift */; };
+		E78015FC2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015FB2CAAA68F00E658A1 /* HikerBLEManager+Peripheral+Extension.swift */; };
+		E78016002CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */; };
+		E78016022CAAAB0300E658A1 /* HikingModeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */; };
+		E78016282CAAC9B800E658A1 /* BackToHomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78016272CAAC9B800E658A1 /* BackToHomeMessageView.swift */; };
+		E7D0BA332C9839AD00324E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA322C9839AD00324E3D /* AppDelegate.swift */; };
+		E7D0BA352C9839AD00324E3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA342C9839AD00324E3D /* SceneDelegate.swift */; };
+		E7D0BA372C9839AD00324E3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA362C9839AD00324E3D /* ViewController.swift */; };
+		E7D0BA3C2C9839AF00324E3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA3B2C9839AF00324E3D /* Assets.xcassets */; };
+		E7D0BA3F2C9839AF00324E3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA3D2C9839AF00324E3D /* LaunchScreen.storyboard */; };
+		E7D0BA4D2C9839CB00324E3D /* HaikinguApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA4C2C9839CB00324E3D /* HaikinguApp.swift */; };
+		E7D0BA4F2C9839CB00324E3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0BA4E2C9839CB00324E3D /* ContentView.swift */; };
+		E7D0BA512C9839CC00324E3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA502C9839CC00324E3D /* Assets.xcassets */; };
+		E7D0BA542C9839CC00324E3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D0BA532C9839CC00324E3D /* Preview Assets.xcassets */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E7EDAACF2CAAEE3D006F3ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EDAACB2CAAEE3D006F3ED0 /* LaunchScreen.storyboard */; };
 		E7EDAAD02CAAEE3D006F3ED0 /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E7EDAA9E2CAAEE3D006F3ED0 /* Telaga Bidadari Batam.gpx */; };
@@ -93,6 +129,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01C690C35EC784B922C7FB9A /* Pods-Haikingu Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haikingu Watch App.release.xcconfig"; path = "Target Support Files/Pods-Haikingu Watch App/Pods-Haikingu Watch App.release.xcconfig"; sourceTree = "<group>"; };
+		031A6BEB2CA72562003AFD6C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		038903912CAABF4B00E6F1E9 /* DestinationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationModel.swift; sourceTree = "<group>"; };
+		038903942CAAC4B400E6F1E9 /* DestinationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationListVC.swift; sourceTree = "<group>"; };
+		038903992CAAC9EA00E6F1E9 /* HikingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingCell.swift; sourceTree = "<group>"; };
+		03E274E62CA9160300EF2D5F /* SummaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryScreen.swift; sourceTree = "<group>"; };
+		03E274EF2CA916DD00EF2D5F /* NavigationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationServices.swift; sourceTree = "<group>"; };
+		03E274F42CA923E500EF2D5F /* MetricsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsScreen.swift; sourceTree = "<group>"; };
+		03E274F62CA9246200EF2D5F /* MetricsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsVM.swift; sourceTree = "<group>"; };
+		03E274F82CA92F0F00EF2D5F /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		04BA5ACF0FBC88A75EA9887E /* Pods-HaikinguApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaikinguApp.release.xcconfig"; path = "Target Support Files/Pods-HaikinguApp/Pods-HaikinguApp.release.xcconfig"; sourceTree = "<group>"; };
+		17B11FF0552B6F57A27CAFF4 /* Pods_Haikingu_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haikingu_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47E8B65C535F97E19D9A5BFC /* Pods_HaikinguApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaikinguApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
 		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
 		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -661,7 +710,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					E7D0BA2E2C9839AD00324E3D = {
 						CreatedOnToolsVersion = 15.2;
