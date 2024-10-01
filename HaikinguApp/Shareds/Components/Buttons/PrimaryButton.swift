@@ -28,7 +28,8 @@ class PrimaryButton: UIButton {
     
     private func configure() {
         self.configuration = .filled()
-        self.configuration?.baseBackgroundColor = .systemGreen
+        self.configuration?.baseBackgroundColor = .systemOrange
+        self.setTitleColor(.black, for: .normal)
         self.configuration?.background.cornerRadius = 16
     }
 

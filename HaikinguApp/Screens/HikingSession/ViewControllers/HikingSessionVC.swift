@@ -37,7 +37,6 @@ class HikingSessionVC: UIViewController {
         view.addSubview(footerView)
         view.addSubview(actionButton)
 
-        
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(20)

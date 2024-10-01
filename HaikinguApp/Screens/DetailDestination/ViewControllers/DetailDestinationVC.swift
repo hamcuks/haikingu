@@ -130,7 +130,6 @@ class DetailDestinationVC: UIViewController {
             make.width.equalTo(316)
             make.height.equalTo(50)
         }
-    
     }
     
     @objc

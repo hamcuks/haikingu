@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0329AF102CAC401300747035 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329AF0F2CAC401300747035 /* CustomCell.swift */; };
+		034CF64F2CAC50A50006CE6F /* CongratsSharableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */; };
 		03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */; };
 		03B0C43F2CABD11B00954557 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43E2CABD11B00954557 /* HeaderView.swift */; };
 		03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4402CABD1AB00954557 /* BodyView.swift */; };
@@ -14,13 +16,16 @@
 		03B0C4452CABE35600954557 /* TimeElapsedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4442CABE35600954557 /* TimeElapsedView.swift */; };
 		03B0C4472CABE54F00954557 /* HikingMetricsIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */; };
 		03B0C4492CABF31600954557 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4482CABF31600954557 /* IconButton.swift */; };
+		03B0C44F2CABFDF500954557 /* CongratsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C44E2CABFDF500954557 /* CongratsVC.swift */; };
+		03B0C4512CABFE9D00954557 /* HeaderCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */; };
+		03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4542CABFF6900954557 /* HikingSummaryView.swift */; };
+		03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4562CABFF9200954557 /* ReminderTitleView.swift */; };
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */; };
 		BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */; };
 		BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */; };
 		BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */; };
-		BA84BB1B2CABEBCC007A93C1 /* CongratsSharableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB1A2CABEBA0007A93C1 /* CongratsSharableVC.swift */; };
 		E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBD62CABF3C200B37551 /* NotificationService.swift */; };
 		E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBA42CABD13800B37551 /* NotificationManager.swift */; };
 		E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */; };
@@ -127,6 +132,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0329AF0F2CAC401300747035 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsSharableVC.swift; sourceTree = "<group>"; };
 		03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSessionVC.swift; sourceTree = "<group>"; };
 		03B0C43E2CABD11B00954557 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		03B0C4402CABD1AB00954557 /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
@@ -134,6 +141,10 @@
 		03B0C4442CABE35600954557 /* TimeElapsedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeElapsedView.swift; sourceTree = "<group>"; };
 		03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingMetricsIconTextView.swift; sourceTree = "<group>"; };
 		03B0C4482CABF31600954557 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		03B0C44E2CABFDF500954557 /* CongratsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsVC.swift; sourceTree = "<group>"; };
+		03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCongratsView.swift; sourceTree = "<group>"; };
+		03B0C4542CABFF6900954557 /* HikingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSummaryView.swift; sourceTree = "<group>"; };
+		03B0C4562CABFF9200954557 /* ReminderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTitleView.swift; sourceTree = "<group>"; };
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
@@ -141,7 +152,6 @@
 		BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingKeyFeatureVC.swift; sourceTree = "<group>"; };
 		BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationVC.swift; sourceTree = "<group>"; };
 		BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedVC.swift; sourceTree = "<group>"; };
-		BA84BB1A2CABEBA0007A93C1 /* CongratsSharableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsSharableVC.swift; sourceTree = "<group>"; };
 		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
 		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
@@ -284,28 +294,49 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		03B0C44A2CABFD6C00954557 /* Congrats */ = {
+			isa = PBXGroup;
+			children = (
+				03B0C44D2CABFDA600954557 /* Extensions */,
+				03B0C44C2CABFD9C00954557 /* SubViews */,
+				03B0C44B2CABFD8900954557 /* ViewControllers */,
+			);
+			path = Congrats;
+			sourceTree = "<group>";
+		};
+		03B0C44B2CABFD8900954557 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */,
+				03B0C44E2CABFDF500954557 /* CongratsVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03B0C44C2CABFD9C00954557 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				0329AF0F2CAC401300747035 /* CustomCell.swift */,
+				03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */,
+				03B0C4542CABFF6900954557 /* HikingSummaryView.swift */,
+				03B0C4562CABFF9200954557 /* ReminderTitleView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		03B0C44D2CABFDA600954557 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8AF3B98A2CAAF608008C5891 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		BA84BB182CABEB6F007A93C1 /* Congrats */ = {
-			isa = PBXGroup;
-			children = (
-				BA84BB192CABEB78007A93C1 /* ViewControllers */,
-			);
-			path = Congrats;
-			sourceTree = "<group>";
-		};
-		BA84BB192CABEB78007A93C1 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				BA84BB1A2CABEBA0007A93C1 /* CongratsSharableVC.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E7CE224A2CAB8B42004A3223 /* LocalDataSources */ = {
@@ -505,7 +536,7 @@
 		E7CE227A2CAB8B42004A3223 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				BA84BB182CABEB6F007A93C1 /* Congrats */,
+				03B0C44A2CABFD6C00954557 /* Congrats */,
 				03B0C4382CABD08F00954557 /* HikingSession */,
 				E7CE22622CAB8B42004A3223 /* DestinationList */,
 				E7CE22672CAB8B42004A3223 /* DetailDestination */,
@@ -971,9 +1002,11 @@
 			files = (
 				E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */,
 				E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */,
+				03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */,
 				E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */,
 				BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */,
 				E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */,
+				03B0C44F2CABFDF500954557 /* CongratsVC.swift in Sources */,
 				E7CE22A02CAB8B42004A3223 /* BackToHomeMessageView.swift in Sources */,
 				E7CE22A12CAB8B42004A3223 /* OnboardingHikingProfileVC.swift in Sources */,
 				E7CE22A22CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift in Sources */,
@@ -993,6 +1026,7 @@
 				E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */,
 				E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */,
 				E7CE22B02CAB8B42004A3223 /* OnboardingExtension.swift in Sources */,
+				03B0C4512CABFE9D00954557 /* HeaderCongratsView.swift in Sources */,
 				E7CE22B12CAB8B42004A3223 /* AddFriendView.swift in Sources */,
 				E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */,
 				E7CE22B32CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
@@ -1004,7 +1038,6 @@
 				E7CE22B82CAB8B42004A3223 /* HikingCell.swift in Sources */,
 				E7CE22B92CAB8B42004A3223 /* Hiker.swift in Sources */,
 				E7CE22BA2CAB8B42004A3223 /* HikingModeControlView.swift in Sources */,
-				BA84BB1B2CABEBCC007A93C1 /* CongratsSharableVC.swift in Sources */,
 				03B0C4472CABE54F00954557 /* HikingMetricsIconTextView.swift in Sources */,
 				03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */,
 				E7CE22BB2CAB8B42004A3223 /* HealthManager.swift in Sources */,
@@ -1012,6 +1045,7 @@
 				E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */,
 				BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */,
 				E7CE22BE2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift in Sources */,
+				0329AF102CAC401300747035 /* CustomCell.swift in Sources */,
 				E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */,
 				E7CE22BF2CAB8B42004A3223 /* Swinject+Extension.swift in Sources */,
 				E7CE22C02CAB8B42004A3223 /* User.swift in Sources */,
@@ -1028,7 +1062,9 @@
 				03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */,
 				E7CE22C82CAB8B42004A3223 /* DetailDestinationView.swift in Sources */,
 				E7CE22D92CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
+				03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */,
 				E7CE22DA2CAB8EF0004A3223 /* Logger.swift in Sources */,
+				034CF64F2CAC50A50006CE6F /* CongratsSharableVC.swift in Sources */,
 				E7CE22C92CAB8B42004A3223 /* ViewController.swift in Sources */,
 				E7CE22CA2CAB8B42004A3223 /* DestinationListVC.swift in Sources */,
 				03B0C4452CABE35600954557 /* TimeElapsedView.swift in Sources */,
