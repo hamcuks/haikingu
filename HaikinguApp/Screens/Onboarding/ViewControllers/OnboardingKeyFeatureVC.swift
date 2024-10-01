@@ -42,6 +42,7 @@ class OnboardingKeyFeatureVC: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .black
+        titleLabel.numberOfLines = 0
         view.addSubview(titleLabel)
 
         // Description Label
