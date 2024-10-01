@@ -10,10 +10,6 @@ import CoreBluetooth
 import os
 
 extension HikerBLEManager: PeripheralBLEService {
-    func configurePeripheral() {
-        self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
-        
-    }
     
     func setDelegate(_ delegate: PeripheralBLEManagerDelegate) {
         self.peripheralDelegate = delegate
@@ -289,20 +285,17 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
             
             /// Send callback to central after received the hiking plan
             if request.characteristic.isPlan {
+                guard let decodedData = String(data: data, encoding: .utf8) else {
+                    return
+                }
+                
                 peripheral.respond(to: request, withResult: .success)
                 
-                do {
-                    let decodedData = try JSONDecoder().decode(
-                        Hiking.self,
-                        from: data
-                    )
-                    
-                    print("ID: ", decodedData.id)
-                    print("Name: ", decodedData.name)
-                    print("Track Length: ", decodedData.trackLength)
-                } catch {
-                    print(error.localizedDescription)
+                guard let planId = Int(decodedData) else {
+                    return
                 }
+                
+                self.peripheralDelegate?.peripheralBLEManager(didReceivePlanData: planId)
             }
             
         }

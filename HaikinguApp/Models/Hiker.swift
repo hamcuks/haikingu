@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum HikerStateEnum { case joined, waiting, rejected, notJoined }
+enum HikerStateEnum: String { case joined, waiting, rejected, notJoined }
 
 struct Hiker: Hashable {
     var id: UUID
