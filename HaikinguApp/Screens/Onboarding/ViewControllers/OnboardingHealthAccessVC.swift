@@ -20,6 +20,18 @@ class OnboardingHealthAccessVC: UIViewController {
 
     // HealthKit store for requesting health data
     let healthStore = HKHealthStore()
+    var workoutManager : WorkoutServiceIos?
+    
+    init(workoutManager: WorkoutServiceIos?) {
+        super.init(nibName: nil, bundle: nil)
+        self.workoutManager = workoutManager
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +39,7 @@ class OnboardingHealthAccessVC: UIViewController {
         view.backgroundColor = .white
 
         // Heart Icon ImageView from Assets
-        heartIconImageView.image = UIImage(named: "HealthKitIcon") // Replace with your asset image name
+        heartIconImageView.image = UIImage(named: "OnboardingHealthKitIcon") // Replace with your asset image name
         heartIconImageView.contentMode = .scaleAspectFit
         view.addSubview(heartIconImageView)
 
@@ -109,21 +121,8 @@ class OnboardingHealthAccessVC: UIViewController {
 
     // Request HealthKit permissions
     @objc func allowHealthAccessTapped() {
-        let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)!
-        let typesToRead: Set = [heartRateType]
-        
-        healthStore.requestAuthorization(toShare: nil, read: typesToRead) { (success, error) in
-            if success {
-                DispatchQueue.main.async {
-                    // Handle successful authorization here (e.g., navigate to the next screen)
-                    print("Health data access granted!")
-                }
-            } else {
-                DispatchQueue.main.async {
-                    // Handle the error here (e.g., show an alert)
-                    print("Authorization failed with error: \(String(describing: error))")
-                }
-            }
-        }
-    }
+        workoutManager?.requestHealthAccess()
+        let locationVC = OnboardingLocationVC()
+        navigationController?.pushViewController(locationVC, animated: true)
+     }
 }

@@ -24,6 +24,7 @@ extension Container {
         }
         
         container.register(NotificationService.self) { _ in NotificationManager() }
+        container.register(WorkoutServiceIos.self) { _ in WorkoutManager() }
         
         /// ViewControllers
         container.register(HomeVC.self) { resolver in
@@ -45,6 +46,14 @@ extension Container {
             return viewController
         }
         
+            container.register(OnboardingHealthAccessVC.self) { resolver in
+                
+                let workoutManager = resolver.resolve(WorkoutServiceIos.self)
+                
+                let viewController = OnboardingHealthAccessVC(workoutManager: workoutManager)
+                
+                return viewController
+            }
         
         return container
     }()

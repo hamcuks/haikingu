@@ -1,18 +1,18 @@
 //
-//  PrimaryButton.swift
+//  IconButton.swift
 //  HaikinguApp
 //
-//  Created by Ivan Nur Ilham Syah on 30/09/24.
+//  Created by Bayu Septyan Nur Hidayat on 01/10/24.
 //
 
 import UIKit
 
-class PrimaryButton: UIButton {
-
-    init(label: String) {
+class IconButton: UIButton {
+    
+    init(imageIcon: String) {
         super.init(frame: .zero)
         
-        self.setTitle(label, for: .normal)
+        self.setImage(UIImage(systemName: imageIcon), for: .normal)
         self.configure()
     }
     
@@ -27,10 +27,10 @@ class PrimaryButton: UIButton {
     }
     
     private func configure() {
-        self.configuration = .filled()
+        self.configuration = .bordered()
         self.configuration?.baseBackgroundColor = .systemOrange
-        self.setTitleColor(.black, for: .normal)
-        self.configuration?.background.cornerRadius = 16
+        self.tintColor = .black
+        self.configuration?.background.cornerRadius = 30
     }
 
 }

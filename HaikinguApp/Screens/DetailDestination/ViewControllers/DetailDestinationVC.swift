@@ -139,7 +139,6 @@ class DetailDestinationVC: UIViewController {
             make.leading.trailing.equalTo(horizontalStack)
             make.height.equalTo(50)
         }
-    
     }
     
     @objc

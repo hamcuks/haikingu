@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
+import Swinject
 
 struct MetricsView: View {
-
-    @EnvironmentObject var metricsVM : MetricsVM
+    @EnvironmentObject var metricsVM: MetricsVM
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 2) {
             VStack(alignment: .leading, spacing: 0) {
-                VStack(alignment: .leading,spacing: 0) {
+                VStack(alignment: .leading, spacing: 0) {
                     Text("\(metricsVM.stopwatchTimer.timeInterval)")
                         .font(Font.system(size: 16, weight: .medium))
                     
@@ -35,8 +35,8 @@ struct MetricsView: View {
 //            .border(.red)
             
             VStack(alignment: .leading, spacing: 0) {
-                HStack{
-                    Text("\(metricsVM.bpmValue)")
+                HStack {
+                    Text("\(Int(metricsVM.workoutManager!.heartRate))")
                         
                     Image(systemName: "heart.fill")
                         .foregroundStyle(.red)
@@ -58,4 +58,5 @@ struct MetricsView: View {
 
 #Preview {
     MetricsView()
+        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class PersonImageView: UIView {
-
+    
     private var circleImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -22,7 +22,19 @@ class PersonImageView: UIView {
         label.textAlignment = .center
         label.font = .preferredFont(forTextStyle: .caption2)
         label.textColor = .black
-
+        
+        return label
+    }()
+    
+    private var checkLabel: UILabel = {
+        let label = UILabel()
+        label.text = "CHECK!"
+        label.font = .systemFont(ofSize: 11, weight: .semibold)
+        label.textColor = .white
+        label.backgroundColor = .red
+        label.textAlignment = .center
+        label.layer.cornerRadius = 10
+        label.clipsToBounds = true
         return label
     }()
     
@@ -74,13 +86,22 @@ class PersonImageView: UIView {
         
         circleImageView.image = UIImage(systemName: "person.circle")
         
+        addSubview(checkLabel)
+        
         circleImageView.snp.makeConstraints { make in
             make.width.height.equalTo(self.snp.width)
         }
         
         profileStack.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-         }
+        }
+        
+        checkLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(circleImageView.snp.centerX)
+            make.top.equalTo(circleImageView.snp.top).offset(-10)
+            make.width.equalTo(50)
+            make.height.equalTo(20)
+        }
     }
     
     override func layoutSubviews() {

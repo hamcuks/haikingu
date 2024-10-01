@@ -96,5 +96,6 @@ class OnboardingIntroductionVC: UIViewController {
     // Request HealthKit permissions
     @objc func continueButtonTapped() {
         // TODO: Navigate to OnboardingHealthAccess
+        print("Allowed Healthkit permission access")
     }
 }

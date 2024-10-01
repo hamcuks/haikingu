@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0329AF102CAC401300747035 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329AF0F2CAC401300747035 /* CustomCell.swift */; };
+		034CF64F2CAC50A50006CE6F /* CongratsSharableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */; };
+		034CF6962CAC5C720006CE6F /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034CF6952CAC5C720006CE6F /* EditProfileVC.swift */; };
+		03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */; };
+		03B0C43F2CABD11B00954557 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43E2CABD11B00954557 /* HeaderView.swift */; };
+		03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4402CABD1AB00954557 /* BodyView.swift */; };
+		03B0C4432CABDC8700954557 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4422CABDC7C00954557 /* FooterView.swift */; };
+		03B0C4452CABE35600954557 /* TimeElapsedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4442CABE35600954557 /* TimeElapsedView.swift */; };
+		03B0C4472CABE54F00954557 /* HikingMetricsIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */; };
+		03B0C4492CABF31600954557 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4482CABF31600954557 /* IconButton.swift */; };
+		03B0C44F2CABFDF500954557 /* CongratsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C44E2CABFDF500954557 /* CongratsVC.swift */; };
+		03B0C4512CABFE9D00954557 /* HeaderCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */; };
+		03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4542CABFF6900954557 /* HikingSummaryView.swift */; };
+		03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4562CABFF9200954557 /* ReminderTitleView.swift */; };
+		8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */; };
+		8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAD2CAC638B006CF73B /* Inject.swift */; };
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */; };
@@ -122,6 +138,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0329AF0F2CAC401300747035 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsSharableVC.swift; sourceTree = "<group>"; };
+		034CF6912CAC59D50006CE6F /* HaikinguApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HaikinguApp.entitlements; sourceTree = "<group>"; };
+		034CF6922CAC59E00006CE6F /* Haikingu Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Haikingu Watch App.entitlements"; sourceTree = "<group>"; };
+		034CF6952CAC5C720006CE6F /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSessionVC.swift; sourceTree = "<group>"; };
+		03B0C43E2CABD11B00954557 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		03B0C4402CABD1AB00954557 /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
+		03B0C4422CABDC7C00954557 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		03B0C4442CABE35600954557 /* TimeElapsedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeElapsedView.swift; sourceTree = "<group>"; };
+		03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingMetricsIconTextView.swift; sourceTree = "<group>"; };
+		03B0C4482CABF31600954557 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		03B0C44E2CABFDF500954557 /* CongratsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsVC.swift; sourceTree = "<group>"; };
+		03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCongratsView.swift; sourceTree = "<group>"; };
+		03B0C4542CABFF6900954557 /* HikingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSummaryView.swift; sourceTree = "<group>"; };
+		03B0C4562CABFF9200954557 /* ReminderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTitleView.swift; sourceTree = "<group>"; };
+		8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectWatchos+extension.swift"; sourceTree = "<group>"; };
+		8A994CAD2CAC638B006CF73B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
@@ -247,6 +281,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		034CF6932CAC5C550006CE6F /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				034CF6942CAC5C5D0006CE6F /* ViewControllers */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		034CF6942CAC5C5D0006CE6F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				034CF6952CAC5C720006CE6F /* EditProfileVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03B0C4382CABD08F00954557 /* HikingSession */ = {
+			isa = PBXGroup;
+			children = (
+				03B0C43A2CABD0A400954557 /* SubViews */,
+				03B0C43B2CABD0B300954557 /* ViewControllers */,
+			);
+			path = HikingSession;
+			sourceTree = "<group>";
+		};
+		03B0C43A2CABD0A400954557 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				03B0C4422CABDC7C00954557 /* FooterView.swift */,
+				03B0C4402CABD1AB00954557 /* BodyView.swift */,
+				03B0C43E2CABD11B00954557 /* HeaderView.swift */,
+				03B0C4442CABE35600954557 /* TimeElapsedView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		03B0C43B2CABD0B300954557 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03B0C44A2CABFD6C00954557 /* Congrats */ = {
+			isa = PBXGroup;
+			children = (
+				03B0C44D2CABFDA600954557 /* Extensions */,
+				03B0C44C2CABFD9C00954557 /* SubViews */,
+				03B0C44B2CABFD8900954557 /* ViewControllers */,
+			);
+			path = Congrats;
+			sourceTree = "<group>";
+		};
+		03B0C44B2CABFD8900954557 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */,
+				03B0C44E2CABFDF500954557 /* CongratsVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03B0C44C2CABFD9C00954557 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				0329AF0F2CAC401300747035 /* CustomCell.swift */,
+				03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */,
+				03B0C4542CABFF6900954557 /* HikingSummaryView.swift */,
+				03B0C4562CABFF9200954557 /* ReminderTitleView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		03B0C44D2CABFDA600954557 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8A994CA72CAC61E3006CF73B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A994CAD2CAC638B006CF73B /* Inject.swift */,
+				8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8AF3B98A2CAAF608008C5891 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +588,9 @@
 		E7CE227A2CAB8B42004A3223 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				034CF6932CAC5C550006CE6F /* EditProfile */,
+				03B0C44A2CABFD6C00954557 /* Congrats */,
+				03B0C4382CABD08F00954557 /* HikingSession */,
 				E7CE22622CAB8B42004A3223 /* DestinationList */,
 				E7CE22672CAB8B42004A3223 /* DetailDestination */,
 				E7CE22712CAB8B42004A3223 /* Home */,
@@ -499,6 +626,7 @@
 				E7CE22822CAB8B42004A3223 /* PrimaryButton.swift */,
 				E7CE22832CAB8B42004A3223 /* SecondaryButton.swift */,
 				E7CE22842CAB8B42004A3223 /* TextIconButton.swift */,
+				03B0C4482CABF31600954557 /* IconButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -535,6 +663,7 @@
 				E7CE228E2CAB8B42004A3223 /* PersonImageView.swift */,
 				E7CE228F2CAB8B42004A3223 /* SampleItemView.swift */,
 				E7CE22902CAB8B42004A3223 /* TeamsView.swift */,
+				03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -614,6 +743,7 @@
 		E7D0BA262C9839AD00324E3D = {
 			isa = PBXGroup;
 			children = (
+				034CF6922CAC59E00006CE6F /* Haikingu Watch App.entitlements */,
 				E7CE22D62CAB8EF0004A3223 /* Shareds */,
 				E7D0BA312C9839AD00324E3D /* HaikinguApp */,
 				E7D0BA4B2C9839CB00324E3D /* HaikinguWatchApp */,
@@ -635,7 +765,7 @@
 		E7D0BA312C9839AD00324E3D /* HaikinguApp */ = {
 			isa = PBXGroup;
 			children = (
-				E7A4EBDD2CAC226800B37551 /* HaikinguApp.entitlements */,
+				034CF6912CAC59D50006CE6F /* HaikinguApp.entitlements */,
 				E7CE224A2CAB8B42004A3223 /* LocalDataSources */,
 				E7CE22522CAB8B42004A3223 /* Managers */,
 				E7CE22592CAB8B42004A3223 /* Models */,
@@ -727,6 +857,7 @@
 		E7EDAAFE2CAAEE5E006F3ED0 /* Shareds */ = {
 			isa = PBXGroup;
 			children = (
+				8A994CA72CAC61E3006CF73B /* Extensions */,
 				E7EDAAFD2CAAEE5E006F3ED0 /* Components */,
 			);
 			path = Shareds;
@@ -926,9 +1057,11 @@
 			files = (
 				E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */,
 				E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */,
+				03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */,
 				E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */,
 				BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */,
 				E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */,
+				03B0C44F2CABFDF500954557 /* CongratsVC.swift in Sources */,
 				E7CE22A02CAB8B42004A3223 /* BackToHomeMessageView.swift in Sources */,
 				E7CE22A12CAB8B42004A3223 /* OnboardingHikingProfileVC.swift in Sources */,
 				E7CE22A22CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift in Sources */,
@@ -942,6 +1075,7 @@
 				E7CE22AA2CAB8B42004A3223 /* HealthService.swift in Sources */,
 				E7CE22AB2CAB8B42004A3223 /* AlterVC.swift in Sources */,
 				E7CE22AC2CAB8B42004A3223 /* SampleView.swift in Sources */,
+				03B0C4492CABF31600954557 /* IconButton.swift in Sources */,
 				E7CE22AD2CAB8B42004A3223 /* AlertRangeView.swift in Sources */,
 				E7CE22AE2CAB8B42004A3223 /* WorkoutServiceIos.swift in Sources */,
 				E79B88712CAC71A100E78BC0 /* HikerCell.swift in Sources */,
@@ -952,17 +1086,21 @@
 				E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */,
 				E7CE22B32CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
 				E7CE22B42CAB8B42004A3223 /* DetailEstTimeVC.swift in Sources */,
+				03B0C4432CABDC8700954557 /* FooterView.swift in Sources */,
 				E7CE22B52CAB8B42004A3223 /* AppButton.swift in Sources */,
 				E7CE22B62CAB8B42004A3223 /* HaikinguRequestReponse.swift in Sources */,
 				E7CE22B72CAB8B42004A3223 /* SampleLabel.swift in Sources */,
 				E7CE22B82CAB8B42004A3223 /* HikingCell.swift in Sources */,
 				E7CE22B92CAB8B42004A3223 /* Hiker.swift in Sources */,
 				E7CE22BA2CAB8B42004A3223 /* HikingModeControlView.swift in Sources */,
+				03B0C4472CABE54F00954557 /* HikingMetricsIconTextView.swift in Sources */,
+				03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */,
 				E7CE22BB2CAB8B42004A3223 /* HealthManager.swift in Sources */,
 				E7CE22BC2CAB8B42004A3223 /* HaikinguServiceBLEUUID.swift in Sources */,
 				E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */,
 				BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */,
 				E7CE22BE2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift in Sources */,
+				0329AF102CAC401300747035 /* CustomCell.swift in Sources */,
 				E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */,
 				E7CE22BF2CAB8B42004A3223 /* Swinject+Extension.swift in Sources */,
 				E7CE22C02CAB8B42004A3223 /* User.swift in Sources */,
@@ -977,11 +1115,16 @@
 				BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */,
 				E7CE22C62CAB8B42004A3223 /* TypeOfRestEnum.swift in Sources */,
 				E7CE22C72CAB8B42004A3223 /* Date+Extension.swift in Sources */,
+				03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */,
+				034CF6962CAC5C720006CE6F /* EditProfileVC.swift in Sources */,
 				E7CE22C82CAB8B42004A3223 /* DetailDestinationView.swift in Sources */,
 				E7CE22D92CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
+				03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */,
 				E7CE22DA2CAB8EF0004A3223 /* Logger.swift in Sources */,
+				034CF64F2CAC50A50006CE6F /* CongratsSharableVC.swift in Sources */,
 				E7CE22C92CAB8B42004A3223 /* ViewController.swift in Sources */,
 				E7CE22CA2CAB8B42004A3223 /* DestinationListVC.swift in Sources */,
+				03B0C4452CABE35600954557 /* TimeElapsedView.swift in Sources */,
 				E7CE22CB2CAB8B42004A3223 /* SampleItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -996,6 +1139,7 @@
 				E7EDAB042CAAEE5E006F3ED0 /* HKCircleButton.swift in Sources */,
 				E7EDAB172CAAEE6A006F3ED0 /* ContentView.swift in Sources */,
 				E7EDAB182CAAEE6A006F3ED0 /* MemberControlScreen.swift in Sources */,
+				8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */,
 				E7EDAB192CAAEE6A006F3ED0 /* MetricsScreen.swift in Sources */,
 				E7EDAB1A2CAAEE6A006F3ED0 /* HaikinguApp.swift in Sources */,
 				E7EDAB1B2CAAEE6A006F3ED0 /* SummaryScreen.swift in Sources */,
@@ -1006,6 +1150,7 @@
 				E7EDAB062CAAEE5E006F3ED0 /* HKMetricBiggerText.swift in Sources */,
 				E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
 				E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */,
+				8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */,
 				E7EDAB072CAAEE5E006F3ED0 /* HKTextButton.swift in Sources */,
 				E7EDAB082CAAEE5E006F3ED0 /* NavigationServices.swift in Sources */,
 				E7EDAB092CAAEE5E006F3ED0 /* MetricsVM.swift in Sources */,
@@ -1161,6 +1306,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HaikinguApp/HaikinguApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1170,10 +1316,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use to analyze your tiredness level";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use to share calculate result of BPM";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Use to know your current location to track your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1184,9 +1334,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Haikingu - Dev - iOS";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1196,6 +1350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HaikinguApp/HaikinguApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1205,10 +1360,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use to analyze your tiredness level";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use to share calculate result of BPM";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Use to know your current location to track your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1219,9 +1378,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Haikingu - Dev - iOS";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1230,6 +1393,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Haikingu Watch App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1239,6 +1404,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use to analyze your tiredness level";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use to share calculate result of BPM";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Use to know your current location to track your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Use to get your walking speed";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1249,7 +1420,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - watchOS";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1264,6 +1435,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Haikingu Watch App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1273,6 +1446,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use to analyze your tiredness level";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use to share calculate result of BPM";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Use to know your current location to track your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Use to get your walking speed";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1283,7 +1462,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - watchOS";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

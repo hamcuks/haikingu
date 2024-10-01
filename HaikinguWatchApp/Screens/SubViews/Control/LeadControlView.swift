@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Swinject
 
 struct LeadControlView: View {
     @EnvironmentObject var metricsVM: MetricsVM
@@ -13,19 +14,17 @@ struct LeadControlView: View {
     
     var body: some View {
         
-        NavigationStack {
             VStack(alignment: .center) {
                 
                 if !metricsVM.isLeadPausedTapped {
-                    VStack(alignment: .center, spacing: 16){
+                    VStack(alignment: .center, spacing: 16) {
                         HKCircleButton(
                             imageButton: "pause.fill",
                             imageWidth: 35,
                             imageHeight: 35,
                             padding: 0,
                             imageColor: .black,
-                            buttonColor: .orange)
-                            {
+                            buttonColor: .orange) {
                                 metricsVM.isLeadPausedTapped = true
                                 print("Paused Tapped")
                             }
@@ -38,15 +37,15 @@ struct LeadControlView: View {
                     
                 } else {
                     HStack(alignment: .center, spacing: 18) {
-                        VStack(alignment: .center, spacing: 16){
+                        VStack(alignment: .center, spacing: 16) {
                             HKCircleButton(
                                 imageButton: "stop.fill",
                                 imageWidth: 35,
                                 imageHeight: 35,
                                 padding: 0,
                                 imageColor: .black,
-                                buttonColor: .gray)
-                                {
+                                buttonColor: .gray) {
+
                                     metricsVM.isLeadEndTapped = true
                                     print("End Tapped")
                                     navigationServices.path.append("summary")
@@ -57,15 +56,14 @@ struct LeadControlView: View {
                                     weight: .semibold))
                         }
                             
-                        VStack(alignment: .center, spacing: 16){
+                        VStack(alignment: .center, spacing: 16) {
                             HKCircleButton(
                                 imageButton: "play.fill",
                                 imageWidth: 35,
                                 imageHeight: 35,
                                 padding: 8,
                                 imageColor: .black,
-                                buttonColor: .orange)
-                                {
+                                buttonColor: .orange) {
                                     metricsVM.isLeadPausedTapped = false
                                     print("Play Tapped")
                                 }
@@ -78,11 +76,13 @@ struct LeadControlView: View {
                 }
             }
             .navigationTitle("Control")
-        }
+            .navigationBarTitleDisplayMode(.large)
         
     }
 }
 
 #Preview {
     LeadControlView()
+        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
+        .environmentObject(NavigationServices())
 }
