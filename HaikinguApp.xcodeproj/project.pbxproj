@@ -21,6 +21,8 @@
 		03B0C4512CABFE9D00954557 /* HeaderCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */; };
 		03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4542CABFF6900954557 /* HikingSummaryView.swift */; };
 		03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4562CABFF9200954557 /* ReminderTitleView.swift */; };
+		8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */; };
+		8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAD2CAC638B006CF73B /* Inject.swift */; };
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */; };
@@ -149,6 +151,8 @@
 		03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCongratsView.swift; sourceTree = "<group>"; };
 		03B0C4542CABFF6900954557 /* HikingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSummaryView.swift; sourceTree = "<group>"; };
 		03B0C4562CABFF9200954557 /* ReminderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTitleView.swift; sourceTree = "<group>"; };
+		8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectWatchos+extension.swift"; sourceTree = "<group>"; };
+		8A994CAD2CAC638B006CF73B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
@@ -347,6 +351,15 @@
 		03B0C44D2CABFDA600954557 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8A994CA72CAC61E3006CF73B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A994CAD2CAC638B006CF73B /* Inject.swift */,
+				8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -826,6 +839,7 @@
 		E7EDAAFE2CAAEE5E006F3ED0 /* Shareds */ = {
 			isa = PBXGroup;
 			children = (
+				8A994CA72CAC61E3006CF73B /* Extensions */,
 				E7EDAAFD2CAAEE5E006F3ED0 /* Components */,
 			);
 			path = Shareds;
@@ -1106,6 +1120,7 @@
 				E7EDAB042CAAEE5E006F3ED0 /* HKCircleButton.swift in Sources */,
 				E7EDAB172CAAEE6A006F3ED0 /* ContentView.swift in Sources */,
 				E7EDAB182CAAEE6A006F3ED0 /* MemberControlScreen.swift in Sources */,
+				8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */,
 				E7EDAB192CAAEE6A006F3ED0 /* MetricsScreen.swift in Sources */,
 				E7EDAB1A2CAAEE6A006F3ED0 /* HaikinguApp.swift in Sources */,
 				E7EDAB1B2CAAEE6A006F3ED0 /* SummaryScreen.swift in Sources */,
@@ -1116,6 +1131,7 @@
 				E7EDAB062CAAEE5E006F3ED0 /* HKMetricBiggerText.swift in Sources */,
 				E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
 				E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */,
+				8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */,
 				E7EDAB072CAAEE5E006F3ED0 /* HKTextButton.swift in Sources */,
 				E7EDAB082CAAEE5E006F3ED0 /* NavigationServices.swift in Sources */,
 				E7EDAB092CAAEE5E006F3ED0 /* MetricsVM.swift in Sources */,
@@ -1271,6 +1287,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HaikinguApp/HaikinguApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1314,6 +1331,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HaikinguApp/HaikinguApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1357,6 +1375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Haikingu Watch App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1371,6 +1390,7 @@
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Use to know your current location to track your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Use to get your walking speed";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1381,7 +1401,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - watchOS";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1397,6 +1417,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Haikingu Watch App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1411,6 +1432,7 @@
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Use to know your current location to track your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Use to get your walking speed";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1421,7 +1443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - Watch";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Haikingu - Dev - watchOS";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

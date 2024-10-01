@@ -6,34 +6,34 @@
 //
 
 import SwiftUI
+import Swinject
 
 struct MetricsScreen: View {
     @EnvironmentObject var userServices: UserServices
     @EnvironmentObject var metricsVM: MetricsVM
-    
+
     var body: some View {
-//        NavigationStack {
+        ZStack {
             TabView(selection: $metricsVM.pageNumber) {
                 
                 if userServices.userType == .member {
                     MemberControlView()
-                        .environmentObject(metricsVM)
                         .tag(0)
                 } else if userServices.userType == .leader {
                     LeadControlView()
-                        .environmentObject(metricsVM)
                         .tag(0)
                 }
-                
+           
                 MetricsView()
-                    .environmentObject(metricsVM)
                     .tag(1)
                 
             }
             .tabViewStyle(.page)
-            .navigationBarBackButtonHidden(true)
+            
+        }
+        .navigationBarBackButtonHidden(true)
 //            .background(DisableSwipeBackGesture())
-//        }
+        
     }
     
 }
@@ -41,4 +41,5 @@ struct MetricsScreen: View {
 #Preview {
     MetricsScreen()
         .environmentObject(UserServices())
+        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
 }
