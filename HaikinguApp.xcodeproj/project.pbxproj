@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0329AF0E2CAC20F000747035 /* CongratsSharableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329AF0D2CAC20F000747035 /* CongratsSharableVC.swift */; };
 		03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */; };
 		03B0C43F2CABD11B00954557 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43E2CABD11B00954557 /* HeaderView.swift */; };
 		03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4402CABD1AB00954557 /* BodyView.swift */; };
@@ -130,6 +131,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0329AF0D2CAC20F000747035 /* CongratsSharableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsSharableVC.swift; sourceTree = "<group>"; };
 		03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSessionVC.swift; sourceTree = "<group>"; };
 		03B0C43E2CABD11B00954557 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		03B0C4402CABD1AB00954557 /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		03B0C44B2CABFD8900954557 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0329AF0D2CAC20F000747035 /* CongratsSharableVC.swift */,
 				03B0C44E2CABFDF500954557 /* CongratsVC.swift */,
 			);
 			path = ViewControllers;
@@ -1009,6 +1012,7 @@
 				E7CE22A52CAB8B42004A3223 /* AppDelegate.swift in Sources */,
 				E7CE22A62CAB8B42004A3223 /* DestinationModel.swift in Sources */,
 				E7CE22A72CAB8B42004A3223 /* PersonImageView.swift in Sources */,
+				0329AF0E2CAC20F000747035 /* CongratsSharableVC.swift in Sources */,
 				E7CE22A82CAB8B42004A3223 /* TextIconButton.swift in Sources */,
 				E7CE22A92CAB8B42004A3223 /* CentralBLEService.swift in Sources */,
 				E7CE22AA2CAB8B42004A3223 /* HealthService.swift in Sources */,
