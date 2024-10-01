@@ -32,18 +32,24 @@ class HikerBLEManager: NSObject {
         forKey: "username"
     ) ?? "Unknown"
     
-    override init() {
+    init(centralManager: CBCentralManager?) {
         super.init()
-        self.configureCentral()
-        self.configurePeripheral()
+        
+        print("Init - CBCentralManager")
+        
+        self.centralManager = CBCentralManager(delegate: self, queue: nil)
+    }
+    
+    init(peripheralManager: CBPeripheralManager?) {
+        super.init()
+        
+        print("Init - CBPeripheralManager")
+        
+        self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
     }
 }
 
 extension HikerBLEManager: CentralBLEService {
-    func configureCentral() {
-        self.centralManager = CBCentralManager(delegate: self, queue: nil)
-        
-    }
     
     func setDelegate(_ delegate: CentralBLEManagerDelegate) {
         self.centralDelegate = delegate

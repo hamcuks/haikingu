@@ -10,7 +10,13 @@ import CoreLocation
 
 class DetailDestinationVC: UIViewController {
     
-    var destinationSelected: DestinationModel!
+    /// Managers
+    var centralManager: CentralBLEService?
+    
+    /// Delegates
+    internal var addFriendDelegate: AddFriendVCDelegate?
+    
+    var selectedDestination: DestinationModel!
     var teamView: TeamsView!
     var alertNotRange: AlertRangeView = AlertRangeView()
     var isInrangeLocation: Bool = false
@@ -47,23 +53,32 @@ class DetailDestinationVC: UIViewController {
     }()
     
     private var assetsImage: UIImageView = {
-       let assets = UIImageView()
-        assets.contentMode = .scaleAspectFill
-        assets.backgroundColor = .blue
-        return assets
+       let image = UIImageView()
+        image.image = UIImage(named: "Bidadari")
+        image.contentMode = .scaleAspectFill
+        image.backgroundColor = .blue
+        image.layer.masksToBounds = true
+        image.layer.cornerRadius = 10
+        
+        return image
     }()
     
     private var selectButton: PrimaryButton = PrimaryButton(label: "Let’s Go!")
     
-    init(destination: DestinationModel) {
+    init(centralManager: CentralBLEService?) {
         super.init(nibName: nil, bundle: nil)
         
-        destinationSelected = destination
-        
+        self.centralManager = centralManager
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.centralManager?.setDelegate(self)
     }
     
     override func viewDidLoad() {
@@ -81,7 +96,7 @@ class DetailDestinationVC: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
-        navigationItem.title = "\(destinationSelected?.name ?? "Bidadari Lake")"
+        navigationItem.title = selectedDestination?.name
         
         setupUI()
 
@@ -102,69 +117,69 @@ class DetailDestinationVC: UIViewController {
         let estTimeDetail = DetailDestinationView(
             icon: "clock",
             title: "Est. Time",
-            value: "\(destinationSelected?.estimatedTime ?? TimeInterval())"
+            value: "\(selectedDestination?.estimatedTime ?? 0)"
         )
         
         let elevationDetail = DetailDestinationView(
             icon: "arrow.up.right",
             title: "Elevation",
-            value: "\(destinationSelected?.maxElevation ?? 100) m"
+            value: "\(selectedDestination?.maxElevation ?? 0) m"
         )
         
         let trackDetail = DetailDestinationView(
             icon: "point.topleft.down.to.point.bottomright.curvepath.fill",
             title: "Length",
-            value: "\(destinationSelected?.trackLength ?? 0) m"
+            value: "\(selectedDestination?.trackLength ?? 0) m"
         )
         
         horizontalStack.addArrangedSubview(estTimeDetail)
         horizontalStack.addArrangedSubview(elevationDetail)
         horizontalStack.addArrangedSubview(trackDetail)
-        
-//        titleDestination.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            make.leading.trailing.equalToSuperview().offset(20)
-//        }
+        view.addSubview(horizontalStack)
         
         horizontalStack.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview().inset(20)
-            
+            make.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        teamView = TeamsView(action: #selector(teamAction))
+        view.addSubview(teamView)
         
         teamView.snp.makeConstraints { make in
             make.top.equalTo(horizontalStack.snp.bottom).offset(12)
             make.leading.trailing.equalTo(horizontalStack)
         }
         
-        assetPreview.snp.makeConstraints { make in
-            make.top.equalTo(teamView.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(240)
-        }
-        
+        view.addSubview(assetsImage)
         assetsImage.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(teamView.snp.bottom).offset(24)
+            make.leading.trailing.equalTo(horizontalStack)
         }
         
+        view.addSubview(selectButton)
+        selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
+
         selectButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(10)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(316)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
+            make.leading.trailing.equalTo(horizontalStack)
             make.height.equalTo(50)
         }
     }
     
     @objc
     func teamAction() {
-        print("add friends button tapped")
+        self.centralManager?.startScanning()
+        
         showModalAddFriend()
         
     }
     
     func showModalAddFriend() {
         let addFriendVC = AddFriendVC()
+        addFriendVC.manager = centralManager
         addFriendVC.modalPresentationStyle = .formSheet
+        
+        self.addFriendDelegate = addFriendVC
         
         if let sheet = addFriendVC.sheetPresentationController {
             sheet.prefersGrabberVisible = true
@@ -175,47 +190,10 @@ class DetailDestinationVC: UIViewController {
 
 }
 
-extension DetailDestinationVC: CLLocationManagerDelegate {
+import Swinject
+
+#Preview(traits: .defaultLayout, body: {
+    let vc = Container.shared.resolve(DetailDestinationVC.self)
     
-    @objc
-    private func actionButton() {
-        
-        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
-        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
-        let maximumDistance = 200.0
-        
-        if rangeDistance < maximumDistance {
-            print("Disctance is less than maximum distance: \(rangeDistance)")
-            let hikingSessionVC = HikingSessionVC()
-            navigationController?.pushViewController(hikingSessionVC, animated: true)
-        } else {
-            alertNotRange.showAlert(on: self)
-//            let hikingSessionVC = HikingSessionVC()
-//            navigationController?.pushViewController(hikingSessionVC, animated: true)
-            print("Distance is greater than maximum distance: \(rangeDistance)")
-        }
-        
-    }
-    
-    private func checkInRangeDestination(currentLocation: CLLocation) -> CLLocationDistance {
-        let locationDestination = destinationSelected.locationPoint
-        let distance = currentLocation.distance(from: locationDestination)
-        return distance
-    }
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print("")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let currentLocation = locations.last {
-            self.userLocation = currentLocation
-            print("Lokasi terkini diperbarui: \(currentLocation)")
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-        print("Err: \(error.localizedDescription)")
-    }
-    
-}
+    return vc ?? ViewController()
+})
