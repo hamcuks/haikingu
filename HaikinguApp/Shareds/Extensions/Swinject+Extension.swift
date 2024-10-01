@@ -15,8 +15,14 @@ extension Container {
         /// if any
         
         /// Managers
-        container.register(CentralBLEService.self) { _ in HikerBLEManager() }
-        container.register(PeripheralBLEService.self) { _ in HikerBLEManager() }
+        container.register(CentralBLEService.self) { _ in
+            return HikerBLEManager(centralManager: nil)
+        }
+        
+        container.register(PeripheralBLEService.self) { _ in
+            return HikerBLEManager(peripheralManager: nil)
+        }
+        
         container.register(NotificationService.self) { _ in NotificationManager() }
         
         /// ViewControllers

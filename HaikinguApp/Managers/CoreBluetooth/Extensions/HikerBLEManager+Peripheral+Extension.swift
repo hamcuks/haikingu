@@ -10,10 +10,6 @@ import CoreBluetooth
 import os
 
 extension HikerBLEManager: PeripheralBLEService {
-    func configurePeripheral() {
-        self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
-        
-    }
     
     func setDelegate(_ delegate: PeripheralBLEManagerDelegate) {
         self.peripheralDelegate = delegate
