@@ -49,11 +49,11 @@ class PersonImageView: UIView {
         configure()
     }
     
-    func setData(image: String, name: String, state: String? = nil) {
+    func setData(image: String, name: String, state: HikerStateEnum) {
         nameLabel.text = name
         
-        if let state {
-            stateLabel.text = state
+        if state != .notJoined {
+            stateLabel.text = state.rawValue
         }
     }
     
@@ -75,7 +75,7 @@ class PersonImageView: UIView {
         circleImageView.image = UIImage(systemName: "person.circle")
         
         circleImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(64)
+            make.width.height.equalTo(self.snp.width)
         }
         
         profileStack.snp.makeConstraints { make in
@@ -91,7 +91,7 @@ class PersonImageView: UIView {
 #Preview(traits: .defaultLayout, body: {
     let person = PersonImageView()
     
-    person.setData(image: "", name: "Test User", state: "Waiting")
+    person.setData(image: "", name: "Test User", state: .waiting)
     
     return person
 })
