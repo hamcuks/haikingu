@@ -19,8 +19,9 @@ class DestinationListVC: UIViewController {
         tableView.dataSource = self
         tableView.register(HikingCell.self, forCellReuseIdentifier: "HikingCell")
         tableView.separatorStyle = .none
-        tableView.layer.borderColor = UIColor.red.cgColor
-        tableView.layer.borderWidth = 1
+        tableView.layer.cornerRadius = 20
+        tableView.clipsToBounds = true
+        
         return tableView
     }()
     
@@ -71,15 +72,15 @@ class DestinationListVC: UIViewController {
     }
     
     private func presentDetailDestinationScreen() {
-//        let destinationDetailScreen = DestinationDetailVC()
-//        destinationView.modalPresentationStyle = .fullScreen
-//        destinationView.routeCoordinate = routeCoordinate
+        //        let destinationDetailScreen = DestinationDetailVC()
+        //        destinationView.modalPresentationStyle = .fullScreen
+        //        destinationView.routeCoordinate = routeCoordinate
         
-//        if let sheet = destinationView.sheetPresentationController {
-//            sheet.prefersGrabberVisible = true
-//            sheet.detents = [.large()]
-//            present(destinationView, animated: true)
-//        }
+        //        if let sheet = destinationView.sheetPresentationController {
+        //            sheet.prefersGrabberVisible = true
+        //            sheet.detents = [.large()]
+        //            present(destinationView, animated: true)
+        //        }
         
     }
 }
@@ -93,6 +94,12 @@ extension DestinationListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HikingCell", for: indexPath) as? HikingCell
         let destination = destinationArray[indexPath.row].destinationSelected
+        
+        // Reset state background for reuse cells
+        cell?.backgroundColor = .white
+        cell?.layer.cornerRadius = 20
+        cell?.clipsToBounds = true
+        
         cell?.configure(with: destination)
         return cell!
     }
@@ -100,12 +107,26 @@ extension DestinationListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedDestination = destinationArray[indexPath.row].destinationSelected
         selectButton.isEnabled = true
+        
+        let cell = tableView.cellForRow(at: indexPath) as? HikingCell
+        
+        // Set background color to indicate selection and make rounded edges
+        cell?.backgroundColor = UIColor.systemGray5
+        cell?.layer.cornerRadius = 20
+        cell?.clipsToBounds = true
+        
         print("Current destination: \(selectedDestination!.name)")
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        // Reset the background color when cell is deselected
+        let cell = tableView.cellForRow(at: indexPath) as? HikingCell
+        cell?.backgroundColor = .white
     }
     
     // Atur tinggi cell jika diperlukan
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 58 
+        return 58
     }
     
 }
