@@ -20,6 +20,7 @@ protocol WorkoutServiceIos {
     var workout: HKWorkout? { get set }
     
     func requestMotionPermission()
+    func requestHealthAccess()
     func stopPedometerUpdates()
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws
     func retrieveRemoteSession()
