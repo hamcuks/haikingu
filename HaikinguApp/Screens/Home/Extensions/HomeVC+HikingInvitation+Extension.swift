@@ -14,6 +14,4 @@ extension HomeVC: HikingInvitationDelegate {
         self.peripheralManager?.respondToInvitation(for: respond)
         
     }
-    
-    
 }

@@ -12,16 +12,16 @@ import SnapKit
 
 class AddFriendVC: UIViewController {
     
-    var header = headerAddFriendView()
-    var yourTeam : bodyAddFriendView!
-    var nearbyPerson: bodyAddFriendView!
+    var header = HeaderAddFriendView()
+    var yourTeam: BodyAddFriendView!
+    var nearbyPerson: BodyAddFriendView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        yourTeam = bodyAddFriendView(titleText: "Your team (1/5)" )
-        nearbyPerson = bodyAddFriendView(titleText: "Nearby Person" )
+        yourTeam = BodyAddFriendView(titleText: "Your team (1/5)" )
+        nearbyPerson = BodyAddFriendView(titleText: "Nearby Person" )
         
         configuration()
 
@@ -50,13 +50,10 @@ class AddFriendVC: UIViewController {
             make.top.equalTo(yourTeam.snp.bottom).offset(20)
             make.leading.trailing.equalTo(yourTeam)
         }
-        
-
     }
 }
 
-
-class headerAddFriendView: UIView {
+class HeaderAddFriendView: UIView {
     
     private var iconPerson: UIImageView = {
         let icon = UIImageView()
@@ -130,8 +127,7 @@ class headerAddFriendView: UIView {
     }
 }
 
-
-class bodyAddFriendView: UIView {
+class BodyAddFriendView: UIView {
     
     private var yourTeamLabel: UILabel = {
         var label = UILabel()
@@ -145,7 +141,7 @@ class bodyAddFriendView: UIView {
         namePerson: "Person 1"
     )
     
-    init(titleText: String){
+    init(titleText: String) {
         super.init(frame: .zero)
         configureUI(title: titleText)
     }
@@ -153,7 +149,6 @@ class bodyAddFriendView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     private func configureUI(title: String) {
         addSubview(yourTeamLabel)

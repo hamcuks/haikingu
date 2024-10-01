@@ -41,7 +41,6 @@ class HikingCell: UITableViewCell {
         let image = UIImageView()
         image.image = UIImage(systemName: "point.topleft.down.to.point.bottomright.curvepath.fill")
         image.contentMode = .scaleAspectFit
-        //width: 40, height: 25
         return image
     }()
     
@@ -84,8 +83,6 @@ class HikingCell: UITableViewCell {
         return horizontal
     }()
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -98,8 +95,7 @@ class HikingCell: UITableViewCell {
         super.init(coder: coder)
         setupViews()
     }
-    
-    
+
     func configure(with destination: DestinationModel) {
         labelDestination.text = destination.name
         imageDestination.image = UIImage(named: destination.image)
@@ -108,7 +104,6 @@ class HikingCell: UITableViewCell {
         distanceLabel.text = "\(Float((destination.trackLength) / 1000)) km"
         
     }
-    
     
     private func setupViews() {
         
@@ -127,10 +122,8 @@ class HikingCell: UITableViewCell {
         
         constraintsAll()
         
-        
     }
 
-    
     private func constraintsAll() {
         
         imageDestination.snp.makeConstraints { make in
@@ -167,6 +160,4 @@ class HikingCell: UITableViewCell {
         }
     }
 
-    
 }
-
