@@ -17,12 +17,15 @@ extension Container {
         /// Managers
         container.register(CentralBLEService.self) { _ in HikerBLEManager() }
         container.register(PeripheralBLEService.self) { _ in HikerBLEManager() }
+        container.register(NotificationService.self) { _ in NotificationManager() }
         
         /// ViewControllers
         container.register(HomeVC.self) { resolver in
-            let peripheralManager = resolver.resolve(PeripheralBLEService.self)
             
-            let viewController = HomeVC(peripheralManager: peripheralManager)
+            let peripheralManager = resolver.resolve(PeripheralBLEService.self)
+            let notificationManager = resolver.resolve(NotificationService.self)
+            
+            let viewController = HomeVC(peripheralManager: peripheralManager, notificationManager: notificationManager)
             
             return viewController
         }
