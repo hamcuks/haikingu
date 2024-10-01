@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
+		BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */; };
 		E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226C2CAB8B42004A3223 /* HomeHeaderView.swift */; };
 		E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22902CAB8B42004A3223 /* TeamsView.swift */; };
 		E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE224E2CAB8B42004A3223 /* HikerBLEManager.swift */; };
@@ -115,6 +116,7 @@
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
+		BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedVC.swift; sourceTree = "<group>"; };
 		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
 		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 		E7CE22782CAB8B42004A3223 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */,
 				E7CE22762CAB8B42004A3223 /* OnboardingHealthAccessVC.swift */,
 				E7CE22772CAB8B42004A3223 /* OnboardingHikingProfileVC.swift */,
 			);
@@ -917,6 +920,7 @@
 				E7CE22BB2CAB8B42004A3223 /* HealthManager.swift in Sources */,
 				E7CE22BC2CAB8B42004A3223 /* HaikinguServiceBLEUUID.swift in Sources */,
 				E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */,
+				BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */,
 				E7CE22BE2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift in Sources */,
 				E7CE22BF2CAB8B42004A3223 /* Swinject+Extension.swift in Sources */,
 				E7CE22C02CAB8B42004A3223 /* User.swift in Sources */,
