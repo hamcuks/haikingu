@@ -4,3 +4,9 @@ excluded:
 disabled_rules:
   - orphaned_doc_comment
   - trailing_whitespace
+
+line_length:
+  warning: 500  # Beri peringatan jika lebih dari 500 karakter
+  error: 600    # Beri error jika lebih dari 600 karakter
+  ignores_comments: true  # Abaikan panjang baris dalam komentar
+  ignores_urls: true      # Abaikan panjang baris jika mengandung URL

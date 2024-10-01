@@ -27,7 +27,7 @@ struct HomeScreen: View {
                                 .padding(.all, 10)
                         }
                     } else {
-                        EmptyHomeScreen
+                        emptyHomeScreen
                             .padding(.all, 10)
                     }
                 }
@@ -36,12 +36,12 @@ struct HomeScreen: View {
             .toolbarForegroundStyle(.orange, for: .navigationBar)
             .navigationBarTitleDisplayMode(.large)
             .navigationDestination(for: String.self) { destini in
-                if destini == "metrics"{
+                if destini == "metrics" {
                     MetricsScreen()
                         .navigationBarBackButtonHidden(true)
                         .environmentObject(MetricsVM())
                         .environmentObject(UserServices())
-                } else if destini == "summary"{
+                } else if destini == "summary" {
                     SummaryScreen()
                         .environmentObject(UserServices())
                         .environmentObject(navigationServices)
@@ -51,14 +51,14 @@ struct HomeScreen: View {
             }
         }
         .onAppear {
-            //MARK: TODO Something like refresh UI:
-            ///1. after finish hiking (arrive into destination)
-            ///2. after return back home
+            // MARK: TODO Something like refresh UI:
+            /// 1. after finish hiking (arrive into destination)
+            /// 2. after return back home
             
         }
     }
     
-    private var EmptyHomeScreen: some View {
+    private var emptyHomeScreen: some View {
         
         VStack{
             Text("No Started Hiking")
