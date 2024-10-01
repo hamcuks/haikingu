@@ -7,81 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0329AF102CAC401300747035 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329AF0F2CAC401300747035 /* CustomCell.swift */; };
-		034CF64F2CAC50A50006CE6F /* CongratsSharableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */; };
-		034CF6962CAC5C720006CE6F /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034CF6952CAC5C720006CE6F /* EditProfileVC.swift */; };
-		03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */; };
-		03B0C43F2CABD11B00954557 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43E2CABD11B00954557 /* HeaderView.swift */; };
-		03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4402CABD1AB00954557 /* BodyView.swift */; };
-		03B0C4432CABDC8700954557 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4422CABDC7C00954557 /* FooterView.swift */; };
-		03B0C4452CABE35600954557 /* TimeElapsedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4442CABE35600954557 /* TimeElapsedView.swift */; };
-		03B0C4472CABE54F00954557 /* HikingMetricsIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */; };
-		03B0C4492CABF31600954557 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4482CABF31600954557 /* IconButton.swift */; };
-		03B0C44F2CABFDF500954557 /* CongratsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C44E2CABFDF500954557 /* CongratsVC.swift */; };
-		03B0C4512CABFE9D00954557 /* HeaderCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */; };
-		03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4542CABFF6900954557 /* HikingSummaryView.swift */; };
-		03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4562CABFF9200954557 /* ReminderTitleView.swift */; };
 		8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */; };
 		8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAD2CAC638B006CF73B /* Inject.swift */; };
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
-		BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */; };
-		BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */; };
-		BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */; };
-		BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */; };
-		E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBD62CABF3C200B37551 /* NotificationService.swift */; };
-		E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBA42CABD13800B37551 /* NotificationManager.swift */; };
-		E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */; };
-		E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226C2CAB8B42004A3223 /* HomeHeaderView.swift */; };
-		E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22902CAB8B42004A3223 /* TeamsView.swift */; };
-		E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE224E2CAB8B42004A3223 /* HikerBLEManager.swift */; };
-		E7CE22A02CAB8B42004A3223 /* BackToHomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226A2CAB8B42004A3223 /* BackToHomeMessageView.swift */; };
-		E7CE22A12CAB8B42004A3223 /* OnboardingHikingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22772CAB8B42004A3223 /* OnboardingHikingProfileVC.swift */; };
-		E7CE22A22CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22682CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift */; };
-		E7CE22A32CAB8B42004A3223 /* DetailDestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22652CAB8B42004A3223 /* DetailDestinationVC.swift */; };
-		E7CE22A42CAB8B42004A3223 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22822CAB8B42004A3223 /* PrimaryButton.swift */; };
-		E7CE22A52CAB8B42004A3223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22972CAB8B42004A3223 /* AppDelegate.swift */; };
-		E7CE22A62CAB8B42004A3223 /* DestinationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22532CAB8B42004A3223 /* DestinationModel.swift */; };
-		E7CE22A72CAB8B42004A3223 /* PersonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228E2CAB8B42004A3223 /* PersonImageView.swift */; };
-		E7CE22A82CAB8B42004A3223 /* TextIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22842CAB8B42004A3223 /* TextIconButton.swift */; };
-		E7CE22A92CAB8B42004A3223 /* CentralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE227B2CAB8B42004A3223 /* CentralBLEService.swift */; };
-		E7CE22AA2CAB8B42004A3223 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE227E2CAB8B42004A3223 /* HealthService.swift */; };
-		E7CE22AB2CAB8B42004A3223 /* AlterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22882CAB8B42004A3223 /* AlterVC.swift */; };
-		E7CE22AC2CAB8B42004A3223 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22742CAB8B42004A3223 /* SampleView.swift */; };
-		E7CE22AD2CAB8B42004A3223 /* AlertRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228B2CAB8B42004A3223 /* AlertRangeView.swift */; };
-		E7CE22AE2CAB8B42004A3223 /* WorkoutServiceIos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE227F2CAB8B42004A3223 /* WorkoutServiceIos.swift */; };
-		E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22762CAB8B42004A3223 /* OnboardingHealthAccessVC.swift */; };
-		E7CE22B02CAB8B42004A3223 /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22722CAB8B42004A3223 /* OnboardingExtension.swift */; };
-		E7CE22B12CAB8B42004A3223 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228A2CAB8B42004A3223 /* AddFriendView.swift */; };
-		E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226E2CAB8B42004A3223 /* HikingInvitationVC.swift */; };
-		E7CE22B32CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE224C2CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift */; };
-		E7CE22B42CAB8B42004A3223 /* DetailEstTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228C2CAB8B42004A3223 /* DetailEstTimeVC.swift */; };
-		E7CE22B52CAB8B42004A3223 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22812CAB8B42004A3223 /* AppButton.swift */; };
-		E7CE22B62CAB8B42004A3223 /* HaikinguRequestReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22542CAB8B42004A3223 /* HaikinguRequestReponse.swift */; };
-		E7CE22B72CAB8B42004A3223 /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22862CAB8B42004A3223 /* SampleLabel.swift */; };
-		E7CE22B82CAB8B42004A3223 /* HikingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE225E2CAB8B42004A3223 /* HikingCell.swift */; };
-		E7CE22B92CAB8B42004A3223 /* Hiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22562CAB8B42004A3223 /* Hiker.swift */; };
-		E7CE22BA2CAB8B42004A3223 /* HikingModeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226B2CAB8B42004A3223 /* HikingModeControlView.swift */; };
-		E7CE22BB2CAB8B42004A3223 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22502CAB8B42004A3223 /* HealthManager.swift */; };
-		E7CE22BC2CAB8B42004A3223 /* HaikinguServiceBLEUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22552CAB8B42004A3223 /* HaikinguServiceBLEUUID.swift */; };
-		E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22492CAB8B42004A3223 /* SampleDB.swift */; };
-		E7CE22BE2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE224B2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift */; };
-		E7CE22BF2CAB8B42004A3223 /* Swinject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22942CAB8B42004A3223 /* Swinject+Extension.swift */; };
-		E7CE22C02CAB8B42004A3223 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22582CAB8B42004A3223 /* User.swift */; };
-		E7CE22C12CAB8B42004A3223 /* PeripheralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE227C2CAB8B42004A3223 /* PeripheralBLEService.swift */; };
-		E7CE22C22CAB8B42004A3223 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226F2CAB8B42004A3223 /* HomeVC.swift */; };
-		E7CE22C32CAB8B42004A3223 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22832CAB8B42004A3223 /* SecondaryButton.swift */; };
-		E7CE22C42CAB8B42004A3223 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE229A2CAB8B42004A3223 /* SceneDelegate.swift */; };
-		E7CE22C52CAB8B42004A3223 /* WorkoutManager+iOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22512CAB8B42004A3223 /* WorkoutManager+iOS+Extension.swift */; };
-		E7CE22C62CAB8B42004A3223 /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22572CAB8B42004A3223 /* TypeOfRestEnum.swift */; };
-		E7CE22C72CAB8B42004A3223 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22932CAB8B42004A3223 /* Date+Extension.swift */; };
-		E7CE22C82CAB8B42004A3223 /* DetailDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22632CAB8B42004A3223 /* DetailDestinationView.swift */; };
-		E7CE22C92CAB8B42004A3223 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE229B2CAB8B42004A3223 /* SplashScreen.swift */; };
-		E7CE22CA2CAB8B42004A3223 /* DestinationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22602CAB8B42004A3223 /* DestinationListVC.swift */; };
-		E7CE22CB2CAB8B42004A3223 /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228F2CAB8B42004A3223 /* SampleItemView.swift */; };
-		E7CE22CC2CAB8B42004A3223 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CE22992CAB8B42004A3223 /* LaunchScreen.storyboard */; };
-		E7CE22CD2CAB8B42004A3223 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CE225C2CAB8B42004A3223 /* Assets.xcassets */; };
-		E7CE22CE2CAB8B42004A3223 /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E7CE225A2CAB8B42004A3223 /* Telaga Bidadari Batam.gpx */; };
+		E73E7F4D2CAC7FE400C51B9D /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3F2CAC7FE400C51B9D /* SampleItemView.swift */; };
+		E73E7F4E2CAC7FE400C51B9D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F192CAC7FE400C51B9D /* HomeVC.swift */; };
+		E73E7F4F2CAC7FE400C51B9D /* HikingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EF02CAC7FE400C51B9D /* HikingSummaryView.swift */; };
+		E73E7F502CAC7FE400C51B9D /* OnboardingHikingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F222CAC7FE400C51B9D /* OnboardingHikingProfileVC.swift */; };
+		E73E7F512CAC7FE400C51B9D /* DetailDestinationVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EFC2CAC7FE400C51B9D /* DetailDestinationVC+BLE+Extension.swift */; };
+		E73E7F522CAC7FE400C51B9D /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F312CAC7FE400C51B9D /* IconButton.swift */; };
+		E73E7F532CAC7FE400C51B9D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE02CAC7FE400C51B9D /* NotificationManager.swift */; };
+		E73E7F542CAC7FE400C51B9D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F322CAC7FE400C51B9D /* PrimaryButton.swift */; };
+		E73E7F552CAC7FE400C51B9D /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F402CAC7FE400C51B9D /* TeamsView.swift */; };
+		E73E7F562CAC7FE400C51B9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F4A2CAC7FE400C51B9D /* SceneDelegate.swift */; };
+		E73E7F572CAC7FE400C51B9D /* CongratsSharableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EF32CAC7FE400C51B9D /* CongratsSharableVC.swift */; };
+		E73E7F582CAC7FE400C51B9D /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F162CAC7FE400C51B9D /* HomeHeaderView.swift */; };
+		E73E7F592CAC7FE400C51B9D /* TextIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F342CAC7FE400C51B9D /* TextIconButton.swift */; };
+		E73E7F5A2CAC7FE400C51B9D /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F302CAC7FE400C51B9D /* AppButton.swift */; };
+		E73E7F5B2CAC7FE400C51B9D /* HikerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F002CAC7FE400C51B9D /* HikerGridView.swift */; };
+		E73E7F5C2CAC7FE400C51B9D /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F332CAC7FE400C51B9D /* SecondaryButton.swift */; };
+		E73E7F5D2CAC7FE400C51B9D /* DestinationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EF92CAC7FE400C51B9D /* DestinationListVC.swift */; };
+		E73E7F5E2CAC7FE400C51B9D /* AddFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F022CAC7FE400C51B9D /* AddFriendVC.swift */; };
+		E73E7F5F2CAC7FE400C51B9D /* OnboardingHealthAccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F212CAC7FE400C51B9D /* OnboardingHealthAccessVC.swift */; };
+		E73E7F602CAC7FE400C51B9D /* DetailDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EFE2CAC7FE400C51B9D /* DetailDestinationView.swift */; };
+		E73E7F612CAC7FE400C51B9D /* HaikinguServiceBLEUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE52CAC7FE400C51B9D /* HaikinguServiceBLEUUID.swift */; };
+		E73E7F622CAC7FE400C51B9D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F0B2CAC7FE400C51B9D /* HeaderView.swift */; };
+		E73E7F632CAC7FE400C51B9D /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EDB2CAC7FE400C51B9D /* HikerBLEManager+Peripheral+Extension.swift */; };
+		E73E7F642CAC7FE400C51B9D /* HeaderCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EEF2CAC7FE400C51B9D /* HeaderCongratsView.swift */; };
+		E73E7F652CAC7FE400C51B9D /* DetailEstTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3B2CAC7FE400C51B9D /* DetailEstTimeVC.swift */; };
+		E73E7F662CAC7FE400C51B9D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F432CAC7FE400C51B9D /* Date+Extension.swift */; };
+		E73E7F672CAC7FE400C51B9D /* HikingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EF72CAC7FE400C51B9D /* HikingCell.swift */; };
+		E73E7F682CAC7FE400C51B9D /* PersonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3E2CAC7FE400C51B9D /* PersonImageView.swift */; };
+		E73E7F692CAC7FE400C51B9D /* TimeElapsedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F0C2CAC7FE400C51B9D /* TimeElapsedView.swift */; };
+		E73E7F6A2CAC7FE400C51B9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE82CAC7FE400C51B9D /* User.swift */; };
+		E73E7F6B2CAC7FE400C51B9D /* HikerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EFF2CAC7FE400C51B9D /* HikerCell.swift */; };
+		E73E7F6C2CAC7FE400C51B9D /* SampleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7ED82CAC7FE400C51B9D /* SampleDB.swift */; };
+		E73E7F6D2CAC7FE400C51B9D /* ReminderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EF12CAC7FE400C51B9D /* ReminderTitleView.swift */; };
+		E73E7F6E2CAC7FE400C51B9D /* BackToHomeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F142CAC7FE400C51B9D /* BackToHomeMessageView.swift */; };
+		E73E7F6F2CAC7FE400C51B9D /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F0A2CAC7FE400C51B9D /* FooterView.swift */; };
+		E73E7F702CAC7FE400C51B9D /* PeripheralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F2A2CAC7FE400C51B9D /* PeripheralBLEService.swift */; };
+		E73E7F712CAC7FE400C51B9D /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F232CAC7FE400C51B9D /* OnboardingIntroductionVC.swift */; };
+		E73E7F722CAC7FE400C51B9D /* CentralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F292CAC7FE400C51B9D /* CentralBLEService.swift */; };
+		E73E7F732CAC7FE400C51B9D /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F1E2CAC7FE400C51B9D /* SampleView.swift */; };
+		E73E7F742CAC7FE400C51B9D /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F092CAC7FE400C51B9D /* BodyView.swift */; };
+		E73E7F752CAC7FE400C51B9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F4B2CAC7FE400C51B9D /* ViewController.swift */; };
+		E73E7F762CAC7FE400C51B9D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EEE2CAC7FE400C51B9D /* CustomCell.swift */; };
+		E73E7F772CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EDA2CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift */; };
+		E73E7F782CAC7FE400C51B9D /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EDD2CAC7FE400C51B9D /* HikerBLEManager.swift */; };
+		E73E7F792CAC7FE400C51B9D /* HikingSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F0E2CAC7FE400C51B9D /* HikingSessionVC.swift */; };
+		E73E7F7A2CAC7FE400C51B9D /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F1C2CAC7FE400C51B9D /* OnboardingExtension.swift */; };
+		E73E7F7B2CAC7FE400C51B9D /* WorkoutServiceIos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F2E2CAC7FE400C51B9D /* WorkoutServiceIos.swift */; };
+		E73E7F7C2CAC7FE400C51B9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F472CAC7FE400C51B9D /* AppDelegate.swift */; };
+		E73E7F7D2CAC7FE400C51B9D /* HomeVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F112CAC7FE400C51B9D /* HomeVC+BLE+Extension.swift */; };
+		E73E7F7E2CAC7FE400C51B9D /* HaikinguRequestReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE42CAC7FE400C51B9D /* HaikinguRequestReponse.swift */; };
+		E73E7F7F2CAC7FE400C51B9D /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F2C2CAC7FE400C51B9D /* HealthService.swift */; };
+		E73E7F802CAC7FE400C51B9D /* Hiker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE62CAC7FE400C51B9D /* Hiker.swift */; };
+		E73E7F812CAC7FE400C51B9D /* DestinationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE32CAC7FE400C51B9D /* DestinationModel.swift */; };
+		E73E7F822CAC7FE400C51B9D /* HikingInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F182CAC7FE400C51B9D /* HikingInvitationVC.swift */; };
+		E73E7F832CAC7FE400C51B9D /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE72CAC7FE400C51B9D /* TypeOfRestEnum.swift */; };
+		E73E7F842CAC7FE400C51B9D /* HikingModeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F152CAC7FE400C51B9D /* HikingModeControlView.swift */; };
+		E73E7F852CAC7FE400C51B9D /* HomeVC+HikingInvitation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F122CAC7FE400C51B9D /* HomeVC+HikingInvitation+Extension.swift */; };
+		E73E7F862CAC7FE400C51B9D /* OnboardingKeyFeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F242CAC7FE400C51B9D /* OnboardingKeyFeatureVC.swift */; };
+		E73E7F872CAC7FE400C51B9D /* AlterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F382CAC7FE400C51B9D /* AlterVC.swift */; };
+		E73E7F882CAC7FE400C51B9D /* Swinject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F442CAC7FE400C51B9D /* Swinject+Extension.swift */; };
+		E73E7F892CAC7FE400C51B9D /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F062CAC7FE400C51B9D /* EditProfileVC.swift */; };
+		E73E7F8A2CAC7FE400C51B9D /* WorkoutManager+iOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE12CAC7FE400C51B9D /* WorkoutManager+iOS+Extension.swift */; };
+		E73E7F8B2CAC7FE400C51B9D /* OnboardingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F252CAC7FE400C51B9D /* OnboardingLocationVC.swift */; };
+		E73E7F8C2CAC7FE400C51B9D /* CongratsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EF42CAC7FE400C51B9D /* CongratsVC.swift */; };
+		E73E7F8D2CAC7FE400C51B9D /* AlertRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3A2CAC7FE400C51B9D /* AlertRangeView.swift */; };
+		E73E7F8E2CAC7FE400C51B9D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F2D2CAC7FE400C51B9D /* NotificationService.swift */; };
+		E73E7F8F2CAC7FE400C51B9D /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EDF2CAC7FE400C51B9D /* HealthManager.swift */; };
+		E73E7F902CAC7FE400C51B9D /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F202CAC7FE400C51B9D /* OnboardingFinishedVC.swift */; };
+		E73E7F912CAC7FE400C51B9D /* DetailDestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F032CAC7FE400C51B9D /* DetailDestinationVC.swift */; };
+		E73E7F922CAC7FE400C51B9D /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F362CAC7FE400C51B9D /* SampleLabel.swift */; };
+		E73E7F932CAC7FE400C51B9D /* HikingMetricsIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3D2CAC7FE400C51B9D /* HikingMetricsIconTextView.swift */; };
+		E73E7F942CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E73E7EEA2CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx */; };
+		E73E7F952CAC7FE400C51B9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73E7F492CAC7FE400C51B9D /* LaunchScreen.storyboard */; };
+		E73E7F962CAC7FE400C51B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73E7EEC2CAC7FE400C51B9D /* Assets.xcassets */; };
 		E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */; };
 		E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D42CAB8EF0004A3223 /* Logger.swift */; };
 		E7CE22D92CAB8EF0004A3223 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */; };
@@ -135,31 +138,87 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0329AF0F2CAC401300747035 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsSharableVC.swift; sourceTree = "<group>"; };
 		034CF6912CAC59D50006CE6F /* HaikinguApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HaikinguApp.entitlements; sourceTree = "<group>"; };
 		034CF6922CAC59E00006CE6F /* Haikingu Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Haikingu Watch App.entitlements"; sourceTree = "<group>"; };
-		034CF6952CAC5C720006CE6F /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
-		03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSessionVC.swift; sourceTree = "<group>"; };
-		03B0C43E2CABD11B00954557 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		03B0C4402CABD1AB00954557 /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
-		03B0C4422CABDC7C00954557 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
-		03B0C4442CABE35600954557 /* TimeElapsedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeElapsedView.swift; sourceTree = "<group>"; };
-		03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingMetricsIconTextView.swift; sourceTree = "<group>"; };
-		03B0C4482CABF31600954557 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
-		03B0C44E2CABFDF500954557 /* CongratsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsVC.swift; sourceTree = "<group>"; };
-		03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCongratsView.swift; sourceTree = "<group>"; };
-		03B0C4542CABFF6900954557 /* HikingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSummaryView.swift; sourceTree = "<group>"; };
-		03B0C4562CABFF9200954557 /* ReminderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTitleView.swift; sourceTree = "<group>"; };
 		8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectWatchos+extension.swift"; sourceTree = "<group>"; };
 		8A994CAD2CAC638B006CF73B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
-		BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroductionVC.swift; sourceTree = "<group>"; };
-		BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingKeyFeatureVC.swift; sourceTree = "<group>"; };
-		BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationVC.swift; sourceTree = "<group>"; };
-		BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedVC.swift; sourceTree = "<group>"; };
+		E73E7ED82CAC7FE400C51B9D /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
+		E73E7EDA2CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
+		E73E7EDB2CAC7FE400C51B9D /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
+		E73E7EDD2CAC7FE400C51B9D /* HikerBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerBLEManager.swift; sourceTree = "<group>"; };
+		E73E7EDF2CAC7FE400C51B9D /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		E73E7EE02CAC7FE400C51B9D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		E73E7EE12CAC7FE400C51B9D /* WorkoutManager+iOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+iOS+Extension.swift"; sourceTree = "<group>"; };
+		E73E7EE32CAC7FE400C51B9D /* DestinationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationModel.swift; sourceTree = "<group>"; };
+		E73E7EE42CAC7FE400C51B9D /* HaikinguRequestReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguRequestReponse.swift; sourceTree = "<group>"; };
+		E73E7EE52CAC7FE400C51B9D /* HaikinguServiceBLEUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaikinguServiceBLEUUID.swift; sourceTree = "<group>"; };
+		E73E7EE62CAC7FE400C51B9D /* Hiker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiker.swift; sourceTree = "<group>"; };
+		E73E7EE72CAC7FE400C51B9D /* TypeOfRestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRestEnum.swift; sourceTree = "<group>"; };
+		E73E7EE82CAC7FE400C51B9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E73E7EEA2CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Telaga Bidadari Batam.gpx"; sourceTree = "<group>"; };
+		E73E7EEC2CAC7FE400C51B9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E73E7EEE2CAC7FE400C51B9D /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		E73E7EEF2CAC7FE400C51B9D /* HeaderCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCongratsView.swift; sourceTree = "<group>"; };
+		E73E7EF02CAC7FE400C51B9D /* HikingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSummaryView.swift; sourceTree = "<group>"; };
+		E73E7EF12CAC7FE400C51B9D /* ReminderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTitleView.swift; sourceTree = "<group>"; };
+		E73E7EF32CAC7FE400C51B9D /* CongratsSharableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsSharableVC.swift; sourceTree = "<group>"; };
+		E73E7EF42CAC7FE400C51B9D /* CongratsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsVC.swift; sourceTree = "<group>"; };
+		E73E7EF72CAC7FE400C51B9D /* HikingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingCell.swift; sourceTree = "<group>"; };
+		E73E7EF92CAC7FE400C51B9D /* DestinationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationListVC.swift; sourceTree = "<group>"; };
+		E73E7EFC2CAC7FE400C51B9D /* DetailDestinationVC+BLE+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailDestinationVC+BLE+Extension.swift"; sourceTree = "<group>"; };
+		E73E7EFE2CAC7FE400C51B9D /* DetailDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDestinationView.swift; sourceTree = "<group>"; };
+		E73E7EFF2CAC7FE400C51B9D /* HikerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerCell.swift; sourceTree = "<group>"; };
+		E73E7F002CAC7FE400C51B9D /* HikerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerGridView.swift; sourceTree = "<group>"; };
+		E73E7F022CAC7FE400C51B9D /* AddFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendVC.swift; sourceTree = "<group>"; };
+		E73E7F032CAC7FE400C51B9D /* DetailDestinationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDestinationVC.swift; sourceTree = "<group>"; };
+		E73E7F062CAC7FE400C51B9D /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		E73E7F092CAC7FE400C51B9D /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
+		E73E7F0A2CAC7FE400C51B9D /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		E73E7F0B2CAC7FE400C51B9D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E73E7F0C2CAC7FE400C51B9D /* TimeElapsedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeElapsedView.swift; sourceTree = "<group>"; };
+		E73E7F0E2CAC7FE400C51B9D /* HikingSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSessionVC.swift; sourceTree = "<group>"; };
+		E73E7F112CAC7FE400C51B9D /* HomeVC+BLE+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+BLE+Extension.swift"; sourceTree = "<group>"; };
+		E73E7F122CAC7FE400C51B9D /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
+		E73E7F142CAC7FE400C51B9D /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
+		E73E7F152CAC7FE400C51B9D /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
+		E73E7F162CAC7FE400C51B9D /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		E73E7F182CAC7FE400C51B9D /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
+		E73E7F192CAC7FE400C51B9D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E73E7F1C2CAC7FE400C51B9D /* OnboardingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExtension.swift; sourceTree = "<group>"; };
+		E73E7F1E2CAC7FE400C51B9D /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
+		E73E7F202CAC7FE400C51B9D /* OnboardingFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedVC.swift; sourceTree = "<group>"; };
+		E73E7F212CAC7FE400C51B9D /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
+		E73E7F222CAC7FE400C51B9D /* OnboardingHikingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHikingProfileVC.swift; sourceTree = "<group>"; };
+		E73E7F232CAC7FE400C51B9D /* OnboardingIntroductionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroductionVC.swift; sourceTree = "<group>"; };
+		E73E7F242CAC7FE400C51B9D /* OnboardingKeyFeatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingKeyFeatureVC.swift; sourceTree = "<group>"; };
+		E73E7F252CAC7FE400C51B9D /* OnboardingLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationVC.swift; sourceTree = "<group>"; };
+		E73E7F292CAC7FE400C51B9D /* CentralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralBLEService.swift; sourceTree = "<group>"; };
+		E73E7F2A2CAC7FE400C51B9D /* PeripheralBLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEService.swift; sourceTree = "<group>"; };
+		E73E7F2C2CAC7FE400C51B9D /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		E73E7F2D2CAC7FE400C51B9D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		E73E7F2E2CAC7FE400C51B9D /* WorkoutServiceIos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceIos.swift; sourceTree = "<group>"; };
+		E73E7F302CAC7FE400C51B9D /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		E73E7F312CAC7FE400C51B9D /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		E73E7F322CAC7FE400C51B9D /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		E73E7F332CAC7FE400C51B9D /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		E73E7F342CAC7FE400C51B9D /* TextIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextIconButton.swift; sourceTree = "<group>"; };
+		E73E7F362CAC7FE400C51B9D /* SampleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLabel.swift; sourceTree = "<group>"; };
+		E73E7F382CAC7FE400C51B9D /* AlterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlterVC.swift; sourceTree = "<group>"; };
+		E73E7F3A2CAC7FE400C51B9D /* AlertRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRangeView.swift; sourceTree = "<group>"; };
+		E73E7F3B2CAC7FE400C51B9D /* DetailEstTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEstTimeVC.swift; sourceTree = "<group>"; };
+		E73E7F3D2CAC7FE400C51B9D /* HikingMetricsIconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingMetricsIconTextView.swift; sourceTree = "<group>"; };
+		E73E7F3E2CAC7FE400C51B9D /* PersonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageView.swift; sourceTree = "<group>"; };
+		E73E7F3F2CAC7FE400C51B9D /* SampleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleItemView.swift; sourceTree = "<group>"; };
+		E73E7F402CAC7FE400C51B9D /* TeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsView.swift; sourceTree = "<group>"; };
+		E73E7F432CAC7FE400C51B9D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		E73E7F442CAC7FE400C51B9D /* Swinject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extension.swift"; sourceTree = "<group>"; };
+		E73E7F472CAC7FE400C51B9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E73E7F482CAC7FE400C51B9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E73E7F4A2CAC7FE400C51B9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E73E7F4B2CAC7FE400C51B9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
 		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
@@ -274,87 +333,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		034CF6932CAC5C550006CE6F /* EditProfile */ = {
-			isa = PBXGroup;
-			children = (
-				034CF6942CAC5C5D0006CE6F /* ViewControllers */,
-			);
-			path = EditProfile;
-			sourceTree = "<group>";
-		};
-		034CF6942CAC5C5D0006CE6F /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				034CF6952CAC5C720006CE6F /* EditProfileVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		03B0C4382CABD08F00954557 /* HikingSession */ = {
-			isa = PBXGroup;
-			children = (
-				03B0C43A2CABD0A400954557 /* SubViews */,
-				03B0C43B2CABD0B300954557 /* ViewControllers */,
-			);
-			path = HikingSession;
-			sourceTree = "<group>";
-		};
-		03B0C43A2CABD0A400954557 /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				03B0C4422CABDC7C00954557 /* FooterView.swift */,
-				03B0C4402CABD1AB00954557 /* BodyView.swift */,
-				03B0C43E2CABD11B00954557 /* HeaderView.swift */,
-				03B0C4442CABE35600954557 /* TimeElapsedView.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		03B0C43B2CABD0B300954557 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		03B0C44A2CABFD6C00954557 /* Congrats */ = {
-			isa = PBXGroup;
-			children = (
-				03B0C44D2CABFDA600954557 /* Extensions */,
-				03B0C44C2CABFD9C00954557 /* SubViews */,
-				03B0C44B2CABFD8900954557 /* ViewControllers */,
-			);
-			path = Congrats;
-			sourceTree = "<group>";
-		};
-		03B0C44B2CABFD8900954557 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				034CF64E2CAC50A50006CE6F /* CongratsSharableVC.swift */,
-				03B0C44E2CABFDF500954557 /* CongratsVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		03B0C44C2CABFD9C00954557 /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				0329AF0F2CAC401300747035 /* CustomCell.swift */,
-				03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */,
-				03B0C4542CABFF6900954557 /* HikingSummaryView.swift */,
-				03B0C4562CABFF9200954557 /* ReminderTitleView.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		03B0C44D2CABFDA600954557 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		8A994CA72CAC61E3006CF73B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,320 +350,404 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		E7CE224A2CAB8B42004A3223 /* LocalDataSources */ = {
+		E73E7ED92CAC7FE400C51B9D /* LocalDataSources */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22492CAB8B42004A3223 /* SampleDB.swift */,
+				E73E7ED82CAC7FE400C51B9D /* SampleDB.swift */,
 			);
 			path = LocalDataSources;
 			sourceTree = "<group>";
 		};
-		E7CE224D2CAB8B42004A3223 /* Extensions */ = {
+		E73E7EDC2CAC7FE400C51B9D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE224B2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift */,
-				E7CE224C2CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift */,
+				E73E7EDA2CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift */,
+				E73E7EDB2CAC7FE400C51B9D /* HikerBLEManager+Peripheral+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E7CE224F2CAB8B42004A3223 /* CoreBluetooth */ = {
+		E73E7EDE2CAC7FE400C51B9D /* CoreBluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE224D2CAB8B42004A3223 /* Extensions */,
-				E7CE224E2CAB8B42004A3223 /* HikerBLEManager.swift */,
+				E73E7EDC2CAC7FE400C51B9D /* Extensions */,
+				E73E7EDD2CAC7FE400C51B9D /* HikerBLEManager.swift */,
 			);
 			path = CoreBluetooth;
 			sourceTree = "<group>";
 		};
-		E7CE22522CAB8B42004A3223 /* Managers */ = {
+		E73E7EE22CAC7FE400C51B9D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE224F2CAB8B42004A3223 /* CoreBluetooth */,
-				E7CE22502CAB8B42004A3223 /* HealthManager.swift */,
-				E7CE22512CAB8B42004A3223 /* WorkoutManager+iOS+Extension.swift */,
-				E7A4EBA42CABD13800B37551 /* NotificationManager.swift */,
+				E73E7EDE2CAC7FE400C51B9D /* CoreBluetooth */,
+				E73E7EDF2CAC7FE400C51B9D /* HealthManager.swift */,
+				E73E7EE02CAC7FE400C51B9D /* NotificationManager.swift */,
+				E73E7EE12CAC7FE400C51B9D /* WorkoutManager+iOS+Extension.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		E7CE22592CAB8B42004A3223 /* Models */ = {
+		E73E7EE92CAC7FE400C51B9D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22532CAB8B42004A3223 /* DestinationModel.swift */,
-				E7CE22542CAB8B42004A3223 /* HaikinguRequestReponse.swift */,
-				E7CE22552CAB8B42004A3223 /* HaikinguServiceBLEUUID.swift */,
-				E7CE22562CAB8B42004A3223 /* Hiker.swift */,
-				E7CE22572CAB8B42004A3223 /* TypeOfRestEnum.swift */,
-				E7CE22582CAB8B42004A3223 /* User.swift */,
+				E73E7EE32CAC7FE400C51B9D /* DestinationModel.swift */,
+				E73E7EE42CAC7FE400C51B9D /* HaikinguRequestReponse.swift */,
+				E73E7EE52CAC7FE400C51B9D /* HaikinguServiceBLEUUID.swift */,
+				E73E7EE62CAC7FE400C51B9D /* Hiker.swift */,
+				E73E7EE72CAC7FE400C51B9D /* TypeOfRestEnum.swift */,
+				E73E7EE82CAC7FE400C51B9D /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E7CE225B2CAB8B42004A3223 /* GPXAssets */ = {
+		E73E7EEB2CAC7FE400C51B9D /* GPXAssets */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE225A2CAB8B42004A3223 /* Telaga Bidadari Batam.gpx */,
+				E73E7EEA2CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx */,
 			);
 			path = GPXAssets;
 			sourceTree = "<group>";
 		};
-		E7CE225D2CAB8B42004A3223 /* Resources */ = {
+		E73E7EED2CAC7FE400C51B9D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE225B2CAB8B42004A3223 /* GPXAssets */,
-				E7CE225C2CAB8B42004A3223 /* Assets.xcassets */,
+				E73E7EEB2CAC7FE400C51B9D /* GPXAssets */,
+				E73E7EEC2CAC7FE400C51B9D /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		E7CE225F2CAB8B42004A3223 /* SubViews */ = {
+		E73E7EF22CAC7FE400C51B9D /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE225E2CAB8B42004A3223 /* HikingCell.swift */,
+				E73E7EEE2CAC7FE400C51B9D /* CustomCell.swift */,
+				E73E7EEF2CAC7FE400C51B9D /* HeaderCongratsView.swift */,
+				E73E7EF02CAC7FE400C51B9D /* HikingSummaryView.swift */,
+				E73E7EF12CAC7FE400C51B9D /* ReminderTitleView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		E7CE22612CAB8B42004A3223 /* ViewControllers */ = {
+		E73E7EF52CAC7FE400C51B9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22602CAB8B42004A3223 /* DestinationListVC.swift */,
+				E73E7EF32CAC7FE400C51B9D /* CongratsSharableVC.swift */,
+				E73E7EF42CAC7FE400C51B9D /* CongratsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E7CE22622CAB8B42004A3223 /* DestinationList */ = {
+		E73E7EF62CAC7FE400C51B9D /* Congrats */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE225F2CAB8B42004A3223 /* SubViews */,
-				E7CE22612CAB8B42004A3223 /* ViewControllers */,
+				E73E7EF22CAC7FE400C51B9D /* SubViews */,
+				E73E7EF52CAC7FE400C51B9D /* ViewControllers */,
+			);
+			path = Congrats;
+			sourceTree = "<group>";
+		};
+		E73E7EF82CAC7FE400C51B9D /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7EF72CAC7FE400C51B9D /* HikingCell.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E73E7EFA2CAC7FE400C51B9D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7EF92CAC7FE400C51B9D /* DestinationListVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E73E7EFB2CAC7FE400C51B9D /* DestinationList */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7EF82CAC7FE400C51B9D /* SubViews */,
+				E73E7EFA2CAC7FE400C51B9D /* ViewControllers */,
 			);
 			path = DestinationList;
 			sourceTree = "<group>";
 		};
-		E7CE22642CAB8B42004A3223 /* SubViews */ = {
+		E73E7EFD2CAC7FE400C51B9D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22632CAB8B42004A3223 /* DetailDestinationView.swift */,
+				E73E7EFC2CAC7FE400C51B9D /* DetailDestinationVC+BLE+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E73E7F012CAC7FE400C51B9D /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7EFE2CAC7FE400C51B9D /* DetailDestinationView.swift */,
+				E73E7EFF2CAC7FE400C51B9D /* HikerCell.swift */,
+				E73E7F002CAC7FE400C51B9D /* HikerGridView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		E7CE22662CAB8B42004A3223 /* ViewControllers */ = {
+		E73E7F042CAC7FE400C51B9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22652CAB8B42004A3223 /* DetailDestinationVC.swift */,
+				E73E7F022CAC7FE400C51B9D /* AddFriendVC.swift */,
+				E73E7F032CAC7FE400C51B9D /* DetailDestinationVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E7CE22672CAB8B42004A3223 /* DetailDestination */ = {
+		E73E7F052CAC7FE400C51B9D /* DetailDestination */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22642CAB8B42004A3223 /* SubViews */,
-				E7CE22662CAB8B42004A3223 /* ViewControllers */,
+				E73E7EFD2CAC7FE400C51B9D /* Extensions */,
+				E73E7F012CAC7FE400C51B9D /* SubViews */,
+				E73E7F042CAC7FE400C51B9D /* ViewControllers */,
 			);
 			path = DetailDestination;
 			sourceTree = "<group>";
 		};
-		E7CE22692CAB8B42004A3223 /* Extensions */ = {
+		E73E7F072CAC7FE400C51B9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */,
-				E7CE22682CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E7CE226D2CAB8B42004A3223 /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				E7CE226A2CAB8B42004A3223 /* BackToHomeMessageView.swift */,
-				E7CE226B2CAB8B42004A3223 /* HikingModeControlView.swift */,
-				E7CE226C2CAB8B42004A3223 /* HomeHeaderView.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		E7CE22702CAB8B42004A3223 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E7CE226E2CAB8B42004A3223 /* HikingInvitationVC.swift */,
-				E7CE226F2CAB8B42004A3223 /* HomeVC.swift */,
+				E73E7F062CAC7FE400C51B9D /* EditProfileVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E7CE22712CAB8B42004A3223 /* Home */ = {
+		E73E7F082CAC7FE400C51B9D /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22692CAB8B42004A3223 /* Extensions */,
-				E7CE226D2CAB8B42004A3223 /* SubViews */,
-				E7CE22702CAB8B42004A3223 /* ViewControllers */,
+				E73E7F072CAC7FE400C51B9D /* ViewControllers */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		E73E7F0D2CAC7FE400C51B9D /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7F092CAC7FE400C51B9D /* BodyView.swift */,
+				E73E7F0A2CAC7FE400C51B9D /* FooterView.swift */,
+				E73E7F0B2CAC7FE400C51B9D /* HeaderView.swift */,
+				E73E7F0C2CAC7FE400C51B9D /* TimeElapsedView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E73E7F0F2CAC7FE400C51B9D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7F0E2CAC7FE400C51B9D /* HikingSessionVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E73E7F102CAC7FE400C51B9D /* HikingSession */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7F0D2CAC7FE400C51B9D /* SubViews */,
+				E73E7F0F2CAC7FE400C51B9D /* ViewControllers */,
+			);
+			path = HikingSession;
+			sourceTree = "<group>";
+		};
+		E73E7F132CAC7FE400C51B9D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7F112CAC7FE400C51B9D /* HomeVC+BLE+Extension.swift */,
+				E73E7F122CAC7FE400C51B9D /* HomeVC+HikingInvitation+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E73E7F172CAC7FE400C51B9D /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7F142CAC7FE400C51B9D /* BackToHomeMessageView.swift */,
+				E73E7F152CAC7FE400C51B9D /* HikingModeControlView.swift */,
+				E73E7F162CAC7FE400C51B9D /* HomeHeaderView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E73E7F1A2CAC7FE400C51B9D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7F182CAC7FE400C51B9D /* HikingInvitationVC.swift */,
+				E73E7F192CAC7FE400C51B9D /* HomeVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E73E7F1B2CAC7FE400C51B9D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E73E7F132CAC7FE400C51B9D /* Extensions */,
+				E73E7F172CAC7FE400C51B9D /* SubViews */,
+				E73E7F1A2CAC7FE400C51B9D /* ViewControllers */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		E7CE22732CAB8B42004A3223 /* Extensions */ = {
+		E73E7F1D2CAC7FE400C51B9D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22722CAB8B42004A3223 /* OnboardingExtension.swift */,
+				E73E7F1C2CAC7FE400C51B9D /* OnboardingExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E7CE22752CAB8B42004A3223 /* SubViews */ = {
+		E73E7F1F2CAC7FE400C51B9D /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22742CAB8B42004A3223 /* SampleView.swift */,
+				E73E7F1E2CAC7FE400C51B9D /* SampleView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		E7CE22782CAB8B42004A3223 /* ViewControllers */ = {
+		E73E7F262CAC7FE400C51B9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */,
-				BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */,
-				BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */,
-				BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */,
-				E7CE22762CAB8B42004A3223 /* OnboardingHealthAccessVC.swift */,
-				E7CE22772CAB8B42004A3223 /* OnboardingHikingProfileVC.swift */,
+				E73E7F202CAC7FE400C51B9D /* OnboardingFinishedVC.swift */,
+				E73E7F212CAC7FE400C51B9D /* OnboardingHealthAccessVC.swift */,
+				E73E7F222CAC7FE400C51B9D /* OnboardingHikingProfileVC.swift */,
+				E73E7F232CAC7FE400C51B9D /* OnboardingIntroductionVC.swift */,
+				E73E7F242CAC7FE400C51B9D /* OnboardingKeyFeatureVC.swift */,
+				E73E7F252CAC7FE400C51B9D /* OnboardingLocationVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E7CE22792CAB8B42004A3223 /* Onboarding */ = {
+		E73E7F272CAC7FE400C51B9D /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22732CAB8B42004A3223 /* Extensions */,
-				E7CE22752CAB8B42004A3223 /* SubViews */,
-				E7CE22782CAB8B42004A3223 /* ViewControllers */,
+				E73E7F1D2CAC7FE400C51B9D /* Extensions */,
+				E73E7F1F2CAC7FE400C51B9D /* SubViews */,
+				E73E7F262CAC7FE400C51B9D /* ViewControllers */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		E7CE227A2CAB8B42004A3223 /* Screens */ = {
+		E73E7F282CAC7FE400C51B9D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				034CF6932CAC5C550006CE6F /* EditProfile */,
-				03B0C44A2CABFD6C00954557 /* Congrats */,
-				03B0C4382CABD08F00954557 /* HikingSession */,
-				E7CE22622CAB8B42004A3223 /* DestinationList */,
-				E7CE22672CAB8B42004A3223 /* DetailDestination */,
-				E7CE22712CAB8B42004A3223 /* Home */,
-				E7CE22792CAB8B42004A3223 /* Onboarding */,
+				E73E7EF62CAC7FE400C51B9D /* Congrats */,
+				E73E7EFB2CAC7FE400C51B9D /* DestinationList */,
+				E73E7F052CAC7FE400C51B9D /* DetailDestination */,
+				E73E7F082CAC7FE400C51B9D /* EditProfile */,
+				E73E7F102CAC7FE400C51B9D /* HikingSession */,
+				E73E7F1B2CAC7FE400C51B9D /* Home */,
+				E73E7F272CAC7FE400C51B9D /* Onboarding */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		E7CE227D2CAB8B42004A3223 /* CoreBluetooth */ = {
+		E73E7F2B2CAC7FE400C51B9D /* CoreBluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE227B2CAB8B42004A3223 /* CentralBLEService.swift */,
-				E7CE227C2CAB8B42004A3223 /* PeripheralBLEService.swift */,
+				E73E7F292CAC7FE400C51B9D /* CentralBLEService.swift */,
+				E73E7F2A2CAC7FE400C51B9D /* PeripheralBLEService.swift */,
 			);
 			path = CoreBluetooth;
 			sourceTree = "<group>";
 		};
-		E7CE22802CAB8B42004A3223 /* Services */ = {
+		E73E7F2F2CAC7FE400C51B9D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E7A4EBD62CABF3C200B37551 /* NotificationService.swift */,
-				E7CE227D2CAB8B42004A3223 /* CoreBluetooth */,
-				E7CE227E2CAB8B42004A3223 /* HealthService.swift */,
-				E7CE227F2CAB8B42004A3223 /* WorkoutServiceIos.swift */,
+				E73E7F2B2CAC7FE400C51B9D /* CoreBluetooth */,
+				E73E7F2C2CAC7FE400C51B9D /* HealthService.swift */,
+				E73E7F2D2CAC7FE400C51B9D /* NotificationService.swift */,
+				E73E7F2E2CAC7FE400C51B9D /* WorkoutServiceIos.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		E7CE22852CAB8B42004A3223 /* Buttons */ = {
+		E73E7F352CAC7FE400C51B9D /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22812CAB8B42004A3223 /* AppButton.swift */,
-				E7CE22822CAB8B42004A3223 /* PrimaryButton.swift */,
-				E7CE22832CAB8B42004A3223 /* SecondaryButton.swift */,
-				E7CE22842CAB8B42004A3223 /* TextIconButton.swift */,
-				03B0C4482CABF31600954557 /* IconButton.swift */,
+				E73E7F302CAC7FE400C51B9D /* AppButton.swift */,
+				E73E7F312CAC7FE400C51B9D /* IconButton.swift */,
+				E73E7F322CAC7FE400C51B9D /* PrimaryButton.swift */,
+				E73E7F332CAC7FE400C51B9D /* SecondaryButton.swift */,
+				E73E7F342CAC7FE400C51B9D /* TextIconButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		E7CE22872CAB8B42004A3223 /* Labels */ = {
+		E73E7F372CAC7FE400C51B9D /* Labels */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22862CAB8B42004A3223 /* SampleLabel.swift */,
+				E73E7F362CAC7FE400C51B9D /* SampleLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
 		};
-		E7CE22892CAB8B42004A3223 /* ViewControllers */ = {
+		E73E7F392CAC7FE400C51B9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22882CAB8B42004A3223 /* AlterVC.swift */,
+				E73E7F382CAC7FE400C51B9D /* AlterVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E7CE228D2CAB8B42004A3223 /* Modals */ = {
+		E73E7F3C2CAC7FE400C51B9D /* Modals */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE228A2CAB8B42004A3223 /* AddFriendView.swift */,
-				E7CE228B2CAB8B42004A3223 /* AlertRangeView.swift */,
-				E7CE228C2CAB8B42004A3223 /* DetailEstTimeVC.swift */,
+				E73E7F3A2CAC7FE400C51B9D /* AlertRangeView.swift */,
+				E73E7F3B2CAC7FE400C51B9D /* DetailEstTimeVC.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
 		};
-		E7CE22912CAB8B42004A3223 /* Views */ = {
+		E73E7F412CAC7FE400C51B9D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE228D2CAB8B42004A3223 /* Modals */,
-				E7CE228E2CAB8B42004A3223 /* PersonImageView.swift */,
-				E7CE228F2CAB8B42004A3223 /* SampleItemView.swift */,
-				E7CE22902CAB8B42004A3223 /* TeamsView.swift */,
-				03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */,
+				E73E7F3C2CAC7FE400C51B9D /* Modals */,
+				E73E7F3D2CAC7FE400C51B9D /* HikingMetricsIconTextView.swift */,
+				E73E7F3E2CAC7FE400C51B9D /* PersonImageView.swift */,
+				E73E7F3F2CAC7FE400C51B9D /* SampleItemView.swift */,
+				E73E7F402CAC7FE400C51B9D /* TeamsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E7CE22922CAB8B42004A3223 /* Components */ = {
+		E73E7F422CAC7FE400C51B9D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22852CAB8B42004A3223 /* Buttons */,
-				E7CE22872CAB8B42004A3223 /* Labels */,
-				E7CE22892CAB8B42004A3223 /* ViewControllers */,
-				E7CE22912CAB8B42004A3223 /* Views */,
+				E73E7F352CAC7FE400C51B9D /* Buttons */,
+				E73E7F372CAC7FE400C51B9D /* Labels */,
+				E73E7F392CAC7FE400C51B9D /* ViewControllers */,
+				E73E7F412CAC7FE400C51B9D /* Views */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		E7CE22952CAB8B42004A3223 /* Extensions */ = {
+		E73E7F452CAC7FE400C51B9D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22932CAB8B42004A3223 /* Date+Extension.swift */,
-				E7CE22942CAB8B42004A3223 /* Swinject+Extension.swift */,
+				E73E7F432CAC7FE400C51B9D /* Date+Extension.swift */,
+				E73E7F442CAC7FE400C51B9D /* Swinject+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E7CE22962CAB8B42004A3223 /* Shareds */ = {
+		E73E7F462CAC7FE400C51B9D /* Shareds */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22922CAB8B42004A3223 /* Components */,
-				E7CE22952CAB8B42004A3223 /* Extensions */,
+				E73E7F422CAC7FE400C51B9D /* Components */,
+				E73E7F452CAC7FE400C51B9D /* Extensions */,
 			);
 			path = Shareds;
 			sourceTree = "<group>";
 		};
-		E7CE229C2CAB8B42004A3223 /* Supports */ = {
+		E73E7F4C2CAC7FE400C51B9D /* Supports */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE22972CAB8B42004A3223 /* AppDelegate.swift */,
-				E7CE22992CAB8B42004A3223 /* LaunchScreen.storyboard */,
-				E7CE229A2CAB8B42004A3223 /* SceneDelegate.swift */,
-				E7CE229B2CAB8B42004A3223 /* SplashScreen.swift */,
+				E73E7F472CAC7FE400C51B9D /* AppDelegate.swift */,
+				E73E7F492CAC7FE400C51B9D /* LaunchScreen.storyboard */,
+				E73E7F4A2CAC7FE400C51B9D /* SceneDelegate.swift */,
+				E73E7F4B2CAC7FE400C51B9D /* ViewController.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -747,15 +809,15 @@
 		E7D0BA312C9839AD00324E3D /* HaikinguApp */ = {
 			isa = PBXGroup;
 			children = (
+				E73E7ED92CAC7FE400C51B9D /* LocalDataSources */,
+				E73E7EE22CAC7FE400C51B9D /* Managers */,
+				E73E7EE92CAC7FE400C51B9D /* Models */,
+				E73E7EED2CAC7FE400C51B9D /* Resources */,
+				E73E7F282CAC7FE400C51B9D /* Screens */,
+				E73E7F2F2CAC7FE400C51B9D /* Services */,
+				E73E7F462CAC7FE400C51B9D /* Shareds */,
+				E73E7F4C2CAC7FE400C51B9D /* Supports */,
 				034CF6912CAC59D50006CE6F /* HaikinguApp.entitlements */,
-				E7CE224A2CAB8B42004A3223 /* LocalDataSources */,
-				E7CE22522CAB8B42004A3223 /* Managers */,
-				E7CE22592CAB8B42004A3223 /* Models */,
-				E7CE225D2CAB8B42004A3223 /* Resources */,
-				E7CE227A2CAB8B42004A3223 /* Screens */,
-				E7CE22802CAB8B42004A3223 /* Services */,
-				E7CE22962CAB8B42004A3223 /* Shareds */,
-				E7CE229C2CAB8B42004A3223 /* Supports */,
 				E7D0BA402C9839AF00324E3D /* Info.plist */,
 			);
 			path = HaikinguApp;
@@ -995,9 +1057,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CE22CC2CAB8B42004A3223 /* LaunchScreen.storyboard in Resources */,
-				E7CE22CD2CAB8B42004A3223 /* Assets.xcassets in Resources */,
-				E7CE22CE2CAB8B42004A3223 /* Telaga Bidadari Batam.gpx in Resources */,
+				E73E7F942CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx in Resources */,
+				E73E7F952CAC7FE400C51B9D /* LaunchScreen.storyboard in Resources */,
+				E73E7F962CAC7FE400C51B9D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,70 +1099,78 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */,
-				E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */,
-				03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */,
-				E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */,
-				BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */,
-				E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */,
-				03B0C44F2CABFDF500954557 /* CongratsVC.swift in Sources */,
-				E7CE22A02CAB8B42004A3223 /* BackToHomeMessageView.swift in Sources */,
-				E7CE22A12CAB8B42004A3223 /* OnboardingHikingProfileVC.swift in Sources */,
-				E7CE22A22CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift in Sources */,
-				E7CE22A32CAB8B42004A3223 /* DetailDestinationVC.swift in Sources */,
-				E7CE22A42CAB8B42004A3223 /* PrimaryButton.swift in Sources */,
-				E7CE22A52CAB8B42004A3223 /* AppDelegate.swift in Sources */,
-				E7CE22A62CAB8B42004A3223 /* DestinationModel.swift in Sources */,
-				E7CE22A72CAB8B42004A3223 /* PersonImageView.swift in Sources */,
-				E7CE22A82CAB8B42004A3223 /* TextIconButton.swift in Sources */,
-				E7CE22A92CAB8B42004A3223 /* CentralBLEService.swift in Sources */,
-				E7CE22AA2CAB8B42004A3223 /* HealthService.swift in Sources */,
-				E7CE22AB2CAB8B42004A3223 /* AlterVC.swift in Sources */,
-				E7CE22AC2CAB8B42004A3223 /* SampleView.swift in Sources */,
-				03B0C4492CABF31600954557 /* IconButton.swift in Sources */,
-				E7CE22AD2CAB8B42004A3223 /* AlertRangeView.swift in Sources */,
-				E7CE22AE2CAB8B42004A3223 /* WorkoutServiceIos.swift in Sources */,
-				E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */,
-				E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */,
-				E7CE22B02CAB8B42004A3223 /* OnboardingExtension.swift in Sources */,
-				03B0C4512CABFE9D00954557 /* HeaderCongratsView.swift in Sources */,
-				E7CE22B12CAB8B42004A3223 /* AddFriendView.swift in Sources */,
-				E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */,
-				E7CE22B32CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
-				E7CE22B42CAB8B42004A3223 /* DetailEstTimeVC.swift in Sources */,
-				03B0C4432CABDC8700954557 /* FooterView.swift in Sources */,
-				E7CE22B52CAB8B42004A3223 /* AppButton.swift in Sources */,
-				E7CE22B62CAB8B42004A3223 /* HaikinguRequestReponse.swift in Sources */,
-				E7CE22B72CAB8B42004A3223 /* SampleLabel.swift in Sources */,
-				E7CE22B82CAB8B42004A3223 /* HikingCell.swift in Sources */,
-				E7CE22B92CAB8B42004A3223 /* Hiker.swift in Sources */,
-				E7CE22BA2CAB8B42004A3223 /* HikingModeControlView.swift in Sources */,
-				03B0C4472CABE54F00954557 /* HikingMetricsIconTextView.swift in Sources */,
-				03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */,
-				E7CE22BB2CAB8B42004A3223 /* HealthManager.swift in Sources */,
-				E7CE22BC2CAB8B42004A3223 /* HaikinguServiceBLEUUID.swift in Sources */,
-				E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */,
-				BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */,
-				E7CE22BE2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift in Sources */,
-				0329AF102CAC401300747035 /* CustomCell.swift in Sources */,
-				E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */,
-				E7CE22BF2CAB8B42004A3223 /* Swinject+Extension.swift in Sources */,
-				E7CE22C02CAB8B42004A3223 /* User.swift in Sources */,
-				E7CE22C12CAB8B42004A3223 /* PeripheralBLEService.swift in Sources */,
-				E7CE22C22CAB8B42004A3223 /* HomeVC.swift in Sources */,
-				E7CE22C32CAB8B42004A3223 /* SecondaryButton.swift in Sources */,
-				BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */,
-				E7CE22C42CAB8B42004A3223 /* SceneDelegate.swift in Sources */,
-				03B0C43F2CABD11B00954557 /* HeaderView.swift in Sources */,
-				E7CE22C52CAB8B42004A3223 /* WorkoutManager+iOS+Extension.swift in Sources */,
-				BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */,
-				E7CE22C62CAB8B42004A3223 /* TypeOfRestEnum.swift in Sources */,
-				E7CE22C72CAB8B42004A3223 /* Date+Extension.swift in Sources */,
-				03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */,
-				034CF6962CAC5C720006CE6F /* EditProfileVC.swift in Sources */,
-				E7CE22C82CAB8B42004A3223 /* DetailDestinationView.swift in Sources */,
+				E73E7F4D2CAC7FE400C51B9D /* SampleItemView.swift in Sources */,
+				E73E7F4E2CAC7FE400C51B9D /* HomeVC.swift in Sources */,
+				E73E7F4F2CAC7FE400C51B9D /* HikingSummaryView.swift in Sources */,
+				E73E7F502CAC7FE400C51B9D /* OnboardingHikingProfileVC.swift in Sources */,
+				E73E7F512CAC7FE400C51B9D /* DetailDestinationVC+BLE+Extension.swift in Sources */,
+				E73E7F522CAC7FE400C51B9D /* IconButton.swift in Sources */,
+				E73E7F532CAC7FE400C51B9D /* NotificationManager.swift in Sources */,
+				E73E7F542CAC7FE400C51B9D /* PrimaryButton.swift in Sources */,
+				E73E7F552CAC7FE400C51B9D /* TeamsView.swift in Sources */,
+				E73E7F562CAC7FE400C51B9D /* SceneDelegate.swift in Sources */,
+				E73E7F572CAC7FE400C51B9D /* CongratsSharableVC.swift in Sources */,
+				E73E7F582CAC7FE400C51B9D /* HomeHeaderView.swift in Sources */,
+				E73E7F592CAC7FE400C51B9D /* TextIconButton.swift in Sources */,
+				E73E7F5A2CAC7FE400C51B9D /* AppButton.swift in Sources */,
+				E73E7F5B2CAC7FE400C51B9D /* HikerGridView.swift in Sources */,
+				E73E7F5C2CAC7FE400C51B9D /* SecondaryButton.swift in Sources */,
+				E73E7F5D2CAC7FE400C51B9D /* DestinationListVC.swift in Sources */,
+				E73E7F5E2CAC7FE400C51B9D /* AddFriendVC.swift in Sources */,
+				E73E7F5F2CAC7FE400C51B9D /* OnboardingHealthAccessVC.swift in Sources */,
+				E73E7F602CAC7FE400C51B9D /* DetailDestinationView.swift in Sources */,
+				E73E7F612CAC7FE400C51B9D /* HaikinguServiceBLEUUID.swift in Sources */,
+				E73E7F622CAC7FE400C51B9D /* HeaderView.swift in Sources */,
+				E73E7F632CAC7FE400C51B9D /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
+				E73E7F642CAC7FE400C51B9D /* HeaderCongratsView.swift in Sources */,
+				E73E7F652CAC7FE400C51B9D /* DetailEstTimeVC.swift in Sources */,
+				E73E7F662CAC7FE400C51B9D /* Date+Extension.swift in Sources */,
+				E73E7F672CAC7FE400C51B9D /* HikingCell.swift in Sources */,
+				E73E7F682CAC7FE400C51B9D /* PersonImageView.swift in Sources */,
+				E73E7F692CAC7FE400C51B9D /* TimeElapsedView.swift in Sources */,
+				E73E7F6A2CAC7FE400C51B9D /* User.swift in Sources */,
+				E73E7F6B2CAC7FE400C51B9D /* HikerCell.swift in Sources */,
+				E73E7F6C2CAC7FE400C51B9D /* SampleDB.swift in Sources */,
+				E73E7F6D2CAC7FE400C51B9D /* ReminderTitleView.swift in Sources */,
+				E73E7F6E2CAC7FE400C51B9D /* BackToHomeMessageView.swift in Sources */,
+				E73E7F6F2CAC7FE400C51B9D /* FooterView.swift in Sources */,
+				E73E7F702CAC7FE400C51B9D /* PeripheralBLEService.swift in Sources */,
+				E73E7F712CAC7FE400C51B9D /* OnboardingIntroductionVC.swift in Sources */,
+				E73E7F722CAC7FE400C51B9D /* CentralBLEService.swift in Sources */,
+				E73E7F732CAC7FE400C51B9D /* SampleView.swift in Sources */,
+				E73E7F742CAC7FE400C51B9D /* BodyView.swift in Sources */,
+				E73E7F752CAC7FE400C51B9D /* ViewController.swift in Sources */,
+				E73E7F762CAC7FE400C51B9D /* CustomCell.swift in Sources */,
+				E73E7F772CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift in Sources */,
+				E73E7F782CAC7FE400C51B9D /* HikerBLEManager.swift in Sources */,
+				E73E7F792CAC7FE400C51B9D /* HikingSessionVC.swift in Sources */,
+				E73E7F7A2CAC7FE400C51B9D /* OnboardingExtension.swift in Sources */,
+				E73E7F7B2CAC7FE400C51B9D /* WorkoutServiceIos.swift in Sources */,
+				E73E7F7C2CAC7FE400C51B9D /* AppDelegate.swift in Sources */,
+				E73E7F7D2CAC7FE400C51B9D /* HomeVC+BLE+Extension.swift in Sources */,
+				E73E7F7E2CAC7FE400C51B9D /* HaikinguRequestReponse.swift in Sources */,
+				E73E7F7F2CAC7FE400C51B9D /* HealthService.swift in Sources */,
+				E73E7F802CAC7FE400C51B9D /* Hiker.swift in Sources */,
+				E73E7F812CAC7FE400C51B9D /* DestinationModel.swift in Sources */,
+				E73E7F822CAC7FE400C51B9D /* HikingInvitationVC.swift in Sources */,
+				E73E7F832CAC7FE400C51B9D /* TypeOfRestEnum.swift in Sources */,
+				E73E7F842CAC7FE400C51B9D /* HikingModeControlView.swift in Sources */,
+				E73E7F852CAC7FE400C51B9D /* HomeVC+HikingInvitation+Extension.swift in Sources */,
+				E73E7F862CAC7FE400C51B9D /* OnboardingKeyFeatureVC.swift in Sources */,
+				E73E7F872CAC7FE400C51B9D /* AlterVC.swift in Sources */,
+				E73E7F882CAC7FE400C51B9D /* Swinject+Extension.swift in Sources */,
+				E73E7F892CAC7FE400C51B9D /* EditProfileVC.swift in Sources */,
+				E73E7F8A2CAC7FE400C51B9D /* WorkoutManager+iOS+Extension.swift in Sources */,
+				E73E7F8B2CAC7FE400C51B9D /* OnboardingLocationVC.swift in Sources */,
+				E73E7F8C2CAC7FE400C51B9D /* CongratsVC.swift in Sources */,
+				E73E7F8D2CAC7FE400C51B9D /* AlertRangeView.swift in Sources */,
+				E73E7F8E2CAC7FE400C51B9D /* NotificationService.swift in Sources */,
+				E73E7F8F2CAC7FE400C51B9D /* HealthManager.swift in Sources */,
+				E73E7F902CAC7FE400C51B9D /* OnboardingFinishedVC.swift in Sources */,
+				E73E7F912CAC7FE400C51B9D /* DetailDestinationVC.swift in Sources */,
+				E73E7F922CAC7FE400C51B9D /* SampleLabel.swift in Sources */,
+				E73E7F932CAC7FE400C51B9D /* HikingMetricsIconTextView.swift in Sources */,
 				E7CE22D92CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
-				03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */,
 				E7CE22DA2CAB8EF0004A3223 /* Logger.swift in Sources */,
 				034CF64F2CAC50A50006CE6F /* CongratsSharableVC.swift in Sources */,
 				E7CE22C92CAB8B42004A3223 /* SplashScreen.swift in Sources */,
@@ -1150,10 +1220,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E7CE22992CAB8B42004A3223 /* LaunchScreen.storyboard */ = {
+		E73E7F492CAC7FE400C51B9D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E7CE22982CAB8B42004A3223 /* Base */,
+				E73E7F482CAC7FE400C51B9D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

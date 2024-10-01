@@ -34,15 +34,13 @@ class DetailDestinationView: UIView {
         let horizontal = UIStackView()
         horizontal.axis = .horizontal
         horizontal.spacing = 4
-        horizontal.distribution = .fillProportionally
-        horizontal.alignment = .leading
+        horizontal.alignment = .bottom
         return horizontal
     }()
     
     private var verticalStack: UIStackView = {
         let vertical = UIStackView()
         vertical.axis = .vertical
-        vertical.spacing = 4
         vertical.distribution = .fillEqually
         vertical.alignment = .leading
         return vertical
@@ -81,19 +79,16 @@ class DetailDestinationView: UIView {
 //        horizontalStack.layer.borderWidth = 1
         
         horizontalStack.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalToSuperview()
-            make.height.equalTo(50)
+            make.edges.equalToSuperview()
         }
         
         icon.snp.makeConstraints { make in
-            make.width.height.equalTo(25)
-            make.bottom.equalToSuperview()
+            make.width.height.equalTo(24)
         }
         
-        verticalStack.snp.makeConstraints { make in
-            make.leading.equalTo(icon.snp.trailing).offset(10)
-            make.trailing.equalToSuperview().inset(10)
-            make.centerY.equalToSuperview()
-        }
     }
 }
+
+#Preview(traits: .defaultLayout, body: {
+    DetailDestinationView(icon: "person.circle", title: "Est. Time", value: "1h 20m")
+})
