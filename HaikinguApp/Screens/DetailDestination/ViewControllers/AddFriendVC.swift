@@ -16,8 +16,9 @@ protocol AddFriendVCDelegate: AnyObject {
 
 class AddFriendVC: UIViewController {
     
-    /// Delegates
+    var manager: CentralBLEService?
     
+    /// Delegates
     var header = HeaderAddFriendView()
     var yourTeam: HikerGridView!
     var nearbyPerson: HikerGridView!
@@ -55,6 +56,7 @@ class AddFriendVC: UIViewController {
 //        }
         
         nearbyPerson.updateData(on: [Hiker(id: UUID(), name: "Test")])
+        nearbyPerson.delegate = self
         
         let stack = UIStackView(arrangedSubviews: [yourTeam, nearbyPerson])
         stack.axis = .vertical
@@ -82,7 +84,16 @@ extension AddFriendVC: AddFriendVCDelegate {
     func didReceiveNearbyHikers(_ hikers: Set<Hiker>) {
         print("didReceiveNearbyHikers: \n\(hikers)")
         
+        self.nearbyPerson.updateData(on: Array(hikers))
     }
+}
+
+extension AddFriendVC: HikerGridViewDelegate {
+    func didSelectHiker(_ hiker: Hiker) {
+        self.manager?.connect(to: hiker, plan: "")
+    }
+    
+    
 }
 
 class HeaderAddFriendView: UIView {

@@ -23,7 +23,7 @@ class HikerCell: UICollectionViewCell {
     
     func setData(with hiker: Hiker) {
         print("Hiker: \(hiker.name)")
-        personView.setData(image: "", name: hiker.name)
+        personView.setData(image: "", name: hiker.name, state: hiker.state)
     }
     
     private func configure() {

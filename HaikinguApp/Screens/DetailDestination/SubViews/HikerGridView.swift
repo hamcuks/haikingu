@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol HikerGridViewDelegate: AnyObject {
+    func didSelectHiker(_ hiker: Hiker)
+}
+
 class HikerGridView: UIView {
+    
+    // Delegates
+    var delegate: HikerGridViewDelegate?
+    
     private var stack: UIStackView!
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -21,6 +29,7 @@ class HikerGridView: UIView {
     
     var collectionView: UICollectionView!
     var datasource: Datasource!
+    var hikers: [Hiker] = []
     
     init(frame: CGRect, title: String) {
         super.init(frame: frame)
@@ -63,7 +72,6 @@ class HikerGridView: UIView {
         }
         
         self.configureCollectionView()
-        self.updateData(on: [Hiker(id: UUID(), name: "sd")])
     }
     
     func configureCollectionView() {
@@ -78,6 +86,7 @@ class HikerGridView: UIView {
             make.leading.trailing.bottom.equalToSuperview()
         }
         
+        collectionView.delegate = self
         collectionView.register(HikerCell.self, forCellWithReuseIdentifier: HikerCell.reuseIdentifier)
         
         self.configureDatasource()
@@ -102,11 +111,22 @@ class HikerGridView: UIView {
         snapshot.appendSections([0])
         snapshot.appendItems(hikers)
         
+        self.hikers = hikers
+        
         /// Update the datasource in main thread
         DispatchQueue.main.async {
             self.datasource.apply(snapshot, animatingDifferences: true)
         }
     }
+}
+
+extension HikerGridView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item    = hikers[indexPath.item]
+        
+        self.delegate?.didSelectHiker(item)
+    }
+    
 }
 
 struct UIHelper {
