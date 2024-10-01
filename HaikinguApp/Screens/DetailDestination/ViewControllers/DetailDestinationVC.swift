@@ -15,7 +15,7 @@ class DetailDestinationVC: UIViewController {
     /// Delegates
     internal var addFriendDelegate: AddFriendVCDelegate?
     
-    var destinationSelected: DestinationModel!
+    var selectedDestination: DestinationModel!
     var teamView: TeamsView!
     var alertNotRange: AlertRangeView = AlertRangeView()
     var isInrangeLocation: Bool = false
@@ -46,11 +46,14 @@ class DetailDestinationVC: UIViewController {
     }()
     
     private var assetsImage: UIImageView = {
-       let assets = UIImageView()
-        assets.image = UIImage(named: "Bidadari")
-        assets.contentMode = .scaleAspectFill
-        assets.backgroundColor = .blue
-        return assets
+       let image = UIImageView()
+        image.image = UIImage(named: "Bidadari")
+        image.contentMode = .scaleAspectFill
+        image.backgroundColor = .blue
+        image.layer.masksToBounds = true
+        image.layer.cornerRadius = 10
+        
+        return image
     }()
     
     private var selectButton: PrimaryButton = PrimaryButton(label: "Let’s Go!")
@@ -76,80 +79,64 @@ class DetailDestinationVC: UIViewController {
         
         view.backgroundColor = .white
         
-        teamView = TeamsView(action: #selector(teamAction))
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
-        navigationItem.title = "Detail Hiking Spot"
+        navigationItem.title = selectedDestination?.name
         
         setupUI()
 
     }
 
     private func setupUI() {
-        view.addSubview(titleDestination)
-        view.addSubview(horizontalStack)
-        view.addSubview(teamView)
-        view.addSubview(assetPreview)
-        view.addSubview(selectButton)
-        view.bringSubviewToFront(selectButton)
-        
-        selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
-        assetPreview.addSubview(assetsImage)
-        titleDestination.text = destinationSelected?.name ?? "Bidadari Lake"
         
         let estTimeDetail = DetailDestinationView(
             icon: "clock",
             title: "Est. Time",
-            value: "\(destinationSelected?.estimatedTime ?? TimeInterval())"
+            value: "\(selectedDestination?.estimatedTime ?? 0)"
         )
         
         let elevationDetail = DetailDestinationView(
             icon: "arrow.up.right",
             title: "Elevation",
-            value: "\(destinationSelected?.maxElevation ?? 100) m"
+            value: "\(selectedDestination?.maxElevation ?? 0) m"
         )
         
         let trackDetail = DetailDestinationView(
             icon: "point.topleft.down.to.point.bottomright.curvepath.fill",
             title: "Length",
-            value: "\(destinationSelected?.trackLength ?? 0) m"
+            value: "\(selectedDestination?.trackLength ?? 0) m"
         )
         
         horizontalStack.addArrangedSubview(estTimeDetail)
         horizontalStack.addArrangedSubview(elevationDetail)
         horizontalStack.addArrangedSubview(trackDetail)
-        
-        titleDestination.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview().offset(20)
-        }
+        view.addSubview(horizontalStack)
         
         horizontalStack.snp.makeConstraints { make in
-            make.top.equalTo(titleDestination.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview().inset(20)
-            
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        teamView = TeamsView(action: #selector(teamAction))
+        view.addSubview(teamView)
         
         teamView.snp.makeConstraints { make in
             make.top.equalTo(horizontalStack.snp.bottom).offset(12)
             make.leading.trailing.equalTo(horizontalStack)
         }
         
-        assetPreview.snp.makeConstraints { make in
-            make.top.equalTo(teamView.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(240)
-        }
-        
+        view.addSubview(assetsImage)
         assetsImage.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(teamView.snp.bottom).offset(24)
+            make.leading.trailing.equalTo(horizontalStack)
         }
         
+        view.addSubview(selectButton)
+        selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
+
         selectButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(10)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(316)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
+            make.leading.trailing.equalTo(horizontalStack)
             make.height.equalTo(50)
         }
     
@@ -178,6 +165,7 @@ class DetailDestinationVC: UIViewController {
     
     func showModalAddFriend() {
         let addFriendVC = AddFriendVC()
+        addFriendVC.manager = centralManager
         addFriendVC.modalPresentationStyle = .formSheet
         
         self.addFriendDelegate = addFriendVC
@@ -190,3 +178,11 @@ class DetailDestinationVC: UIViewController {
     }
 
 }
+
+import Swinject
+
+#Preview(traits: .defaultLayout, body: {
+    let vc = Container.shared.resolve(DetailDestinationVC.self)
+    
+    return vc ?? ViewController()
+})
