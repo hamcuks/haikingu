@@ -9,6 +9,9 @@ import UIKit
 
 class DetailDestinationVC: UIViewController {
     
+    /// Managers
+    var centralManager: CentralBLEService?
+    
     var destinationSelected: DestinationModel!
     var teamView: TeamsView!
     var alertNotRange: AlertRangeView = AlertRangeView()
@@ -48,7 +51,17 @@ class DetailDestinationVC: UIViewController {
     }()
     
     private var selectButton: PrimaryButton = PrimaryButton(label: "Let’s Go!")
-
+    
+    init(centralManager: CentralBLEService?) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.centralManager = centralManager
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

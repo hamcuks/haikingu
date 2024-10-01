@@ -30,6 +30,16 @@ extension Container {
             return viewController
         }
         
+        container.register(DetailDestinationVC.self) { resolver in
+            
+            let centralManager = resolver.resolve(CentralBLEService.self)
+            
+            let viewController = DetailDestinationVC(centralManager: centralManager)
+            
+            return viewController
+        }
+        
+        
         return container
     }()
 }
