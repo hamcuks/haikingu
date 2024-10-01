@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
+		BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */; };
 		BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */; };
 		BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */; };
 		BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */; };
@@ -118,6 +119,7 @@
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
+		BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationVC.swift; sourceTree = "<group>"; };
 		BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedVC.swift; sourceTree = "<group>"; };
 		BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroductionVC.swift; sourceTree = "<group>"; };
 		BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingKeyFeatureVC.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 		E7CE22782CAB8B42004A3223 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */,
 				BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */,
 				BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */,
 				BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */,
@@ -934,6 +937,7 @@
 				E7CE22C12CAB8B42004A3223 /* PeripheralBLEService.swift in Sources */,
 				E7CE22C22CAB8B42004A3223 /* HomeVC.swift in Sources */,
 				E7CE22C32CAB8B42004A3223 /* SecondaryButton.swift in Sources */,
+				BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */,
 				E7CE22C42CAB8B42004A3223 /* SceneDelegate.swift in Sources */,
 				E7CE22C52CAB8B42004A3223 /* WorkoutManager+iOS+Extension.swift in Sources */,
 				BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */,
