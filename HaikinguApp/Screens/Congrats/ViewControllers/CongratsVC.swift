@@ -10,9 +10,7 @@ import SnapKit
 
 class CongratsVC: UIViewController {
     
-    var headerCongratsView: HeaderCongratsView!
-    
-    var backgroundView: UIView = {
+    lazy private var backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .black.withAlphaComponent(0.5)
         view.layer.cornerRadius = 20
@@ -20,14 +18,14 @@ class CongratsVC: UIViewController {
         return view
     }()
     
-    var backgroundImageView: UIImageView = {
+    lazy private var backgroundImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "background")
         image.contentMode = .scaleAspectFill
         return image
     }()
     
-    var profileImageView: UIImageView = {
+    lazy private var profileImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "camera.fill")
         image.contentMode = .center
@@ -39,10 +37,47 @@ class CongratsVC: UIViewController {
         return image
     }()
     
-    var hikingSummaryView: HikingSummaryView!
-    var reminderBackView: ReminderView!
+    private var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(CustomCell.self, forCellReuseIdentifier: "CustomCell")
+        tableView.rowHeight = 60
+        tableView.separatorStyle = .none
+        tableView.layer.borderColor = UIColor.systemBrown.cgColor
+        tableView.layer.borderWidth = 1
+        tableView.layer.cornerRadius = 10
+        tableView.layer.masksToBounds = true
+        tableView.isScrollEnabled = false
+        tableView.allowsSelection = false
+        return tableView
+    }()
+
+    lazy private var reminderTitleView = ReminderTitleView()
     
-    var imagePickerController: UIImagePickerController = UIImagePickerController()
+    lazy private var setReminderButton: PrimaryButton = PrimaryButton(label: "Set Reminder")
+    
+    lazy private var shareButton: IconButton = IconButton(imageIcon: "square.and.arrow.up")
+    
+    lazy private var horizontalStack: UIStackView = {
+        let horizontal = UIStackView()
+        horizontal.axis = .horizontal
+        horizontal.spacing = 10
+        horizontal.distribution = .fillProportionally
+        horizontal.alignment = .leading
+        return horizontal
+    }()
+    
+    private var headerCongratsView: HeaderCongratsView!
+    
+    private var hikingSummaryView = HikingSummaryView()
+    
+    private var selectedTime: String = "Set"
+    
+    private var selectedAlert: String = "None"
+    
+    private var imagePickerController: UIImagePickerController = UIImagePickerController()
+    
+    private var alreadSetTime: Bool = false
+    private var alreadSetAlert: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,22 +89,40 @@ class CongratsVC: UIViewController {
             destinationTime: "1 Hour 25 Minutes"
         )
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
         profileImageView.addGestureRecognizer(tapGesture)
         
         configureUI()
+        
+        setReminderButton.addTarget(self, action: #selector(setReminderTapped), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(shareTapped), for: .touchUpInside)
     }
     
-    private func configureUI() {
-        
+    private func addSubViewsAll() {
         view.addSubview(headerCongratsView)
         view.addSubview(backgroundView)
+        view.addSubview(hikingSummaryView)
+        view.addSubview(reminderTitleView)
+        view.addSubview(tableView)
+        view.addSubview(horizontalStack)
+        
         backgroundView.addSubview(profileImageView)
         backgroundView.addSubview(backgroundImageView)
         backgroundView.bringSubviewToFront(profileImageView)
         
+        horizontalStack.addArrangedSubview(setReminderButton)
+        horizontalStack.addArrangedSubview(shareButton)
+    }
+    
+    private func configureUI() {
+
+        addSubViewsAll()
+        
         headerCongratsView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-25)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(20)
         }
@@ -91,17 +144,61 @@ class CongratsVC: UIViewController {
             make.height.width.equalTo(50)
         }
         
+        hikingSummaryView.snp.makeConstraints { make in
+            make.top.equalTo(backgroundView.snp.bottom).offset(20)
+            make.leading.equalTo(headerCongratsView.snp.leading)
+            make.trailing.equalTo(headerCongratsView.snp.trailing)
+            make.height.equalTo(115)
+        }
+        
+        reminderTitleView.snp.makeConstraints { make in
+            make.top.equalTo(hikingSummaryView.snp.bottom).offset(20)
+            make.leading.equalTo(hikingSummaryView.snp.leading)
+            make.trailing.equalTo(hikingSummaryView.snp.trailing)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(reminderTitleView.snp.bottom).offset(12)
+            make.leading.equalTo(reminderTitleView.snp.leading)
+            make.trailing.equalTo(reminderTitleView.snp.trailing)
+            make.height.equalTo(120)
+        }
+        
+        horizontalStack.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(20)
+            make.leading.equalTo(tableView.snp.leading)
+            make.trailing.equalTo(tableView.snp.trailing)
+        }
+        
+        setReminderButton.snp.makeConstraints { make in
+            make.height.equalTo(54)
+        }
+        
+        shareButton.snp.makeConstraints { make in
+            make.height.width.equalTo(54)
+        }
+    }
+    
+    @objc
+    func setReminderTapped() {
+        // TODO: Action when tapped Add Reminder
+        print("set reminder button tapped")
+    }
+    
+    @objc
+    func shareTapped() {
+        // TODO: Action when tapped Share Button
+        print("share button tapped")
     }
     
     @objc func profileImageTapped() {
-        // Show action sheet to choose between photo library or camera
+        
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
 
         let actionSheet = UIAlertController(title: "Upload your Picture", message: "Let's documented your journey, choose a source picture", preferredStyle: .actionSheet)
         
-        // Option 1: Camera
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
                 imagePickerController.sourceType = .camera
@@ -109,13 +206,11 @@ class CongratsVC: UIViewController {
             }))
         }
 
-        // Option 2: Photo Library
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))
 
-        // Option to cancel
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         self.present(actionSheet, animated: true, completion: nil)
@@ -130,16 +225,91 @@ extension CongratsVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             backgroundImageView.image = editedImage
+            shareButton.isEnabled = true
             
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            shareButton.isEnabled = false
             backgroundImageView.image = originalImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
     
-    // UIImagePickerControllerDelegate method for cancellation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension CongratsVC: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? CustomCell
+        
+        if indexPath.row == 0 {
+            cell!.configure(iconName: "clock", title: "Time", buttonTitle: selectedTime, isBordered: true)
+            cell!.actionButton.addTarget(self, action: #selector(presentTimePicker), for: .touchUpInside)
+        } else if indexPath.row == 1 {
+            cell!.configure(iconName: "bell", title: "Alert", buttonTitle: selectedAlert, isBordered: false)
+            cell!.actionButton.addTarget(self, action: #selector(presentAlertPicker), for: .touchUpInside)
+        }
+        
+        return cell!
+    }
+    
+    @objc private func presentTimePicker() {
+        let timePickerVC = UIAlertController(title: "Set Time", message: "\n\n\n\n\n\n\n\n\n\n", preferredStyle: .actionSheet)
+        
+        let pickerView = UIDatePicker()
+        pickerView.datePickerMode = .time
+        pickerView.preferredDatePickerStyle = .wheels
+        pickerView.locale = Locale(identifier: "en_GB") // Format 24 hours
+        timePickerVC.view.addSubview(pickerView)
+        
+        pickerView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(timePickerVC.view.snp.top).offset(20)
+        }
+        
+        let setAction = UIAlertAction(title: "Set", style: .default) { _ in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+            self.selectedTime = formatter.string(from: pickerView.date)
+            self.tableView.reloadData()
+            self.alreadSetTime = true
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        timePickerVC.addAction(setAction)
+        timePickerVC.addAction(cancelAction)
+        
+        self.present(timePickerVC, animated: true, completion: nil)
+    }
+    
+    @objc private func presentAlertPicker() {
+        let alertPickerVC = UIAlertController(title: "Set Alert", message: nil, preferredStyle: .actionSheet)
+        
+        let options = ["None", "At time of activity", "15 minutes before", "30 minutes before"]
+        
+        for option in options {
+            let action = UIAlertAction(title: option, style: .default) { _ in
+                self.selectedAlert = option
+                self.tableView.reloadData()
+                self.alreadSetAlert = true
+            }
+            alertPickerVC.addAction(action)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertPickerVC.addAction(cancelAction)
+        
+        self.present(alertPickerVC, animated: true, completion: nil)
+    }
 }

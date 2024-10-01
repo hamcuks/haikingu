@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0329AF0E2CAC20F000747035 /* CongratsSharableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329AF0D2CAC20F000747035 /* CongratsSharableVC.swift */; };
+		0329AF102CAC401300747035 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329AF0F2CAC401300747035 /* CustomCell.swift */; };
 		03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */; };
 		03B0C43F2CABD11B00954557 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43E2CABD11B00954557 /* HeaderView.swift */; };
 		03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4402CABD1AB00954557 /* BodyView.swift */; };
@@ -18,7 +19,7 @@
 		03B0C44F2CABFDF500954557 /* CongratsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C44E2CABFDF500954557 /* CongratsVC.swift */; };
 		03B0C4512CABFE9D00954557 /* HeaderCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */; };
 		03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4542CABFF6900954557 /* HikingSummaryView.swift */; };
-		03B0C4572CABFF9200954557 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4562CABFF9200954557 /* ReminderView.swift */; };
+		03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4562CABFF9200954557 /* ReminderTitleView.swift */; };
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */; };
@@ -132,6 +133,7 @@
 
 /* Begin PBXFileReference section */
 		0329AF0D2CAC20F000747035 /* CongratsSharableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsSharableVC.swift; sourceTree = "<group>"; };
+		0329AF0F2CAC401300747035 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSessionVC.swift; sourceTree = "<group>"; };
 		03B0C43E2CABD11B00954557 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		03B0C4402CABD1AB00954557 /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
@@ -142,7 +144,7 @@
 		03B0C44E2CABFDF500954557 /* CongratsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsVC.swift; sourceTree = "<group>"; };
 		03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCongratsView.swift; sourceTree = "<group>"; };
 		03B0C4542CABFF6900954557 /* HikingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSummaryView.swift; sourceTree = "<group>"; };
-		03B0C4562CABFF9200954557 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		03B0C4562CABFF9200954557 /* ReminderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTitleView.swift; sourceTree = "<group>"; };
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
@@ -314,9 +316,10 @@
 		03B0C44C2CABFD9C00954557 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				0329AF0F2CAC401300747035 /* CustomCell.swift */,
 				03B0C4502CABFE9D00954557 /* HeaderCongratsView.swift */,
 				03B0C4542CABFF6900954557 /* HikingSummaryView.swift */,
-				03B0C4562CABFF9200954557 /* ReminderView.swift */,
+				03B0C4562CABFF9200954557 /* ReminderTitleView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -999,7 +1002,7 @@
 			files = (
 				E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */,
 				E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */,
-				03B0C4572CABFF9200954557 /* ReminderView.swift in Sources */,
+				03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */,
 				E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */,
 				BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */,
 				E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */,
@@ -1043,6 +1046,7 @@
 				E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */,
 				BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */,
 				E7CE22BE2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift in Sources */,
+				0329AF102CAC401300747035 /* CustomCell.swift in Sources */,
 				E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */,
 				E7CE22BF2CAB8B42004A3223 /* Swinject+Extension.swift in Sources */,
 				E7CE22C02CAB8B42004A3223 /* User.swift in Sources */,
