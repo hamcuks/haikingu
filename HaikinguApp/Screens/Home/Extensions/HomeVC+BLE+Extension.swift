@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Swinject
 
 extension HomeVC: PeripheralBLEManagerDelegate {
     func peripheralBLEManagerDidReceiveInvitation(from invitor: Hiker, plan: String) {
@@ -13,14 +14,20 @@ extension HomeVC: PeripheralBLEManagerDelegate {
         
     }
     
-    func peripheralBLEManager(didReceivePlanData plan: Dictionary<String, Any>) {
+    func peripheralBLEManager(didReceivePlanData planId: Int) {
+        print("receive plan id: ", planId)
         
+        guard let viewController = Container.shared.resolve(DestinationListVC.self) else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func peripheralBLEManager(didDisconnect hiker: Hiker) {
     }
     
-    
+#warning("tambahin didNewHikerJoined")
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum) {
         #warning("implement rest req with json data")
         self.notificationManager?.requestRest(for: type, name: nil)
