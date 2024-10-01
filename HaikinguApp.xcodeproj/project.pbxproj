@@ -14,6 +14,9 @@
 		BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */; };
 		BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */; };
 		BA84BB1B2CABEBCC007A93C1 /* CongratsSharableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB1A2CABEBA0007A93C1 /* CongratsSharableVC.swift */; };
+		E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBD62CABF3C200B37551 /* NotificationService.swift */; };
+		E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBA42CABD13800B37551 /* NotificationManager.swift */; };
+		E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */; };
 		E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226C2CAB8B42004A3223 /* HomeHeaderView.swift */; };
 		E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22902CAB8B42004A3223 /* TeamsView.swift */; };
 		E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE224E2CAB8B42004A3223 /* HikerBLEManager.swift */; };
@@ -140,6 +143,9 @@
 		E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
 		E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
 		E78016272CAAC9B800E658A1 /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
+		E7A4EBA42CABD13800B37551 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+BLE+Extension.swift"; sourceTree = "<group>"; };
+		E7A4EBD62CABF3C200B37551 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		E7CE22492CAB8B42004A3223 /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
 		E7CE224B2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
 		E7CE224C2CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
@@ -292,6 +298,7 @@
 				E7CE224F2CAB8B42004A3223 /* CoreBluetooth */,
 				E7CE22502CAB8B42004A3223 /* HealthManager.swift */,
 				E7CE22512CAB8B42004A3223 /* WorkoutManager+iOS+Extension.swift */,
+				E7A4EBA42CABD13800B37551 /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -379,6 +386,7 @@
 		E7CE22692CAB8B42004A3223 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */,
 				E7CE22682CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift */,
 			);
 			path = Extensions;
@@ -476,6 +484,7 @@
 		E7CE22802CAB8B42004A3223 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E7A4EBD62CABF3C200B37551 /* NotificationService.swift */,
 				E7CE227D2CAB8B42004A3223 /* CoreBluetooth */,
 				E7CE227E2CAB8B42004A3223 /* HealthService.swift */,
 				E7CE227F2CAB8B42004A3223 /* WorkoutServiceIos.swift */,
@@ -919,6 +928,7 @@
 				E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */,
 				E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */,
 				BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */,
+				E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */,
 				E7CE22A02CAB8B42004A3223 /* BackToHomeMessageView.swift in Sources */,
 				E7CE22A12CAB8B42004A3223 /* OnboardingHikingProfileVC.swift in Sources */,
 				E7CE22A22CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift in Sources */,
@@ -935,6 +945,7 @@
 				E7CE22AD2CAB8B42004A3223 /* AlertRangeView.swift in Sources */,
 				E7CE22AE2CAB8B42004A3223 /* WorkoutServiceIos.swift in Sources */,
 				E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */,
+				E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */,
 				E7CE22B02CAB8B42004A3223 /* OnboardingExtension.swift in Sources */,
 				E7CE22B12CAB8B42004A3223 /* AddFriendView.swift in Sources */,
 				E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */,
@@ -952,6 +963,7 @@
 				E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */,
 				BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */,
 				E7CE22BE2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift in Sources */,
+				E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */,
 				E7CE22BF2CAB8B42004A3223 /* Swinject+Extension.swift in Sources */,
 				E7CE22C02CAB8B42004A3223 /* User.swift in Sources */,
 				E7CE22C12CAB8B42004A3223 /* PeripheralBLEService.swift in Sources */,
@@ -1154,6 +1166,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1187,6 +1200,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

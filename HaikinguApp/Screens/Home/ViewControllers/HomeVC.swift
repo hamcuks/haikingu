@@ -7,10 +7,12 @@
 
 import UIKit
 import SnapKit
+import Swinject
 
 class HomeVC: UIViewController {
     /// Managers
     var peripheralManager: PeripheralBLEService?
+    var notificationManager: NotificationService?
     
     /// SubViews
     let headerView: HomeHeaderView = HomeHeaderView()
@@ -37,10 +39,11 @@ class HomeVC: UIViewController {
     lazy var backToHomeMessageView: BackToHomeMessageView = BackToHomeMessageView()
     
     /// Constructors
-    init(peripheralManager: PeripheralBLEService?) {
+    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?) {
         super.init(nibName: nil, bundle: nil)
         
         self.peripheralManager = peripheralManager
+        self.notificationManager = notificationManager
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +58,14 @@ class HomeVC: UIViewController {
         self.configureHeaderView()
         self.configureHikingModeControlView()
         self.configureContentStackView()
+        self.peripheralManager?.setDelegate(self)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.notificationManager?.requestPermission()
     }
     
     /// Private Functions
@@ -129,8 +139,19 @@ class HomeVC: UIViewController {
     @objc private func onHikingModeControlValueChanged(_ sender: HikingModeControlView) {
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")
     }
+    
+    func showInvitationSheet(from hiker: Hiker) {
+        let viewController = HikingInvitationVC()
+        viewController.hiker = hiker
+        viewController.delegate = self
+        
+        let navVC = UINavigationController(rootViewController: viewController)
+        navVC.sheetPresentationController?.detents = [.medium()]
+        
+        self.present(navVC, animated: true)
+    }
 }
 
 #Preview(traits: .defaultLayout, body: {
-    HomeVC(peripheralManager: HikerBLEManager())
+    Container.shared.resolve(HomeVC.self) ?? ViewController()
 })
