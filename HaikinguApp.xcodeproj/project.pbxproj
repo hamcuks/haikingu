@@ -59,6 +59,10 @@
 		E7CE22CC2CAB8B42004A3223 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CE22992CAB8B42004A3223 /* LaunchScreen.storyboard */; };
 		E7CE22CD2CAB8B42004A3223 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CE225C2CAB8B42004A3223 /* Assets.xcassets */; };
 		E7CE22CE2CAB8B42004A3223 /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E7CE225A2CAB8B42004A3223 /* Telaga Bidadari Batam.gpx */; };
+		E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */; };
+		E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D42CAB8EF0004A3223 /* Logger.swift */; };
+		E7CE22D92CAB8EF0004A3223 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */; };
+		E7CE22DA2CAB8EF0004A3223 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D42CAB8EF0004A3223 /* Logger.swift */; };
 		E7D0BA572C9839CC00324E3D /* Haikingu Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E7EDAB022CAAEE5E006F3ED0 /* HKSummaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFB2CAAEE5E006F3ED0 /* HKSummaryText.swift */; };
 		E7EDAB032CAAEE5E006F3ED0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EDAAFF2CAAEE5E006F3ED0 /* HomeVM.swift */; };
@@ -176,6 +180,8 @@
 		E7CE22982CAB8B42004A3223 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7CE229A2CAB8B42004A3223 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7CE229B2CAB8B42004A3223 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		E7CE22D42CAB8EF0004A3223 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D0BA402C9839AF00324E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D0BA4A2C9839CB00324E3D /* Haikingu Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haikingu Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -534,6 +540,31 @@
 			path = Supports;
 			sourceTree = "<group>";
 		};
+		E7CE22D32CAB8EF0004A3223 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E7CE22D52CAB8EF0004A3223 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE22D42CAB8EF0004A3223 /* Logger.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E7CE22D62CAB8EF0004A3223 /* Shareds */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE22D32CAB8EF0004A3223 /* Managers */,
+				E7CE22D52CAB8EF0004A3223 /* Utils */,
+			);
+			path = Shareds;
+			sourceTree = "<group>";
+		};
 		E7CFD04A2CAADDA6000FAD7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +575,7 @@
 		E7D0BA262C9839AD00324E3D = {
 			isa = PBXGroup;
 			children = (
+				E7CE22D62CAB8EF0004A3223 /* Shareds */,
 				E7D0BA312C9839AD00324E3D /* HaikinguApp */,
 				E7D0BA4B2C9839CB00324E3D /* Haikingu Watch App */,
 				E7CFD04A2CAADDA6000FAD7B /* Frameworks */,
@@ -874,6 +906,8 @@
 				E7CE22C62CAB8B42004A3223 /* TypeOfRestEnum.swift in Sources */,
 				E7CE22C72CAB8B42004A3223 /* Date+Extension.swift in Sources */,
 				E7CE22C82CAB8B42004A3223 /* DetailDestinationView.swift in Sources */,
+				E7CE22D92CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
+				E7CE22DA2CAB8EF0004A3223 /* Logger.swift in Sources */,
 				E7CE22C92CAB8B42004A3223 /* ViewController.swift in Sources */,
 				E7CE22CA2CAB8B42004A3223 /* DestinationListVC.swift in Sources */,
 				E7CE22CB2CAB8B42004A3223 /* SampleItemView.swift in Sources */,
@@ -898,6 +932,8 @@
 				E7EDAB1E2CAAEE6A006F3ED0 /* HomeScreen.swift in Sources */,
 				E7EDAB052CAAEE5E006F3ED0 /* UserServices.swift in Sources */,
 				E7EDAB062CAAEE5E006F3ED0 /* HKMetricBiggerText.swift in Sources */,
+				E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
+				E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */,
 				E7EDAB072CAAEE5E006F3ED0 /* HKTextButton.swift in Sources */,
 				E7EDAB082CAAEE5E006F3ED0 /* NavigationServices.swift in Sources */,
 				E7EDAB092CAAEE5E006F3ED0 /* MetricsVM.swift in Sources */,
