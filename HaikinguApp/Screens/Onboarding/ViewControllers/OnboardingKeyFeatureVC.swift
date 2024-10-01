@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import HealthKit
+import Swinject
 
 class OnboardingKeyFeatureVC: UIViewController {
 
@@ -95,6 +96,7 @@ class OnboardingKeyFeatureVC: UIViewController {
 
     // Request HealthKit permissions
     @objc func continueButtonTapped() {
-        // TODO: Navigate to OnboardingHealthAccess
+        guard let healthKitVC = Container.shared.resolve(OnboardingHealthAccessVC.self) else { return }
+        navigationController?.pushViewController(healthKitVC, animated: true)
     }
 }

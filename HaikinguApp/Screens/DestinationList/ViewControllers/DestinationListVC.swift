@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Swinject
 
 class DestinationListVC: UIViewController {
     
@@ -68,21 +69,11 @@ class DestinationListVC: UIViewController {
             return print("Selected Destination is Empty")
         }
         print("Select Destination is \(selectedDestination)")
-        
+        guard let destinationDetailVC = Container.shared.resolve(DetailDestinationVC.self) else { return }
+        destinationDetailVC.selectedDestination = selectedDestination
+        navigationController?.pushViewController(destinationDetailVC, animated: true)
     }
-    
-    private func presentDetailDestinationScreen() {
-        //        let destinationDetailScreen = DestinationDetailVC()
-        //        destinationView.modalPresentationStyle = .fullScreen
-        //        destinationView.routeCoordinate = routeCoordinate
-        
-        //        if let sheet = destinationView.sheetPresentationController {
-        //            sheet.prefersGrabberVisible = true
-        //            sheet.detents = [.large()]
-        //            present(destinationView, animated: true)
-        //        }
-        
-    }
+
 }
 
 extension DestinationListVC: UITableViewDelegate, UITableViewDataSource {

@@ -66,6 +66,7 @@ class OnboardingHikingProfileVC: UIViewController, UIImagePickerControllerDelega
         saveButton.backgroundColor = UIColor(red: 149/255, green: 182/255, blue: 173/255, alpha: 1.0)
         saveButton.layer.cornerRadius = 8
         saveButton.setTitleColor(.white, for: .normal)
+        saveButton.addTarget(self, action: #selector(actionSaveButton), for: .touchUpInside)
         view.addSubview(saveButton)
 
         // Setup Constraints
@@ -109,6 +110,13 @@ class OnboardingHikingProfileVC: UIViewController, UIImagePickerControllerDelega
             make.left.right.equalToSuperview().inset(50)
             make.height.equalTo(50)
         }
+    }
+    
+    @objc
+    private func actionSaveButton(){
+        // TODO: Save name and photo into userDefaultServices
+        let finishVC = OnboardingFinishedVC()
+        navigationController?.pushViewController(finishVC, animated: true)
     }
 
     // Action for profile image tap

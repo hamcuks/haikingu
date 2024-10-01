@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		035DA5672CAC935C0044BF26 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DA5662CAC935C0044BF26 /* SplashScreen.swift */; };
 		8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */; };
 		8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAD2CAC638B006CF73B /* Inject.swift */; };
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
@@ -51,7 +52,6 @@
 		E73E7F722CAC7FE400C51B9D /* CentralBLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F292CAC7FE400C51B9D /* CentralBLEService.swift */; };
 		E73E7F732CAC7FE400C51B9D /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F1E2CAC7FE400C51B9D /* SampleView.swift */; };
 		E73E7F742CAC7FE400C51B9D /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F092CAC7FE400C51B9D /* BodyView.swift */; };
-		E73E7F752CAC7FE400C51B9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F4B2CAC7FE400C51B9D /* ViewController.swift */; };
 		E73E7F762CAC7FE400C51B9D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EEE2CAC7FE400C51B9D /* CustomCell.swift */; };
 		E73E7F772CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EDA2CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift */; };
 		E73E7F782CAC7FE400C51B9D /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EDD2CAC7FE400C51B9D /* HikerBLEManager.swift */; };
@@ -140,6 +140,7 @@
 /* Begin PBXFileReference section */
 		034CF6912CAC59D50006CE6F /* HaikinguApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HaikinguApp.entitlements; sourceTree = "<group>"; };
 		034CF6922CAC59E00006CE6F /* Haikingu Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Haikingu Watch App.entitlements"; sourceTree = "<group>"; };
+		035DA5662CAC935C0044BF26 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectWatchos+extension.swift"; sourceTree = "<group>"; };
 		8A994CAD2CAC638B006CF73B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
@@ -691,6 +692,7 @@
 		E73E7F4C2CAC7FE400C51B9D /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				035DA5662CAC935C0044BF26 /* SplashScreen.swift */,
 				E73E7F472CAC7FE400C51B9D /* AppDelegate.swift */,
 				E73E7F492CAC7FE400C51B9D /* LaunchScreen.storyboard */,
 				E73E7F4A2CAC7FE400C51B9D /* SceneDelegate.swift */,
@@ -1070,6 +1072,7 @@
 				E73E7F622CAC7FE400C51B9D /* HeaderView.swift in Sources */,
 				E73E7F632CAC7FE400C51B9D /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
 				E73E7F642CAC7FE400C51B9D /* HeaderCongratsView.swift in Sources */,
+				035DA5672CAC935C0044BF26 /* SplashScreen.swift in Sources */,
 				E73E7F652CAC7FE400C51B9D /* DetailEstTimeVC.swift in Sources */,
 				E73E7F662CAC7FE400C51B9D /* Date+Extension.swift in Sources */,
 				E73E7F672CAC7FE400C51B9D /* HikingCell.swift in Sources */,
@@ -1086,7 +1089,6 @@
 				E73E7F722CAC7FE400C51B9D /* CentralBLEService.swift in Sources */,
 				E73E7F732CAC7FE400C51B9D /* SampleView.swift in Sources */,
 				E73E7F742CAC7FE400C51B9D /* BodyView.swift in Sources */,
-				E73E7F752CAC7FE400C51B9D /* ViewController.swift in Sources */,
 				E73E7F762CAC7FE400C51B9D /* CustomCell.swift in Sources */,
 				E73E7F772CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift in Sources */,
 				E73E7F782CAC7FE400C51B9D /* HikerBLEManager.swift in Sources */,
