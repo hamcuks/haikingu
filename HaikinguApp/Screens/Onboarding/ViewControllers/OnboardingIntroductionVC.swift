@@ -26,7 +26,7 @@ class OnboardingIntroductionVC: UIViewController {
         view.backgroundColor = .white
 
         // Heart Icon ImageView from Assets
-        heartIconImageView.image = UIImage(named: "OnboardingIntroductionIcon") // Replace with your asset image name
+        heartIconImageView.image = UIImage(named: "OnboardingKeyFeatureIcon") // Replace with your asset image name
         heartIconImageView.contentMode = .scaleAspectFit
         view.addSubview(heartIconImageView)
 
