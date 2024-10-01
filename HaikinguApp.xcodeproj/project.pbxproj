@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
-		BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */; };
-		BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */; };
 		BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */; };
 		BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */; };
+		BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */; };
+		BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */; };
+		E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBD62CABF3C200B37551 /* NotificationService.swift */; };
+		E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBA42CABD13800B37551 /* NotificationManager.swift */; };
+		E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */; };
 		E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226C2CAB8B42004A3223 /* HomeHeaderView.swift */; };
 		E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22902CAB8B42004A3223 /* TeamsView.swift */; };
 		E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE224E2CAB8B42004A3223 /* HikerBLEManager.swift */; };
@@ -119,10 +122,10 @@
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
-		BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationVC.swift; sourceTree = "<group>"; };
-		BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedVC.swift; sourceTree = "<group>"; };
 		BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroductionVC.swift; sourceTree = "<group>"; };
 		BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingKeyFeatureVC.swift; sourceTree = "<group>"; };
+		BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationVC.swift; sourceTree = "<group>"; };
+		BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedVC.swift; sourceTree = "<group>"; };
 		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
 		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
@@ -138,9 +141,9 @@
 		E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
 		E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
 		E78016272CAAC9B800E658A1 /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
-		E7A4EBA22CABD07300B37551 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		E7A4EBA42CABD13800B37551 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+BLE+Extension.swift"; sourceTree = "<group>"; };
+		E7A4EBD62CABF3C200B37551 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		E7CE22492CAB8B42004A3223 /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
 		E7CE224B2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
 		E7CE224C2CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
@@ -462,10 +465,10 @@
 		E7CE22802CAB8B42004A3223 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E7A4EBD62CABF3C200B37551 /* NotificationService.swift */,
 				E7CE227D2CAB8B42004A3223 /* CoreBluetooth */,
 				E7CE227E2CAB8B42004A3223 /* HealthService.swift */,
 				E7CE227F2CAB8B42004A3223 /* WorkoutServiceIos.swift */,
-				E7A4EBA22CABD07300B37551 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -906,6 +909,7 @@
 				E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */,
 				E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */,
 				BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */,
+				E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */,
 				E7CE22A02CAB8B42004A3223 /* BackToHomeMessageView.swift in Sources */,
 				E7CE22A12CAB8B42004A3223 /* OnboardingHikingProfileVC.swift in Sources */,
 				E7CE22A22CAB8B42004A3223 /* HomeVC+HikingInvitation+Extension.swift in Sources */,
@@ -921,9 +925,8 @@
 				E7CE22AC2CAB8B42004A3223 /* SampleView.swift in Sources */,
 				E7CE22AD2CAB8B42004A3223 /* AlertRangeView.swift in Sources */,
 				E7CE22AE2CAB8B42004A3223 /* WorkoutServiceIos.swift in Sources */,
-				E7A4EBA52CABD13800B37551 /* NotificationManager.swift in Sources */,
-				E7A4EBA32CABD07300B37551 /* NotificationService.swift in Sources */,
 				E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */,
+				E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */,
 				E7CE22B02CAB8B42004A3223 /* OnboardingExtension.swift in Sources */,
 				E7CE22B12CAB8B42004A3223 /* AddFriendView.swift in Sources */,
 				E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */,
@@ -940,8 +943,8 @@
 				E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */,
 				BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */,
 				E7CE22BE2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift in Sources */,
+				E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */,
 				E7CE22BF2CAB8B42004A3223 /* Swinject+Extension.swift in Sources */,
-				E7A4EBCD2CABDF1A00B37551 /* HomeVC+BLE+Extension.swift in Sources */,
 				E7CE22C02CAB8B42004A3223 /* User.swift in Sources */,
 				E7CE22C12CAB8B42004A3223 /* PeripheralBLEService.swift in Sources */,
 				E7CE22C22CAB8B42004A3223 /* HomeVC.swift in Sources */,
