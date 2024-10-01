@@ -18,6 +18,7 @@ extension Container {
         container.register(CentralBLEService.self) { _ in HikerBLEManager() }
         container.register(PeripheralBLEService.self) { _ in HikerBLEManager() }
         container.register(NotificationService.self) { _ in NotificationManager() }
+        container.register(WorkoutServiceIos.self) { _ in WorkoutManager() }
         
         /// ViewControllers
         container.register(HomeVC.self) { resolver in
@@ -26,6 +27,15 @@ extension Container {
             let notificationManager = resolver.resolve(NotificationService.self)
             
             let viewController = HomeVC(peripheralManager: peripheralManager, notificationManager: notificationManager)
+            
+            return viewController
+        }
+        
+        container.register(OnboardingHealthAccessVC.self) { resolver in
+            
+            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
+            
+            let viewController = OnboardingHealthAccessVC(workoutManager: workoutManager)
             
             return viewController
         }

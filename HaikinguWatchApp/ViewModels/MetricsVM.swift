@@ -8,6 +8,8 @@
 import SwiftUI
 
 class MetricsVM: ObservableObject {
+    @Published var workoutManager: WorkoutServiceWatchos?
+    
     
     //Metric Stuff
     @Published var stopwatchTimer: Timer = Timer()
@@ -25,4 +27,7 @@ class MetricsVM: ObservableObject {
     @Published var isLeadEndTapped: Bool = false //For Leader
     @Published var isMemberRequestRest: Bool = false //For Member
     
+    init (workoutManager: WorkoutServiceWatchos?){
+        self.workoutManager = workoutManager
+    }
 }

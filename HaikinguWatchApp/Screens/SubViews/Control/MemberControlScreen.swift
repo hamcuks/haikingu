@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+import Swinject
 
 struct MemberControlView: View {
     
     @EnvironmentObject var metricsVM: MetricsVM
     
     var body: some View {
-        NavigationStack {
+        
             VStack {
                 
                 if !metricsVM.isMemberRequestRest {
-                    VStack(alignment: .center, spacing: 16){
+                    VStack(alignment: .center, spacing: 16) {
                         HKCircleButton(imageButton: "pause.fill", imageWidth: 35, imageHeight: 35, padding: 0, imageColor: .black, buttonColor: .orange) {
                             metricsVM.isMemberRequestRest = true
                             print("Request Tapped")
@@ -26,13 +27,13 @@ struct MemberControlView: View {
                             .font(Font.system(.body, weight: .semibold))
                     }
                 } else {
-                    VStack(alignment: .center, spacing: 16){
+                    VStack(alignment: .center, spacing: 16) {
                         
                         HKCircleButton(imageButton: "clock.fill", imageWidth: 35, imageHeight: 35, padding: 0, imageColor: .black, buttonColor: .orange) {
                             
                             //MARK: Another function triggered
                             
-                            metricsVM.isMemberRequestRest = false   
+                            metricsVM.isMemberRequestRest = false
                         }
                         Text("Requested")
                             .font(Font.system(.body, weight: .semibold))
@@ -44,9 +45,10 @@ struct MemberControlView: View {
             }
             .navigationTitle("Control")
         }
-    }
+    
 }
 
 #Preview {
     MemberControlView()
+        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
 }

@@ -50,6 +50,16 @@ extension WorkoutManager: WorkoutServiceIos {
             }
         }
     }
+    
+    func requestHealthAccess() {
+        Task {
+            do {
+                try await healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead)
+            } catch {
+                Logger.shared.log("Failed to request authorization: \(error)")
+            }
+        }
+    }
 }
 
 extension WorkoutManager: WCSessionDelegate{
