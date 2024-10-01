@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         guard let homeVC = Container.shared.resolve(HomeVC.self) else { return }
-        window.rootViewController = UINavigationController(rootViewController: OnboardingHealthAccessVC())
+        window.rootViewController = UINavigationController(rootViewController: EditProfileVC())
         window.makeKeyAndVisible()
         self.window = window
     }
