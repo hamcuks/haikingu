@@ -7,7 +7,6 @@
 
 import Foundation
 
-import Foundation
 import CoreBluetooth
 import os
 
@@ -29,7 +28,9 @@ class HikerBLEManager: NSObject {
     var usernameCharacteristic: CBMutableCharacteristic?
     var planCharacteristic: CBMutableCharacteristic?
     
-    let username: String = UserDefaults.standard.string(forKey: "username") ?? "Unknown"
+    let username: String = UserDefaults.standard.string(
+        forKey: "username"
+    ) ?? "Unknown"
     
     override init() {
         super.init()
@@ -66,25 +67,35 @@ extension HikerBLEManager: CentralBLEService {
     func requestRest(for type: TypeOfRestEnum, exclude hiker: Hiker?) {
         os_log("Central HikerBLEManager: Request For: %s", type.rawValue)
         
-        let peripherals = self.discoveredPeripherals.filter({$0.identifier != hiker?.id})
+        let peripherals = self.discoveredPeripherals.filter({ $0.identifier != hiker?.id })
         
         for peripheral in peripherals {
             if let service = peripheral.services?.first(where: { $0.isNotificationService }) {
                 os_log("Central HikerBLEManager: Service: \(service.uuid)")
-                if let characteristic = service.characteristics?.first(where: { $0.isRequestForRest }), let data = type.rawValue.data(using: .utf8) {
+                
+                let characteristic = service.characteristics?.first(where: { $0.isRequestForRest })
+                let data = type.rawValue.data(using: .utf8)
+                
+                if let characteristic, let data {
                     os_log("Central HikerBLEManager: Characteristic: \(characteristic.uuid)")
-                    peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
+                    peripheral .writeValue(
+                            data,
+                            for: characteristic,
+                            type: .withoutResponse
+                        )
                 }
             }
         }
     }
     
-    
-    
     func connect(to hiker: Hiker, plan: String) {
         
-        if let peripheral = self.discoveredPeripherals.first(where: { $0.identifier == hiker.id }) {
-            os_log("Central HikerBLEManager: Attempt to connect to: \(hiker.name)")
+        if let peripheral = self.discoveredPeripherals.first(
+            where: { $0.identifier == hiker.id
+            }) {
+            os_log(
+                "Central HikerBLEManager: Attempt to connect to: \(hiker.name)"
+            )
             
             self.centralManager.connect(peripheral)
         }
@@ -94,35 +105,57 @@ extension HikerBLEManager: CentralBLEService {
         os_log("Central HikerBLEManager: Send Hiking Invitation to \(peripheral.identifier)")
         
         for service in peripheral.services ?? [] where service.isNotificationService {
-            if let characteristic = service.characteristics?.first(where: { $0.isSendHikingInvitation }), let data = plan.data(using: .utf8) {
+            let characteristic = service.characteristics?.first(where: { $0.isSendHikingInvitation })
+            let data = plan.data(using: .utf8)
+            
+            if let characteristic, let data {
                 peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
             }
         }
     }
     
     func sendUsername(to peripheral: CBPeripheral) {
-        os_log("Central HikerBLEManager: Send Username to \(peripheral.identifier)")
+        os_log(
+            "Central HikerBLEManager: Send Username to \(peripheral.identifier)"
+        )
         
         for service in peripheral.services ?? [] where service.isUsernameService {
             if let characteristic = service.characteristics?.first {
                 if let data = username.data(using: .utf8) {
-                    peripheral.writeValue(data, for: characteristic, type: .withResponse)
+                    peripheral
+                        .writeValue(
+                            data,
+                            for: characteristic,
+                            type: .withResponse
+                        )
                 }
             }
         }
     }
     
     func sendHikingPlan(to peripheral: CBPeripheral) {
-        os_log("Central HikerBLEManager: Send Hiking Plan to \(peripheral.identifier)")
+        os_log(
+            "Central HikerBLEManager: Send Hiking Plan to \(peripheral.identifier)"
+        )
         
-        let plan = Hiking(id: UUID().uuidString, name: "Bidadari Lake", trackLength: 4300, elevation: 97)
+        let plan = Hiking(
+            id: UUID().uuidString,
+            name: "Bidadari Lake",
+            trackLength: 4300,
+            elevation: 97
+        )
         
         do {
             let data = try JSONEncoder().encode(plan)
             
             for service in peripheral.services ?? [] where service.isUsernameService {
                 if let characteristic = service.characteristics?.first {
-                    peripheral.writeValue(data, for: characteristic, type: .withResponse)
+                    peripheral
+                        .writeValue(
+                            data,
+                            for: characteristic,
+                            type: .withResponse
+                        )
                 }
             }
         } catch {
@@ -130,7 +163,11 @@ extension HikerBLEManager: CentralBLEService {
         }
     }
     
-    func sendData(_ data: Data, to peripheral: CBPeripheral, for characteristic: CBCharacteristic) {
+    func sendData(
+        _ data: Data,
+        to peripheral: CBPeripheral,
+        for characteristic: CBCharacteristic
+    ) {
         os_log("Central HikerBLEManager: Send Data to \(peripheral.identifier)")
         
         var offset = 0
@@ -143,7 +180,8 @@ extension HikerBLEManager: CentralBLEService {
             let chunk = data.subdata(in: offset..<(offset + chunkSize))
             
             // Send the chunk to the peripheral
-            peripheral.writeValue(chunk, for: characteristic, type: .withoutResponse)
+            peripheral
+                .writeValue(chunk, for: characteristic, type: .withoutResponse)
             
             // Move the offset forward
             offset += chunkSize

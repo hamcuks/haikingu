@@ -8,6 +8,6 @@
 import Foundation
 
 enum HaikinguRequestResponseEnum: String {
-    case accepted = "accepted"
-    case rejected = "rejected"
+    case accepted
+    case rejected
 }

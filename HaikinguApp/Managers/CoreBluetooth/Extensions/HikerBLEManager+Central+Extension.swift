@@ -14,16 +14,13 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         os_log("HikerBLEManager: Cleaning Up!")
         for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
             for service in peripheral.services ?? [] {
-                for characteristic in service.characteristics ?? [] {
-                    if characteristic.isNotifying {
-                        peripheral.setNotifyValue(false, for: characteristic)
-                    }
+                for characteristic in service.characteristics ?? [] where characteristic.isNotifying {
+                    peripheral.setNotifyValue(false, for: characteristic)
                 }
             }
             self.centralManager.cancelPeripheralConnection(peripheral)
         }
     }
-    
     
     /// CentralManager
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -64,46 +61,68 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         self.centralDelegate?.centralBLEManagerDidUpdateState(poweredOn: state)
     }
     
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,
+                        advertisementData: [String: Any], rssi RSSI: NSNumber
+    ) {
         os_log("CentralManager: didDiscover")
-        os_log("CentralManager: \(peripheral.name ?? "No Name") - \(peripheral.identifier)")
+        os_log(
+            "CentralManager: \(peripheral.name ?? "No Name") - \(peripheral.identifier)"
+        )
         os_log("CentralManager: \(advertisementData)")
         
-        let name: String = (advertisementData["kCBAdvDataLocalName"] as? String? ?? peripheral.name) ?? "Unknown"
+        let name: String = (
+            advertisementData["kCBAdvDataLocalName"] as? String? ?? peripheral.name
+        ) ?? "Unknown"
         let hiker = Hiker(id: peripheral.identifier, name: name)
         
         if peripheral.name != nil {
             self.discoveredHikers.insert(hiker)
         }
         
-        ///MARK: temporary call delegate
-        self.centralDelegate?.centralBLEManager(didDiscover: self.discoveredHikers)
+        // MARK: temporary call delegate
+        self.centralDelegate?
+            .centralBLEManager(didDiscover: self.discoveredHikers)
         
         if !self.discoveredPeripherals.contains(peripheral) {
             self.discoveredPeripherals.insert(peripheral)
         }
     }
     
-    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+    func centralManager(
+        _ central: CBCentralManager,
+        didConnect peripheral: CBPeripheral
+    ) {
         os_log("CentralManager: didConnect")
-        os_log("CentralManager: Connected to: \(peripheral.name ?? "No Name") - \(peripheral.identifier)")
+        os_log(
+            "CentralManager: Connected to: \(peripheral.name ?? "No Name") - \(peripheral.identifier)"
+        )
         
         let notificationServiceId = HaikinguServiceBLEUUID.notification.cbuuid
         let usernameServiceId = HaikinguServiceBLEUUID.username.cbuuid
         let planServiceId = HaikinguServiceBLEUUID.plan.cbuuid
         
         peripheral.delegate = self
-        peripheral.discoverServices([ notificationServiceId, usernameServiceId, planServiceId ])
+        peripheral
+            .discoverServices(
+                [ notificationServiceId, usernameServiceId, planServiceId ]
+            )
         
-        if var hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier }) {
+        if var hiker = self.discoveredHikers.first(
+            where: { $0.id == peripheral.identifier
+            }) {
             hiker.state = .waiting
             
             self.discoveredHikers.update(with: hiker)
-            self.centralDelegate?.centralBLEManager(didDiscover: self.discoveredHikers)
+            self.centralDelegate?
+                .centralBLEManager(didDiscover: self.discoveredHikers)
         }
     }
     
-    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: (any Error)?) {
+    func centralManager(
+        _ central: CBCentralManager,
+        didDisconnectPeripheral peripheral: CBPeripheral,
+        error: (any Error)?
+    ) {
         os_log("CentralManager: didDisconnectPeripheral")
         os_log("CentralManager: Disconnected from: \(peripheral.name ?? "No Name") - \(peripheral.identifier)")
         
@@ -115,12 +134,18 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         
         self.discoveredPeripherals.remove(peripheral)
         
-        if let hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier }) {
+        if let hiker = self.discoveredHikers.first(
+            where: { $0.id == peripheral.identifier
+            }) {
             self.centralDelegate?.centralBLEManager(didDisconnect: hiker)
         }
     }
     
-    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: (any Error)?) {
+    func centralManager(
+        _ central: CBCentralManager,
+        didFailToConnect peripheral: CBPeripheral,
+        error: (any Error)?
+    ) {
         os_log("CentralManager: didFailToConnect")
         os_log("CentralManager: Failed to connect to: \(peripheral.name ?? "No Name") - \(peripheral.identifier)")
         
@@ -128,7 +153,10 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     /// Peripheral
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: (any Error)?) {
+    func peripheral(
+        _ peripheral: CBPeripheral,
+        didDiscoverServices error: (any Error)?
+    ) {
         os_log("Peripheral: didDiscoverServices")
         
         if let error {
@@ -162,13 +190,16 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
                 cbuuids = [planCharacteristic]
             }
             
-            
             peripheral.discoverCharacteristics(cbuuids, for: service)
             
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: (any Error)?) {
+    func peripheral(
+        _ peripheral: CBPeripheral,
+        didDiscoverCharacteristicsFor service: CBService,
+        error: (any Error)?
+    ) {
         os_log("Peripheral: didDiscoverCharacteristicsFor")
         os_log("Peripheral: Service - \(service.uuid)")
         
@@ -195,7 +226,11 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: (any Error)?) {
+    func peripheral(
+        _ peripheral: CBPeripheral,
+        didUpdateNotificationStateFor characteristic: CBCharacteristic,
+        error: (any Error)?
+    ) {
         os_log("Peripheral: didUpdateNotificationStateFor")
         os_log("Peripheral: From \(peripheral.name ?? "No Name") - \(peripheral.identifier)")
         
@@ -216,7 +251,11 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: (any Error)?) {
+    func peripheral(
+        _ peripheral: CBPeripheral,
+        didUpdateValueFor characteristic: CBCharacteristic,
+        error: (any Error)?
+    ) {
         os_log("Peripheral: didUpdateValueFor")
         os_log("Peripheral: From \(peripheral.name ?? "No Name") - \(peripheral.identifier)")
         
@@ -231,14 +270,24 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
             return
         }
         
-        let decodedData = String(decoding: data, as: UTF8.self)
+        let decodedData = String(data: data, encoding: .utf8)
+        
+        guard let decodedData else { return }
         
         /// Case: Hiker requested for break to central
-        if characteristic.isRequestForRest, let type = TypeOfRestEnum(rawValue: decodedData) {
+        if characteristic.isRequestForRest, let type = TypeOfRestEnum(
+            rawValue: decodedData
+        ) {
             os_log("Peripheral: Broadcasting request for \(type.rawValue) to other Hikers")
             
-            if let hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier }) {
-                self.centralDelegate?.centralBLEManager(didReceiveRequestForRest: type, from: hiker)
+            if let hiker = self.discoveredHikers.first(
+                where: { $0.id == peripheral.identifier
+                }) {
+                self.centralDelegate?
+                    .centralBLEManager(
+                        didReceiveRequestForRest: type,
+                        from: hiker
+                    )
                 
                 /// Broadcast to other peripherals excluding the requester
                 self.requestRest(for: type, exclude: hiker)
@@ -247,12 +296,19 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         }
         
         /// Case: Hiker respond to central invitation
-        if characteristic.isSendHikingInvitation, let respond = HaikinguRequestResponseEnum(rawValue: decodedData) {
-            os_log("Peripheral: \(peripheral.name ?? "No Name") \(respond == .accepted ? "accepted" : "rejected") the invitation")
+        if characteristic.isSendHikingInvitation, let respond = HaikinguRequestResponseEnum(
+            rawValue: decodedData
+        ) {
+            os_log("Peripheral: \(peripheral.name ?? "No Name") \(respond == .accepted) the invitation")
             
-            
-            if let hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier }) {
-                self.centralDelegate?.centralBLEManager(didReceiveInvitationResponse: respond, from: hiker)
+            if let hiker = self.discoveredHikers.first(
+                where: { $0.id == peripheral.identifier
+                }) {
+                self.centralDelegate?
+                    .centralBLEManager(
+                        didReceiveInvitationResponse: respond,
+                        from: hiker
+                    )
             }
             
             if respond == .accepted {
@@ -263,7 +319,11 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: (any Error)?) {
+    func peripheral(
+        _ peripheral: CBPeripheral,
+        didWriteValueFor characteristic: CBCharacteristic,
+        error: (any Error)?
+    ) {
         os_log("Peripheral: didWriteValueFor")
         os_log("Peripheral: From \(peripheral.name ?? "No Name") - \(peripheral.identifier)")
         
@@ -272,14 +332,18 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
             cleanup()
             return
         }
-#warning("todo: call delegate didDiscover setelah peripheral respond success dan terima hiking plan")
+        
+        #warning("todo: call delegate didDiscover setelah peripheral respond success dan terima hiking plan")
         if characteristic.isPlan {
-            if var hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier }) {
+            var hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier })
+            
+            if var hiker {
                 
                 hiker.state = .joined
                 self.discoveredHikers.update(with: hiker)
                 self.centralDelegate?.centralBLEManager(didConnect: hiker)
-                self.centralDelegate?.centralBLEManager(didDiscover: self.discoveredHikers)
+                self.centralDelegate?
+                    .centralBLEManager(didDiscover: self.discoveredHikers)
                 
             }
         }

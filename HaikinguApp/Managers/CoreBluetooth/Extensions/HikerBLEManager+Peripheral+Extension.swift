@@ -76,10 +76,16 @@ extension HikerBLEManager: PeripheralBLEService {
         )
         peripheralManager.add(planService)
         
-        peripheralManager.startAdvertising([
-            CBAdvertisementDataLocalNameKey: username,
-            CBAdvertisementDataServiceUUIDsKey: [ notificationService.uuid, usernmaeService.uuid, planService.uuid ]
-        ])
+        peripheralManager.startAdvertising(
+            [
+                CBAdvertisementDataLocalNameKey: username,
+                CBAdvertisementDataServiceUUIDsKey: [
+                    notificationService.uuid,
+                    usernmaeService.uuid,
+                    planService.uuid
+                ]
+            ]
+        )
         
     }
     
@@ -92,37 +98,60 @@ extension HikerBLEManager: PeripheralBLEService {
     
     func respondToInvitation(for respond: HaikinguRequestResponseEnum) {
         os_log("HikerBLEManager: respondToInvitation")
+        
         guard let invitationCharactersitic, let central else {
             os_log("HikerBLEManager: Can not find invitation characteristic or central")
             return
         }
         
         if let data = respond.rawValue.data(using: .utf8) {
-            peripheralManager.updateValue(data, for: invitationCharactersitic, onSubscribedCentrals: [central])
+            peripheralManager
+                .updateValue(
+                    data,
+                    for: invitationCharactersitic,
+                    onSubscribedCentrals: [central]
+                )
         }
     }
     
-    func respondToInvitation(for respond: HaikinguRequestResponseEnum, central: CBCentral) {
+    func respondToInvitation(
+        for respond: HaikinguRequestResponseEnum,
+        central: CBCentral
+    ) {
         os_log("HikerBLEManager: respondToInvitation")
+        
         guard let invitationCharactersitic else {
             os_log("HikerBLEManager: Can not find invitation characteristic")
             return
         }
         
         if let data = respond.rawValue.data(using: .utf8) {
-            peripheralManager.updateValue(data, for: invitationCharactersitic, onSubscribedCentrals: [central])
+            peripheralManager
+                .updateValue(
+                    data,
+                    for: invitationCharactersitic,
+                    onSubscribedCentrals: [central]
+                )
         }
     }
     
     func requestRest(for type: TypeOfRestEnum) {
         os_log("HikerBLEManager: requestRest for \(type.rawValue)")
+        
         guard let restCharacteristic, let central else {
-            os_log("HikerBLEManager: Can not find notification characteristic or central")
+            os_log(
+                "HikerBLEManager: Can not find notification characteristic or central"
+            )
             return
         }
         
         if let data = type.rawValue.data(using: .utf8) {
-            peripheralManager.updateValue(data, for: restCharacteristic, onSubscribedCentrals: [central])
+            peripheralManager
+                .updateValue(
+                    data,
+                    for: restCharacteristic,
+                    onSubscribedCentrals: [central]
+                )
         }
     }
     
@@ -173,10 +202,6 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
         case .poweredOff:
             os_log("PeripheralManager: State - poweredOff\n")
             
-            //            if peripheral.isAdvertising {
-            //                self.stopAdvertising()
-            //            }
-            
             return
         case .poweredOn:
             os_log("PeripheralManager: State - poweredOn\n")
@@ -192,7 +217,10 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
         
     }
     
-    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: (any Error)?) {
+    func peripheralManagerDidStartAdvertising(
+        _ peripheral: CBPeripheralManager,
+        error: (any Error)?
+    ) {
         os_log("PeripheralManager: peripheralManagerDidStartAdvertising")
         
         if let error {
@@ -201,7 +229,10 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
         }
     }
     
-    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
+    func peripheralManager(
+        _ peripheral: CBPeripheralManager,
+        didReceiveWrite requests: [CBATTRequest]
+    ) {
         os_log("PeripheralManager: didReceiveWrite")
         
         for request in requests {
@@ -211,28 +242,45 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
                 return
             }
             
-            
             if request.characteristic.isSendHikingInvitation, let invitor {
-                let decodedData = String(decoding: data, as: UTF8.self)
+                guard let decodedData = String(data: data, encoding: .utf8) else {
+                    return
+                }
+                
                 os_log("PeripheralManager: Received invitation from central: \(decodedData)")
-                self.peripheralDelegate?.peripheralBLEManagerDidReceiveInvitation(from: invitor, plan: decodedData)
+                self.peripheralDelegate?
+                    .peripheralBLEManagerDidReceiveInvitation(
+                        from: invitor,
+                        plan: decodedData
+                    )
             }
             
             if request.characteristic.isRequestForRest {
-                let decodedData = String(decoding: data, as: UTF8.self)
+                guard let decodedData = String(data: data, encoding: .utf8) else {
+                    return
+                }
+                
+                os_log("PeripheralManager: Received request for rest from central: \(decodedData)")
                 
                 if let type = TypeOfRestEnum(rawValue: decodedData) {
-                    self.peripheralDelegate?.peripheralBLEManager(didReceiveRequestForRest: type)
+                    self.peripheralDelegate?
+                        .peripheralBLEManager(didReceiveRequestForRest: type)
                 }
             }
             
             /// Send callback to central after received its username
             if request.characteristic.isUsername {
+                guard let decodedData = String(data: data, encoding: .utf8) else {
+                    return
+                }
+                
                 peripheral.respond(to: request, withResult: .success)
-                let decodedData = String(decoding: data, as: UTF8.self)
                 
                 guard self.invitor != nil else {
-                    self.invitor = Hiker(id: request.central.identifier, name: decodedData)
+                    self.invitor = Hiker(
+                        id: request.central.identifier,
+                        name: decodedData
+                    )
                     return
                 }
                 
@@ -244,7 +292,10 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
                 peripheral.respond(to: request, withResult: .success)
                 
                 do {
-                    let decodedData = try JSONDecoder().decode(Hiking.self, from: data)
+                    let decodedData = try JSONDecoder().decode(
+                        Hiking.self,
+                        from: data
+                    )
                     
                     print("ID: ", decodedData.id)
                     print("Name: ", decodedData.name)
@@ -258,12 +309,16 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
         
     }
     
-    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
+    func peripheralManager(
+        _ peripheral: CBPeripheralManager,
+        central: CBCentral,
+        didSubscribeTo characteristic: CBCharacteristic
+    ) {
         os_log("PeripheralManager: didSubscribeTo")
         os_log("PeripheralManager: Subscribed to \(characteristic.name) - \(characteristic.uuid)")
         
         if self.central != nil && self.central?.identifier != central.identifier {
-            ///MARK: reject the central
+            // MARK: reject the central
             self.respondToInvitation(for: .rejected, central: central)
             return
         }
@@ -271,7 +326,11 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
         self.central = central
     }
     
-    func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didUnsubscribeFrom characteristic: CBCharacteristic) {
+    func peripheralManager(
+        _ peripheral: CBPeripheralManager,
+        central: CBCentral,
+        didUnsubscribeFrom characteristic: CBCharacteristic
+    ) {
         os_log("PeripheralManager: didUnsubscribeFrom")
         os_log("PeripheralManager: Unsunscribed from \(characteristic.name) - \(characteristic.uuid)")
         
