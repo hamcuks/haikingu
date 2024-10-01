@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import Swinject
 
 class DetailDestinationVC: UIViewController {
     
@@ -92,7 +93,7 @@ class DetailDestinationVC: UIViewController {
         
         teamView = TeamsView(action: #selector(teamAction))
         
-        assetsImage.image = UIImage(named: "\(destinationSelected.image)")
+        assetsImage.image = UIImage(named: "\(selectedDestination.image)")
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
@@ -190,10 +191,47 @@ class DetailDestinationVC: UIViewController {
 
 }
 
-import Swinject
-
-#Preview(traits: .defaultLayout, body: {
-    let vc = Container.shared.resolve(DetailDestinationVC.self)
+extension DetailDestinationVC: CLLocationManagerDelegate {
     
-    return vc ?? ViewController()
-})
+    @objc
+    private func actionButton() {
+        
+        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
+        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
+        let maximumDistance = 200.0
+        
+        if rangeDistance < maximumDistance {
+            print("Disctance is less than maximum distance: \(rangeDistance)")
+            let hikingSessionVC = HikingSessionVC()
+            navigationController?.pushViewController(hikingSessionVC, animated: true)
+        } else {
+            alertNotRange.showAlert(on: self)
+//            let hikingSessionVC = HikingSessionVC()
+//            navigationController?.pushViewController(hikingSessionVC, animated: true)
+            print("Distance is greater than maximum distance: \(rangeDistance)")
+        }
+        
+    }
+    
+    private func checkInRangeDestination(currentLocation: CLLocation) -> CLLocationDistance {
+        let locationDestination = selectedDestination.locationPoint
+        let distance = currentLocation.distance(from: locationDestination)
+        return distance
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print("")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentLocation = locations.last {
+            self.userLocation = currentLocation
+            print("Lokasi terkini diperbarui: \(currentLocation)")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("Err: \(error.localizedDescription)")
+    }
+    
+}

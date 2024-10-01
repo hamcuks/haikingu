@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Swinject
 
 class DestinationListVC: UIViewController {
     
@@ -68,7 +69,8 @@ class DestinationListVC: UIViewController {
             return print("Selected Destination is Empty")
         }
         print("Select Destination is \(selectedDestination)")
-        let destinationDetailVC = DetailDestinationVC(destination: selectedDestination)
+        guard let destinationDetailVC = Container.shared.resolve(DetailDestinationVC.self) else { return }
+        destinationDetailVC.selectedDestination = selectedDestination
         navigationController?.pushViewController(destinationDetailVC, animated: true)
     }
 
