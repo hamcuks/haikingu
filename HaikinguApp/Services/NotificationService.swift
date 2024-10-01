@@ -9,6 +9,6 @@ import Foundation
 
 protocol NotificationService {
     func requestPermission()
-    func requestRest(for rest: TypeOfRestEnum)
+    func requestRest(for rest: TypeOfRestEnum, name: String?)
     func createReminder(for title: String, body: String, date: Date, reminder: TimeInterval)
 }

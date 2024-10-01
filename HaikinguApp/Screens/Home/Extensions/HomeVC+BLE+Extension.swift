@@ -20,9 +20,10 @@ extension HomeVC: PeripheralBLEManagerDelegate {
     func peripheralBLEManager(didDisconnect hiker: Hiker) {
     }
     
+    
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum) {
-        #warning("Implement notification trigger")
-        self.notificationManager?.requestRest(for: type)
+        #warning("implement rest req with json data")
+        self.notificationManager?.requestRest(for: type, name: nil)
     }
     
     func peripheralBLEManager(_ restType: TypeOfRestEnum, didReceive response: HaikinguRequestResponseEnum) {

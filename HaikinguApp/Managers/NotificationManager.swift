@@ -23,10 +23,11 @@ class NotificationManager: NotificationService {
         }
     }
     
-    func requestRest(for rest: TypeOfRestEnum) {
+    func requestRest(for rest: TypeOfRestEnum, name: String?) {
         let content = UNMutableNotificationContent()
-        content.title = rest.getTitle(for: "Fitra")
-        content.body = rest.getBody(for: "Fitra")
+        
+        content.title = rest.getTitle(for: name)
+        content.body = rest.getBody(for: name)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
         
