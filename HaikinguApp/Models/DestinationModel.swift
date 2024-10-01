@@ -39,7 +39,7 @@ enum DestinationList: CaseIterable {
                     latitude: 1.06612,
                     longitude: 104.4515
                 ),
-                trackLength: 2100,
+                trackLength: 1377,
                 estimatedTime: 0,
                 minElevation: 25,
                 maxElevation: 365
@@ -53,7 +53,7 @@ enum DestinationList: CaseIterable {
                     latitude: 1.08123,
                     longitude: 103.34281
                 ),
-                trackLength: 3078,
+                trackLength: 1701,
                 estimatedTime: 0,
                 minElevation: 12,
                 maxElevation: 25
@@ -67,7 +67,7 @@ enum DestinationList: CaseIterable {
                     latitude: 1.06809,
                     longitude: 104.01358
                 ),
-                trackLength: 5245,
+                trackLength: 2168,
                 estimatedTime: 0,
                 minElevation: 24,
                 maxElevation: 92
@@ -81,7 +81,7 @@ enum DestinationList: CaseIterable {
                     latitude: 0.69605,
                     longitude: 104.22691
                 ),
-                trackLength: 6465,
+                trackLength: 1219,
                 estimatedTime: 0,
                 minElevation: 29,
                 maxElevation: 187
@@ -95,7 +95,7 @@ enum DestinationList: CaseIterable {
                     latitude: 1.10062,
                     longitude: 104.09431
                 ),
-                trackLength: 11611,
+                trackLength: 5146,
                 estimatedTime: 0,
                 minElevation: 8,
                 maxElevation: 42
@@ -109,7 +109,7 @@ enum DestinationList: CaseIterable {
                     latitude: 1.10306,
                     longitude: 103.36912
                 ),
-                trackLength: 12141,
+                trackLength: 529,
                 estimatedTime: 0,
                 minElevation: 11,
                 maxElevation: 45
@@ -123,7 +123,7 @@ enum DestinationList: CaseIterable {
                     latitude: 1.10717,
                     longitude: 104.00128
                 ),
-                trackLength: 13801,
+                trackLength: 1660,
                 estimatedTime: 0,
                 minElevation: 24,
                 maxElevation: 68
@@ -137,7 +137,7 @@ enum DestinationList: CaseIterable {
                     latitude: 1.07633,
                     longitude: 103.96144
                 ),
-                trackLength: 14392,
+                trackLength: 591,
                 estimatedTime: 0,
                 minElevation: 24,
                 maxElevation: 147

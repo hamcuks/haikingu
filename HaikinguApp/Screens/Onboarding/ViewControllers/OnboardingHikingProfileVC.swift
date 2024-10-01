@@ -115,8 +115,8 @@ class OnboardingHikingProfileVC: UIViewController, UIImagePickerControllerDelega
     @objc
     private func actionSaveButton(){
         // TODO: Save name and photo into userDefaultServices
-        let healthKitVC = OnboardingHealthAccessVC()
-        navigationController?.pushViewController(healthKitVC, animated: true)
+        let finishVC = OnboardingFinishedVC()
+        navigationController?.pushViewController(finishVC, animated: true)
     }
 
     // Action for profile image tap

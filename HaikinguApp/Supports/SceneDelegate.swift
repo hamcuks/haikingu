@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     var isFirstUser: Bool {
+        UserDefaults.standard.set(true, forKey: "isFirstUser")
         return UserDefaults.standard.bool(forKey: "isFirstUser")
     }
     
@@ -43,7 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func markFirstUserComplete() {
-        UserDefaults.standard.set(true, forKey: "isFirstUser")
+        UserDefaults.standard.set(false, forKey: "isFirstUser")
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
