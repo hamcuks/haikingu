@@ -16,6 +16,9 @@ class HikingInvitationVC: UIViewController {
     /// Delegates
     var delegate: HikingInvitationDelegate?
     
+    /// Data
+    var hiker: Hiker!
+    
     lazy var avatarView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "person.circle")
@@ -74,6 +77,8 @@ class HikingInvitationVC: UIViewController {
         invitorStackView.spacing = 4
         invitorStackView.alignment = .center
         
+        nameLabel.text = hiker.name
+        
         invitorStackView.addArrangedSubview(avatarView)
         invitorStackView.addArrangedSubview(nameLabel)
         
@@ -119,12 +124,12 @@ class HikingInvitationVC: UIViewController {
         }
     }
     
-    @objc func joinInvitation() {
+    @objc private func joinInvitation() {
         self.dismiss(animated: true)
         self.delegate?.didRespondToInvitation(with: .accepted)
     }
     
-    @objc func rejectInvitation() {
+    @objc private func rejectInvitation() {
         self.dismiss(animated: true)
         self.delegate?.didRespondToInvitation(with: .rejected)
     }
