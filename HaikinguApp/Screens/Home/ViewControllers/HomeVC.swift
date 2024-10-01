@@ -109,7 +109,6 @@ class HomeVC: UIViewController {
 
     private func configureTipsLabel() {
         
-        
     }
     
     private func configureImageView() {

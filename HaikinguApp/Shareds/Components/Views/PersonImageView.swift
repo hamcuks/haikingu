@@ -37,7 +37,7 @@ class PersonImageView: UIView {
         return stack
     }()
     
-    init(imagePerson: String, namePerson: String){
+    init(imagePerson: String, namePerson: String) {
         super.init(frame: .zero)
         
         circleImageView.image = UIImage(named: imagePerson)
@@ -55,11 +55,10 @@ class PersonImageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure(){
+    private func configure() {
         addSubview(profileStack)
         profileStack.addArrangedSubview(circleImageView)
         profileStack.addArrangedSubview(nameLabel)
-        
         
         circleImageView.snp.makeConstraints { make in
             make.width.height.equalTo(63)

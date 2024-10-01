@@ -65,7 +65,7 @@ class TeamsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure(action: Selector){
+    private func configure(action: Selector) {
         
         yourTeamLabel.text = "Your team (1/5)"
         
@@ -107,7 +107,7 @@ class TeamsView: UIView {
                 
     }
     
-    func setupProfileStack(){
+    func setupProfileStack() {
         let person1: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 1")
         let person2: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 2")
         let person3: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 3")

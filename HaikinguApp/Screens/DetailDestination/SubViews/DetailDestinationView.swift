@@ -67,7 +67,6 @@ class DetailDestinationView: UIView {
         self.configure()
     }
 
-    
     private func configure() {
         // Menambahkan subview ke horizontal stack
         addSubview(horizontalStack)

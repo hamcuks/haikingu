@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DestinationListVC: UIViewController  {
+class DestinationListVC: UIViewController {
     
     private var destinationArray = DestinationList.allCases
     
@@ -61,7 +61,7 @@ class DestinationListVC: UIViewController  {
     }
     
     @objc
-    func actionButton(){
+    func actionButton() {
         guard let selectedDestination = selectedDestination else {
             selectButton.isEnabled = false
             return print("Selected Destination is Empty")
@@ -70,7 +70,7 @@ class DestinationListVC: UIViewController  {
         
     }
     
-    private func presentDetailDestinationScreen(){
+    private func presentDetailDestinationScreen() {
 //        let destinationDetailScreen = DestinationDetailVC()
 //        destinationView.modalPresentationStyle = .fullScreen
 //        destinationView.routeCoordinate = routeCoordinate
@@ -91,10 +91,10 @@ extension DestinationListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HikingCell", for: indexPath) as! HikingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HikingCell", for: indexPath) as? HikingCell
         let destination = destinationArray[indexPath.row].destinationSelected
-        cell.configure(with: destination)
-        return cell
+        cell?.configure(with: destination)
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -9,7 +9,7 @@ import Foundation
 import HealthKit
 
 @MainActor
-protocol WorkoutServiceIos{
+protocol WorkoutServiceIos {
     var sessionState: HKWorkoutSessionState { get set }
     var remainingTime: TimeInterval { get set }
     var heartRate: Double { get set }
@@ -19,12 +19,9 @@ protocol WorkoutServiceIos{
     var elapsedTimeInterval: TimeInterval { get set }
     var workout: HKWorkout? { get set }
     
-    
     func requestMotionPermission()
     func stopPedometerUpdates()
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws
     func retrieveRemoteSession()
     func isPersonTired() -> Bool
 }
-
-

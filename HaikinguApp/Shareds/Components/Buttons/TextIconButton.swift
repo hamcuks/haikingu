@@ -7,8 +7,6 @@
 
 import UIKit
 
-import UIKit
-
 class TextIconButton: UIButton {
     
     override init(frame: CGRect) {

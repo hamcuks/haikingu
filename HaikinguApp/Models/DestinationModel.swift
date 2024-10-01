@@ -1,17 +1,7 @@
-
 //  DestinationModel.swift
 //  HaikinguApp
 //
 //  Created by Bayu Septyan Nur Hidayat on 30/09/24.
-
-
-
-//
-//  DestinationModel.swift
-//  HaikinguApp
-//
-//  Created by Bayu Septyan Nur Hidayat on 30/09/24.
-//
 
 import Foundation
 import CoreLocation
@@ -31,14 +21,14 @@ struct DestinationModel: Identifiable {
 enum DestinationList: CaseIterable {
     case bintanBesarMountains
     case jantanMountain
-    case BidadariLake
-    case BukitKandap
-    case DuriangkangEastTrail
-    case PongkarWaterfall
-    case SeiLadiForestTrack
-    case SenimbaHill
+    case bidadariLake
+    case bukitKandap
+    case duriangkangEastTrail
+    case pongkarWaterfall
+    case seiLadiForestTrack
+    case senimbaHill
     
-    var destinationSelected : DestinationModel {
+    var destinationSelected: DestinationModel {
         switch self {
         case .bintanBesarMountains:
             return DestinationModel(
@@ -68,7 +58,7 @@ enum DestinationList: CaseIterable {
                 minElevation: 12,
                 maxElevation: 25
             )
-        case .BidadariLake:
+        case .bidadariLake:
             return DestinationModel(
                 name: "Bidadari Lake",
                 image: "Bidadari",
@@ -82,7 +72,7 @@ enum DestinationList: CaseIterable {
                 minElevation: 24,
                 maxElevation: 92
             )
-        case .BukitKandap:
+        case .bukitKandap:
             return DestinationModel(
                 name: "Kandap Hill",
                 image: "Kandap",
@@ -96,7 +86,7 @@ enum DestinationList: CaseIterable {
                 minElevation: 29,
                 maxElevation: 187
             )
-        case .DuriangkangEastTrail:
+        case .duriangkangEastTrail:
             return DestinationModel(
                 name: "Duriangkang Lake (East Trail)",
                 image: "Duriangkang",
@@ -110,7 +100,7 @@ enum DestinationList: CaseIterable {
                 minElevation: 8,
                 maxElevation: 42
             )
-        case .PongkarWaterfall:
+        case .pongkarWaterfall:
             return DestinationModel(
                 name: "Pongkar Waterfall",
                 image: "Pongkar",
@@ -124,7 +114,7 @@ enum DestinationList: CaseIterable {
                 minElevation: 11,
                 maxElevation: 45
             )
-        case .SeiLadiForestTrack:
+        case .seiLadiForestTrack:
             return DestinationModel(
                 name: "Sei Ladi Forest",
                 image: "SeiLadi",
@@ -138,7 +128,7 @@ enum DestinationList: CaseIterable {
                 minElevation: 24,
                 maxElevation: 68
             )
-        case .SenimbaHill:
+        case .senimbaHill:
             return DestinationModel(
                 name: "Senimba Hill",
                 image: "Senimba",
