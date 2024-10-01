@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         guard let homeVC = Container.shared.resolve(HomeVC.self) else { return }
-        window.rootViewController = UINavigationController(rootViewController: homeVC)
+        window.rootViewController = UINavigationController(rootViewController: HikingSessionVC())
         window.makeKeyAndVisible()
         self.window = window
     }

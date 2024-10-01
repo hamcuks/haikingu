@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */; };
+		03B0C43F2CABD11B00954557 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C43E2CABD11B00954557 /* HeaderView.swift */; };
+		03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4402CABD1AB00954557 /* BodyView.swift */; };
+		03B0C4432CABDC8700954557 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4422CABDC7C00954557 /* FooterView.swift */; };
+		03B0C4452CABE35600954557 /* TimeElapsedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4442CABE35600954557 /* TimeElapsedView.swift */; };
+		03B0C4472CABE54F00954557 /* HikingMetricsIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */; };
+		03B0C4492CABF31600954557 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4482CABF31600954557 /* IconButton.swift */; };
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226C2CAB8B42004A3223 /* HomeHeaderView.swift */; };
@@ -112,6 +119,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingSessionVC.swift; sourceTree = "<group>"; };
+		03B0C43E2CABD11B00954557 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		03B0C4402CABD1AB00954557 /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
+		03B0C4422CABDC7C00954557 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		03B0C4442CABE35600954557 /* TimeElapsedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeElapsedView.swift; sourceTree = "<group>"; };
+		03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingMetricsIconTextView.swift; sourceTree = "<group>"; };
+		03B0C4482CABF31600954557 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
@@ -226,6 +240,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03B0C4382CABD08F00954557 /* HikingSession */ = {
+			isa = PBXGroup;
+			children = (
+				03B0C43A2CABD0A400954557 /* SubViews */,
+				03B0C43B2CABD0B300954557 /* ViewControllers */,
+			);
+			path = HikingSession;
+			sourceTree = "<group>";
+		};
+		03B0C43A2CABD0A400954557 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				03B0C4422CABDC7C00954557 /* FooterView.swift */,
+				03B0C4402CABD1AB00954557 /* BodyView.swift */,
+				03B0C43E2CABD11B00954557 /* HeaderView.swift */,
+				03B0C4442CABE35600954557 /* TimeElapsedView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		03B0C43B2CABD0B300954557 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				03B0C43C2CABD0E100954557 /* HikingSessionVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		8AF3B98A2CAAF608008C5891 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +467,7 @@
 		E7CE227A2CAB8B42004A3223 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				03B0C4382CABD08F00954557 /* HikingSession */,
 				E7CE22622CAB8B42004A3223 /* DestinationList */,
 				E7CE22672CAB8B42004A3223 /* DetailDestination */,
 				E7CE22712CAB8B42004A3223 /* Home */,
@@ -459,6 +502,7 @@
 				E7CE22822CAB8B42004A3223 /* PrimaryButton.swift */,
 				E7CE22832CAB8B42004A3223 /* SecondaryButton.swift */,
 				E7CE22842CAB8B42004A3223 /* TextIconButton.swift */,
+				03B0C4482CABF31600954557 /* IconButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -496,6 +540,7 @@
 				E7CE228E2CAB8B42004A3223 /* PersonImageView.swift */,
 				E7CE228F2CAB8B42004A3223 /* SampleItemView.swift */,
 				E7CE22902CAB8B42004A3223 /* TeamsView.swift */,
+				03B0C4462CABE54F00954557 /* HikingMetricsIconTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -900,6 +945,7 @@
 				E7CE22AA2CAB8B42004A3223 /* HealthService.swift in Sources */,
 				E7CE22AB2CAB8B42004A3223 /* AlterVC.swift in Sources */,
 				E7CE22AC2CAB8B42004A3223 /* SampleView.swift in Sources */,
+				03B0C4492CABF31600954557 /* IconButton.swift in Sources */,
 				E7CE22AD2CAB8B42004A3223 /* AlertRangeView.swift in Sources */,
 				E7CE22AE2CAB8B42004A3223 /* WorkoutServiceIos.swift in Sources */,
 				E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */,
@@ -908,12 +954,15 @@
 				E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */,
 				E7CE22B32CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
 				E7CE22B42CAB8B42004A3223 /* DetailEstTimeVC.swift in Sources */,
+				03B0C4432CABDC8700954557 /* FooterView.swift in Sources */,
 				E7CE22B52CAB8B42004A3223 /* AppButton.swift in Sources */,
 				E7CE22B62CAB8B42004A3223 /* HaikinguRequestReponse.swift in Sources */,
 				E7CE22B72CAB8B42004A3223 /* SampleLabel.swift in Sources */,
 				E7CE22B82CAB8B42004A3223 /* HikingCell.swift in Sources */,
 				E7CE22B92CAB8B42004A3223 /* Hiker.swift in Sources */,
 				E7CE22BA2CAB8B42004A3223 /* HikingModeControlView.swift in Sources */,
+				03B0C4472CABE54F00954557 /* HikingMetricsIconTextView.swift in Sources */,
+				03B0C4412CABD1AB00954557 /* BodyView.swift in Sources */,
 				E7CE22BB2CAB8B42004A3223 /* HealthManager.swift in Sources */,
 				E7CE22BC2CAB8B42004A3223 /* HaikinguServiceBLEUUID.swift in Sources */,
 				E7CE22BD2CAB8B42004A3223 /* SampleDB.swift in Sources */,
@@ -924,14 +973,17 @@
 				E7CE22C22CAB8B42004A3223 /* HomeVC.swift in Sources */,
 				E7CE22C32CAB8B42004A3223 /* SecondaryButton.swift in Sources */,
 				E7CE22C42CAB8B42004A3223 /* SceneDelegate.swift in Sources */,
+				03B0C43F2CABD11B00954557 /* HeaderView.swift in Sources */,
 				E7CE22C52CAB8B42004A3223 /* WorkoutManager+iOS+Extension.swift in Sources */,
 				E7CE22C62CAB8B42004A3223 /* TypeOfRestEnum.swift in Sources */,
 				E7CE22C72CAB8B42004A3223 /* Date+Extension.swift in Sources */,
+				03B0C43D2CABD0E100954557 /* HikingSessionVC.swift in Sources */,
 				E7CE22C82CAB8B42004A3223 /* DetailDestinationView.swift in Sources */,
 				E7CE22D92CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
 				E7CE22DA2CAB8EF0004A3223 /* Logger.swift in Sources */,
 				E7CE22C92CAB8B42004A3223 /* ViewController.swift in Sources */,
 				E7CE22CA2CAB8B42004A3223 /* DestinationListVC.swift in Sources */,
+				03B0C4452CABE35600954557 /* TimeElapsedView.swift in Sources */,
 				E7CE22CB2CAB8B42004A3223 /* SampleItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
