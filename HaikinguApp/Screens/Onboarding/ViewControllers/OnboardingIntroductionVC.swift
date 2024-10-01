@@ -26,7 +26,7 @@ class OnboardingIntroductionVC: UIViewController {
         view.backgroundColor = .white
 
         // Heart Icon ImageView from Assets
-        heartIconImageView.image = UIImage(named: "OnboardingKeyFeatureIcon") // Replace with your asset image name
+        heartIconImageView.image = UIImage(named: "OnboardingIntroductionIcon") // Replace with your asset image name
         heartIconImageView.contentMode = .scaleAspectFit
         view.addSubview(heartIconImageView)
 
@@ -38,14 +38,15 @@ class OnboardingIntroductionVC: UIViewController {
         }
 
         // Title Label
-        titleLabel.text = "Smart Breaks for Your Group"
+        titleLabel.text = "Welcome to your hiking companion"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .black
+        titleLabel.numberOfLines = 0
         view.addSubview(titleLabel)
 
         // Description Label
-        descriptionLabel.text = "Take breaks every 30 minutes or when your heart rate exceeds 75%."
+        descriptionLabel.text = "Hike smarter with group break management and heart rate monitoring for a safer journey."
         descriptionLabel.font = UIFont.systemFont(ofSize: 16)
         descriptionLabel.textAlignment = .center
         descriptionLabel.textColor = .darkGray
