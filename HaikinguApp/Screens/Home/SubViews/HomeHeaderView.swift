@@ -45,7 +45,6 @@ class HomeHeaderView: UIStackView {
         self.axis = .horizontal
         self.alignment = .center
         
-        
         let stack = UIStackView(arrangedSubviews: [nameLabel, readyToHikeLabel])
         stack.axis = .vertical
         
@@ -57,5 +56,4 @@ class HomeHeaderView: UIStackView {
         }
     }
     
-
 }

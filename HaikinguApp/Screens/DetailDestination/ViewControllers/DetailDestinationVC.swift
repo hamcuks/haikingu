@@ -5,12 +5,6 @@
 //  Created by Bayu Septyan Nur Hidayat on 30/09/24.
 //
 
-//    "arrow.up.right"
-//    ""
-//
-//"Elevation"
-//"Length"
-
 import UIKit
 
 class DetailDestinationVC: UIViewController {
@@ -70,7 +64,7 @@ class DetailDestinationVC: UIViewController {
 
     }
 
-    private func setupUI(){
+    private func setupUI() {
         view.addSubview(titleDestination)
         view.addSubview(horizontalStack)
         view.addSubview(teamView)
@@ -79,12 +73,8 @@ class DetailDestinationVC: UIViewController {
         view.bringSubviewToFront(selectButton)
         
         selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
-        
         assetPreview.addSubview(assetsImage)
         titleDestination.text = destinationSelected?.name ?? "Bidadari Lake"
-        
-//        horizontalStack.layer.borderColor = UIColor.red.cgColor
-//        horizontalStack.layer.borderWidth = 1
         
         let estTimeDetail = DetailDestinationView(
             icon: "clock",
@@ -140,37 +130,36 @@ class DetailDestinationVC: UIViewController {
             make.width.equalTo(316)
             make.height.equalTo(50)
         }
-        
-
+    
     }
     
     @objc
-    func actionButton(){
+    func actionButton() {
         
         if isInrangeLocation {
-            //MARK: Navigation into next screen
+            // MARK: - Navigation into next screen
+            
         } else {
             alertNotRange.showAlert(on: self)
         }
-        
         print("Let's go button is tapped")
         
     }
     
     @objc
-    func teamAction(){
+    func teamAction() {
         print("add friends button tapped")
         showModalAddFriend()
         
     }
     
-    func showModalAddFriend(){
+    func showModalAddFriend() {
         let addFriendVC = AddFriendVC()
         addFriendVC.modalPresentationStyle = .formSheet
         
         if let sheet = addFriendVC.sheetPresentationController {
             sheet.prefersGrabberVisible = true
-            sheet.detents = [ .medium() , .large()]
+            sheet.detents = [.medium(), .large()]
             present(addFriendVC, animated: true)
         }
     }

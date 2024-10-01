@@ -34,7 +34,7 @@ class DetailEstTimeVC: UIViewController {
         configureUI()
     }
     
-    private func configureUI(){
+    private func configureUI() {
         view.addSubview(detailEstTimeLabel)
         
         detailEstTimeLabel.snp.makeConstraints { make in

@@ -30,7 +30,7 @@ class AlertRangeView: UIView {
         return label
     }()
     
-    private let gotItButton: UIButton = {
+    lazy private var gotItButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Got it", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -109,4 +109,3 @@ class AlertRangeView: UIView {
         }
     }
 }
-
