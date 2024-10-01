@@ -27,7 +27,7 @@ class OnboardingHealthAccessVC: UIViewController {
         view.backgroundColor = .white
 
         // Heart Icon ImageView from Assets
-        heartIconImageView.image = UIImage(named: "HealthKitIcon") // Replace with your asset image name
+        heartIconImageView.image = UIImage(named: "OnboardingHealthKitIcon") // Replace with your asset image name
         heartIconImageView.contentMode = .scaleAspectFit
         view.addSubview(heartIconImageView)
 
