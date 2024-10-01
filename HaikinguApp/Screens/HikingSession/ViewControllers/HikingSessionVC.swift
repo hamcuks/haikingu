@@ -21,6 +21,12 @@ class HikingSessionVC: UIViewController {
         
         view.backgroundColor = .white
         
+        // Disable swipe gesture for back
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        // Hide back button on navigation bar
+        navigationItem.hidesBackButton = true
+        
         headerView = HeaderView(status: "Keep Moving", title: "24.59", subtitle: "Hiking time for 1670 m", backgroundColor: .clear)
         bodyView = BodyView(backgroundCircleColor: .clear)
         timeElapsed = TimeElapsedView(value: "00.32.31,59")
@@ -38,7 +44,7 @@ class HikingSessionVC: UIViewController {
         view.addSubview(actionButton)
 
         headerView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(20)
         }

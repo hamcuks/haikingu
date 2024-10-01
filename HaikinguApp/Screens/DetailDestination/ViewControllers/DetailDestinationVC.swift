@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class DetailDestinationVC: UIViewController {
     
@@ -13,12 +14,18 @@ class DetailDestinationVC: UIViewController {
     var teamView: TeamsView!
     var alertNotRange: AlertRangeView = AlertRangeView()
     var isInrangeLocation: Bool = false
+    var locationManager: CLLocationManager = {
+       let locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        return locationManager
+    }()
+    var userLocation: CLLocation?
     
     private var horizontalStack: UIStackView = {
         let horizontal = UIStackView()
         horizontal.axis = .horizontal
         horizontal.spacing = 4
-        horizontal.distribution = .fillProportionally
+        horizontal.distribution = .fillEqually
         horizontal.alignment = .leading
         return horizontal
     }()
@@ -41,31 +48,47 @@ class DetailDestinationVC: UIViewController {
     
     private var assetsImage: UIImageView = {
        let assets = UIImageView()
-        assets.image = UIImage(named: "Bidadari")
         assets.contentMode = .scaleAspectFill
         assets.backgroundColor = .blue
         return assets
     }()
     
     private var selectButton: PrimaryButton = PrimaryButton(label: "Let’s Go!")
-
+    
+    init(destination: DestinationModel) {
+        super.init(nibName: nil, bundle: nil)
+        
+        destinationSelected = destination
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization() // Minta izin akses lokasi
+        locationManager.startUpdatingLocation()
+        
         teamView = TeamsView(action: #selector(teamAction))
+        
+        assetsImage.image = UIImage(named: "\(destinationSelected.image)")
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
-        navigationItem.title = "Detail Hiking Spot"
+        navigationItem.title = "\(destinationSelected?.name ?? "Bidadari Lake")"
         
         setupUI()
 
     }
 
     private func setupUI() {
-        view.addSubview(titleDestination)
+//        view.addSubview(titleDestination)
         view.addSubview(horizontalStack)
         view.addSubview(teamView)
         view.addSubview(assetPreview)
@@ -74,7 +97,7 @@ class DetailDestinationVC: UIViewController {
         
         selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
         assetPreview.addSubview(assetsImage)
-        titleDestination.text = destinationSelected?.name ?? "Bidadari Lake"
+//        titleDestination.text = destinationSelected?.name ?? "Bidadari Lake"
         
         let estTimeDetail = DetailDestinationView(
             icon: "clock",
@@ -98,13 +121,13 @@ class DetailDestinationVC: UIViewController {
         horizontalStack.addArrangedSubview(elevationDetail)
         horizontalStack.addArrangedSubview(trackDetail)
         
-        titleDestination.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview().offset(20)
-        }
+//        titleDestination.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            make.leading.trailing.equalToSuperview().offset(20)
+//        }
         
         horizontalStack.snp.makeConstraints { make in
-            make.top.equalTo(titleDestination.snp.bottom).offset(8)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview().inset(20)
             
         }
@@ -133,19 +156,6 @@ class DetailDestinationVC: UIViewController {
     }
     
     @objc
-    func actionButton() {
-        
-        if isInrangeLocation {
-            // MARK: - Navigation into next screen
-            
-        } else {
-            alertNotRange.showAlert(on: self)
-        }
-        print("Let's go button is tapped")
-        
-    }
-    
-    @objc
     func teamAction() {
         print("add friends button tapped")
         showModalAddFriend()
@@ -163,4 +173,49 @@ class DetailDestinationVC: UIViewController {
         }
     }
 
+}
+
+extension DetailDestinationVC: CLLocationManagerDelegate {
+    
+    @objc
+    private func actionButton() {
+        
+        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
+        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
+        let maximumDistance = 200.0
+        
+        if rangeDistance < maximumDistance {
+            print("Disctance is less than maximum distance: \(rangeDistance)")
+            let hikingSessionVC = HikingSessionVC()
+            navigationController?.pushViewController(hikingSessionVC, animated: true)
+        } else {
+            alertNotRange.showAlert(on: self)
+//            let hikingSessionVC = HikingSessionVC()
+//            navigationController?.pushViewController(hikingSessionVC, animated: true)
+            print("Distance is greater than maximum distance: \(rangeDistance)")
+        }
+        
+    }
+    
+    private func checkInRangeDestination(currentLocation: CLLocation) -> CLLocationDistance {
+        let locationDestination = destinationSelected.locationPoint
+        let distance = currentLocation.distance(from: locationDestination)
+        return distance
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print("")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentLocation = locations.last {
+            self.userLocation = currentLocation
+            print("Lokasi terkini diperbarui: \(currentLocation)")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("Err: \(error.localizedDescription)")
+    }
+    
 }

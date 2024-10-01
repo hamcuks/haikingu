@@ -37,6 +37,7 @@ class HomeVC: UIViewController {
     lazy var contentStack: UIStackView = UIStackView()
     lazy var imageView: UIImageView = UIImageView()
     lazy var backToHomeMessageView: BackToHomeMessageView = BackToHomeMessageView()
+    lazy var startButton: PrimaryButton = PrimaryButton(label: "Start Hiking")
     
     /// Constructors
     init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?) {
@@ -59,6 +60,7 @@ class HomeVC: UIViewController {
         self.configureHikingModeControlView()
         self.configureContentStackView()
         self.peripheralManager?.setDelegate(self)
+        self.configureButtonStartHiking()
         
     }
     
@@ -136,6 +138,22 @@ class HomeVC: UIViewController {
         
     }
     
+    private func configureButtonStartHiking() {
+        view.addSubview(startButton)
+        startButton.addTarget(self, action: #selector(actionStartHiking), for: .touchUpInside)
+        startButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(20)
+            make.width.height.equalTo(105)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    @objc
+    private func actionStartHiking() {
+        let destinationList = DestinationListVC()
+        navigationController?.pushViewController(destinationList, animated: true)
+    }
+    
     @objc private func onHikingModeControlValueChanged(_ sender: HikingModeControlView) {
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")
     }
@@ -152,6 +170,6 @@ class HomeVC: UIViewController {
     }
 }
 
-#Preview(traits: .defaultLayout, body: {
-    Container.shared.resolve(HomeVC.self) ?? SplashScreen()
-})
+//#Preview(traits: .defaultLayout, body: {
+//    Container.shared.resolve(HomeVC.self) ?? SplashScreen()
+//})

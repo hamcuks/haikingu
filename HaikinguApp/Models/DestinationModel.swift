@@ -8,14 +8,14 @@ import CoreLocation
 
 struct DestinationModel: Identifiable {
     let id: UUID = UUID()
-    let name: String
-    let image: String
-    let location: String
-    let locationPoint: CLLocationCoordinate2D
-    let trackLength: Int
-    let estimatedTime: TimeInterval
-    let minElevation: Int
-    let maxElevation: Int
+    var name: String
+    var image: String
+    var location: String
+    var locationPoint: CLLocation
+    var trackLength: Int
+    var estimatedTime: TimeInterval
+    var minElevation: Int
+    var maxElevation: Int
 }
 
 enum DestinationList: CaseIterable {
@@ -35,7 +35,7 @@ enum DestinationList: CaseIterable {
                 name: "Bintan Besar Mountain",
                 image: "Bintan",
                 location: "Batam, ID",
-                locationPoint: CLLocationCoordinate2D(
+                locationPoint: CLLocation(
                     latitude: 1.06612,
                     longitude: 104.4515
                 ),
@@ -49,7 +49,7 @@ enum DestinationList: CaseIterable {
                 name: "Jantan Mountain",
                 image: "Jantan",
                 location: "Batam, ID",
-                locationPoint: CLLocationCoordinate2D(
+                locationPoint: CLLocation(
                     latitude: 1.08123,
                     longitude: 103.34281
                 ),
@@ -63,7 +63,7 @@ enum DestinationList: CaseIterable {
                 name: "Bidadari Lake",
                 image: "Bidadari",
                 location: "Batam, ID",
-                locationPoint: CLLocationCoordinate2D(
+                locationPoint: CLLocation(
                     latitude: 1.06809,
                     longitude: 104.01358
                 ),
@@ -77,7 +77,7 @@ enum DestinationList: CaseIterable {
                 name: "Kandap Hill",
                 image: "Kandap",
                 location: "Batam, ID",
-                locationPoint: CLLocationCoordinate2D(
+                locationPoint: CLLocation(
                     latitude: 0.69605,
                     longitude: 104.22691
                 ),
@@ -91,7 +91,7 @@ enum DestinationList: CaseIterable {
                 name: "Duriangkang Lake (East Trail)",
                 image: "Duriangkang",
                 location: "Batam, ID",
-                locationPoint: CLLocationCoordinate2D(
+                locationPoint: CLLocation(
                     latitude: 1.10062,
                     longitude: 104.09431
                 ),
@@ -105,7 +105,7 @@ enum DestinationList: CaseIterable {
                 name: "Pongkar Waterfall",
                 image: "Pongkar",
                 location: "Batam, ID",
-                locationPoint: CLLocationCoordinate2D(
+                locationPoint: CLLocation(
                     latitude: 1.10306,
                     longitude: 103.36912
                 ),
@@ -119,7 +119,7 @@ enum DestinationList: CaseIterable {
                 name: "Sei Ladi Forest",
                 image: "SeiLadi",
                 location: "Batam, ID",
-                locationPoint: CLLocationCoordinate2D(
+                locationPoint: CLLocation(
                     latitude: 1.10717,
                     longitude: 104.00128
                 ),
@@ -133,7 +133,7 @@ enum DestinationList: CaseIterable {
                 name: "Senimba Hill",
                 image: "Senimba",
                 location: "Batam, ID",
-                locationPoint: CLLocationCoordinate2D(
+                locationPoint: CLLocation(
                     latitude: 1.07633,
                     longitude: 103.96144
                 ),
