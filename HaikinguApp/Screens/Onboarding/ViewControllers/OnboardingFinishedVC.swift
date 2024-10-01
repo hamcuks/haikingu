@@ -26,7 +26,7 @@ class OnboardingFinishedVC: UIViewController {
         view.backgroundColor = .white
 
         // Heart Icon ImageView from Assets
-        imageView.image = UIImage(named: "HealthKitIcon") // Replace with your asset image name
+        imageView.image = UIImage(named: "OnboardingFinishedIcon") // Replace with your asset image name
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
 
@@ -42,6 +42,7 @@ class OnboardingFinishedVC: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .black
+        descriptionLabel.numberOfLines = 0
         view.addSubview(titleLabel)
 
         // Description Label
