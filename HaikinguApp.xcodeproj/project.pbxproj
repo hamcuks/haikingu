@@ -74,7 +74,7 @@
 		E7CE22C62CAB8B42004A3223 /* TypeOfRestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22572CAB8B42004A3223 /* TypeOfRestEnum.swift */; };
 		E7CE22C72CAB8B42004A3223 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22932CAB8B42004A3223 /* Date+Extension.swift */; };
 		E7CE22C82CAB8B42004A3223 /* DetailDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22632CAB8B42004A3223 /* DetailDestinationView.swift */; };
-		E7CE22C92CAB8B42004A3223 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE229B2CAB8B42004A3223 /* ViewController.swift */; };
+		E7CE22C92CAB8B42004A3223 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE229B2CAB8B42004A3223 /* SplashScreen.swift */; };
 		E7CE22CA2CAB8B42004A3223 /* DestinationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22602CAB8B42004A3223 /* DestinationListVC.swift */; };
 		E7CE22CB2CAB8B42004A3223 /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228F2CAB8B42004A3223 /* SampleItemView.swift */; };
 		E7CE22CC2CAB8B42004A3223 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CE22992CAB8B42004A3223 /* LaunchScreen.storyboard */; };
@@ -223,7 +223,7 @@
 		E7CE22972CAB8B42004A3223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7CE22982CAB8B42004A3223 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7CE229A2CAB8B42004A3223 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7CE229B2CAB8B42004A3223 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7CE229B2CAB8B42004A3223 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		E7CE22D42CAB8EF0004A3223 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E7D0BA2F2C9839AD00324E3D /* HaikinguApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikinguApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -672,7 +672,7 @@
 				E7CE22972CAB8B42004A3223 /* AppDelegate.swift */,
 				E7CE22992CAB8B42004A3223 /* LaunchScreen.storyboard */,
 				E7CE229A2CAB8B42004A3223 /* SceneDelegate.swift */,
-				E7CE229B2CAB8B42004A3223 /* ViewController.swift */,
+				E7CE229B2CAB8B42004A3223 /* SplashScreen.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -1089,7 +1089,7 @@
 				03B0C4552CABFF6900954557 /* HikingSummaryView.swift in Sources */,
 				E7CE22DA2CAB8EF0004A3223 /* Logger.swift in Sources */,
 				034CF64F2CAC50A50006CE6F /* CongratsSharableVC.swift in Sources */,
-				E7CE22C92CAB8B42004A3223 /* ViewController.swift in Sources */,
+				E7CE22C92CAB8B42004A3223 /* SplashScreen.swift in Sources */,
 				E7CE22CA2CAB8B42004A3223 /* DestinationListVC.swift in Sources */,
 				03B0C4452CABE35600954557 /* TimeElapsedView.swift in Sources */,
 				E7CE22CB2CAB8B42004A3223 /* SampleItemView.swift in Sources */,

@@ -7,9 +7,9 @@
 
 import UIKit
 import SnapKit
-import HealthKit
+import CoreLocation
 
-class OnboardingLocationVC: UIViewController {
+class OnboardingLocationVC: UIViewController, CLLocationManagerDelegate {
 
     // UI Components
     let imageView = UIImageView()
@@ -18,12 +18,14 @@ class OnboardingLocationVC: UIViewController {
     let allowButton = UIButton()
 
     // HealthKit store for requesting health data
-    let healthStore = HKHealthStore()
+    let locationManager: CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+        
+        locationManager.delegate = self
 
         // Heart Icon ImageView from Assets
         imageView.image = UIImage(named: "OnboardingLocationIcon") // Replace with your asset image name
@@ -92,24 +94,44 @@ class OnboardingLocationVC: UIViewController {
             make.height.equalTo(50)
         }
     }
+    
+    func showLocationAccessAlert() {
+        let alert = UIAlertController(title: "Location Access Needed", message: "Please enable location services in settings.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func requestLocationPermission() {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
 
-    // Request HealthKit permissions
     @objc func buttonTapped() {
-        let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)!
-        let typesToRead: Set = [heartRateType]
         
-        healthStore.requestAuthorization(toShare: nil, read: typesToRead) { (success, error) in
-            if success {
-                DispatchQueue.main.async {
-                    // Handle successful authorization here (e.g., navigate to the next screen)
-                    print("Health data access granted!")
-                }
-            } else {
-                DispatchQueue.main.async {
-                    // Handle the error here (e.g., show an alert)
-                    print("Authorization failed with error: \(String(describing: error))")
-                }
-            }
+        if locationManager.authorizationStatus == .notDetermined {
+            requestLocationPermission()
+        } else if locationManager.authorizationStatus == .denied || locationManager.authorizationStatus == .restricted {
+            showLocationAccessAlert()
+        } else {
+            let profileVC = OnboardingHikingProfileVC()
+            navigationController?.pushViewController(profileVC, animated: true)
         }
     }
+    
+    // CLLocationManagerDelegate method to handle authorization changes
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            let profileVC = OnboardingHikingProfileVC()
+            navigationController?.pushViewController(profileVC, animated: true)
+        case .denied, .restricted:
+            showLocationAccessAlert()
+        default:
+            print("Error Something went wrong")
+            break
+        }
+    }
+
+    
+    
 }

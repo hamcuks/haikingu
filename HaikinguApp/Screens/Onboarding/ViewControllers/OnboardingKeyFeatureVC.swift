@@ -95,6 +95,7 @@ class OnboardingKeyFeatureVC: UIViewController {
 
     // Request HealthKit permissions
     @objc func continueButtonTapped() {
-        // TODO: Navigate to OnboardingHealthAccess
+        let healthKitVC = OnboardingHealthAccessVC()
+        navigationController?.pushViewController(healthKitVC, animated: true)
     }
 }

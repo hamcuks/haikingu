@@ -95,6 +95,9 @@ class OnboardingFinishedVC: UIViewController {
 
     // Request HealthKit permissions
     @objc func buttonTapped() {
-        // TODO: Navigate to home
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            sceneDelegate.markFirstUserComplete()
+            sceneDelegate.navigateToHomeVC()
+        }
     }
 }

@@ -153,5 +153,5 @@ class HomeVC: UIViewController {
 }
 
 #Preview(traits: .defaultLayout, body: {
-    Container.shared.resolve(HomeVC.self) ?? ViewController()
+    Container.shared.resolve(HomeVC.self) ?? SplashScreen()
 })
