@@ -19,42 +19,61 @@ class AddFriendVC: UIViewController {
     /// Delegates
     
     var header = HeaderAddFriendView()
-    var yourTeam: BodyAddFriendView!
-    var nearbyPerson: BodyAddFriendView!
+    var yourTeam: HikerGridView!
+    var nearbyPerson: HikerGridView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        yourTeam = BodyAddFriendView(titleText: "Your team (1/5)" )
-        nearbyPerson = BodyAddFriendView(titleText: "Nearby Person" )
         
         configuration()
-
+        
     }
     
     private func configuration() {
         view.addSubview(header)
-        view.addSubview(yourTeam)
-        view.addSubview(nearbyPerson)
         
-//        header.layer.borderColor = UIColor.black.cgColor
-//        header.layer.borderWidth = 1
-
         header.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(20)
         }
         
+        yourTeam = HikerGridView(frame: view.bounds, title: "Your Team")
+//        view.addSubview(yourTeam)
+//        yourTeam.snp.makeConstraints { make in
+//            make.top.equalTo(header.snp.bottom).offset(20)
+//            make.leading.trailing.equalToSuperview().inset(16)
+//        }
+        
+        nearbyPerson = HikerGridView(frame: view.bounds, title: "Nearby Hikers")
+//        view.addSubview(nearbyPerson)
+//        nearbyPerson.snp.makeConstraints { make in
+//            make.top.equalTo(yourTeam.snp.bottom).offset(20)
+//            make.leading.trailing.bottom.equalToSuperview().inset(16)
+//        }
+        
+        nearbyPerson.updateData(on: [Hiker(id: UUID(), name: "Test")])
+        
+        let stack = UIStackView(arrangedSubviews: [yourTeam, nearbyPerson])
+        stack.axis = .vertical
+        stack.alignment = .leading
+        stack.distribution = .fillProportionally
+        
+        view.addSubview(stack)
+        
         yourTeam.snp.makeConstraints { make in
-            make.top.equalTo(header.snp.bottom).offset(20)
-            make.leading.trailing.equalTo(header)
+            make.width.equalToSuperview()
         }
         
         nearbyPerson.snp.makeConstraints { make in
-            make.top.equalTo(yourTeam.snp.bottom).offset(20)
-            make.leading.trailing.equalTo(yourTeam)
+            make.width.equalToSuperview()
+        }
+        
+        stack.snp.makeConstraints { make in
+            make.top.equalTo(header.snp.bottom).offset(20)
+            make.trailing.leading.bottom.equalToSuperview().inset(16)
         }
     }
 }
@@ -62,6 +81,7 @@ class AddFriendVC: UIViewController {
 extension AddFriendVC: AddFriendVCDelegate {
     func didReceiveNearbyHikers(_ hikers: Set<Hiker>) {
         print("didReceiveNearbyHikers: \n\(hikers)")
+        
     }
 }
 
@@ -108,7 +128,7 @@ class HeaderAddFriendView: UIView {
         vertical.alignment = .leading
         return vertical
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureUI()
@@ -139,45 +159,7 @@ class HeaderAddFriendView: UIView {
     }
 }
 
-class BodyAddFriendView: UIView {
-    
-    private var yourTeamLabel: UILabel = {
-        var label = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .semibold)
-        label.textColor = .black
-        return label
-    }()
-    
-    private var personImage = PersonImageView(
-        imagePerson: "Bidadari",
-        namePerson: "Person 1"
-    )
-    
-    init(titleText: String) {
-        super.init(frame: .zero)
-        configureUI(title: titleText)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configureUI(title: String) {
-        addSubview(yourTeamLabel)
-        addSubview(personImage)
-        
-        yourTeamLabel.text = title
-        
-        yourTeamLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
-        }
-        
-        personImage.snp.makeConstraints { make in
-            make.top.equalTo(yourTeamLabel.snp.bottom).offset(10)
-            make.leading.equalToSuperview()
-            make.bottom.equalToSuperview()
-        }
-    }
-    
-}
+#Preview(traits: .defaultLayout, body: {
+    AddFriendVC()
+})
+

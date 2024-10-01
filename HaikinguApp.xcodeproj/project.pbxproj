@@ -13,6 +13,8 @@
 		BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */; };
 		BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB142CABDB13007A93C1 /* OnboardingLocationVC.swift */; };
 		BA84BB172CABDD9F007A93C1 /* OnboardingFinishedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB162CABDD9B007A93C1 /* OnboardingFinishedVC.swift */; };
+		E79B886F2CAC713300E78BC0 /* HikerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B886E2CAC713300E78BC0 /* HikerGridView.swift */; };
+		E79B88712CAC71A100E78BC0 /* HikerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B88702CAC71A100E78BC0 /* HikerCell.swift */; };
 		E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBD62CABF3C200B37551 /* NotificationService.swift */; };
 		E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBA42CABD13800B37551 /* NotificationManager.swift */; };
 		E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */; };
@@ -142,6 +144,8 @@
 		E78015FF2CAAA9F700E658A1 /* HomeVC+HikingInvitation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+HikingInvitation+Extension.swift"; sourceTree = "<group>"; };
 		E78016012CAAAB0300E658A1 /* HikingModeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingModeControlView.swift; sourceTree = "<group>"; };
 		E78016272CAAC9B800E658A1 /* BackToHomeMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeMessageView.swift; sourceTree = "<group>"; };
+		E79B886E2CAC713300E78BC0 /* HikerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerGridView.swift; sourceTree = "<group>"; };
+		E79B88702CAC71A100E78BC0 /* HikerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerCell.swift; sourceTree = "<group>"; };
 		E7A4EBA42CABD13800B37551 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+BLE+Extension.swift"; sourceTree = "<group>"; };
 		E7A4EBD62CABF3C200B37551 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				E7CE22632CAB8B42004A3223 /* DetailDestinationView.swift */,
+				E79B886E2CAC713300E78BC0 /* HikerGridView.swift */,
+				E79B88702CAC71A100E78BC0 /* HikerCell.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -938,6 +944,7 @@
 				E7CE22AC2CAB8B42004A3223 /* SampleView.swift in Sources */,
 				E7CE22AD2CAB8B42004A3223 /* AlertRangeView.swift in Sources */,
 				E7CE22AE2CAB8B42004A3223 /* WorkoutServiceIos.swift in Sources */,
+				E79B88712CAC71A100E78BC0 /* HikerCell.swift in Sources */,
 				E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */,
 				E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */,
 				E7CE22B02CAB8B42004A3223 /* OnboardingExtension.swift in Sources */,
@@ -962,6 +969,7 @@
 				E7CE22C12CAB8B42004A3223 /* PeripheralBLEService.swift in Sources */,
 				E7CE22C22CAB8B42004A3223 /* HomeVC.swift in Sources */,
 				E7CE22C32CAB8B42004A3223 /* SecondaryButton.swift in Sources */,
+				E79B886F2CAC713300E78BC0 /* HikerGridView.swift in Sources */,
 				BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */,
 				E7CE22C42CAB8B42004A3223 /* SceneDelegate.swift in Sources */,
 				E7A4EBDC2CAC1D8600B37551 /* DetailDestinationVC+BLE+Extension.swift in Sources */,
