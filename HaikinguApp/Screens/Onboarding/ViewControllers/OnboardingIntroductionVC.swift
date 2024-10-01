@@ -9,14 +9,13 @@ import UIKit
 import SnapKit
 import HealthKit
 
-class OnboardingHealthAccessVC: UIViewController {
+class OnboardingIntroductionVC: UIViewController {
 
     // UI Components
     let heartIconImageView = UIImageView()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
-    let disclaimerLabel = UILabel()
-    let allowButton = UIButton()
+    let continueButton = UIButton()
 
     // HealthKit store for requesting health data
     let healthStore = HKHealthStore()
@@ -27,7 +26,7 @@ class OnboardingHealthAccessVC: UIViewController {
         view.backgroundColor = .white
 
         // Heart Icon ImageView from Assets
-        heartIconImageView.image = UIImage(named: "HealthKitIcon") // Replace with your asset image name
+        heartIconImageView.image = UIImage(named: "OnboardingIntroductionIcon") // Replace with your asset image name
         heartIconImageView.contentMode = .scaleAspectFit
         view.addSubview(heartIconImageView)
 
@@ -39,7 +38,7 @@ class OnboardingHealthAccessVC: UIViewController {
         }
 
         // Title Label
-        titleLabel.text = "Heart Rate Monitoring"
+        titleLabel.text = "Welcome to your hiking companion"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .black
@@ -47,27 +46,20 @@ class OnboardingHealthAccessVC: UIViewController {
         view.addSubview(titleLabel)
 
         // Description Label
-        descriptionLabel.text = "We need access to your health data to monitor your heart rate and suggest breaks."
+        descriptionLabel.text = "Hike smarter with group break management and heart rate monitoring for a safer journey."
         descriptionLabel.font = UIFont.systemFont(ofSize: 16)
         descriptionLabel.textAlignment = .center
         descriptionLabel.textColor = .darkGray
         descriptionLabel.numberOfLines = 0
         view.addSubview(descriptionLabel)
 
-        // Disclaimer Label
-        disclaimerLabel.text = "Your health data will never leave this device"
-        disclaimerLabel.font = UIFont.systemFont(ofSize: 14)
-        disclaimerLabel.textAlignment = .center
-        disclaimerLabel.textColor = .gray
-        view.addSubview(disclaimerLabel)
-
         // Allow Health Access Button
-        allowButton.setTitle("Allow Health Access", for: .normal)
-        allowButton.backgroundColor = UIColor(red: 88/255, green: 113/255, blue: 96/255, alpha: 1.0)
-        allowButton.layer.cornerRadius = 8
-        allowButton.setTitleColor(.white, for: .normal)
-        allowButton.addTarget(self, action: #selector(allowHealthAccessTapped), for: .touchUpInside)
-        view.addSubview(allowButton)
+        continueButton.setTitle("Continue", for: .normal)
+        continueButton.backgroundColor = UIColor(red: 88/255, green: 113/255, blue: 96/255, alpha: 1.0)
+        continueButton.layer.cornerRadius = 8
+        continueButton.setTitleColor(.white, for: .normal)
+        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        view.addSubview(continueButton)
 
         // Setup Constraints
         setupConstraints()
@@ -93,14 +85,8 @@ class OnboardingHealthAccessVC: UIViewController {
             make.left.right.equalToSuperview().inset(20)
         }
 
-        // Disclaimer Label Constraints
-        disclaimerLabel.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-            make.left.right.equalToSuperview().inset(20)
-        }
-
         // Allow Button Constraints
-        allowButton.snp.makeConstraints { make in
+        continueButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-40)
             make.left.right.equalToSuperview().inset(40)
             make.height.equalTo(50)
@@ -108,22 +94,7 @@ class OnboardingHealthAccessVC: UIViewController {
     }
 
     // Request HealthKit permissions
-    @objc func allowHealthAccessTapped() {
-        let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)!
-        let typesToRead: Set = [heartRateType]
-        
-        healthStore.requestAuthorization(toShare: nil, read: typesToRead) { (success, error) in
-            if success {
-                DispatchQueue.main.async {
-                    // Handle successful authorization here (e.g., navigate to the next screen)
-                    print("Health data access granted!")
-                }
-            } else {
-                DispatchQueue.main.async {
-                    // Handle the error here (e.g., show an alert)
-                    print("Authorization failed with error: \(String(describing: error))")
-                }
-            }
-        }
+    @objc func continueButtonTapped() {
+        // TODO: Navigate to OnboardingHealthAccess
     }
 }

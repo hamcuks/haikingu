@@ -1,21 +1,20 @@
 //
-//  OnboardingHealthAccessVC.swift
+//  OnboardingLocationVC.swift
 //  HaikinguApp
 //
-//  Created by Kelvin Ananda on 30/09/24.
+//  Created by Kelvin Ananda on 01/10/24.
 //
 
 import UIKit
 import SnapKit
 import HealthKit
 
-class OnboardingHealthAccessVC: UIViewController {
+class OnboardingLocationVC: UIViewController {
 
     // UI Components
-    let heartIconImageView = UIImageView()
+    let imageView = UIImageView()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
-    let disclaimerLabel = UILabel()
     let allowButton = UIButton()
 
     // HealthKit store for requesting health data
@@ -27,19 +26,19 @@ class OnboardingHealthAccessVC: UIViewController {
         view.backgroundColor = .white
 
         // Heart Icon ImageView from Assets
-        heartIconImageView.image = UIImage(named: "HealthKitIcon") // Replace with your asset image name
-        heartIconImageView.contentMode = .scaleAspectFit
-        view.addSubview(heartIconImageView)
+        imageView.image = UIImage(named: "OnboardingLocationIcon") // Replace with your asset image name
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
 
         // Setup Constraints for ImageView (264x264)
-        heartIconImageView.snp.makeConstraints { make in
+        imageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(60)
             make.centerX.equalToSuperview()
             make.width.height.equalTo(254)  // Set width and height to 264
         }
 
         // Title Label
-        titleLabel.text = "Heart Rate Monitoring"
+        titleLabel.text = "Location & Motion Access Needed"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .black
@@ -47,26 +46,19 @@ class OnboardingHealthAccessVC: UIViewController {
         view.addSubview(titleLabel)
 
         // Description Label
-        descriptionLabel.text = "We need access to your health data to monitor your heart rate and suggest breaks."
+        descriptionLabel.text = "We need access to your location and motion data to recommend nearby trails and monitor your hiking activity"
         descriptionLabel.font = UIFont.systemFont(ofSize: 16)
         descriptionLabel.textAlignment = .center
         descriptionLabel.textColor = .darkGray
         descriptionLabel.numberOfLines = 0
         view.addSubview(descriptionLabel)
 
-        // Disclaimer Label
-        disclaimerLabel.text = "Your health data will never leave this device"
-        disclaimerLabel.font = UIFont.systemFont(ofSize: 14)
-        disclaimerLabel.textAlignment = .center
-        disclaimerLabel.textColor = .gray
-        view.addSubview(disclaimerLabel)
-
         // Allow Health Access Button
-        allowButton.setTitle("Allow Health Access", for: .normal)
+        allowButton.setTitle("Allow Location & Motion Access", for: .normal)
         allowButton.backgroundColor = UIColor(red: 88/255, green: 113/255, blue: 96/255, alpha: 1.0)
         allowButton.layer.cornerRadius = 8
         allowButton.setTitleColor(.white, for: .normal)
-        allowButton.addTarget(self, action: #selector(allowHealthAccessTapped), for: .touchUpInside)
+        allowButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         view.addSubview(allowButton)
 
         // Setup Constraints
@@ -75,7 +67,7 @@ class OnboardingHealthAccessVC: UIViewController {
 
     func setupConstraints() {
         // Heart Icon Constraints
-        heartIconImageView.snp.makeConstraints { make in
+        imageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(60)
             make.centerX.equalToSuperview()
             make.width.height.equalTo(120)
@@ -83,7 +75,7 @@ class OnboardingHealthAccessVC: UIViewController {
 
         // Title Label Constraints
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(heartIconImageView.snp.bottom).offset(30)
+            make.top.equalTo(imageView.snp.bottom).offset(30)
             make.left.right.equalToSuperview().inset(20)
         }
 
@@ -92,13 +84,7 @@ class OnboardingHealthAccessVC: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.left.right.equalToSuperview().inset(20)
         }
-
-        // Disclaimer Label Constraints
-        disclaimerLabel.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-            make.left.right.equalToSuperview().inset(20)
-        }
-
+        
         // Allow Button Constraints
         allowButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-40)
@@ -108,7 +94,7 @@ class OnboardingHealthAccessVC: UIViewController {
     }
 
     // Request HealthKit permissions
-    @objc func allowHealthAccessTapped() {
+    @objc func buttonTapped() {
         let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)!
         let typesToRead: Set = [heartRateType]
         
