@@ -10,11 +10,13 @@
 import UIKit
 import SnapKit
 
-protocol AddFriendVCDelegate {
-    
+protocol AddFriendVCDelegate: AnyObject {
+    func didReceiveNearbyHikers(_ hikers: Set<Hiker>)
 }
 
 class AddFriendVC: UIViewController {
+    
+    /// Delegates
     
     var header = HeaderAddFriendView()
     var yourTeam: BodyAddFriendView!
@@ -54,6 +56,12 @@ class AddFriendVC: UIViewController {
             make.top.equalTo(yourTeam.snp.bottom).offset(20)
             make.leading.trailing.equalTo(yourTeam)
         }
+    }
+}
+
+extension AddFriendVC: AddFriendVCDelegate {
+    func didReceiveNearbyHikers(_ hikers: Set<Hiker>) {
+        print("didReceiveNearbyHikers: \n\(hikers)")
     }
 }
 

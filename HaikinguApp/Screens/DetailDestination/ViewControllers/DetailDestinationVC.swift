@@ -12,6 +12,9 @@ class DetailDestinationVC: UIViewController {
     /// Managers
     var centralManager: CentralBLEService?
     
+    /// Delegates
+    internal var addFriendDelegate: AddFriendVCDelegate?
+    
     var destinationSelected: DestinationModel!
     var teamView: TeamsView!
     var alertNotRange: AlertRangeView = AlertRangeView()
@@ -60,6 +63,12 @@ class DetailDestinationVC: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.centralManager?.setDelegate(self)
     }
     
     override func viewDidLoad() {
@@ -161,7 +170,8 @@ class DetailDestinationVC: UIViewController {
     
     @objc
     func teamAction() {
-        print("add friends button tapped")
+        self.centralManager?.startScanning()
+        
         showModalAddFriend()
         
     }
@@ -169,6 +179,8 @@ class DetailDestinationVC: UIViewController {
     func showModalAddFriend() {
         let addFriendVC = AddFriendVC()
         addFriendVC.modalPresentationStyle = .formSheet
+        
+        self.addFriendDelegate = addFriendVC
         
         if let sheet = addFriendVC.sheetPresentationController {
             sheet.prefersGrabberVisible = true

@@ -16,6 +16,7 @@
 		E7A4EBD72CABF3C200B37551 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBD62CABF3C200B37551 /* NotificationService.swift */; };
 		E7A4EBD82CABF3D200B37551 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBA42CABD13800B37551 /* NotificationManager.swift */; };
 		E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */; };
+		E7A4EBDC2CAC1D8600B37551 /* DetailDestinationVC+BLE+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4EBDB2CAC1D8600B37551 /* DetailDestinationVC+BLE+Extension.swift */; };
 		E7CE229D2CAB8B42004A3223 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226C2CAB8B42004A3223 /* HomeHeaderView.swift */; };
 		E7CE229E2CAB8B42004A3223 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22902CAB8B42004A3223 /* TeamsView.swift */; };
 		E7CE229F2CAB8B42004A3223 /* HikerBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE224E2CAB8B42004A3223 /* HikerBLEManager.swift */; };
@@ -36,7 +37,7 @@
 		E7CE22AE2CAB8B42004A3223 /* WorkoutServiceIos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE227F2CAB8B42004A3223 /* WorkoutServiceIos.swift */; };
 		E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22762CAB8B42004A3223 /* OnboardingHealthAccessVC.swift */; };
 		E7CE22B02CAB8B42004A3223 /* OnboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22722CAB8B42004A3223 /* OnboardingExtension.swift */; };
-		E7CE22B12CAB8B42004A3223 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228A2CAB8B42004A3223 /* AddFriendView.swift */; };
+		E7CE22B12CAB8B42004A3223 /* AddFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228A2CAB8B42004A3223 /* AddFriendVC.swift */; };
 		E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE226E2CAB8B42004A3223 /* HikingInvitationVC.swift */; };
 		E7CE22B32CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE224C2CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift */; };
 		E7CE22B42CAB8B42004A3223 /* DetailEstTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE228C2CAB8B42004A3223 /* DetailEstTimeVC.swift */; };
@@ -144,6 +145,8 @@
 		E7A4EBA42CABD13800B37551 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E7A4EBCC2CABDF1100B37551 /* HomeVC+BLE+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+BLE+Extension.swift"; sourceTree = "<group>"; };
 		E7A4EBD62CABF3C200B37551 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		E7A4EBDB2CAC1D8600B37551 /* DetailDestinationVC+BLE+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailDestinationVC+BLE+Extension.swift"; sourceTree = "<group>"; };
+		E7A4EBDD2CAC226800B37551 /* HaikinguApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HaikinguApp.entitlements; sourceTree = "<group>"; };
 		E7CE22492CAB8B42004A3223 /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
 		E7CE224B2CAB8B42004A3223 /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
 		E7CE224C2CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
@@ -182,7 +185,7 @@
 		E7CE22842CAB8B42004A3223 /* TextIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextIconButton.swift; sourceTree = "<group>"; };
 		E7CE22862CAB8B42004A3223 /* SampleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLabel.swift; sourceTree = "<group>"; };
 		E7CE22882CAB8B42004A3223 /* AlterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlterVC.swift; sourceTree = "<group>"; };
-		E7CE228A2CAB8B42004A3223 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
+		E7CE228A2CAB8B42004A3223 /* AddFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendVC.swift; sourceTree = "<group>"; };
 		E7CE228B2CAB8B42004A3223 /* AlertRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRangeView.swift; sourceTree = "<group>"; };
 		E7CE228C2CAB8B42004A3223 /* DetailEstTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEstTimeVC.swift; sourceTree = "<group>"; };
 		E7CE228E2CAB8B42004A3223 /* PersonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageView.swift; sourceTree = "<group>"; };
@@ -246,6 +249,14 @@
 				8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		E7A4EBDA2CAC1D7400B37551 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7A4EBDB2CAC1D8600B37551 /* DetailDestinationVC+BLE+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E7CE224A2CAB8B42004A3223 /* LocalDataSources */ = {
@@ -352,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				E7CE22652CAB8B42004A3223 /* DetailDestinationVC.swift */,
+				E7CE228A2CAB8B42004A3223 /* AddFriendVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -359,6 +371,7 @@
 		E7CE22672CAB8B42004A3223 /* DetailDestination */ = {
 			isa = PBXGroup;
 			children = (
+				E7A4EBDA2CAC1D7400B37551 /* Extensions */,
 				E7CE22642CAB8B42004A3223 /* SubViews */,
 				E7CE22662CAB8B42004A3223 /* ViewControllers */,
 			);
@@ -503,7 +516,6 @@
 		E7CE228D2CAB8B42004A3223 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE228A2CAB8B42004A3223 /* AddFriendView.swift */,
 				E7CE228B2CAB8B42004A3223 /* AlertRangeView.swift */,
 				E7CE228C2CAB8B42004A3223 /* DetailEstTimeVC.swift */,
 			);
@@ -617,6 +629,7 @@
 		E7D0BA312C9839AD00324E3D /* HaikinguApp */ = {
 			isa = PBXGroup;
 			children = (
+				E7A4EBDD2CAC226800B37551 /* HaikinguApp.entitlements */,
 				E7CE224A2CAB8B42004A3223 /* LocalDataSources */,
 				E7CE22522CAB8B42004A3223 /* Managers */,
 				E7CE22592CAB8B42004A3223 /* Models */,
@@ -928,7 +941,7 @@
 				E7CE22AF2CAB8B42004A3223 /* OnboardingHealthAccessVC.swift in Sources */,
 				E7A4EBD92CABF3F300B37551 /* HomeVC+BLE+Extension.swift in Sources */,
 				E7CE22B02CAB8B42004A3223 /* OnboardingExtension.swift in Sources */,
-				E7CE22B12CAB8B42004A3223 /* AddFriendView.swift in Sources */,
+				E7CE22B12CAB8B42004A3223 /* AddFriendVC.swift in Sources */,
 				E7CE22B22CAB8B42004A3223 /* HikingInvitationVC.swift in Sources */,
 				E7CE22B32CAB8B42004A3223 /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
 				E7CE22B42CAB8B42004A3223 /* DetailEstTimeVC.swift in Sources */,
@@ -951,6 +964,7 @@
 				E7CE22C32CAB8B42004A3223 /* SecondaryButton.swift in Sources */,
 				BA84BB152CABDB1A007A93C1 /* OnboardingLocationVC.swift in Sources */,
 				E7CE22C42CAB8B42004A3223 /* SceneDelegate.swift in Sources */,
+				E7A4EBDC2CAC1D8600B37551 /* DetailDestinationVC+BLE+Extension.swift in Sources */,
 				E7CE22C52CAB8B42004A3223 /* WorkoutManager+iOS+Extension.swift in Sources */,
 				BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */,
 				E7CE22C62CAB8B42004A3223 /* TypeOfRestEnum.swift in Sources */,
@@ -1138,6 +1152,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HaikinguApp/HaikinguApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1172,6 +1187,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HaikinguApp/HaikinguApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
