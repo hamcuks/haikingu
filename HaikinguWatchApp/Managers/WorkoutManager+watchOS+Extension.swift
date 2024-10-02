@@ -39,6 +39,7 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS{
         /**
          Start mirroring the session to the companion device.
          */
+        session?.prepare()
         try await session?.startMirroringToCompanionDevice()
         /**
          Start the workout session activity.
