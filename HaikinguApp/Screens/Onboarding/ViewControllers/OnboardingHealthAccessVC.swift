@@ -88,31 +88,30 @@ class OnboardingHealthAccessVC: UIViewController {
         heartIconImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(60)
             make.centerX.equalToSuperview()
-            make.width.height.equalTo(120)
         }
 
         // Title Label Constraints
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(heartIconImageView.snp.bottom).offset(30)
-            make.left.right.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview().inset(16)
         }
 
         // Description Label Constraints
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview().inset(16)
         }
 
         // Disclaimer Label Constraints
         disclaimerLabel.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-            make.left.right.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview().inset(16)
         }
 
         // Allow Button Constraints
         allowButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-40)
-            make.left.right.equalToSuperview().inset(40)
+            make.left.right.equalToSuperview().inset(16)
             make.height.equalTo(50)
         }
     }

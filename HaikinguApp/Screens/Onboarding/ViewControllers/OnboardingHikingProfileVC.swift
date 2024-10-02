@@ -92,13 +92,13 @@ class OnboardingHikingProfileVC: UIViewController, UIImagePickerControllerDelega
         // Title Label Constraints
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
-            make.left.right.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview().inset(16)
         }
 
         // Subtitle Label Constraints
         subtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview().inset(16)
         }
 
         // Profile Image View Constraints
@@ -112,13 +112,13 @@ class OnboardingHikingProfileVC: UIViewController, UIImagePickerControllerDelega
         nameTextField.snp.makeConstraints { make in
             make.top.equalTo(profileImageView.snp.bottom).offset(30)
             make.left.right.equalToSuperview().inset(30)
-            make.height.equalTo(40)
+            make.height.equalTo(16)
         }
 
         // Save Button Constraints
         saveButton.snp.makeConstraints { make in
             make.top.equalTo(nameTextField.snp.bottom).offset(30)
-            make.left.right.equalToSuperview().inset(50)
+            make.left.right.equalToSuperview().inset(16)
             make.height.equalTo(50)
         }
     }
