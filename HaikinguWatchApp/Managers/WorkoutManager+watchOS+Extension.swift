@@ -46,7 +46,7 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS{
         let startDate = Date()
         session?.startActivity(with: startDate)
         try await builder?.beginCollection(at: startDate)
-        startTimer(with: 600, startDate: startDate)
+        startTimer(with: 1500, startDate: startDate)
         startPedometerUpdates()
         
     }

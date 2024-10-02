@@ -15,6 +15,7 @@
 		8A994CB12CAD0F29006CF73B /* WorkoutServiceWatchOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CB02CAD0F29006CF73B /* WorkoutServiceWatchOS.swift */; };
 		8A994CB32CAD4072006CF73B /* MetricsTimelineSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CB22CAD4072006CF73B /* MetricsTimelineSchedule.swift */; };
 		8A994CB52CAD4747006CF73B /* ElapsedTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CB42CAD4747006CF73B /* ElapsedTimeView.swift */; };
+		8A994CB72CAD50EF006CF73B /* RemainingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CB62CAD50EF006CF73B /* RemainingTimeView.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		E73E7F4D2CAC7FE400C51B9D /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3F2CAC7FE400C51B9D /* SampleItemView.swift */; };
 		E73E7F4E2CAC7FE400C51B9D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F192CAC7FE400C51B9D /* HomeVC.swift */; };
@@ -151,6 +152,7 @@
 		8A994CB02CAD0F29006CF73B /* WorkoutServiceWatchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchOS.swift; sourceTree = "<group>"; };
 		8A994CB22CAD4072006CF73B /* MetricsTimelineSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsTimelineSchedule.swift; sourceTree = "<group>"; };
 		8A994CB42CAD4747006CF73B /* ElapsedTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElapsedTimeView.swift; sourceTree = "<group>"; };
+		8A994CB62CAD50EF006CF73B /* RemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingTimeView.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
 		E73E7ED82CAC7FE400C51B9D /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
@@ -882,6 +884,7 @@
 		E7EDAB0E2CAAEE6A006F3ED0 /* Metrics */ = {
 			isa = PBXGroup;
 			children = (
+				8A994CB62CAD50EF006CF73B /* RemainingTimeView.swift */,
 				8A994CB42CAD4747006CF73B /* ElapsedTimeView.swift */,
 				8A994CB22CAD4072006CF73B /* MetricsTimelineSchedule.swift */,
 				E7EDAB0D2CAAEE6A006F3ED0 /* MetricsView.swift */,
@@ -1145,6 +1148,7 @@
 				8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */,
 				E7EDAB192CAAEE6A006F3ED0 /* MetricsScreen.swift in Sources */,
 				E7EDAB1A2CAAEE6A006F3ED0 /* HaikinguApp.swift in Sources */,
+				8A994CB72CAD50EF006CF73B /* RemainingTimeView.swift in Sources */,
 				E7EDAB1B2CAAEE6A006F3ED0 /* SummaryScreen.swift in Sources */,
 				E7EDAB1C2CAAEE6A006F3ED0 /* MetricsView.swift in Sources */,
 				E7EDAB1D2CAAEE6A006F3ED0 /* LeadControlView.swift in Sources */,

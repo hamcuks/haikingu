@@ -75,6 +75,7 @@ extension WorkoutManager: WCSessionDelegate{
         if let speed = message["speed"] as? Double {
             DispatchQueue.main.async {
                 self.speed = speed
+                self.updateSpeed(to: speed)
             }
         } else if let remaining = message["timerStart"] as? TimeInterval {
             DispatchQueue.main.async {
