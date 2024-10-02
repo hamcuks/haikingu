@@ -109,4 +109,12 @@ class FooterView: UIView {
         estTimeView.updateValue(value)
     }
     
+    func updateRestTaken(_ value: String) {
+        restTakenView.updateValue(value)
+    }
+    
+    func updateDistance(_ value: String) {
+        distanceView.updateValue(value)
+    }
+    
 }

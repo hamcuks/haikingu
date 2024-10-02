@@ -30,6 +30,7 @@ class HikingSessionVC: UIViewController {
     var peripheralManager: PeripheralBLEService?
     var centralManager: CentralBLEService?
     var userDefaultManager: UserDefaultService?
+    var notificationManager: NotificationService?
     
     var naismithTime: Double?
     var iconButton: String = {
@@ -48,13 +49,14 @@ class HikingSessionVC: UIViewController {
     /// managers
     var workoutManager: WorkoutServiceIos?
     
-    init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?) {
+    init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?) {
         super.init(nibName: nil, bundle: nil)
         
         self.workoutManager = workoutManager
         self.userDefaultManager = userDefaultManager
         self.peripheralManager = peripheralManager
         self.centralManager = centralManager
+        self.notificationManager = notificationManager
     }
     
     required init?(coder: NSCoder) {
@@ -207,7 +209,7 @@ extension HikingSessionVC: HikingSessionVCDelegate {
     }
     
     func didUpdateRestTaken(_ restCount: Int) {
-        
+        self.footerView.updateRestTaken("\(restCount)x")
     }
     
     func didReceivedHikingState(_ state: HikingStateEnum) {
@@ -246,6 +248,16 @@ extension HikingSessionVC: WorkoutDelegate {
             // MARK: Logic stop workout manager then go to congrats vc
         }
         
+        /// From CoreBluetooth
+        self.footerView.updateDistance("\(distance) m")
+        
+        guard let userData = userDefaultManager?.getUserData() else { return }
+        
+        /// Broadcast to other member if any update distance
+        if userData.role == .leader {
+            self.centralManager?.updateDistance(distance)
+        }
+        
     }
     
     func didUpdateSpeed(_ speed: Double) {
@@ -258,8 +270,13 @@ extension HikingSessionVC: WorkoutDelegate {
         guard let userData = userDefaultManager?.getUserData() else { return }
         
         if userData.role == .leader {
-            centralManager?.requestRest(for: .notMoving, exclude: nil)
+            notificationManager?.requestRest(for: .notMoving, name: nil)
+            
+            /// Broadcast to other member if any update est time
+            centralManager?.updateEstTime(naismithTime ?? 0)
+            
         } else {
+            /// Tell central if member not moving
             peripheralManager?.requestRest(for: .notMoving)
         }
         
