@@ -5,7 +5,6 @@
 //  Created by I Gusti Ngurah Surya Ardika Dinataputra on 30/09/24.
 //
 
-
 import Foundation
 import os
 import HealthKit
@@ -15,10 +14,8 @@ import WatchConnectivity
 // MARK: - Workout session management
 //
 
-extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchos {
+extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS{
 
-    
-    
     /**
      Use healthStore.requestAuthorization to request authorization in watchOS when
      healthDataAccessRequest isn't available yet.
@@ -88,8 +85,8 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchos {
             return
         }
     }
+    
 }
-
 // MARK: - HKLiveWorkoutBuilderDelegate
 // HealthKit calls the delegate methods on an anonymous serial background queue,
 // so the methods need to be nonisolated explicitly.
