@@ -22,7 +22,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     var plan: DestinationList?
     
     /// SubViews
-    let headerView: HomeHeaderView = HomeHeaderView()
+    var headerView: HomeHeaderView = HomeHeaderView()
     lazy var hikingModeControlView: HikingModeControlView = {
         let control = HikingModeControlView(items: ["Solo", "Group"])
         control.selectedSegmentIndex = 0
@@ -123,7 +123,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         hikingModeControlView.addTarget(self, action: #selector(onHikingModeControlValueChanged), for: .valueChanged)
         
         hikingModeControlView.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.bottom).offset(24)
+            make.top.equalTo((headerView.snp.bottom)).offset(24)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalTo(46)
@@ -200,7 +200,3 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         self.present(navVC, animated: true)
     }
 }
-
-//#Preview(traits: .defaultLayout, body: {
-//    Container.shared.resolve(HomeVC.self) ?? SplashScreen()
-//})

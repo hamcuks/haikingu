@@ -43,7 +43,7 @@ class HikingSessionVC: UIViewController {
     }()
     
     /// managers
-    var workoutManager: WorkoutServiceIos?
+    var workoutManager: WorkoutServiceIos!
     
     init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?) {
         super.init(nibName: nil, bundle: nil)
@@ -71,7 +71,7 @@ class HikingSessionVC: UIViewController {
         
         footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
         
-        timeElapsed = TimeElapsedView(workoutManager: workoutManager!)
+        timeElapsed = TimeElapsedView(workoutManager: workoutManager)
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
@@ -104,6 +104,9 @@ class HikingSessionVC: UIViewController {
         view.addSubview(horizontalStack)
         
         horizontalStack.addArrangedSubview(actionButton)
+        
+        timeElapsed.layer.borderColor = UIColor.black.cgColor
+        timeElapsed.layer.borderWidth = 1
         
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
@@ -196,7 +199,7 @@ class HikingSessionVC: UIViewController {
         navigationController?.pushViewController(finishVC, animated: true)
     }
     
-    func checkDistance(){
+    func checkDistance() {
         if Double(destinationDetail.trackLength) == workoutManager?.distance {
 //            timeElapsed.stopStopwatch()
             // MARK: Pause Timer 

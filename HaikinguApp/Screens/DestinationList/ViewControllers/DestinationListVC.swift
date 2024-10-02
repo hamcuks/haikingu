@@ -56,7 +56,7 @@ class DestinationListVC: UIViewController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview().inset(30)
-            make.height.equalTo(500)
+            make.bottom.equalTo(selectButton.snp.top).inset(-100)
         }
         
         selectButton.snp.makeConstraints { make in
