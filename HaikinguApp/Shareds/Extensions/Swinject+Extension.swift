@@ -69,6 +69,13 @@ extension Container {
             return viewController
         }
         
+        container.register(HikingSessionVC.self) { resolver in
+            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
+            let userDeafultManager = resolver.resolve(UserDefaultService.self)
+            let viewController = HikingSessionVC(workoutManager: workoutManager, userDefaultManager: userDeafultManager)
+            return viewController
+        }
+        
         return container
     }()
 }

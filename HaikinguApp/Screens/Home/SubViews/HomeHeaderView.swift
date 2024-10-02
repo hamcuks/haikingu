@@ -57,7 +57,7 @@ class HomeHeaderView: UIStackView {
     }
     
     func setUserName(_ name: String, _ photo: UIImage?) {
-        nameLabel.text = name
+        nameLabel.text = "Hi, \(name)!"
         avatarView.image = photo
     }
     

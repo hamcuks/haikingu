@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 import Swinject
-
+ 
 class DetailDestinationVC: UIViewController {
     
     /// Managers
@@ -198,16 +198,18 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
         
         guard let userLocation = userLocation else { return print("User Location is Unavailable")}
         let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
-        let maximumDistance = 200.0
+        let maximumDistance = 500.0
         
         if rangeDistance < maximumDistance {
-            print("Disctance is less than maximum distance: \(rangeDistance)")
-            let hikingSessionVC = HikingSessionVC()
+            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+            hikingSessionVC.destinationDetail = selectedDestination
             navigationController?.pushViewController(hikingSessionVC, animated: true)
+            print("Disctance is less than maximum distance: \(rangeDistance)")
         } else {
-            alertNotRange.showAlert(on: self)
-//            let hikingSessionVC = HikingSessionVC()
-//            navigationController?.pushViewController(hikingSessionVC, animated: true)
+//            alertNotRange.showAlert(on: self)
+            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+            hikingSessionVC.destinationDetail = selectedDestination
+            navigationController?.pushViewController(hikingSessionVC, animated: true)
             print("Distance is greater than maximum distance: \(rangeDistance)")
         }
         
