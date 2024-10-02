@@ -207,6 +207,10 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
+    func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
+        //
+    }
+    
     func didUpdateHeartRate(_ heartRate: Double) {
         print("heart rate")
         

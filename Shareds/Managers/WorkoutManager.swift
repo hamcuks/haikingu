@@ -16,6 +16,7 @@ protocol WorkoutDelegate: AnyObject{
     func didUpdateHeartRate(_ heartRate: Double)
     func didUpdateDistance(_ distance: Double)
     func didUpdateSpeed(_ speed: Double)
+    func didUpdateRemainingTime(_ remainingTime: TimeInterval)
 }
 
 enum TimingState{
@@ -37,7 +38,7 @@ class WorkoutManager: NSObject, ObservableObject {
     
     @Published var remainingTime: TimeInterval = 0{
         didSet{
-            print(remainingTime)
+            delegate?.didUpdateRemainingTime(remainingTime)
         }
     }
     var timer: Timer?
@@ -187,6 +188,9 @@ class WorkoutManager: NSObject, ObservableObject {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
                     self?.updateRemainingTime()
+#if os(watchOS)
+                self?.sendRemainingTimeToiPhone()
+#endif
                     
             }
 
@@ -246,6 +250,11 @@ class WorkoutManager: NSObject, ObservableObject {
     func updateSpeed(to newSpeed: Double) {
             speed = newSpeed
         self.delegate?.didUpdateSpeed(speed)
+        }
+    
+    func updateRemainingTime(to newRemainingTime: Double) {
+        remainingTime = newRemainingTime
+        self.delegate?.didUpdateRemainingTime(remainingTime)
         }
 }
 
