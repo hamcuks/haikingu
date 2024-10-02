@@ -9,27 +9,40 @@ import Foundation
 import Swinject
 
 extension HomeVC: PeripheralBLEManagerDelegate {
-    func peripheralBLEManagerDidReceiveInvitation(from invitor: Hiker, plan: String) {
-        self.showInvitationSheet(from: invitor)
-        
-    }
-    
-    func peripheralBLEManager(didReceivePlanData planId: Int) {
-        print("receive plan id: ", planId)
-        
-        guard let viewController = Container.shared.resolve(DestinationListVC.self) else {
+    func peripheralBLEManager(didUpdateHikingState state: HikingStateEnum) {
+        guard let viewController = Container.shared.resolve(HikingSessionVC.self) else {
             return
         }
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func peripheralBLEManager(didDisconnect hiker: Hiker) {
+    func peripheralBLEManagerDidReceiveInvitation(from invitor: Hiker, plan: String) {
+        self.showInvitationSheet(from: invitor)
+        
     }
     
-#warning("tambahin didNewHikerJoined")
+    func peripheralBLEManager(didReceivePlanData plan: String) {
+        print("receive plan id: ", plan)
+        
+        guard let viewController = Container.shared.resolve(DetailDestinationVC.self) else {
+            return
+        }
+        
+        guard let plan = DestinationList(rawValue: plan) else { return }
+        
+        viewController.selectedDestination = plan.destinationSelected
+        viewController.selectedPlan = plan
+        viewController.role = .member
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func peripheralBLEManager(didDisconnect hiker: Hiker) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum) {
-        #warning("implement rest req with json data")
         self.notificationManager?.requestRest(for: type, name: nil)
     }
     

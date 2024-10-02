@@ -18,7 +18,7 @@ struct DestinationModel: Identifiable {
     var maxElevation: Int
 }
 
-enum DestinationList: CaseIterable {
+enum DestinationList: String, CaseIterable {
     case bintanBesarMountains
     case jantanMountain
     case bidadariLake
@@ -146,3 +146,4 @@ enum DestinationList: CaseIterable {
     }
     
 }
+

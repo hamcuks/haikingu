@@ -8,7 +8,8 @@
 import UIKit
 
 protocol HikerGridViewDelegate: AnyObject {
-    func didSelectHiker(_ hiker: Hiker)
+    func didConnectHiker(_ hiker: Hiker)
+    func didDisconnectHiker(_ hiker: Hiker)
 }
 
 class HikerGridView: UIView {
@@ -124,7 +125,14 @@ extension HikerGridView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item    = hikers[indexPath.item]
         
-        self.delegate?.didSelectHiker(item)
+        if item.state == .notJoined {
+            self.delegate?.didConnectHiker(item)
+        }
+        
+        print(item.state)
+        if item.state == .joined {
+            self.delegate?.didDisconnectHiker(item)
+        }
     }
     
 }

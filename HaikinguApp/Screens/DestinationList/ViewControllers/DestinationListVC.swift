@@ -11,6 +11,7 @@ import Swinject
 class DestinationListVC: UIViewController {
     
     private var destinationArray = DestinationList.allCases
+    private var selectedPlan: DestinationList?
     
     private var selectButton: PrimaryButton = PrimaryButton(label: "Select Destination")
     
@@ -71,6 +72,7 @@ class DestinationListVC: UIViewController {
         print("Select Destination is \(selectedDestination)")
         guard let destinationDetailVC = Container.shared.resolve(DetailDestinationVC.self) else { return }
         destinationDetailVC.selectedDestination = selectedDestination
+        destinationDetailVC.selectedPlan = selectedPlan
         navigationController?.pushViewController(destinationDetailVC, animated: true)
     }
 
@@ -98,6 +100,7 @@ extension DestinationListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedDestination = destinationArray[indexPath.row].destinationSelected
         selectButton.isEnabled = true
+        selectedPlan = destinationArray[indexPath.row]
         
         let cell = tableView.cellForRow(at: indexPath) as? HikingCell
         
