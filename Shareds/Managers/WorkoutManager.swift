@@ -12,15 +12,22 @@ import CoreMotion
 import WatchConnectivity
 import Combine
 
+protocol WorkoutDelegate: AnyObject{
+    func didUpdateHeartRate(_ heartRate: Double)
+    func didUpdateDistance(_ distance: Double)
+}
+
+
 class WorkoutManager: NSObject, ObservableObject {
-
+    
+    weak var delegate: WorkoutDelegate?
     let pedometerManager = CMPedometer()
-
+    
     struct SessionStateChange {
         let newState: HKWorkoutSessionState
         let date: Date
     }
-
+    
     @Published var remainingTime: TimeInterval = 0
     var timer: Timer?
     var endTime: Date?
@@ -31,10 +38,10 @@ class WorkoutManager: NSObject, ObservableObject {
     var maxHeartRate: Int?
     @Published var heartRate: Double = 0 {
         didSet {
+            delegate?.didUpdateHeartRate(heartRate)
             if isPersonTired() {
                 print("Ini orang sudah lelah, send notif")
             } else {
-                print(heartRate)
                 print("Ini orang masih chill, lanjut jalan")
             }
         }
@@ -42,7 +49,12 @@ class WorkoutManager: NSObject, ObservableObject {
 
     @Published var activeEnergy: Double = 0
     @Published var speed: Double = 0
-    @Published var distance: Double = 0
+    @Published var distance: Double = 0 {
+        didSet {
+            delegate?.didUpdateDistance(distance)
+            print("\(distance) meter")
+        }
+    }
     @Published var elapsedTimeInterval: TimeInterval = 0
     @Published var workout: HKWorkout?
 
@@ -195,6 +207,15 @@ class WorkoutManager: NSObject, ObservableObject {
         remainingTime = 0
         endTime = nil
     }
+    
+    func updateHeartRate(to newRate: Double) {
+            heartRate = newRate
+        }
+        
+    func updateDistance(to newDistance: Double) {
+            distance = newDistance
+        }
+    
 }
 
 // MARK: - Workout session management
@@ -232,7 +253,7 @@ extension WorkoutManager {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: .minute())
                 self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-
+                
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
                 self.activeEnergy = statistics.sumQuantity()?.doubleValue(for: energyUnit) ?? 0
@@ -240,7 +261,7 @@ extension WorkoutManager {
             case HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning):
                 let meterUnit = HKUnit.meter()
                 self.distance = statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0
-
+                
             default:
                 return
             }
@@ -304,4 +325,7 @@ extension HKWorkoutSessionState {
         self != .notStarted && self != .ended
     }
 }
+
+
+
 

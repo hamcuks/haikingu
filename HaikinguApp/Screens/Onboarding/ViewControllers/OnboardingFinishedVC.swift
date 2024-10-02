@@ -10,6 +10,9 @@ import SnapKit
 import HealthKit
 
 class OnboardingFinishedVC: UIViewController {
+    
+    ///managers
+    var userDefaultManager: UserDefaultService?
 
     // UI Components
     let imageView = UIImageView()
@@ -19,6 +22,15 @@ class OnboardingFinishedVC: UIViewController {
 
     // HealthKit store for requesting health data
     let healthStore = HKHealthStore()
+    
+    init(userDefault: UserDefaultService?) {
+        super.init(nibName: nil, bundle: nil)
+        self.userDefaultManager = userDefault
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +50,6 @@ class OnboardingFinishedVC: UIViewController {
         }
 
         // Title Label
-        titleLabel.text = "You’re All Set, Fitra!"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .black
@@ -63,6 +74,21 @@ class OnboardingFinishedVC: UIViewController {
 
         // Setup Constraints
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let userData = userDefaultManager?.getUserData() {
+                // Perbarui UI berdasarkan data user
+                updateUserInterface(with: userData)
+        }
+        
+    }
+    
+    private func updateUserInterface(with user: User) {
+        // Perbarui nama pada header view (misalnya jika ada label nama di header)
+        titleLabel.text = "You’re All Set, \(user.name)!"
     }
 
     func setupConstraints() {

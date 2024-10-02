@@ -12,9 +12,8 @@ import UserNotifications
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var isFirstUser: Bool {
-//        UserDefaults.standard.set(true, forKey: "isFirstUser")
-        return UserDefaults.standard.bool(forKey: "isFirstUser")
+    var isReturningUser: Bool {
+        return UserDefaults.standard.bool(forKey: "isReturningUser")
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -22,16 +21,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
+        window.overrideUserInterfaceStyle = .light
         
-        if isFirstUser {
+        if isReturningUser {
+            guard let homeVC = Container.shared.resolve(HomeVC.self) else { return }
+            let navController = UINavigationController(rootViewController: homeVC)
+            window.rootViewController = navController
+            
+        } else {
             let onboardingVC = OnboardingIntroductionVC()
             let navController = UINavigationController(rootViewController: onboardingVC)
             window.rootViewController = navController
             
-        } else {
-            guard let homeVC = Container.shared.resolve(HomeVC.self) else { return }
-            let navController = UINavigationController(rootViewController: homeVC)
-            window.rootViewController = navController
         }
         
         window.makeKeyAndVisible()
@@ -46,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func markFirstUserComplete() {
-        UserDefaults.standard.set(false, forKey: "isFirstUser")
+        UserDefaults.standard.set(true, forKey: "isReturningUser")
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
