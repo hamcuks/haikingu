@@ -22,6 +22,7 @@ protocol WorkoutServiceWatchOS{
     var delegate: WorkoutDelegate? { get set }
     var builder: HKLiveWorkoutBuilder? { get set }
     var session: HKWorkoutSession? { get set }
+    var whatToDo: TimingState { get set }
     
     func resetWorkout()
     func requestAuthorization()
