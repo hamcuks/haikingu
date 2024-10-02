@@ -13,6 +13,10 @@ import WatchConnectivity
 // MARK: - Workout session management
 //
 extension WorkoutManager: WorkoutServiceIos {
+    func setDelegate(_ delegate: any WorkoutDelegate) {
+        self.delegate = delegate
+    }
+    
     
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws {
         let configuration = HKWorkoutConfiguration()
@@ -76,6 +80,7 @@ extension WorkoutManager: WCSessionDelegate{
             DispatchQueue.main.async {
                 self.speed = speed
                 self.updateSpeed(to: speed)
+                self.delegate?.didUpdateSpeed(speed)
             }
         } else if let remaining = message["timerStart"] as? TimeInterval {
             DispatchQueue.main.async {

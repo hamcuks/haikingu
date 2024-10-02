@@ -46,12 +46,12 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     lazy var startButton: PrimaryButton = PrimaryButton(label: "Start Hiking")
     
     /// Constructors
-    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDeafultManager: UserDefaultService?) {
+    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDefaultManager: UserDefaultService?) {
         super.init(nibName: nil, bundle: nil)
         
         self.peripheralManager = peripheralManager
         self.notificationManager = notificationManager
-        self.userDefaultManager = userDeafultManager
+        self.userDefaultManager = userDefaultManager
     }
     
     required init?(coder: NSCoder) {

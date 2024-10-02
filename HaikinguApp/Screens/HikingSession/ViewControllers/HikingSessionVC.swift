@@ -26,6 +26,7 @@ class HikingSessionVC: UIViewController {
     /// Managers
     var peripheralManager: PeripheralBLEService?
     var centralManager: CentralBLEService?
+    var userDefaultManager: UserDefaultService?
     
     var naismithTime: Double?
     var iconButton: String = {
@@ -43,7 +44,6 @@ class HikingSessionVC: UIViewController {
     
     /// managers
     var workoutManager: WorkoutServiceIos?
-    var userDefaultManager: UserDefaultService?
     
     init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?) {
         super.init(nibName: nil, bundle: nil)
@@ -72,6 +72,8 @@ class HikingSessionVC: UIViewController {
         bodyView = BodyView(backgroundCircleColor: .clear)
         timeElapsed = TimeElapsedView(value: "00.32.31,59")
         actionButton = IconButton(imageIcon: "\(iconButton)")
+        
+        self.workoutManager?.setDelegate(self)
         
         configureUI()
         
@@ -195,4 +197,40 @@ extension HikingSessionVC: HikingSessionVCDelegate {
         print("Current Hiking State: \(state.rawValue)")
     }
 
+}
+
+extension HikingSessionVC: WorkoutDelegate {
+    func didUpdateHeartRate(_ heartRate: Double) {
+        print("heart rate")
+        
+        if workoutManager?.isPersonTired() ?? false {
+            self.peripheralManager?.requestRest(for: .abnormalBpm)
+        } else {
+            self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
+        }
+    }
+    
+    func didUpdateDistance(_ distance: Double) {
+        
+        if Double(destinationDetail.trackLength) == workoutManager?.distance {
+            // MARK: Logic stop workout manager then go to congrats vc
+        }
+        
+    }
+    
+    func didUpdateSpeed(_ speed: Double) {
+        naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: speed)
+        
+        guard speed < 0.2 else { return }
+        
+        guard let userData = userDefaultManager?.getUserData() else { return }
+        
+        if userData.role == .leader {
+            centralManager?.requestRest(for: .notMoving, exclude: nil)
+        } else {
+            peripheralManager?.requestRest(for: .notMoving)
+        }
+        
+    }
+    
 }

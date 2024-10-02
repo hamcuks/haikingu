@@ -36,7 +36,7 @@ extension Container {
             let notificationManager = resolver.resolve(NotificationService.self)
             let userDefaultManager = resolver.resolve(UserDefaultService.self)
             
-            let viewController = HomeVC(peripheralManager: peripheralManager, notificationManager: notificationManager, userDeafultManager: userDefaultManager)
+            let viewController = HomeVC(peripheralManager: peripheralManager, notificationManager: notificationManager, userDefaultManager: userDefaultManager)
             
             return viewController
         }

@@ -18,7 +18,6 @@ protocol WorkoutDelegate: AnyObject{
     func didUpdateSpeed(_ speed: Double)
 }
 
-
 class WorkoutManager: NSObject, ObservableObject {
     
     weak var delegate: WorkoutDelegate?
@@ -223,14 +222,17 @@ class WorkoutManager: NSObject, ObservableObject {
     
     func updateHeartRate(to newRate: Double) {
             heartRate = newRate
+        self.delegate?.didUpdateHeartRate(newRate)
         }
         
     func updateDistance(to newDistance: Double) {
             distance = newDistance
+        self.delegate?.didUpdateDistance(distance)
         }
     
     func updateSpeed(to newSpeed: Double) {
             speed = newSpeed
+        self.delegate?.didUpdateSpeed(speed)
         }
 }
 
