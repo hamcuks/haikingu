@@ -12,7 +12,7 @@ import CoreMotion
 import WatchConnectivity
 import Combine
 
-protocol WorkoutDelegate: AnyObject{
+protocol WorkoutDelegate: AnyObject {
     func didUpdateHeartRate(_ heartRate: Double)
     func didUpdateDistance(_ distance: Double)
     func didUpdateSpeed(_ speed: Double)
@@ -21,7 +21,7 @@ protocol WorkoutDelegate: AnyObject{
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval)
 }
 
-enum TimingState{
+enum TimingState {
     case timeToWalk
     case timeToRest
 }
@@ -38,7 +38,7 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
-    @Published var remainingTime: TimeInterval = 0{
+    @Published var remainingTime: TimeInterval = 0 {
         didSet{
             delegate?.didUpdateRemainingTime(remainingTime)
         }
@@ -50,6 +50,7 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var whatToDo: TimingState = .timeToWalk {
         didSet {
             delegate?.didUpdateWhatToDo(whatToDo)
+            print("ini to do: \(whatToDo)")
         }
     }
     @Published var sessionState: HKWorkoutSessionState = .notStarted
@@ -210,19 +211,23 @@ class WorkoutManager: NSObject, ObservableObject {
     func updateRemainingTime() {
         guard let endTime = endTime else { return }
         remainingTime = max(endTime.timeIntervalSinceNow, 0)
-        if remainingTime == 0 && whatToDo == .timeToWalk{
+        if remainingTime == 0 && whatToDo == .timeToWalk {
             timer?.invalidate()
             timer = nil
-            whatToDo = .timeToRest
-            updateWhatToDo(to: whatToDo)
+            updateWhatToDo(to: .timeToRest)
             delegate?.didUpdateWhatToDo(whatToDo)
+#if os(watchOS)
+            sendWhatToDoToiPhone()
+#endif
             startTimer(with: 600, startDate: Date())
-        } else if remainingTime == 0 && whatToDo == .timeToRest{
+        } else if remainingTime == 0 && whatToDo == .timeToRest {
             timer?.invalidate()
             timer = nil
-            whatToDo = .timeToWalk
-            updateWhatToDo(to: whatToDo)
+            updateWhatToDo(to: .timeToWalk)
             delegate?.didUpdateWhatToDo(whatToDo)
+#if os(watchOS)
+            sendWhatToDoToiPhone()
+#endif
             startTimer(with: 1500, startDate: Date())
         }
     }
@@ -391,7 +396,3 @@ extension HKWorkoutSessionState {
         self != .notStarted && self != .ended
     }
 }
-
-
-
-
