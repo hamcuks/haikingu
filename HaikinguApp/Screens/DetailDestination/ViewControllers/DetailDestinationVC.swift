@@ -195,22 +195,22 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     @objc
     private func actionButton() {
         
-        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
-        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
-        let maximumDistance = 500.0
-        
-        if rangeDistance < maximumDistance {
-            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
-            hikingSessionVC.destinationDetail = selectedDestination
-            navigationController?.pushViewController(hikingSessionVC, animated: true)
-            print("Distance is greater than maximum distance: \(rangeDistance)")
-            
-            self.centralManager?.updateHikingState(for: .started)
-        } else {
-            alertNotRange.showAlert(on: self)
-           
-        }
-        
+//        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
+//        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
+//        let maximumDistance = 500.0
+//        
+//        if rangeDistance < maximumDistance {
+//            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+//            hikingSessionVC.destinationDetail = selectedDestination
+//            navigationController?.pushViewController(hikingSessionVC, animated: true)
+//            print("Distance is greater than maximum distance: \(rangeDistance)")
+//            
+//            self.centralManager?.updateHikingState(for: .started)
+//        } else {
+//            alertNotRange.showAlert(on: self)
+//           
+//        }
+        self.centralManager?.updateHikingState(for: .started)
     }
     
     private func checkInRangeDestination(currentLocation: CLLocation) -> CLLocationDistance {

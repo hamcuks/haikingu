@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol HikingSessionVCDelegate: AnyObject {
+    func didReceivedHikingState(_ state: HikingStateEnum)
+}
+
 class HikingSessionVC: UIViewController {
     
     var headerView: HeaderView!
@@ -180,5 +184,14 @@ class HikingSessionVC: UIViewController {
 //        guard let finishVC = Container.shared.resolve(CongratsVC().self) else { return }
 //        navigationController?.pushViewController(finishVC, animated: true)
     }
+    
+}
+
+extension HikingSessionVC: HikingSessionVCDelegate {
+    func didReceivedHikingState(_ state: HikingStateEnum) {
+        /// Update label based on state
+        print("Current Hiking State: \(state.rawValue)")
+    }
+    
     
 }

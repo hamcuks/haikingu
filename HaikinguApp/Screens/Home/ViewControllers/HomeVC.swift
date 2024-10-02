@@ -15,6 +15,9 @@ class HomeVC: UIViewController {
     var notificationManager: NotificationService?
     var userDefaultManager: UserDefaultService?
     
+    /// Delegates
+    var hikingSessionDelegate: HikingSessionVCDelegate?
+    
     var plan: DestinationList?
     
     /// SubViews
