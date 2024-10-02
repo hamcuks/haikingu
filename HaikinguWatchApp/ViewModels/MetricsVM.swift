@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-class MetricsVM: ObservableObject {
-    @Published var workoutManager: WorkoutServiceWatchos?
+class MetricsVM: ObservableObject, WorkoutDelegate {
     
+    
+    @Published var heartRate: Double = 0
+    @Published var distance: Double = 0
+    @Published var workoutManager: WorkoutServiceWatchOS?
+    
+//    @Inject var workoutManagerBehind: WorkoutServiceWatchos
     
     //Metric Stuff
     @Published var stopwatchTimer: Timer = Timer()
@@ -27,7 +32,16 @@ class MetricsVM: ObservableObject {
     @Published var isLeadEndTapped: Bool = false //For Leader
     @Published var isMemberRequestRest: Bool = false //For Member
     
-    init (workoutManager: WorkoutServiceWatchos?){
+    init (workoutManager: WorkoutServiceWatchOS?){
         self.workoutManager = workoutManager
+        self.workoutManager?.delegate = self
+    }
+    
+    func didUpdateHeartRate(_ heartRate: Double) {
+        self.heartRate = heartRate
+    }
+    
+    func didUpdateDistance(_ distance: Double) {
+        self.distance = distance
     }
 }

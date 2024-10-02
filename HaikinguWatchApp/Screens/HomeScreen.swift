@@ -43,7 +43,7 @@ struct HomeScreen: View {
                     }
                 }
                 .onAppear() {
-                    homeVM.workoutManager?.requestAuthorization()
+                    homeVM.workoutManagerFunc?.requestAuthorization()
                 }
         }
     }
@@ -62,6 +62,7 @@ struct HomeScreen: View {
 struct ContentOpeningScreen: View {
     @EnvironmentObject var homeVM: HomeVM
     @EnvironmentObject var navigationServices: NavigationServices
+    @EnvironmentObject var workoutManager: WorkoutManager
   
     var body: some View {
             ZStack {
@@ -102,9 +103,9 @@ struct ContentOpeningScreen: View {
         Task {
             do {
                 let configuration = HKWorkoutConfiguration()
-                configuration.activityType = .cycling
+                configuration.activityType = .hiking
                 configuration.locationType = .outdoor
-                try await homeVM.workoutManager?.startWorkout(workoutConfiguration: configuration)
+                try await homeVM.workoutManagerFunc?.startWorkout(workoutConfiguration: configuration)
             } catch {
                 print("error bang gagal")
             }

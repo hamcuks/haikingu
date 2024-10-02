@@ -35,19 +35,20 @@ struct MetricsView: View {
 //            .border(.red)
             
             VStack(alignment: .leading, spacing: 0) {
-                HStack {
-                    Text("\(Int(metricsVM.workoutManager!.heartRate))")
-                        
-                    Image(systemName: "heart.fill")
-                        .foregroundStyle(.red)
-                        
-                }
-                .font(Font.system(size: 24, weight: .semibold))
+                    HStack {
+                        Text("\(Int(metricsVM.workoutManager!.heartRate))")
+                            
+                        Image(systemName: "heart.fill")
+                            .foregroundStyle(.red)
+                            
+                    }
+                    .font(Font.system(size: 24, weight: .semibold))
+                
 //                .border(.red)
                 
                 HKMetricBiggerText(intvalue: metricsVM.restAmount, intMeasure: "x", intDesc: "Rest taken")
 //                    .border(.green)
-                HKMetricBiggerText(intvalue: metricsVM.leftLength, intMeasure: "M", intDesc: "Left length")
+                HKMetricBiggerText(intvalue: Int(metricsVM.workoutManager!.distance), intMeasure: "M", intDesc: "Distance")
 //                    .border(.yellow)
             }
 //            Spacer()
