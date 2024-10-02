@@ -312,7 +312,7 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
             }
             
             if respond == .accepted {
-                //                self.sendHikingPlan(to: peripheral)
+                self.sendHikingPlan(to: peripheral)
             } else {
                 self.centralManager.cancelPeripheralConnection(peripheral)
             }
@@ -335,7 +335,7 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         
         #warning("todo: call delegate didDiscover setelah peripheral respond success dan terima hiking plan")
         if characteristic.isPlan {
-            var hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier })
+            let hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier })
             
             if var hiker {
                 

@@ -67,7 +67,7 @@ extension HikerBLEManager: PeripheralBLEService {
         self.planCharacteristic = planCharacteristic
         
         let planService = createService(
-            uuid: .username,
+            uuid: .plan,
             characteristics: [planCharacteristic]
         )
         peripheralManager.add(planService)
@@ -285,17 +285,16 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
             
             /// Send callback to central after received the hiking plan
             if request.characteristic.isPlan {
+                print("XXXXX")
                 guard let decodedData = String(data: data, encoding: .utf8) else {
                     return
                 }
                 
+                os_log("PeripheralManager: Received plan id: \(decodedData)")
+                
                 peripheral.respond(to: request, withResult: .success)
                 
-                guard let planId = Int(decodedData) else {
-                    return
-                }
-                
-                self.peripheralDelegate?.peripheralBLEManager(didReceivePlanData: planId)
+                self.peripheralDelegate?.peripheralBLEManager(didReceivePlanData: decodedData)
             }
             
         }

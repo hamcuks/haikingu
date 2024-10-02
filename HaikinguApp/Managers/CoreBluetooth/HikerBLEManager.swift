@@ -144,28 +144,19 @@ extension HikerBLEManager: CentralBLEService {
             "Central HikerBLEManager: Send Hiking Plan to \(peripheral.identifier)"
         )
         
-        let plan = Hiking(
-            id: UUID().uuidString,
-            name: "Bidadari Lake",
-            trackLength: 4300,
-            elevation: 97
-        )
+        let data = "bukitKandap".data(using: .utf8)
         
-        do {
-            let data = try JSONEncoder().encode(plan)
-            
-            for service in peripheral.services ?? [] where service.isUsernameService {
-                if let characteristic = service.characteristics?.first {
-                    peripheral
-                        .writeValue(
-                            data,
-                            for: characteristic,
-                            type: .withResponse
-                        )
-                }
+        guard let data else { return }
+        
+        for service in peripheral.services ?? [] where service.isPlanService {
+            if let characteristic = service.characteristics?.first {
+                peripheral
+                    .writeValue(
+                        data,
+                        for: characteristic,
+                        type: .withResponse
+                    )
             }
-        } catch {
-            print(error.localizedDescription)
         }
     }
     
