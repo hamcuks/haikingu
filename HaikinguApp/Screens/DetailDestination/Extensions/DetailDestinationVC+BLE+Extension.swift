@@ -14,14 +14,17 @@ extension DetailDestinationVC: CentralBLEManagerDelegate {
     
     func centralBLEManager(didDiscover hikers: Set<Hiker>) {
         self.addFriendDelegate?.didReceiveNearbyHikers(hikers)
+        
     }
     
     func centralBLEManager(didConnect hiker: Hiker) {
         print("DetailDestinationVC didConnect: ", hiker.name)
+        self.teamView?.setupProfileStack(hiker: hiker)
     }
     
     func centralBLEManager(didDisconnect hiker: Hiker) {
         print("DetailDestinationVC didDisconnect: ", hiker.name)
+        self.teamView?.removeHiker(hiker: hiker)
     }
     
     func centralBLEManager(didReceiveRequestForRest restType: TypeOfRestEnum, from hiker: Hiker) {

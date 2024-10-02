@@ -51,10 +51,12 @@ class TeamsView: UIView {
         let horizontal = UIStackView()
         horizontal.axis = .horizontal
         horizontal.spacing = 5
-        horizontal.distribution = .fillProportionally
+        horizontal.distribution = .fill
         horizontal.alignment = .leading
         return horizontal
     }()
+    
+    var items: [Hiker] = []
     
     init(action: Selector) {
         super.init(frame: .zero)
@@ -67,12 +69,9 @@ class TeamsView: UIView {
     
     private func configure(action: Selector) {
         
-        yourTeamLabel.text = "Your team (1/5)"
+        yourTeamLabel.text = "Your team (0/5)"
         
         addSubview(verticalStack)
-        
-//        verticalStack.layer.borderColor = UIColor.black.cgColor
-//        verticalStack.layer.borderWidth = 1
         
         horizontalStack.addArrangedSubview(yourTeamLabel)
         horizontalStack.addArrangedSubview(addFriendsButton)
@@ -81,8 +80,6 @@ class TeamsView: UIView {
         verticalStack.addArrangedSubview(roundedRectangleView)
         
         addFriendsButton.addTarget(nil, action: action, for: .touchUpInside)
-        
-        setupProfileStack()
         
         verticalStack.snp.makeConstraints { make in
             make.edges.equalToSuperview() // Add padding around verticalStack
@@ -98,27 +95,29 @@ class TeamsView: UIView {
         horizontalPersonStack.snp.makeConstraints { make in
             make.leading.equalTo(roundedRectangleView.snp.leading).inset(8)
             make.trailing.equalTo(roundedRectangleView.snp.trailing).offset(-8)
-            make.top.equalTo(roundedRectangleView.snp.top).inset(12)
-            make.bottom.equalTo(roundedRectangleView.snp.bottom).offset(-12)
+            make.height.equalTo(108)
         }
-        
-//        horizontalPersonStack.layer.borderColor = UIColor.red.cgColor
-//        horizontalPersonStack.layer.borderWidth = 1
-                
     }
     
-    func setupProfileStack() {
-//        let person1: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 1")
-//        let person2: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 2")
-//        let person3: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 3")
-//        let person4: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 4")
-//        let person5: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 5")
-//        
-//        horizontalPersonStack.addArrangedSubview(person1)
-//        horizontalPersonStack.addArrangedSubview(person2)
-//        horizontalPersonStack.addArrangedSubview(person3)
-//        horizontalPersonStack.addArrangedSubview(person4)
-//        horizontalPersonStack.addArrangedSubview(person5)
+    func setupProfileStack(hiker: Hiker) {
+        
+        let person = PersonImageView()
+        person.setData(image: "", name: hiker.name, state: .notJoined)
+        items.append(hiker)
+        yourTeamLabel.text = "Your team (\(items.count)/5)"
+        
+        horizontalPersonStack.addArrangedSubview(person)
+    }
+    
+    func removeHiker(hiker: Hiker) {
+        
+        let person = PersonImageView()
+        person.setData(image: "", name: hiker.name, state: .notJoined)
+        
+        items.removeAll(where: { $0.id == hiker.id })
+        yourTeamLabel.text = "Your team (\(items.count)/5)"
+        
+        horizontalPersonStack.removeArrangedSubview(person)
     }
 
 }

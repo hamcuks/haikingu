@@ -107,6 +107,19 @@ extension HikerBLEManager: CentralBLEService {
         }
     }
     
+    func disconnect(to hiker: Hiker) {
+        
+        if let peripheral = self.discoveredPeripherals.first(
+            where: { $0.identifier == hiker.id
+            }) {
+            os_log(
+                "Central HikerBLEManager: Attempt to connect to: \(hiker.name)"
+            )
+            
+            self.centralManager.cancelPeripheralConnection(peripheral)
+        }
+    }
+    
     func sendHikingInvitation(to peripheral: CBPeripheral, for plan: String) {
         os_log("Central HikerBLEManager: Send Hiking Invitation to \(peripheral.identifier)")
         

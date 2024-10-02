@@ -135,27 +135,9 @@ class DetailDestinationVC: UIViewController {
         horizontalStack.addArrangedSubview(estTimeDetail)
         horizontalStack.addArrangedSubview(elevationDetail)
         horizontalStack.addArrangedSubview(trackDetail)
-//        view.addSubview(horizontalStack)
-//        
-//        horizontalStack.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            make.leading.trailing.equalToSuperview().inset(16)
-//        }
         
         teamView = TeamsView(action: #selector(teamAction))
         teamView.isHidden = self.role == .member
-//        view.addSubview(teamView)
-//        
-//        teamView.snp.makeConstraints { make in
-//            make.top.equalTo(horizontalStack.snp.bottom).offset(12)
-//            make.leading.trailing.equalTo(horizontalStack)
-//        }
-        
-//        view.addSubview(assetsImage)
-//        assetsImage.snp.makeConstraints { make in
-//            make.top.equalTo(teamView.snp.bottom).offset(24)
-//            make.leading.trailing.equalTo(horizontalStack)
-//        }
         
         let stack = UIStackView(arrangedSubviews: [horizontalStack, teamView, assetsImage])
         stack.axis = .vertical

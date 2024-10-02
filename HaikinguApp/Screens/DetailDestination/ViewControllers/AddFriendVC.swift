@@ -93,7 +93,12 @@ extension AddFriendVC: AddFriendVCDelegate {
 }
 
 extension AddFriendVC: HikerGridViewDelegate {
-    func didSelectHiker(_ hiker: Hiker) {
+    func didDisconnectHiker(_ hiker: Hiker) {
+        print("didDisconnectHiker")
+        self.manager?.disconnect(to: hiker)
+    }
+    
+    func didConnectHiker(_ hiker: Hiker) {
         self.manager?.connect(to: hiker, plan: "")
     }
     
