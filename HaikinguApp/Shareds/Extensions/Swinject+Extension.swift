@@ -44,8 +44,9 @@ extension Container {
         container.register(DetailDestinationVC.self) { resolver in
             
             let centralManager = resolver.resolve(CentralBLEService.self)
+            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
             
-            let viewController = DetailDestinationVC(centralManager: centralManager)
+            let viewController = DetailDestinationVC(centralManager: centralManager, workoutManager: workoutManager)
             
             return viewController
         }

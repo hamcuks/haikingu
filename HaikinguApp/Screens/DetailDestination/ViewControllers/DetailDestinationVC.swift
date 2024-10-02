@@ -18,6 +18,7 @@ class DetailDestinationVC: UIViewController {
     
     /// Managers
     var centralManager: CentralBLEService?
+    var workoutManager: WorkoutServiceIos?
     
     /// Delegates
     internal var addFriendDelegate: AddFriendVCDelegate?
@@ -73,9 +74,10 @@ class DetailDestinationVC: UIViewController {
     
     private var selectButton: PrimaryButton = PrimaryButton(label: "Let’s Go!")
     
-    init(centralManager: CentralBLEService?) {
+    init(centralManager: CentralBLEService?, workoutManager: WorkoutServiceIos?) {
         super.init(nibName: nil, bundle: nil)
         
+        self.workoutManager = workoutManager
         self.centralManager = centralManager
     }
     
@@ -87,6 +89,7 @@ class DetailDestinationVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.centralManager?.setDelegate(self)
+        
         
     }
     

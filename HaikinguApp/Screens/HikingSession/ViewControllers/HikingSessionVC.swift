@@ -58,12 +58,19 @@ class HikingSessionVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.workoutManager?.retrieveRemoteSession()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
         footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
+        
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
@@ -220,6 +227,8 @@ extension HikingSessionVC: WorkoutDelegate {
     
     func didUpdateSpeed(_ speed: Double) {
         naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: speed)
+        
+        footerView.updateEstTime("\(naismithTime ?? 0)")
         
         guard speed < 0.2 else { return }
         
