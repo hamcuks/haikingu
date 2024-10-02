@@ -135,5 +135,29 @@ class HeaderView: UIView {
         let formattedTime = String(format: "%02d.%02d", minutes, seconds)
         titleLabel.text = formattedTime
     }
+    
+    func isPersonTired(_ condition: Bool?) {
+        roundedRectangleView.backgroundColor = .systemOrange
+        statusLabel.text = "STOP!"
+        titleLabel.text = "Not Moving!"
+        subtitleLabel.text = "Check your friends doing!"
+        
+    }
+    
+    func isPersonLost(_ condition: Bool?) {
+        roundedRectangleView.backgroundColor = .systemOrange
+        statusLabel.text = "STOP!"
+        titleLabel.text = "Lost Friend!"
+        subtitleLabel.text = "Re-check your friend!"
+        
+    }
+    
+    func isBPMHigh(_ condition: Bool?) {
+        roundedRectangleView.backgroundColor = .systemOrange
+        statusLabel.text = "STOP!"
+        titleLabel.text = "BPM Alert!!!"
+        subtitleLabel.text = "Your friends BPM is high. Take a rest immediately!"
+        
+    }
 
 }

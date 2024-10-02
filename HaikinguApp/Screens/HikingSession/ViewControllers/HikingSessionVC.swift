@@ -20,7 +20,7 @@ class HikingSessionVC: UIViewController {
     
     var headerView: HeaderView = HeaderView()
     var bodyView: BodyView!
-    var timeElapsed: TimeElapsedView = TimeElapsedView()
+    var timeElapsed: TimeElapsedView!
     var footerView: FooterView!
     var actionButton: IconButton!
     var endButton: IconButton = IconButton(imageIcon: "stop.fill")
@@ -66,6 +66,7 @@ class HikingSessionVC: UIViewController {
         
         workoutManager?.retrieveRemoteSession()
         headerView.configureValueState(workoutManager!.whatToDo)
+        timeElapsed.updateLabel(workoutManager!.elapsedTimeInterval)
     }
     
     override func viewDidLoad() {
@@ -76,6 +77,7 @@ class HikingSessionVC: UIViewController {
         self.workoutManager?.setDelegate(self)
         view.backgroundColor = .white
         
+        timeElapsed = TimeElapsedView(workoutManager: workoutManager!)
         bodyView = BodyView(backgroundCircleColor: .clear)
         footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
     
@@ -149,15 +151,10 @@ class HikingSessionVC: UIViewController {
     }
     
     func calculateHikingTime(distance: Double, elevationGain: Double, speed: Double) -> Double {
-        // Implementasi Naismith's Rule
-        // distance dalam meter
-        // speed dalam m/s maka dikali 3600
-        let timeForDistance = distance / (speed * 3600) // perkiraan waktu tenpa elevasi dimana speed itu didapet dari current pace dan idealnya 4000m/jam
-        let timeForElevation = elevationGain / 600 // menambahkan 1 jam setiap 600 meter elevasi
-        
-        // Total waktu dalam jam
+        let timeForDistance = distance / (speed * 3600)
+        let timeForElevation = elevationGain / 600
         let totalTime = timeForDistance + timeForElevation
-        return totalTime // dalam jam
+        return totalTime
     }
     
     @objc
@@ -231,20 +228,22 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 extension HikingSessionVC: WorkoutDelegate {
     
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
-           headerView.configureValueState(whatToDo)
         print("this what to do \(whatToDo)")
+        if workoutManager?.isPersonTired() == false {
+            headerView.configureValueState(whatToDo)
+        }
     }
     
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval) {
         // tampilin di stopwatch maju
-       print("nilai elapsed time \(elapsedTimeInterval)")
-        
+        print("nilai elapsed time \(elapsedTimeInterval)")
         timeElapsed.updateLabel(elapsedTimeInterval)
-        
     }
     
     func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
-        headerView.configureValueRemaining(remainingTime)
+        if workoutManager?.isPersonTired() == false {
+            headerView.configureValueRemaining(remainingTime)
+        }
     }
     
     func didUpdateHeartRate(_ heartRate: Double) {
@@ -252,6 +251,7 @@ extension HikingSessionVC: WorkoutDelegate {
         
         if workoutManager?.isPersonTired() ?? false {
             self.peripheralManager?.requestRest(for: .abnormalBpm)
+            headerView.isPersonTired(true)
         } else {
             self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
         }
@@ -279,7 +279,7 @@ extension HikingSessionVC: WorkoutDelegate {
         
         guard let naismithTime = naismithTime else { return }
         if naismithTime.isNaN || naismithTime.isInfinite {
-            footerView.updateEstTime("calculating")
+            footerView.updateEstTime("calculate")
         } else {
             let naismithTimeInt = Int(naismithTime)
             footerView.updateEstTime("\(naismithTimeInt) min")
@@ -293,7 +293,7 @@ extension HikingSessionVC: WorkoutDelegate {
             notificationManager?.requestRest(for: .notMoving, name: nil)
             
             /// Broadcast to other member if any update est time
-            centralManager?.updateEstTime(naismithTime ?? 0)
+            centralManager?.updateEstTime(naismithTime)
             
         } else {
             /// Tell central if member not moving
