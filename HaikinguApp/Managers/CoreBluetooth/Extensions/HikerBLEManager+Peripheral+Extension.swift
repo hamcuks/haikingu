@@ -66,15 +66,22 @@ extension HikerBLEManager: PeripheralBLEService {
         )
         self.planCharacteristic = planCharacteristic
         
+        let hikingStateCharacteristic = createCharacteristic(
+            uuid: .hikingState,
+            properties: [.writeWithoutResponse, .notify],
+            value: nil,
+            permissions: [.writeable]
+        )
+        
         let planService = createService(
-            uuid: .username,
-            characteristics: [planCharacteristic]
+            uuid: .plan,
+            characteristics: [planCharacteristic, hikingStateCharacteristic]
         )
         peripheralManager.add(planService)
         
         peripheralManager.startAdvertising(
             [
-                CBAdvertisementDataLocalNameKey: username,
+                CBAdvertisementDataLocalNameKey: user?.name ?? "Unknown",
                 CBAdvertisementDataServiceUUIDsKey: [
                     notificationService.uuid,
                     usernmaeService.uuid,
@@ -289,13 +296,25 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
                     return
                 }
                 
+                os_log("PeripheralManager: Received plan id: \(decodedData)")
+                
                 peripheral.respond(to: request, withResult: .success)
                 
-                guard let planId = Int(decodedData) else {
+                self.peripheralDelegate?.peripheralBLEManager(didReceivePlanData: decodedData)
+            }
+            
+            if request.characteristic.isHikingState {
+                guard let decodedData = String(data: data, encoding: .utf8) else {
                     return
                 }
                 
-                self.peripheralDelegate?.peripheralBLEManager(didReceivePlanData: planId)
+                guard let state = HikingStateEnum(rawValue: decodedData) else {
+                    return
+                }
+                
+                os_log("PeripheralManager: Received Hiking State: \(decodedData)")
+                
+                self.peripheralDelegate?.peripheralBLEManager(didUpdateHikingState: state)
             }
             
         }

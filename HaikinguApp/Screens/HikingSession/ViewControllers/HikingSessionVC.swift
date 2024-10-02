@@ -18,6 +18,10 @@ class HikingSessionVC: UIViewController {
     var endButton: IconButton = IconButton(imageIcon: "stop.fill")
     var destinationDetail: DestinationModel!
     
+    /// Managers
+    var peripheralManager: PeripheralBLEService?
+    var centralManager: CentralBLEService?
+    
     var naismithTime: Double?
     var iconButton: String = {
         let icon: String = "play.fill"
@@ -36,11 +40,13 @@ class HikingSessionVC: UIViewController {
     var workoutManager: WorkoutServiceIos?
     var userDefaultManager: UserDefaultService?
     
-    init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?) {
+    init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?) {
         super.init(nibName: nil, bundle: nil)
         
         self.workoutManager = workoutManager
         self.userDefaultManager = userDefaultManager
+        self.peripheralManager = peripheralManager
+        self.centralManager = centralManager
     }
     
     required init?(coder: NSCoder) {
@@ -52,7 +58,7 @@ class HikingSessionVC: UIViewController {
         
         view.backgroundColor = .white
         
-        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
+//        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
         
         // Disable swipe gesture for back
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false

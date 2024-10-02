@@ -22,30 +22,37 @@ class HikerBLEManager: NSObject {
     var central: CBCentral?
     var peripheralDelegate: PeripheralBLEManagerDelegate?
     var invitor: Hiker?
+    var plan: String?
     
     var restCharacteristic: CBMutableCharacteristic?
     var invitationCharactersitic: CBMutableCharacteristic?
     var usernameCharacteristic: CBMutableCharacteristic?
     var planCharacteristic: CBMutableCharacteristic?
     
-    let username: String = UserDefaults.standard.string(
-        forKey: "username"
-    ) ?? "Unknown"
+    var userDefaultManager: UserDefaultService?
     
-    init(centralManager: CBCentralManager?) {
+    var user: User?
+    
+    init(centralManager: CBCentralManager?, userDefaultManager: UserDefaultService?) {
         super.init()
         
         print("Init - CBCentralManager")
         
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
+        self.userDefaultManager = userDefaultManager
+        
+        self.user = userDefaultManager?.getUserData()
     }
     
-    init(peripheralManager: CBPeripheralManager?) {
+    init(peripheralManager: CBPeripheralManager?, userDefaultManager: UserDefaultService?) {
         super.init()
         
         print("Init - CBPeripheralManager")
         
         self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+        self.userDefaultManager = userDefaultManager
+        
+        self.user = userDefaultManager?.getUserData()
     }
 }
 
@@ -95,7 +102,7 @@ extension HikerBLEManager: CentralBLEService {
     }
     
     func connect(to hiker: Hiker, plan: String) {
-        
+        self.plan = plan
         if let peripheral = self.discoveredPeripherals.first(
             where: { $0.identifier == hiker.id
             }) {
@@ -104,6 +111,19 @@ extension HikerBLEManager: CentralBLEService {
             )
             
             self.centralManager.connect(peripheral)
+        }
+    }
+    
+    func disconnect(to hiker: Hiker) {
+        
+        if let peripheral = self.discoveredPeripherals.first(
+            where: { $0.identifier == hiker.id
+            }) {
+            os_log(
+                "Central HikerBLEManager: Attempt to connect to: \(hiker.name)"
+            )
+            
+            self.centralManager.cancelPeripheralConnection(peripheral)
         }
     }
     
@@ -125,9 +145,11 @@ extension HikerBLEManager: CentralBLEService {
             "Central HikerBLEManager: Send Username to \(peripheral.identifier)"
         )
         
+        guard let user else { return }
+        
         for service in peripheral.services ?? [] where service.isUsernameService {
             if let characteristic = service.characteristics?.first {
-                if let data = username.data(using: .utf8) {
+                if let data = user.name.data(using: .utf8) {
                     peripheral
                         .writeValue(
                             data,
@@ -144,28 +166,47 @@ extension HikerBLEManager: CentralBLEService {
             "Central HikerBLEManager: Send Hiking Plan to \(peripheral.identifier)"
         )
         
-        let plan = Hiking(
-            id: UUID().uuidString,
-            name: "Bidadari Lake",
-            trackLength: 4300,
-            elevation: 97
+        guard let plan else { return }
+        
+        let data = plan.data(using: .utf8)
+        
+        guard let data else { return }
+        
+        for service in peripheral.services ?? [] where service.isPlanService {
+            
+            for characteristic in service.characteristics ?? [] where characteristic.isPlan {
+                peripheral
+                    .writeValue(
+                        data,
+                        for: characteristic,
+                        type: .withResponse
+                    )
+            }
+        }
+    }
+    
+    
+    func updateHikingState(for type: HikingStateEnum) {
+        os_log(
+            "Central updateHikingState: Update hiking state to: \(type.rawValue)"
         )
         
-        do {
-            let data = try JSONEncoder().encode(plan)
-            
-            for service in peripheral.services ?? [] where service.isUsernameService {
-                if let characteristic = service.characteristics?.first {
+        let data = type.rawValue.data(using: .utf8)
+        
+        guard let data else { return }
+        
+        for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
+            for service in peripheral.services ?? [] where service.isPlanService {
+                
+                for characteristic in service.characteristics ?? [] where characteristic.isHikingState {
                     peripheral
                         .writeValue(
                             data,
                             for: characteristic,
-                            type: .withResponse
+                            type: .withoutResponse
                         )
                 }
             }
-        } catch {
-            print(error.localizedDescription)
         }
     }
     
