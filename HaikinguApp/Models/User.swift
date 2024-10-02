@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct User: Codable {
+    let name: String
+    let image: String
+    let role: UserTypeEnum
+}
+
+enum UserTypeEnum: String, Codable {
+    case leader
+    case member
+}

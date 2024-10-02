@@ -12,8 +12,7 @@ import UserNotifications
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var isFirstUser: Bool {
-//        UserDefaults.standard.set(true, forKey: "isFirstUser")
+    var isReturningUser: Bool {
         return UserDefaults.standard.bool(forKey: "isFirstUser")
     }
     
@@ -23,15 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        if isFirstUser {
+        if isReturningUser {
+            guard let homeVC = Container.shared.resolve(HomeVC.self) else { return }
+            let navController = UINavigationController(rootViewController: homeVC)
+            window.rootViewController = navController
+            
+        } else {
             let onboardingVC = OnboardingIntroductionVC()
             let navController = UINavigationController(rootViewController: onboardingVC)
             window.rootViewController = navController
             
-        } else {
-            guard let homeVC = Container.shared.resolve(HomeVC.self) else { return }
-            let navController = UINavigationController(rootViewController: homeVC)
-            window.rootViewController = navController
         }
         
         window.makeKeyAndVisible()

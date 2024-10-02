@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import CoreLocation
+import Swinject
 
 class OnboardingLocationVC: UIViewController, CLLocationManagerDelegate {
 
@@ -113,7 +114,7 @@ class OnboardingLocationVC: UIViewController, CLLocationManagerDelegate {
         } else if locationManager.authorizationStatus == .denied || locationManager.authorizationStatus == .restricted {
             showLocationAccessAlert()
         } else {
-            let profileVC = OnboardingHikingProfileVC()
+            guard let profileVC = Container.shared.resolve(OnboardingHikingProfileVC.self) else { return }
             navigationController?.pushViewController(profileVC, animated: true)
         }
     }
@@ -122,7 +123,7 @@ class OnboardingLocationVC: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedWhenInUse, .authorizedAlways:
-            let profileVC = OnboardingHikingProfileVC()
+            guard let profileVC = Container.shared.resolve(OnboardingHikingProfileVC.self) else { return }
             navigationController?.pushViewController(profileVC, animated: true)
         case .denied, .restricted:
             showLocationAccessAlert()
