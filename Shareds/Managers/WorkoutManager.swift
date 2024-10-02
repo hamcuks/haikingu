@@ -28,9 +28,7 @@ enum TimingState {
 
 class WorkoutManager: NSObject, ObservableObject {
     
-    
-    
-    weak var delegate: WorkoutDelegate?
+    var delegate: WorkoutDelegate?
     let pedometerManager = CMPedometer()
     
     struct SessionStateChange {
@@ -39,7 +37,7 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     @Published var remainingTime: TimeInterval = 0 {
-        didSet{
+        didSet {
             delegate?.didUpdateRemainingTime(remainingTime)
         }
     }
@@ -168,6 +166,7 @@ class WorkoutManager: NSObject, ObservableObject {
         let elapsedTime = WorkoutElapsedTime(timeInterval: elapsedTimeInterval, date: change.date)
         if let elapsedTimeData = try? JSONEncoder().encode(elapsedTime) {
             await sendData(elapsedTimeData)
+            sendElapsedTimeToIphone()
         }
 
         guard change.newState == .stopped, let builder else {
@@ -217,7 +216,9 @@ class WorkoutManager: NSObject, ObservableObject {
             updateWhatToDo(to: .timeToRest)
             delegate?.didUpdateWhatToDo(whatToDo)
 #if os(watchOS)
-            sendWhatToDoToiPhone()
+            DispatchQueue.main.async {
+                self.sendWhatToDoRestToiPhone()
+            }
 #endif
             startTimer(with: 600, startDate: Date())
         } else if remainingTime == 0 && whatToDo == .timeToRest {
@@ -226,7 +227,9 @@ class WorkoutManager: NSObject, ObservableObject {
             updateWhatToDo(to: .timeToWalk)
             delegate?.didUpdateWhatToDo(whatToDo)
 #if os(watchOS)
-            sendWhatToDoToiPhone()
+            DispatchQueue.main.async {
+                self.sendWhatToDoWalkToiPhone()
+            }
 #endif
             startTimer(with: 1500, startDate: Date())
         }

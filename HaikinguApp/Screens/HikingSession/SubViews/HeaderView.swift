@@ -41,6 +41,7 @@ class HeaderView: UIView {
         label.font = .systemFont(ofSize: 52, weight: .bold)
         label.textColor = .black
         label.textAlignment = .center
+        label.text = "00:00"
         return label
     }()
     
@@ -49,16 +50,23 @@ class HeaderView: UIView {
         label.font = .systemFont(ofSize: 22, weight: .regular)
         label.textColor = .black
         label.textAlignment = .center
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
         return label
     }()
     
-    init(status: TimingState, value: TimeInterval) {
-        super.init(frame: .zero)
+//    init(status: TimingState, value: TimeInterval) {
+//        super.init(frame: .zero)
+//    
+////        configureValueRemaining(value)
+////        configureValueState(status)
+//        
+//        configureUI()
+//    }
     
-        configureValueRemaining(value)
-        configureValueState(status)
-        
-        self.configureUI()
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -90,18 +98,28 @@ class HeaderView: UIView {
             make.centerX.centerY.equalTo(roundedRectangleView)
         }
         
+        subtitleLabel.snp.makeConstraints { make in
+            make.width.equalTo(329)
+//            make.height.equalTo(60)
+        }
+        
     }
     
     func configureValueState(_ state: TimingState) {
         
         switch state {
+            
         case .timeToRest:
-            statusLabel.text = "Rest Time!"
-            subtitleLabel.text = "Take a rest for a while, drink your water"
+//            DispatchQueue.main.async {
+            self.statusLabel.text = "Rest Time!"
+            self.subtitleLabel.text = "Take a rest for a while, drink your water"
+//            }
             roundedRectangleView.backgroundColor = .clear
         case .timeToWalk:
-            statusLabel.text = "Keep Moving!"
-            subtitleLabel.text = "Hiking time for 1670 m"
+//            DispatchQueue.main.async {
+            self.statusLabel.text = "Keep Moving!"
+            self.subtitleLabel.text = "Hiking time for 1670 m"
+//            }
             roundedRectangleView.backgroundColor = .clear
 //        case default:
 //            statusLabel.text = "Stop!"

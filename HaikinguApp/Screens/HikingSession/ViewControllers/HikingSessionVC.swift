@@ -18,9 +18,9 @@ protocol HikingSessionVCDelegate: AnyObject {
 
 class HikingSessionVC: UIViewController {
     
-    var headerView: HeaderView!
+    var headerView: HeaderView = HeaderView()
     var bodyView: BodyView!
-    var timeElapsed: TimeElapsedView!
+    var timeElapsed: TimeElapsedView = TimeElapsedView()
     var footerView: FooterView!
     var actionButton: IconButton!
     var endButton: IconButton = IconButton(imageIcon: "stop.fill")
@@ -31,6 +31,7 @@ class HikingSessionVC: UIViewController {
     var centralManager: CentralBLEService?
     var userDefaultManager: UserDefaultService?
     var notificationManager: NotificationService?
+    var workoutManager: WorkoutServiceIos?
     
     var naismithTime: Double?
     var iconButton: String = {
@@ -45,9 +46,6 @@ class HikingSessionVC: UIViewController {
         horizontal.alignment = .center
         return horizontal
     }()
-    
-    /// managers
-    var workoutManager: WorkoutServiceIos!
     
     init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?) {
         super.init(nibName: nil, bundle: nil)
@@ -64,19 +62,20 @@ class HikingSessionVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(true)
         
-        self.workoutManager?.retrieveRemoteSession()
+        workoutManager?.retrieveRemoteSession()
+        headerView.configureValueState(workoutManager!.whatToDo)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        workoutManager?.retrieveRemoteSession()
+        
         self.workoutManager?.setDelegate(self)
         view.backgroundColor = .white
         
-        headerView = HeaderView(status: workoutManager.whatToDo, value: workoutManager!.remainingTime)
-        timeElapsed = TimeElapsedView(workoutManager: workoutManager)
         bodyView = BodyView(backgroundCircleColor: .clear)
         footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
     
@@ -88,7 +87,8 @@ class HikingSessionVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewDidAppear(true)
+        self.workoutManager?.retrieveRemoteSession()
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
@@ -229,16 +229,18 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
+    
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
-      
-        headerView.configureValueState(whatToDo)
-        
+           headerView.configureValueState(whatToDo)
         print("this what to do \(whatToDo)")
     }
     
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval) {
         // tampilin di stopwatch maju
+       print("nilai elapsed time \(elapsedTimeInterval)")
+        
         timeElapsed.updateLabel(elapsedTimeInterval)
+        
     }
     
     func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
@@ -261,7 +263,7 @@ extension HikingSessionVC: WorkoutDelegate {
         }
         
         /// From CoreBluetooth
-        self.footerView.updateDistance("\(distance) m")
+        self.footerView.updateDistance("\(Int(distance)) m")
         
         guard let userData = userDefaultManager?.getUserData() else { return }
         
@@ -275,8 +277,14 @@ extension HikingSessionVC: WorkoutDelegate {
     func didUpdateSpeed(_ speed: Double) {
         naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: speed) * 60
         
-        footerView.updateEstTime("\(naismithTime ?? 0)")
-        
+        guard let naismithTime = naismithTime else { return }
+        if naismithTime.isNaN || naismithTime.isInfinite {
+            footerView.updateEstTime("calculating")
+        } else {
+            let naismithTimeInt = Int(naismithTime)
+            footerView.updateEstTime("\(naismithTimeInt) min")
+        }
+
         guard speed < 0.2 else { return }
         
         guard let userData = userDefaultManager?.getUserData() else { return }

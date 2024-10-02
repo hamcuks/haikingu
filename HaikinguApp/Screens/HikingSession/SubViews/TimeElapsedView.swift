@@ -47,6 +47,8 @@ class TimeElapsedView: UIView {
     init(workoutManager: WorkoutServiceIos) {
         super.init(frame: .zero)
         updateLabel(workoutManager.elapsedTimeInterval)
+        
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -91,9 +93,12 @@ class TimeElapsedView: UIView {
         let seconds = Int(value) % 60
         let hundredths = Int((value - floor(value)) * 100) // Mendapatkan nilai ratusan detik
         
-        valueElapsed.text = String(format: "%02d.%02d.%02d,%02d", hours, minutes, seconds, hundredths)
-        
-        print("value elapsed : \(valueElapsed.text!)")
+//        DispatchQueue.main.async {
+        let sesuatu = String(format: "%02d.%02d.%02d,%02d", hours, minutes, seconds, hundredths)
+        valueElapsed.text = sesuatu
+            
+            print("value elapsed : \(self.valueElapsed.text!)")
+//        }
     }
     
 //    deinit {
