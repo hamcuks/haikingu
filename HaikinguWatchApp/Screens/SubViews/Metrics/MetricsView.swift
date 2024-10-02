@@ -25,11 +25,21 @@ struct MetricsView: View {
                             .foregroundStyle(.orange)
                     }
                     
-                    Text("Hike Time for \(metricsVM.timerDistance) M")
-                        .lineLimit(5)
-                        .multilineTextAlignment(.leading)
-                        .font(Font.system(size: 14, weight: .medium))
-                        .border(.blue)
+                    
+                    if metricsVM.workoutManager?.whatToDo == .timeToWalk{
+                        Text("Hike Time for \(metricsVM.timerDistance) M")
+                            .lineLimit(5)
+                            .multilineTextAlignment(.leading)
+                            .font(Font.system(size: 14, weight: .medium))
+                            .border(.blue)
+                    }else {
+                        Text("Rest Time")
+                            .lineLimit(5)
+                            .multilineTextAlignment(.leading)
+                            .font(Font.system(size: 14, weight: .medium))
+                            .border(.blue)
+                    }
+                    
                 }
     //            .border(.red)
                 
