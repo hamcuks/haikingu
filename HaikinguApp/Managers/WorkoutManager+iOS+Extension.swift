@@ -85,6 +85,8 @@ extension WorkoutManager: WCSessionDelegate{
         } else if let remaining = message["timerStart"] as? TimeInterval {
             DispatchQueue.main.async {
                 self.remainingTime = remaining
+                self.updateRemainingTime(to: remaining)
+                self.delegate?.didUpdateRemainingTime(remaining)
             }
         }
     }

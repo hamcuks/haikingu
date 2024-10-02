@@ -11,6 +11,9 @@ import Swinject
 
 protocol HikingSessionVCDelegate: AnyObject {
     func didReceivedHikingState(_ state: HikingStateEnum)
+    func didUpdateEstTime(_ time: TimeInterval)
+    func didUpdateDistance(_ distance: Double)
+    func didUpdateRestTaken(_ restCount: Int)
 }
 
 class HikingSessionVC: UIViewController {
@@ -210,6 +213,15 @@ class HikingSessionVC: UIViewController {
 }
 
 extension HikingSessionVC: HikingSessionVCDelegate {
+    func didUpdateEstTime(_ time: TimeInterval) {
+        print("didUpdateEstTime: ", time)
+        self.footerView.updateEstTime("\(time)")
+    }
+    
+    func didUpdateRestTaken(_ restCount: Int) {
+        
+    }
+    
     func didReceivedHikingState(_ state: HikingStateEnum) {
         /// Update label based on state
         print("Current Hiking State: \(state.rawValue)")
@@ -218,6 +230,10 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
+    func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
+        //
+    }
+    
     func didUpdateHeartRate(_ heartRate: Double) {
         print("heart rate")
         
