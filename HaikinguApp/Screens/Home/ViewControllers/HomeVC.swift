@@ -15,6 +15,8 @@ class HomeVC: UIViewController {
     var notificationManager: NotificationService?
     var userDefaultManager: UserDefaultService?
     
+    var plan: DestinationList?
+    
     /// SubViews
     let headerView: HomeHeaderView = HomeHeaderView()
     lazy var hikingModeControlView: HikingModeControlView = {

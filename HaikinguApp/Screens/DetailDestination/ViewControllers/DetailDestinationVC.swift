@@ -100,7 +100,7 @@ class DetailDestinationVC: UIViewController {
         locationManager.requestWhenInUseAuthorization() // Minta izin akses lokasi
         locationManager.startUpdatingLocation()
         
-        teamView = TeamsView(action: #selector(teamAction))
+        teamView = TeamsView(frame: self.view.bounds, action: #selector(teamAction))
         
         assetsImage.image = UIImage(named: "\(selectedDestination.image)")
         
@@ -136,7 +136,6 @@ class DetailDestinationVC: UIViewController {
         horizontalStack.addArrangedSubview(elevationDetail)
         horizontalStack.addArrangedSubview(trackDetail)
         
-        teamView = TeamsView(action: #selector(teamAction))
         teamView.isHidden = self.role == .member
         
         let stack = UIStackView(arrangedSubviews: [horizontalStack, teamView, assetsImage])
@@ -196,23 +195,21 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     @objc
     private func actionButton() {
         
-//        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
-//        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
-//        let maximumDistance = 500.0
-//        
-//        if rangeDistance < maximumDistance {
-//            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
-//            hikingSessionVC.destinationDetail = selectedDestination
-//            navigationController?.pushViewController(hikingSessionVC, animated: true)
-//            print("Disctance is less than maximum distance: \(rangeDistance)")
-//        } else {
-////            alertNotRange.showAlert(on: self)
-//            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
-//            hikingSessionVC.destinationDetail = selectedDestination
-//            navigationController?.pushViewController(hikingSessionVC, animated: true)
-//            print("Distance is greater than maximum distance: \(rangeDistance)")
-//        }
-        self.centralManager?.updateHikingState(for: .started)
+        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
+        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
+        let maximumDistance = 500.0
+        
+        if rangeDistance < maximumDistance {
+            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+            hikingSessionVC.destinationDetail = selectedDestination
+            navigationController?.pushViewController(hikingSessionVC, animated: true)
+            print("Distance is greater than maximum distance: \(rangeDistance)")
+            
+            self.centralManager?.updateHikingState(for: .started)
+        } else {
+            alertNotRange.showAlert(on: self)
+           
+        }
         
     }
     

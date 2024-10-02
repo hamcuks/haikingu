@@ -58,7 +58,7 @@ class HikingSessionVC: UIViewController {
         
         view.backgroundColor = .white
         
-//        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
+        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
         
         // Disable swipe gesture for back
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false

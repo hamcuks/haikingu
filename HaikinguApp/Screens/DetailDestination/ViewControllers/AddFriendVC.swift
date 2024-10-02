@@ -43,20 +43,7 @@ class AddFriendVC: UIViewController {
         }
         
         yourTeam = HikerGridView(frame: view.bounds, title: "Your Team")
-//        view.addSubview(yourTeam)
-//        yourTeam.snp.makeConstraints { make in
-//            make.top.equalTo(header.snp.bottom).offset(20)
-//            make.leading.trailing.equalToSuperview().inset(16)
-//        }
-        
         nearbyPerson = HikerGridView(frame: view.bounds, title: "Nearby Hikers")
-//        view.addSubview(nearbyPerson)
-//        nearbyPerson.snp.makeConstraints { make in
-//            make.top.equalTo(yourTeam.snp.bottom).offset(20)
-//            make.leading.trailing.bottom.equalToSuperview().inset(16)
-//        }
-        
-        nearbyPerson.updateData(on: [Hiker(id: UUID(), name: "Test")])
         nearbyPerson.delegate = self
         
         let stack = UIStackView(arrangedSubviews: [yourTeam, nearbyPerson])

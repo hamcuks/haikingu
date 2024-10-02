@@ -10,11 +10,15 @@ import Swinject
 
 extension HomeVC: PeripheralBLEManagerDelegate {
     func peripheralBLEManager(didUpdateHikingState state: HikingStateEnum) {
-        guard let viewController = Container.shared.resolve(HikingSessionVC.self) else {
-            return
+        if state == .started {
+            guard let viewController = Container.shared.resolve(HikingSessionVC.self), let plan else {
+                return
+            }
+            
+            viewController.destinationDetail = plan.destinationSelected
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
-        
-        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func peripheralBLEManagerDidReceiveInvitation(from invitor: Hiker, plan: String) {
@@ -29,7 +33,9 @@ extension HomeVC: PeripheralBLEManagerDelegate {
             return
         }
         
-        guard let plan = DestinationList(rawValue: plan) else { return }
+        self.plan = DestinationList(rawValue: plan)
+        
+        guard let plan = self.plan else { return }
         
         viewController.selectedDestination = plan.destinationSelected
         viewController.selectedPlan = plan
@@ -39,7 +45,8 @@ extension HomeVC: PeripheralBLEManagerDelegate {
     }
     
     func peripheralBLEManager(didDisconnect hiker: Hiker) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
+        #warning("implement show alert when disconnected from leader")
     }
     
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum) {
