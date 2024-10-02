@@ -23,5 +23,8 @@ protocol PeripheralBLEManagerDelegate {
     func peripheralBLEManager(didDisconnect hiker: Hiker)
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum)
     func peripheralBLEManager(didUpdateHikingState state: HikingStateEnum)
+    func peripheralBLEManager(didUpdateEstTime time: TimeInterval)
+    func peripheralBLEManager(didUpdateRestTaken restCount: Int)
+    func peripheralBLEManager(didUpdateDistance distance: Double)
     func peripheralBLEManager(_ restType: TypeOfRestEnum, didReceive response: HaikinguRequestResponseEnum)
 }

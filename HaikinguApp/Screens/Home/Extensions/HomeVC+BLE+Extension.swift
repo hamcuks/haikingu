@@ -9,6 +9,18 @@ import Foundation
 import Swinject
 
 extension HomeVC: PeripheralBLEManagerDelegate {
+    func peripheralBLEManager(didUpdateEstTime time: TimeInterval) {
+        self.hikingSessionDelegate?.didUpdateEstTime(time)
+    }
+    
+    func peripheralBLEManager(didUpdateRestTaken restCount: Int) {
+        self.hikingSessionDelegate?.didUpdateRestTaken(restCount)
+    }
+    
+    func peripheralBLEManager(didUpdateDistance distance: Double) {
+        self.hikingSessionDelegate?.didUpdateDistance(distance)
+    }
+    
     func peripheralBLEManager(didUpdateHikingState state: HikingStateEnum) {
         
         guard let viewController = Container.shared.resolve(HikingSessionVC.self) else {
