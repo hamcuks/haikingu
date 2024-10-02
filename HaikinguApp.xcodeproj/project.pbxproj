@@ -23,7 +23,7 @@
 		03B0C4572CABFF9200954557 /* ReminderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0C4562CABFF9200954557 /* ReminderTitleView.swift */; };
 		8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */; };
 		8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAD2CAC638B006CF73B /* Inject.swift */; };
-		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
+		8A994CB12CAD0F29006CF73B /* WorkoutServiceWatchOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CB02CAD0F29006CF73B /* WorkoutServiceWatchOS.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		BA84BB0F2CABB223007A93C1 /* OnboardingIntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */; };
 		BA84BB132CABD513007A93C1 /* OnboardingKeyFeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA84BB122CABD506007A93C1 /* OnboardingKeyFeatureVC.swift */; };
@@ -153,7 +153,7 @@
 		03B0C4562CABFF9200954557 /* ReminderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTitleView.swift; sourceTree = "<group>"; };
 		8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectWatchos+extension.swift"; sourceTree = "<group>"; };
 		8A994CAD2CAC638B006CF73B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
-		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
+		8A994CB02CAD0F29006CF73B /* WorkoutServiceWatchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchOS.swift; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
 		BA84BB0E2CABB212007A93C1 /* OnboardingIntroductionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroductionVC.swift; sourceTree = "<group>"; };
@@ -804,7 +804,7 @@
 			children = (
 				E7EDAAF42CAAEE5E006F3ED0 /* NavigationServices.swift */,
 				E7EDAAF52CAAEE5E006F3ED0 /* UserServices.swift */,
-				8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */,
+				8A994CB02CAD0F29006CF73B /* WorkoutServiceWatchOS.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1115,7 +1115,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7EDAB022CAAEE5E006F3ED0 /* HKSummaryText.swift in Sources */,
-				8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */,
 				E7EDAB032CAAEE5E006F3ED0 /* HomeVM.swift in Sources */,
 				E7EDAB042CAAEE5E006F3ED0 /* HKCircleButton.swift in Sources */,
 				E7EDAB172CAAEE6A006F3ED0 /* ContentView.swift in Sources */,
@@ -1131,6 +1130,7 @@
 				E7EDAB062CAAEE5E006F3ED0 /* HKMetricBiggerText.swift in Sources */,
 				E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
 				E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */,
+				8A994CB12CAD0F29006CF73B /* WorkoutServiceWatchOS.swift in Sources */,
 				8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */,
 				E7EDAB072CAAEE5E006F3ED0 /* HKTextButton.swift in Sources */,
 				E7EDAB082CAAEE5E006F3ED0 /* NavigationServices.swift in Sources */,

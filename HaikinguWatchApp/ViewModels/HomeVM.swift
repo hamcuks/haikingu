@@ -9,7 +9,7 @@ import Foundation
 
 class HomeVM : ObservableObject {
     
-    @Published var workoutManager: WorkoutServiceWatchos?
+    @Published var workoutManagerFunc: WorkoutServiceWatchOS?
     @Published var isHasContent: Bool = true
     @Published var titleDestination: String?
     @Published var subtitleDestination: String?
@@ -17,8 +17,8 @@ class HomeVM : ObservableObject {
     @Published var isReturnHome: Bool = false
     @Published var valueReturnHome: String = ""
     
-    init(workoutManager: WorkoutServiceWatchos?) {
-        self.workoutManager = workoutManager
+    init(workoutManagerFunc: WorkoutServiceWatchOS?) {
+        self.workoutManagerFunc = workoutManagerFunc
     }
 }
 

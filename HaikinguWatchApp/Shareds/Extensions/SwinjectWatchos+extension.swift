@@ -16,20 +16,21 @@ extension Container {
         /// if any
         
         /// Managers
-        container.register(WorkoutServiceWatchos.self) { resolver in WorkoutManager() }
+    
+        container.register(WorkoutServiceWatchOS.self) { resolver in WorkoutManager.shared }
         
         
         /// ViewModel
         container.register(HomeVM.self) { resolver in
-            let workoutManager = resolver.resolve(WorkoutServiceWatchos.self)
+            let workoutManagerFunc = resolver.resolve(WorkoutServiceWatchOS.self)
             
-            let vm = HomeVM(workoutManager: workoutManager)
+            let vm = HomeVM(workoutManagerFunc: workoutManagerFunc)
             
             return vm
         }
         
         container.register(MetricsVM.self) { resolver in
-            let workoutManager = resolver.resolve(WorkoutServiceWatchos.self)
+            let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
             
             let vm = MetricsVM(workoutManager: workoutManager)
             
