@@ -15,6 +15,7 @@ import Combine
 protocol WorkoutDelegate: AnyObject{
     func didUpdateHeartRate(_ heartRate: Double)
     func didUpdateDistance(_ distance: Double)
+    func didUpdateSpeed(_ speed: Double)
 }
 
 
@@ -52,7 +53,12 @@ class WorkoutManager: NSObject, ObservableObject {
     }
 
     @Published var activeEnergy: Double = 0
-    @Published var speed: Double = 0
+    @Published var speed: Double = 0 {
+        didSet {
+            delegate?.didUpdateSpeed(speed)
+            print("\(speed) m/s")
+        }
+    }
     @Published var distance: Double = 0 {
         didSet {
             delegate?.didUpdateDistance(distance)
@@ -223,6 +229,9 @@ class WorkoutManager: NSObject, ObservableObject {
             distance = newDistance
         }
     
+    func updateSpeed(to newSpeed: Double) {
+            speed = newSpeed
+        }
 }
 
 // MARK: - Workout session management
@@ -260,6 +269,7 @@ extension WorkoutManager {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: .minute())
                 self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+                self.updateHeartRate(to: statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0)
                 
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
@@ -268,6 +278,7 @@ extension WorkoutManager {
             case HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning):
                 let meterUnit = HKUnit.meter()
                 self.distance = statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0
+                self.updateDistance(to: statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0)
                 
             default:
                 return

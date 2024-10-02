@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class MetricsVM: ObservableObject, WorkoutDelegate {
+class MetricsVM: ObservableObject {
     
     
     @Published var heartRate: Double = 0
@@ -34,14 +34,5 @@ class MetricsVM: ObservableObject, WorkoutDelegate {
     
     init (workoutManager: WorkoutServiceWatchOS?){
         self.workoutManager = workoutManager
-        self.workoutManager?.delegate = self
-    }
-    
-    func didUpdateHeartRate(_ heartRate: Double) {
-        self.heartRate = heartRate
-    }
-    
-    func didUpdateDistance(_ distance: Double) {
-        self.distance = distance
     }
 }

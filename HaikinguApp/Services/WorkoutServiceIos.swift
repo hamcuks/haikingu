@@ -26,4 +26,3 @@ protocol WorkoutServiceIos {
     func retrieveRemoteSession()
     func isPersonTired() -> Bool
 }
-
