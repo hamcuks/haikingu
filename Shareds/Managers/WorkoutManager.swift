@@ -18,7 +18,14 @@ protocol WorkoutDelegate: AnyObject{
     func didUpdateSpeed(_ speed: Double)
 }
 
+enum TimingState{
+    case timeToWalk
+    case timeToRest
+}
+
 class WorkoutManager: NSObject, ObservableObject {
+    
+    
     
     weak var delegate: WorkoutDelegate?
     let pedometerManager = CMPedometer()
@@ -37,6 +44,7 @@ class WorkoutManager: NSObject, ObservableObject {
     var endTime: Date?
     var isPaused = false
     var pausedTime: TimeInterval = 0
+    @Published var whatToDo: TimingState = .timeToWalk
     @Published var sessionState: HKWorkoutSessionState = .notStarted
     var age: DateComponents?
     var maxHeartRate: Int?
@@ -179,9 +187,7 @@ class WorkoutManager: NSObject, ObservableObject {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
                     self?.updateRemainingTime()
-                    #if os(watchOS)
-                    self?.sendRemainingTimeToiPhone()
-                    #endif
+                    
             }
 
         }
@@ -190,9 +196,16 @@ class WorkoutManager: NSObject, ObservableObject {
     func updateRemainingTime() {
         guard let endTime = endTime else { return }
         remainingTime = max(endTime.timeIntervalSinceNow, 0)
-        if remainingTime == 0 {
+        if remainingTime == 0 && whatToDo == .timeToWalk{
             timer?.invalidate()
             timer = nil
+            whatToDo = .timeToRest
+            startTimer(with: 600, startDate: Date())
+        } else if remainingTime == 0 && whatToDo == .timeToRest{
+            timer?.invalidate()
+            timer = nil
+            whatToDo = .timeToWalk
+            startTimer(with: 1500, startDate: Date())
         }
     }
 
