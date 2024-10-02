@@ -155,14 +155,6 @@ class WorkoutManager: NSObject, ObservableObject {
             self.sessionState = change.newState
         }
 
-        if change.newState == .paused {
-            pauseTimer()
-        }
-
-        if change.newState == .running {
-            resumeTimer()
-        }
-
 #if os(watchOS)
         let elapsedTimeInterval = session?.associatedWorkoutBuilder().elapsedTime(at: change.date) ?? 0
         let elapsedTime = WorkoutElapsedTime(timeInterval: elapsedTimeInterval, date: change.date)
@@ -188,9 +180,6 @@ class WorkoutManager: NSObject, ObservableObject {
             self.workout = finishedWorkout
         }
 #endif
-        if change.newState == .stopped {
-//            stopTimer()
-        }
     }
     
     func startTimer(with duration: TimeInterval, startDate date: Date) {

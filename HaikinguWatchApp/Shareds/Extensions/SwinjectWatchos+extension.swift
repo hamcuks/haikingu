@@ -21,9 +21,9 @@ extension Container {
         
         /// ViewModel
         container.register(HomeVM.self) { resolver in
-            let workoutManagerFunc = resolver.resolve(WorkoutServiceWatchOS.self)
+            let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
             
-            let vm = HomeVM(workoutManagerFunc: workoutManagerFunc)
+            let vm = HomeVM(workoutManager: workoutManager)
             
             return vm
         }

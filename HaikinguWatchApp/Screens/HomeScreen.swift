@@ -43,7 +43,7 @@ struct HomeScreen: View {
                     }
                 }
                 .onAppear() {
-                    homeVM.workoutManagerFunc?.requestAuthorization()
+                    homeVM.workoutManager?.requestAuthorization()
                 }
         }
     }
@@ -105,7 +105,7 @@ struct ContentOpeningScreen: View {
                 let configuration = HKWorkoutConfiguration()
                 configuration.activityType = .hiking
                 configuration.locationType = .outdoor
-                try await homeVM.workoutManagerFunc?.startWorkout(workoutConfiguration: configuration)
+                try await homeVM.workoutManager?.startWorkout(workoutConfiguration: configuration)
             } catch {
                 print("error bang gagal")
             }
