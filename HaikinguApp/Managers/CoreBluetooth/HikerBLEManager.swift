@@ -29,29 +29,34 @@ class HikerBLEManager: NSObject {
     var usernameCharacteristic: CBMutableCharacteristic?
     var planCharacteristic: CBMutableCharacteristic?
     
-    let username: String = UserDefaults.standard.string(
-        forKey: "username"
-    ) ?? "Unknown"
+    var userDefaultManager: UserDefaultService?
     
-    init(centralManager: CBCentralManager?) {
+    var user: User?
+    
+    init(centralManager: CBCentralManager?, userDefaultManager: UserDefaultService?) {
         super.init()
         
         print("Init - CBCentralManager")
         
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
+        self.userDefaultManager = userDefaultManager
+        
+        self.user = userDefaultManager?.getUserData()
     }
     
-    init(peripheralManager: CBPeripheralManager?) {
+    init(peripheralManager: CBPeripheralManager?, userDefaultManager: UserDefaultService?) {
         super.init()
         
         print("Init - CBPeripheralManager")
         
         self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+        self.userDefaultManager = userDefaultManager
+        
+        self.user = userDefaultManager?.getUserData()
     }
 }
 
 extension HikerBLEManager: CentralBLEService {
-    
     
     func setDelegate(_ delegate: CentralBLEManagerDelegate) {
         self.centralDelegate = delegate
@@ -140,9 +145,11 @@ extension HikerBLEManager: CentralBLEService {
             "Central HikerBLEManager: Send Username to \(peripheral.identifier)"
         )
         
+        guard let user else { return }
+        
         for service in peripheral.services ?? [] where service.isUsernameService {
             if let characteristic = service.characteristics?.first {
-                if let data = username.data(using: .utf8) {
+                if let data = user.name.data(using: .utf8) {
                     peripheral
                         .writeValue(
                             data,

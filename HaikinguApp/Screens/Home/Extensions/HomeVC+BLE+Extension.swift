@@ -10,7 +10,11 @@ import Swinject
 
 extension HomeVC: PeripheralBLEManagerDelegate {
     func peripheralBLEManager(didUpdateHikingState state: HikingStateEnum) {
-        print(state.rawValue)
+        guard let viewController = Container.shared.resolve(HikingSessionVC.self) else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func peripheralBLEManagerDidReceiveInvitation(from invitor: Hiker, plan: String) {

@@ -81,7 +81,7 @@ extension HikerBLEManager: PeripheralBLEService {
         
         peripheralManager.startAdvertising(
             [
-                CBAdvertisementDataLocalNameKey: username,
+                CBAdvertisementDataLocalNameKey: user?.name ?? "Unknown",
                 CBAdvertisementDataServiceUUIDsKey: [
                     notificationService.uuid,
                     usernmaeService.uuid,
