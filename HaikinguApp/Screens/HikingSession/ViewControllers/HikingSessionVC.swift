@@ -285,7 +285,12 @@ extension HikingSessionVC: WorkoutDelegate {
             footerView.updateEstTime("\(naismithTimeInt) min")
         }
 
-        guard speed < 0.2 else { return }
+        guard speed < 0.2 else {
+            print("updated view")
+            
+            headerView.isPersonTired(true)
+            return
+        }
         
         guard let userData = userDefaultManager?.getUserData() else { return }
         
