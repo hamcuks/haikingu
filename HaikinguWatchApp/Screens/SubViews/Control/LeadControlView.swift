@@ -13,76 +13,88 @@ struct LeadControlView: View {
     @EnvironmentObject var navigationServices: NavigationServices
     
     var body: some View {
-        
-            VStack(alignment: .center) {
+        NavigationStack(path: $navigationServices.path){
+            
+        VStack(alignment: .center) {
+            
+            if !metricsVM.isLeadPausedTapped {
+                VStack(alignment: .center, spacing: 16) {
+                    HKCircleButton(
+                        imageButton: "pause.fill",
+                        imageWidth: 35,
+                        imageHeight: 35,
+                        padding: 0,
+                        imageColor: .black,
+                        buttonColor: .orange) {
+                            metricsVM.isLeadPausedTapped = true
+                            metricsVM.workoutManager?.pauseTimer()
+                            print("Paused Tapped")
+                        }
+                    
+                    Text("Rest")
+                        .font(Font.system(
+                            size: 17,
+                            weight: .semibold))
+                }
                 
-                if !metricsVM.isLeadPausedTapped {
+            } else {
+                HStack(alignment: .center, spacing: 18) {
                     VStack(alignment: .center, spacing: 16) {
                         HKCircleButton(
-                            imageButton: "pause.fill",
+                            imageButton: "stop.fill",
                             imageWidth: 35,
                             imageHeight: 35,
                             padding: 0,
                             imageColor: .black,
-                            buttonColor: .orange) {
-                                metricsVM.isLeadPausedTapped = true
-                                print("Paused Tapped")
+                            buttonColor: .gray) {
+                                metricsVM.workoutManager?.session?.stopActivity(with: .now)
+                                metricsVM.isLeadEndTapped = true
+                                print("End Tapped")
+                                navigationServices.path.append("summary")
                             }
-                        
-                        Text("Rest")
+                        Text("End")
                             .font(Font.system(
                                 size: 17,
                                 weight: .semibold))
                     }
                     
-                } else {
-                    HStack(alignment: .center, spacing: 18) {
-                        VStack(alignment: .center, spacing: 16) {
-                            HKCircleButton(
-                                imageButton: "stop.fill",
-                                imageWidth: 35,
-                                imageHeight: 35,
-                                padding: 0,
-                                imageColor: .black,
-                                buttonColor: .gray) {
-
-                                    metricsVM.isLeadEndTapped = true
-                                    print("End Tapped")
-                                    navigationServices.path.append("summary")
-                                }
-                            Text("End")
-                                .font(Font.system(
-                                    size: 17,
-                                    weight: .semibold))
-                        }
-                            
-                        VStack(alignment: .center, spacing: 16) {
-                            HKCircleButton(
-                                imageButton: "play.fill",
-                                imageWidth: 35,
-                                imageHeight: 35,
-                                padding: 8,
-                                imageColor: .black,
-                                buttonColor: .orange) {
-                                    metricsVM.isLeadPausedTapped = false
-                                    print("Play Tapped")
-                                }
-                            Text("Continue")
-                                .font(Font.system(
-                                    size: 17,
-                                    weight: .semibold))
-                        }
+                    VStack(alignment: .center, spacing: 16) {
+                        HKCircleButton(
+                            imageButton: "play.fill",
+                            imageWidth: 35,
+                            imageHeight: 35,
+                            padding: 8,
+                            imageColor: .black,
+                            buttonColor: .orange) {
+                                metricsVM.isLeadPausedTapped = false
+                                metricsVM.workoutManager?.resumeTimer()
+                                print("Play Tapped")
+                            }
+                        Text("Continue")
+                            .font(Font.system(
+                                size: 17,
+                                weight: .semibold))
                     }
                 }
             }
-            .navigationTitle("Control")
-            .navigationBarTitleDisplayMode(.large)
-        
+        }
+        .navigationTitle("Control")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationDestination(for: String.self) { destini in
+            if destini == "metrics" {
+                MetricsScreen()
+            } else if destini == "summary" {
+                SummaryScreen()
+            } else if destini == "reminder" {
+                //                    ReminderScreen()
+            }
+        }
+    }
     }
 }
 
-#Preview {
-    LeadControlView()
-        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
-        .environmentObject(NavigationServices())
-}
+//#Preview {
+//    LeadControlView()
+//        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
+//        .environmentObject(NavigationServices())
+//}
