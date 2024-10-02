@@ -105,4 +105,8 @@ class FooterView: UIView {
         
     }
     
+    func updateEstTime(_ value: String) {
+        estTimeView.updateValue(value)
+    }
+    
 }

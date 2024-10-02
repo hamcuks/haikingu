@@ -65,4 +65,7 @@ class HikingMetricsIconTextView: UIView {
         
     }
 
+    func updateValue(_ value: String) {
+        valueLabel.text = value
+    }
 }
