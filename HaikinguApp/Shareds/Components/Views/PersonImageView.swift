@@ -13,9 +13,6 @@ class PersonImageView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.tintColor = .black
-        imageView.layer.borderWidth = 1
-        imageView.layer.cornerRadius = 32
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -23,7 +20,7 @@ class PersonImageView: UIView {
     private var nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .preferredFont(forTextStyle: .caption2)
         label.textColor = .black
         
         return label
@@ -41,6 +38,15 @@ class PersonImageView: UIView {
         return label
     }()
     
+    private var stateLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = .preferredFont(forTextStyle: .caption2)
+        label.textColor = .secondaryLabel
+        
+        return label
+    }()
+    
     private var profileStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -49,13 +55,18 @@ class PersonImageView: UIView {
         return stack
     }()
     
-    init(imagePerson: String, namePerson: String) {
+    init() {
         super.init(frame: .zero)
         
-        circleImageView.image = UIImage(named: imagePerson)
-        nameLabel.text = namePerson
-        
         configure()
+    }
+    
+    func setData(image: String, name: String, state: HikerStateEnum) {
+        nameLabel.text = name
+        
+        if state != .notJoined {
+            stateLabel.text = state.rawValue
+        }
     }
     
     override init(frame: CGRect) {
@@ -71,11 +82,14 @@ class PersonImageView: UIView {
         addSubview(profileStack)
         profileStack.addArrangedSubview(circleImageView)
         profileStack.addArrangedSubview(nameLabel)
+        profileStack.addArrangedSubview(stateLabel)
+        
+        circleImageView.image = UIImage(systemName: "person.circle")
         
         addSubview(checkLabel)
         
         circleImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(63)
+            make.width.height.equalTo(self.snp.width)
         }
         
         profileStack.snp.makeConstraints { make in
@@ -90,4 +104,15 @@ class PersonImageView: UIView {
         }
     }
     
+    override func layoutSubviews() {
+        circleImageView.layer.cornerRadius = circleImageView.frame.height / 2
+    }
 }
+
+#Preview(traits: .defaultLayout, body: {
+    let person = PersonImageView()
+    
+    person.setData(image: "", name: "Test User", state: .waiting)
+    
+    return person
+})

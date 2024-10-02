@@ -88,17 +88,17 @@ class BodyView: UIView {
     }
     
     func setupProfileStack() {
-        let person1: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 1")
-        let person2: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 2")
-        let person3: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 3")
-        let person4: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 4")
-        let person5: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 5")
-        
-        horizontalPersonStack.addArrangedSubview(person1)
-        horizontalPersonStack.addArrangedSubview(person2)
-        horizontalPersonStack.addArrangedSubview(person3)
-        horizontalPersonStack.addArrangedSubview(person4)
-        horizontalPersonStack.addArrangedSubview(person5)
+//        let person1: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 1")
+//        let person2: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 2")
+//        let person3: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 3")
+//        let person4: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 4")
+//        let person5: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 5")
+//        
+//        horizontalPersonStack.addArrangedSubview(person1)
+//        horizontalPersonStack.addArrangedSubview(person2)
+//        horizontalPersonStack.addArrangedSubview(person3)
+//        horizontalPersonStack.addArrangedSubview(person4)
+//        horizontalPersonStack.addArrangedSubview(person5)
     }
     
 }
