@@ -13,47 +13,54 @@ struct MetricsView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 2) {
-            VStack(alignment: .leading, spacing: 0) {
+        TimelineView(MetricsTimelineSchedule(from: metricsVM.workoutManager?.session?.startDate ?? Date(),
+                                             isPaused: metricsVM.workoutManager?.sessionState == .paused)) { context in
+            VStack(alignment: .leading, spacing: 2) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("\(metricsVM.stopwatchTimer.timeInterval)")
-                        .font(Font.system(size: 16, weight: .medium))
-                    
-                    Text("\(metricsVM.timer)")
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
-                        .font(Font.system(size: 34, weight: .bold))
-                        .foregroundStyle(Color(.orange))
-                }
-                
-                Text("Hike Time for \(metricsVM.timerDistance) M")
-                    .lineLimit(5)
-                    .multilineTextAlignment(.leading)
-                    .font(Font.system(size: 14, weight: .medium))
-                    .border(.blue)
-            }
-//            .border(.red)
-            
-            VStack(alignment: .leading, spacing: 0) {
-                    HStack {
-                        Text("\(Int(metricsVM.workoutManager!.heartRate))")
-                            
-                        Image(systemName: "heart.fill")
-                            .foregroundStyle(.red)
-                            
+                    VStack(alignment: .leading, spacing: 0) {
+                        ElapsedTimeView(elapsedTime: elapsedTime(with: context.date), showSubseconds: context.cadence == .live)
+                            .foregroundStyle(.white)
+                        
+                        Text("\(metricsVM.timer)")
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                            .font(Font.system(size: 34, weight: .bold))
+                            .foregroundStyle(Color(.orange))
                     }
-                    .font(Font.system(size: 24, weight: .semibold))
+                    
+                    Text("Hike Time for \(metricsVM.timerDistance) M")
+                        .lineLimit(5)
+                        .multilineTextAlignment(.leading)
+                        .font(Font.system(size: 14, weight: .medium))
+                        .border(.blue)
+                }
+    //            .border(.red)
                 
-//                .border(.red)
-                
-                HKMetricBiggerText(intvalue: metricsVM.restAmount, intMeasure: "x", intDesc: "Rest taken")
-//                    .border(.green)
-                HKMetricBiggerText(intvalue: Int(metricsVM.workoutManager!.distance), intMeasure: "M", intDesc: "Distance")
-//                    .border(.yellow)
+                VStack(alignment: .leading, spacing: 0) {
+                        HStack {
+                            Text("\(Int(metricsVM.workoutManager!.heartRate))")
+                                
+                            Image(systemName: "heart.fill")
+                                .foregroundStyle(.red)
+                                
+                        }
+                        .font(Font.system(size: 24, weight: .semibold))
+                    
+    //                .border(.red)
+                    
+                    HKMetricBiggerText(intvalue: metricsVM.restAmount, intMeasure: "x", intDesc: "Rest taken")
+    //                    .border(.green)
+                    HKMetricBiggerText(intvalue: Int(metricsVM.workoutManager!.distance), intMeasure: "M", intDesc: "Distance")
+    //                    .border(.yellow)
+                }
+    //            Spacer()
             }
-//            Spacer()
         }
-
+        
+    }
+    
+    func elapsedTime(with contextDate: Date) -> TimeInterval {
+        return metricsVM.workoutManager?.builder?.elapsedTime(at: contextDate) ?? 0
     }
 }
 

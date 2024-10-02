@@ -20,6 +20,8 @@ protocol WorkoutServiceWatchOS{
     var elapsedTimeInterval: TimeInterval { get set }
     var workout: HKWorkout? { get set }
     var delegate: WorkoutDelegate? { get set }
+    var builder: HKLiveWorkoutBuilder? { get set }
+    var session: HKWorkoutSession? { get set }
     
     func resetWorkout()
     func requestAuthorization()
