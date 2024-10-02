@@ -30,7 +30,7 @@ class HikingSessionVC: UIViewController {
     
     var naismithTime: Double?
     var iconButton: String = {
-        let icon: String = "play.fill"
+        let icon: String = "pause.fill"
         return icon
     }()
     private var horizontalStack: UIStackView = {
@@ -71,13 +71,13 @@ class HikingSessionVC: UIViewController {
         
         footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
         
+        timeElapsed = TimeElapsedView(workoutManager: workoutManager!)
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
         
-        headerView = HeaderView(status: "Keep Moving", title: "00.00", subtitle: "Hiking time for 1670 m", backgroundColor: .clear)
+        headerView = HeaderView(status: "Keep Moving", value: workoutManager!.remainingTime, backgroundColor: .clear)
         bodyView = BodyView(backgroundCircleColor: .clear)
-        timeElapsed = TimeElapsedView(value: "00.32.31,59")
         actionButton = IconButton(imageIcon: "\(iconButton)")
         
         self.workoutManager?.setDelegate(self)
@@ -129,7 +129,7 @@ class HikingSessionVC: UIViewController {
         horizontalStack.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(10)
             make.top.equalTo(footerView.snp.bottom).offset(10)
-//            make.width.height.equalTo(120)
+            //            make.width.height.equalTo(120)
             make.centerX.equalTo(footerView)
         }
         
@@ -172,14 +172,14 @@ class HikingSessionVC: UIViewController {
             
         case .leader:
             
-            if iconButton == "play.fill" {
+            if iconButton == "pause.fill" {
                 print("play button leader tapped")
-                iconButton = "pause.fill"
+                iconButton = "play.fill"
                 horizontalStack.addArrangedSubview(endButton)
                 
-            } else if iconButton == "pause.fill" {
+            } else if iconButton == "play.fill" {
                 print("paused button leader tapped")
-                iconButton = "play.fill"
+                iconButton = "pause.fill"
                 horizontalStack.removeArrangedSubview(endButton)
                 endButton.removeFromSuperview()
             }
@@ -196,6 +196,14 @@ class HikingSessionVC: UIViewController {
         navigationController?.pushViewController(finishVC, animated: true)
     }
     
+    func checkDistance(){
+        if Double(destinationDetail.trackLength) == workoutManager?.distance {
+//            timeElapsed.stopStopwatch()
+            // MARK: Pause Timer 
+        }
+        
+    }
+    
 }
 
 extension HikingSessionVC: HikingSessionVCDelegate {
@@ -203,7 +211,7 @@ extension HikingSessionVC: HikingSessionVCDelegate {
         /// Update label based on state
         print("Current Hiking State: \(state.rawValue)")
     }
-
+    
 }
 
 extension HikingSessionVC: WorkoutDelegate {
@@ -220,7 +228,7 @@ extension HikingSessionVC: WorkoutDelegate {
     func didUpdateDistance(_ distance: Double) {
         
         if Double(destinationDetail.trackLength) == workoutManager?.distance {
-            // MARK: Logic stop workout manager then go to congrats vc
+            checkDistance()
         }
         
     }

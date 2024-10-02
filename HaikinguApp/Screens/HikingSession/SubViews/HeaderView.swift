@@ -48,16 +48,16 @@ class HeaderView: UIView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .regular)
         label.textColor = .black
+        label.text = "Hiking time for 1670 m"
         label.textAlignment = .center
         return label
     }()
     
-    init(status: String, title: String, subtitle: String, backgroundColor: UIColor) {
+    init(status: String, value: TimeInterval, backgroundColor: UIColor) {
         super.init(frame: .zero)
         
         statusLabel.text = status
-        titleLabel.text = title
-        subtitleLabel.text = subtitle
+        configureValueRemaining(value)
         roundedRectangleView.backgroundColor = backgroundColor
         
         self.configureUI()
@@ -92,6 +92,16 @@ class HeaderView: UIView {
             make.centerX.centerY.equalTo(roundedRectangleView)
         }
         
+    }
+    
+    private func configureValueRemaining(_ value: TimeInterval){
+        let minutes = Int(value) / 60
+        let seconds = Int(value) % 60
+        let formattedTime = String(format: "%02d.%02d", minutes, seconds)
+        titleLabel.text = formattedTime
+        
+        print("value countdown : \(value)")
+        print("value formatted : \(formattedTime)")
     }
 
 }

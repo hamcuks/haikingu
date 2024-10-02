@@ -63,7 +63,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         super.viewDidLoad()
         
         headerView.delegate = self
-
+        
         self.configureVC()
         self.configureHeaderView()
         self.configureHikingModeControlView()
@@ -77,8 +77,8 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         super.viewWillAppear(animated)
         
         if let userData = userDefaultManager?.getUserData() {
-                // Perbarui UI berdasarkan data user
-                updateUserInterface(with: userData)
+            // Perbarui UI berdasarkan data user
+            updateUserInterface(with: userData)
         }
         
         self.notificationManager?.requestPermission()
@@ -92,7 +92,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     
     private func updateUserInterface(with user: User) {
         // Perbarui nama pada header view (misalnya jika ada label nama di header)
-    
+        
         // Perbarui gambar profil pada imageView
         if let imageData = Data(base64Encoded: user.image), let userImage = UIImage(data: imageData) {
             headerView.setUserName(user.name, userImage)
@@ -102,7 +102,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
             headerView.setUserName(user.name, defaultImage)
         }
     }
-
+    
     /// Private Functions
     private func configureVC() {
         self.view.backgroundColor = .systemBackground
@@ -147,13 +147,13 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
             make.top.equalTo(hikingModeControlView.snp.bottom).offset(16)
         }
     }
-
+    
     private func configureTipsLabel() {
         tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
     }
     
     private func configureImageView() {
-//        MARK: Ganti image dengan hasil dari onboarding
+        // MARK: Ganti image dengan hasil dari onboarding
         imageView.image = UIImage(systemName: "photo.fill")
         imageView.tintColor = .label
         imageView.backgroundColor = .secondarySystemBackground
