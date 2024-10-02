@@ -21,11 +21,8 @@ struct MetricsView: View {
                         ElapsedTimeView(elapsedTime: elapsedTime(with: context.date), showSubseconds: context.cadence == .live)
                             .foregroundStyle(.white)
                         
-                        Text("\(metricsVM.timer)")
-                            .lineLimit(2)
-                            .multilineTextAlignment(.leading)
-                            .font(Font.system(size: 34, weight: .bold))
-                            .foregroundStyle(Color(.orange))
+                        RemainingTimeView(remainingTime: remainingTime(with: context.date), showSubseconds: context.cadence == .live)
+                            .foregroundStyle(.orange)
                     }
                     
                     Text("Hike Time for \(metricsVM.timerDistance) M")
@@ -62,9 +59,13 @@ struct MetricsView: View {
     func elapsedTime(with contextDate: Date) -> TimeInterval {
         return metricsVM.workoutManager?.builder?.elapsedTime(at: contextDate) ?? 0
     }
+    
+    func remainingTime(with contextDate: Date) -> TimeInterval {
+        return metricsVM.workoutManager!.remainingTime
+    }
 }
 
-#Preview {
-    MetricsView()
-        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
-}
+//#Preview {
+//    MetricsView()
+//        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
+//}

@@ -8,7 +8,7 @@
 import Foundation
 import HealthKit
 
-@MainActor
+
 protocol WorkoutServiceIos {
     var sessionState: HKWorkoutSessionState { get set }
     var remainingTime: TimeInterval { get set }
@@ -26,3 +26,4 @@ protocol WorkoutServiceIos {
     func retrieveRemoteSession()
     func isPersonTired() -> Bool
 }
+

@@ -28,7 +28,11 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
-    @Published var remainingTime: TimeInterval = 0
+    @Published var remainingTime: TimeInterval = 0{
+        didSet{
+            print(remainingTime)
+        }
+    }
     var timer: Timer?
     var endTime: Date?
     var isPaused = false
@@ -145,7 +149,7 @@ class WorkoutManager: NSObject, ObservableObject {
             return
         }
 
-        stopTimer()
+//        stopTimer()
         let finishedWorkout: HKWorkout?
         do {
             try await builder.endCollection(at: change.date)
@@ -160,18 +164,21 @@ class WorkoutManager: NSObject, ObservableObject {
         }
 #endif
         if change.newState == .stopped {
-            stopTimer()
+//            stopTimer()
         }
     }
-
+    
     func startTimer(with duration: TimeInterval, startDate date: Date) {
         remainingTime = duration
         endTime = date.addingTimeInterval(duration)
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            self?.updateRemainingTime()
-            #if os(watchOS)
-            self?.sendRemainingTimeToiPhone()
-            #endif
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+                    self?.updateRemainingTime()
+                    #if os(watchOS)
+                    self?.sendRemainingTimeToiPhone()
+                    #endif
+            }
+
         }
     }
 
@@ -232,7 +239,7 @@ extension WorkoutManager {
         distance = 0
         speed = 0
         sessionState = .notStarted
-        resetTimer()
+//        resetTimer()
     }
 
     func sendData(_ data: Data) async {
