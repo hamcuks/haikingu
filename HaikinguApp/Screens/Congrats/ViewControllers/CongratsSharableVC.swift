@@ -29,6 +29,8 @@ class CongratsSharableVC: UIViewController {
     let restStatLabel = UILabel()
     
     let hikeImageView = UIImageView()
+    
+    var selectedImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,11 +127,15 @@ class CongratsSharableVC: UIViewController {
     }
     
     private func setupHikeImageView() {
-        // Hike ImageView
-        hikeImageView.image = UIImage(named: "hike_image") // replace with your asset name
         hikeImageView.contentMode = .scaleAspectFill
         hikeImageView.clipsToBounds = true
         view.addSubview(hikeImageView)
+        
+        if let image = selectedImage {
+            hikeImageView.image = image
+        } else {
+            hikeImageView.image = UIImage(named: "defaultHikeImage")
+        }
     }
     
     // MARK: - Layout using SnapKit
@@ -175,3 +181,7 @@ class CongratsSharableVC: UIViewController {
         }
     }
 }
+
+#Preview(traits: .defaultLayout, body: {
+    CongratsSharableVC()
+})

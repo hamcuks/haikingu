@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 import Swinject
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, HomeHeaderViewDelegate {
+    
     /// Managers
     var peripheralManager: PeripheralBLEService?
     var notificationManager: NotificationService?
@@ -56,6 +57,8 @@ class HomeVC: UIViewController {
     /// Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        headerView.delegate = self
 
         self.configureVC()
         self.configureHeaderView()
@@ -75,6 +78,12 @@ class HomeVC: UIViewController {
         }
         
         self.notificationManager?.requestPermission()
+    }
+    
+    // Implementasi delegate method
+    func didTapAvatar() {
+        guard let editProfileVC = Container.shared.resolve(EditProfileVC.self) else { return }
+        navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     private func updateUserInterface(with user: User) {

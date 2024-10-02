@@ -1308,6 +1308,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use to capture your profile and moments";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use to analyze your tiredness level";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use to share calculate result of BPM";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
@@ -1349,6 +1350,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use to capture your profile and moments";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use to analyze your tiredness level";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use to share calculate result of BPM";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
@@ -1397,7 +1399,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Use to get your walking speed";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.bayu.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1436,7 +1438,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Use to get your walking speed";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.bayu.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

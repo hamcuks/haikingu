@@ -73,12 +73,24 @@ extension Container {
         
         container.register(HikingSessionVC.self) { resolver in
             let workoutManager = resolver.resolve(WorkoutServiceIos.self)
-            let userDeafultManager = resolver.resolve(UserDefaultService.self)
+            let userDefaultManager = resolver.resolve(UserDefaultService.self)
             let centralManager = resolver.resolve(CentralBLEService.self)
             let peripheralManager = resolver.resolve(PeripheralBLEService.self)
             
-            let viewController = HikingSessionVC(workoutManager: workoutManager, userDefaultManager: userDeafultManager, centralManager: centralManager, peripheralManager: peripheralManager
+            let viewController = HikingSessionVC(workoutManager: workoutManager, userDefaultManager: userDefaultManager, centralManager: centralManager, peripheralManager: peripheralManager
             )
+            return viewController
+        }
+        
+        container.register(CongratsVC.self) { resolver in
+            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
+            let viewController = CongratsVC(workoutManager: workoutManager)
+            return viewController
+        }
+        
+        container.register(EditProfileVC.self) { resolver in
+            let userDefaultManager = resolver.resolve(UserDefaultService.self)
+            let viewController = EditProfileVC(userDefaultManager: userDefaultManager)
             return viewController
         }
         

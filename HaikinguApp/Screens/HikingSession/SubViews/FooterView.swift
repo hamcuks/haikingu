@@ -29,9 +29,7 @@ class FooterView: UIView {
     }()
     
     private var estTimeView: HikingMetricsIconTextView!
-    
     private var distanceView: HikingMetricsIconTextView!
-    
     private var restTakenView: HikingMetricsIconTextView!
     
     private var deviderTopView: UIView = {

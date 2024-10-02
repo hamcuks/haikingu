@@ -35,7 +35,7 @@ class HeaderCongratsView: UIView {
     private var verticalStack: UIStackView = {
         let vertical = UIStackView()
         vertical.axis = .vertical
-        vertical.spacing = 0
+        vertical.spacing = 5
         vertical.distribution = .fillProportionally
         vertical.alignment = .center
         return vertical

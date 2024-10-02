@@ -10,6 +10,9 @@ import SnapKit
 
 class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    /// manager
+    var userDefaultManager: UserDefaultService!
+    
     // UI Components
     lazy private var profileImageView = UIImageView()
     lazy private var nameTextField = UITextField()
@@ -22,7 +25,16 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         return horizontal
     }()
     lazy private var saveButton = PrimaryButton(label: "Save")
-
+    
+    init(userDefaultManager: UserDefaultService?) {
+        super.init(nibName: nil, bundle: nil)
+        self.userDefaultManager = userDefaultManager
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,8 +44,25 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
         profileImageView.addGestureRecognizer(tapGesture)
+        
+        if let userData = userDefaultManager.getUserData() {
+            updateUserData(with: userData)
+        }
+        
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
-
+    
+    private func updateUserData(with user: User){
+        nameTextField.text = user.name
+        
+        if let imageData = Data(base64Encoded: user.image), let userImage = UIImage(data: imageData) {
+            profileImageView.image = userImage
+        } else {
+            // Gambar default jika tidak ada gambar
+            profileImageView.image = UIImage(systemName: "person.circle.fill")
+        }
+    }
+    
     func setupUI() {
         
         view.addSubview(saveButton)
@@ -82,7 +111,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(30)
             make.height.equalTo(100)
         }
-
+        
         // Save Button Constraints
         saveButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(30)
@@ -90,14 +119,36 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
             make.height.equalTo(50)
         }
     }
-
+    
+    @objc
+    private func saveButtonTapped() {
+        guard let name = nameTextField.text, !name.isEmpty else {
+            // Handle empty name
+            print("Name is empty")
+            return
+        }
+        
+        guard let imageData = profileImageView.image?.pngData() else {
+            // Handle no image
+            print("Image is empty")
+            return
+        }
+        
+        let imageBase64String = imageData.base64EncodedString()
+        let updatedUser = User(name: name, image: imageBase64String, role: .leader)
+        
+        userDefaultManager?.saveuserData(user: updatedUser)
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
     // Action for profile image tap
     @objc func profileImageTapped() {
         // Show action sheet to choose between photo library or camera
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
-
+        
         let actionSheet = UIAlertController(title: "Profile Picture", message: "Choose a source", preferredStyle: .actionSheet)
         
         // Option 1: Camera
@@ -107,16 +158,16 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                 self.present(imagePickerController, animated: true, completion: nil)
             }))
         }
-
+        
         // Option 2: Photo Library
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))
-
+        
         // Option to cancel
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
+        
         self.present(actionSheet, animated: true, completion: nil)
     }
     

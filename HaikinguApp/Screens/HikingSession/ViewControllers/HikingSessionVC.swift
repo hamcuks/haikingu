@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Swinject
 
 class HikingSessionVC: UIViewController {
     
@@ -58,12 +59,9 @@ class HikingSessionVC: UIViewController {
         
         view.backgroundColor = .white
         
-//        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
+        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
         
-        // Disable swipe gesture for back
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
-        // Hide back button on navigation bar
         navigationItem.hidesBackButton = true
         
         headerView = HeaderView(status: "Keep Moving", title: "00.00", subtitle: "Hiking time for 1670 m", backgroundColor: .clear)
@@ -74,6 +72,7 @@ class HikingSessionVC: UIViewController {
         configureUI()
         
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        endButton.addTarget(self, action: #selector(endActionTapped), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,6 +91,9 @@ class HikingSessionVC: UIViewController {
         view.addSubview(horizontalStack)
         
         horizontalStack.addArrangedSubview(actionButton)
+        
+        horizontalStack.layer.borderColor = UIColor.black.cgColor
+        horizontalStack.layer.borderWidth = 1
         
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
@@ -115,9 +117,18 @@ class HikingSessionVC: UIViewController {
         }
         
         horizontalStack.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(24)
-            make.width.height.equalTo(60)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(10)
+            make.top.equalTo(footerView.snp.bottom).offset(10)
+//            make.width.height.equalTo(120)
             make.centerX.equalTo(footerView)
+        }
+        
+        actionButton.snp.makeConstraints { make in
+            make.width.height.equalTo(77)
+        }
+        
+        endButton.snp.makeConstraints { make in
+            make.width.height.equalTo(77)
         }
         
     }
@@ -154,20 +165,13 @@ class HikingSessionVC: UIViewController {
             if iconButton == "play.fill" {
                 print("play button leader tapped")
                 iconButton = "pause.fill"
-                // Menambahkan endButton ke stack hanya jika belum ada
-                if !horizontalStack.arrangedSubviews.contains(endButton) {
-                    horizontalStack.addArrangedSubview(endButton)
-                }
+                horizontalStack.addArrangedSubview(endButton)
                 
             } else if iconButton == "pause.fill" {
                 print("paused button leader tapped")
                 iconButton = "play.fill"
                 horizontalStack.removeArrangedSubview(endButton)
-                // Menghapus endButton dari stack
-                if horizontalStack.arrangedSubviews.contains(endButton) {
-                    horizontalStack.removeArrangedSubview(endButton)
-                    endButton.removeFromSuperview() // Pastikan untuk menghapus dari superview juga
-                }
+                endButton.removeFromSuperview()
             }
             
             actionButton.setImage(UIImage(systemName: iconButton), for: .normal)
@@ -176,9 +180,10 @@ class HikingSessionVC: UIViewController {
     }
     
     @objc
-    func endActionTapped(){
-//        guard let finishVC = Container.shared.resolve(CongratsVC().self) else { return }
-//        navigationController?.pushViewController(finishVC, animated: true)
+    func endActionTapped() {
+        guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
+        finishVC.destinationDetail = destinationDetail
+        navigationController?.pushViewController(finishVC, animated: true)
     }
     
 }

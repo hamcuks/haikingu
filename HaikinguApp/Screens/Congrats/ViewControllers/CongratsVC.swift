@@ -50,7 +50,7 @@ class CongratsVC: UIViewController {
         tableView.allowsSelection = false
         return tableView
     }()
-
+    
     lazy private var reminderTitleView = ReminderTitleView()
     
     lazy private var setReminderButton: PrimaryButton = PrimaryButton(label: "Set Reminder")
@@ -68,7 +68,7 @@ class CongratsVC: UIViewController {
     
     private var headerCongratsView: HeaderCongratsView!
     
-    private var hikingSummaryView = HikingSummaryView()
+    private var hikingSummaryView: HikingSummaryView!
     
     private var selectedTime: String = "Set"
     
@@ -76,21 +76,39 @@ class CongratsVC: UIViewController {
     
     private var imagePickerController: UIImagePickerController = UIImagePickerController()
     
-    private var alreadSetTime: Bool = false
-    private var alreadSetAlert: Bool = false
-
+    private var workoutManager: WorkoutServiceIos!
+    var destinationDetail: DestinationModel!
+    
+    init(workoutManager: WorkoutServiceIos?) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.workoutManager = workoutManager
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationItem.hidesBackButton = true
+        
+        hikingSummaryView = HikingSummaryView(destinationDetail: destinationDetail, workoutManager: workoutManager)
+        
         headerCongratsView = HeaderCongratsView(
-            destinationTitle: "Bidadari lake",
+            destinationTitle: "\(destinationDetail.name)",
             destinationTime: "1 Hour 25 Minutes"
         )
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        setReminderButton.isEnabled = false
+        shareButton.isEnabled = false
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
         profileImageView.addGestureRecognizer(tapGesture)
@@ -117,12 +135,20 @@ class CongratsVC: UIViewController {
         horizontalStack.addArrangedSubview(shareButton)
     }
     
+    func validateInputs() {
+        let isTimeValid = selectedTime != "Set"
+        let isAlertValid = selectedAlert != "None"
+        
+        // Jika kedua nilai valid, aktifkan tombol, jika tidak nonaktifkan
+        setReminderButton.isEnabled = isTimeValid && isAlertValid
+    }
+    
     private func configureUI() {
-
+        
         addSubViewsAll()
         
         headerCongratsView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-25)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).inset(20)
         }
@@ -181,14 +207,34 @@ class CongratsVC: UIViewController {
     
     @objc
     func setReminderTapped() {
-        // TODO: Action when tapped Add Reminder
-        print("set reminder button tapped")
+        // Dapatkan waktu pengingat dan waktu alert
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        if let reminderTime = formatter.date(from: selectedTime) {
+            
+            let alertIntervals: [String: TimeInterval] = [
+                "None": 0,
+                "At time of activity": 0,
+                "15 minutes before": 15 * 60,
+                "30 minutes before": 30 * 60
+            ]
+            
+            let alertInterval = alertIntervals[selectedAlert] ?? 0
+            
+            let notificationManager = NotificationManager()
+            notificationManager.createReminder(for: "Reminder", body: "Your hike is starting soon!", date: reminderTime, reminder: alertInterval)
+            
+            // Pindah ke root (HomeVC)
+            navigationController?.popToRootViewController(animated: true)
+        }
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc
     func shareTapped() {
-        // TODO: Action when tapped Share Button
-        print("share button tapped")
+        let congratsShareVC = CongratsSharableVC()
+        congratsShareVC.selectedImage = backgroundImageView.image
+        navigationController?.pushViewController(congratsShareVC, animated: true)
     }
     
     @objc func profileImageTapped() {
@@ -196,7 +242,7 @@ class CongratsVC: UIViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
-
+        
         let actionSheet = UIAlertController(title: "Upload your Picture", message: "Let's documented your journey, choose a source picture", preferredStyle: .actionSheet)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -205,17 +251,17 @@ class CongratsVC: UIViewController {
                 self.present(imagePickerController, animated: true, completion: nil)
             }))
         }
-
+        
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))
-
+        
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
+        
         self.present(actionSheet, animated: true, completion: nil)
     }
-
+    
 }
 
 extension CongratsVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -282,7 +328,8 @@ extension CongratsVC: UITableViewDelegate, UITableViewDataSource {
             formatter.dateFormat = "HH:mm"
             self.selectedTime = formatter.string(from: pickerView.date)
             self.tableView.reloadData()
-            self.alreadSetTime = true
+            
+            self.validateInputs()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -302,7 +349,7 @@ extension CongratsVC: UITableViewDelegate, UITableViewDataSource {
             let action = UIAlertAction(title: option, style: .default) { _ in
                 self.selectedAlert = option
                 self.tableView.reloadData()
-                self.alreadSetAlert = true
+                self.validateInputs()
             }
             alertPickerVC.addAction(action)
         }

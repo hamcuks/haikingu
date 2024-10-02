@@ -54,26 +54,21 @@ class HikingSummaryView: UIView {
         return view
     }()
     
-    private var eleGainView: HikingMetricsIconTextView = {
-        let view = HikingMetricsIconTextView(icon: "arrow.up.right", value: "97 m", title: "Elv. Gain")
-        return view
-    }()
+    private var eleGainView: HikingMetricsIconTextView!
     
-    private var distanceView: HikingMetricsIconTextView = {
-        let view = HikingMetricsIconTextView(icon: "point.topleft.filled.down.to.point.bottomright.curvepath", value: "1000 m", title: "Distance Hiked")
-        return view
-    }()
+    private var distanceView: HikingMetricsIconTextView!
     
-    private var restTakenView: HikingMetricsIconTextView = {
-        let view = HikingMetricsIconTextView(icon: "figure.mind.and.body", value: "2x", title: "Rest Taken")
-        return view
-    }()
-//
-//    init(destinationTitle: String, destinationTime: String) {
-//        super.init(frame: .zero)
-//        
-//        self.configureUI()
-//    }
+    private var restTakenView: HikingMetricsIconTextView!
+
+    init(destinationDetail: DestinationModel, workoutManager: WorkoutServiceIos) {
+        super.init(frame: .zero)
+        
+        eleGainView = HikingMetricsIconTextView(icon: "arrow.up.right", value: "\(destinationDetail.maxElevation) m", title: "Elv. Gain")
+        distanceView = HikingMetricsIconTextView(icon: "point.topleft.filled.down.to.point.bottomright.curvepath", value: "\(workoutManager.distance) m", title: "Distance Hiked")
+        restTakenView = HikingMetricsIconTextView(icon: "figure.mind.and.body", value: "0x", title: "Rest Taken")
+        
+        self.configureUI()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
