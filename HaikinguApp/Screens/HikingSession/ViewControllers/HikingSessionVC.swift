@@ -235,10 +235,25 @@ extension HikingSessionVC: WorkoutDelegate {
     func didUpdateHeartRate(_ heartRate: Double) {
         print("heart rate")
         
+        guard let userData = userDefaultManager?.getUserData() else { return }
+        
         if workoutManager?.isPersonTired() ?? false {
-            self.peripheralManager?.requestRest(for: .abnormalBpm)
+            if userData.role == .leader {
+                
+                /// Broadcast to other member if leader's bpm is abnormal
+                self.centralManager?.requestRest(for: .abnormalBpm, exclude: nil)
+            } else {
+                /// Tell central if member's bpm is abnormal
+                self.peripheralManager?.requestRest(for: .abnormalBpm)
+            }
         } else {
-            self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
+            if userData.role == .leader {
+                /// Broadcast to other member if leader's bpm is already normal
+                self.centralManager?.requestRest(for: .bpmAlreadyNormal, exclude: nil)
+            } else {
+                /// Tell central if member's bpm is already normal
+                self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
+            }
         }
     }
     
