@@ -22,6 +22,7 @@ class AddFriendVC: UIViewController {
     var header = HeaderAddFriendView()
     var yourTeam: HikerGridView!
     var nearbyPerson: HikerGridView!
+    var selectedPlan: DestinationList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +100,8 @@ extension AddFriendVC: HikerGridViewDelegate {
     }
     
     func didConnectHiker(_ hiker: Hiker) {
-        self.manager?.connect(to: hiker, plan: "")
+        guard let selectedPlan else { return }
+        self.manager?.connect(to: hiker, plan: selectedPlan.rawValue)
     }
     
 }

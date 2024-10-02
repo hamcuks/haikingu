@@ -46,14 +46,14 @@ extension Container {
             return viewController
         }
         
-            container.register(OnboardingHealthAccessVC.self) { resolver in
-                
-                let workoutManager = resolver.resolve(WorkoutServiceIos.self)
-                
-                let viewController = OnboardingHealthAccessVC(workoutManager: workoutManager)
-                
-                return viewController
-            }
+        container.register(OnboardingHealthAccessVC.self) { resolver in
+            
+            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
+            
+            let viewController = OnboardingHealthAccessVC(workoutManager: workoutManager)
+            
+            return viewController
+        }
         
         return container
     }()

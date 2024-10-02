@@ -9,6 +9,10 @@ import Foundation
 import Swinject
 
 extension HomeVC: PeripheralBLEManagerDelegate {
+    func peripheralBLEManager(didUpdateHikingState state: HikingStateEnum) {
+        print(state.rawValue)
+    }
+    
     func peripheralBLEManagerDidReceiveInvitation(from invitor: Hiker, plan: String) {
         self.showInvitationSheet(from: invitor)
         
@@ -24,6 +28,7 @@ extension HomeVC: PeripheralBLEManagerDelegate {
         guard let plan = DestinationList(rawValue: plan) else { return }
         
         viewController.selectedDestination = plan.destinationSelected
+        viewController.selectedPlan = plan
         viewController.role = .member
         
         self.navigationController?.pushViewController(viewController, animated: true)

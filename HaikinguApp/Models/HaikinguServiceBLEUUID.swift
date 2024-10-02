@@ -23,6 +23,7 @@ enum HaikinguCharacteristicBLEUUID: String, CaseIterable {
     case sendHikingInvitation = "F38DAA69-FC2D-4507-B13A-430E7CE9892B"
     case username = "73EEA5A6-F5F7-49F4-9AA0-09EE887BE868"
     case plan = "27D4DD6D-19ED-4CAB-AD5E-347009C4DD0C"
+    case hikingState = "E94F9477-3971-4460-8A29-1D0EBA9CBCFA"
     
     var cbuuid: CBUUID {
         CBUUID(string: self.rawValue)
@@ -66,6 +67,10 @@ extension CBCharacteristic {
     
     var isPlan: Bool {
         self.hikingUUID == .plan
+    }
+    
+    var isHikingState: Bool {
+        self.hikingUUID == .hikingState
     }
     
     var name: String {

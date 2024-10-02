@@ -22,6 +22,7 @@ class HikerBLEManager: NSObject {
     var central: CBCentral?
     var peripheralDelegate: PeripheralBLEManagerDelegate?
     var invitor: Hiker?
+    var plan: String?
     
     var restCharacteristic: CBMutableCharacteristic?
     var invitationCharactersitic: CBMutableCharacteristic?
@@ -50,6 +51,7 @@ class HikerBLEManager: NSObject {
 }
 
 extension HikerBLEManager: CentralBLEService {
+    
     
     func setDelegate(_ delegate: CentralBLEManagerDelegate) {
         self.centralDelegate = delegate
@@ -95,7 +97,7 @@ extension HikerBLEManager: CentralBLEService {
     }
     
     func connect(to hiker: Hiker, plan: String) {
-        
+        self.plan = plan
         if let peripheral = self.discoveredPeripherals.first(
             where: { $0.identifier == hiker.id
             }) {
@@ -157,18 +159,46 @@ extension HikerBLEManager: CentralBLEService {
             "Central HikerBLEManager: Send Hiking Plan to \(peripheral.identifier)"
         )
         
-        let data = "bukitKandap".data(using: .utf8)
+        guard let plan else { return }
+        
+        let data = plan.data(using: .utf8)
         
         guard let data else { return }
         
         for service in peripheral.services ?? [] where service.isPlanService {
-            if let characteristic = service.characteristics?.first {
+            
+            for characteristic in service.characteristics ?? [] where characteristic.isPlan {
                 peripheral
                     .writeValue(
                         data,
                         for: characteristic,
                         type: .withResponse
                     )
+            }
+        }
+    }
+    
+    
+    func updateHikingState(for type: HikingStateEnum) {
+        os_log(
+            "Central updateHikingState: Update hiking state to: \(type.rawValue)"
+        )
+        
+        let data = type.rawValue.data(using: .utf8)
+        
+        guard let data else { return }
+        
+        for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
+            for service in peripheral.services ?? [] where service.isPlanService {
+                
+                for characteristic in service.characteristics ?? [] where characteristic.isHikingState {
+                    peripheral
+                        .writeValue(
+                            data,
+                            for: characteristic,
+                            type: .withoutResponse
+                        )
+                }
             }
         }
     }

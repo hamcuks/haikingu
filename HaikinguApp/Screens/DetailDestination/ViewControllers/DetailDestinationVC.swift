@@ -22,7 +22,7 @@ class DetailDestinationVC: UIViewController {
     /// Delegates
     internal var addFriendDelegate: AddFriendVCDelegate?
     
-    var destinationId: Int!
+    var selectedPlan: DestinationList?
     var selectedDestination: DestinationModel!
     var teamView: TeamsView!
     var alertNotRange: AlertRangeView = AlertRangeView()
@@ -177,6 +177,7 @@ class DetailDestinationVC: UIViewController {
     func showModalAddFriend() {
         let addFriendVC = AddFriendVC()
         addFriendVC.manager = centralManager
+        addFriendVC.selectedPlan = selectedPlan
         addFriendVC.modalPresentationStyle = .formSheet
         
         self.addFriendDelegate = addFriendVC
@@ -195,20 +196,22 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     @objc
     private func actionButton() {
         
-        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
-        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
-        let maximumDistance = 200.0
-        
-        if rangeDistance < maximumDistance {
-            print("Disctance is less than maximum distance: \(rangeDistance)")
-            let hikingSessionVC = HikingSessionVC()
-            navigationController?.pushViewController(hikingSessionVC, animated: true)
-        } else {
-            alertNotRange.showAlert(on: self)
+//        guard let userLocation = userLocation else { return print("User Location is Unavailable")}
+//        let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
+//        let maximumDistance = 200.0
+//        
+//        if rangeDistance < maximumDistance {
+//            print("Disctance is less than maximum distance: \(rangeDistance)")
 //            let hikingSessionVC = HikingSessionVC()
 //            navigationController?.pushViewController(hikingSessionVC, animated: true)
-            print("Distance is greater than maximum distance: \(rangeDistance)")
-        }
+//        } else {
+//            alertNotRange.showAlert(on: self)
+////            let hikingSessionVC = HikingSessionVC()
+////            navigationController?.pushViewController(hikingSessionVC, animated: true)
+//            print("Distance is greater than maximum distance: \(rangeDistance)")
+//        }
+        
+        self.centralManager?.updateHikingState(for: .started)
         
     }
     

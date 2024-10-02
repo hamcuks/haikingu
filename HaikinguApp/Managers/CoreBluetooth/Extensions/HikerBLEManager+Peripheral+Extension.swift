@@ -66,9 +66,16 @@ extension HikerBLEManager: PeripheralBLEService {
         )
         self.planCharacteristic = planCharacteristic
         
+        let hikingStateCharacteristic = createCharacteristic(
+            uuid: .hikingState,
+            properties: [.writeWithoutResponse, .notify],
+            value: nil,
+            permissions: [.writeable]
+        )
+        
         let planService = createService(
             uuid: .plan,
-            characteristics: [planCharacteristic]
+            characteristics: [planCharacteristic, hikingStateCharacteristic]
         )
         peripheralManager.add(planService)
         
@@ -285,7 +292,6 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
             
             /// Send callback to central after received the hiking plan
             if request.characteristic.isPlan {
-                print("XXXXX")
                 guard let decodedData = String(data: data, encoding: .utf8) else {
                     return
                 }
@@ -295,6 +301,20 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
                 peripheral.respond(to: request, withResult: .success)
                 
                 self.peripheralDelegate?.peripheralBLEManager(didReceivePlanData: decodedData)
+            }
+            
+            if request.characteristic.isHikingState {
+                guard let decodedData = String(data: data, encoding: .utf8) else {
+                    return
+                }
+                
+                guard let state = HikingStateEnum(rawValue: decodedData) else {
+                    return
+                }
+                
+                os_log("PeripheralManager: Received Hiking State: \(decodedData)")
+                
+                self.peripheralDelegate?.peripheralBLEManager(didUpdateHikingState: state)
             }
             
         }

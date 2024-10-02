@@ -187,7 +187,8 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
             
             if service.isPlanService {
                 let planCharacteristic = HaikinguCharacteristicBLEUUID.plan.cbuuid
-                cbuuids = [planCharacteristic]
+                let hikingStateCharacteristic = HaikinguCharacteristicBLEUUID.hikingState.cbuuid
+                cbuuids = [planCharacteristic, hikingStateCharacteristic]
             }
             
             peripheral.discoverCharacteristics(cbuuids, for: service)
