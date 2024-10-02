@@ -234,7 +234,7 @@ extension HikingSessionVC: WorkoutDelegate {
     }
     
     func didUpdateSpeed(_ speed: Double) {
-        naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: speed)
+        naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: speed) * 60
         
         footerView.updateEstTime("\(naismithTime ?? 0)")
         
