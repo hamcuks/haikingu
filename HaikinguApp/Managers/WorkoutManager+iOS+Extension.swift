@@ -48,8 +48,8 @@ extension WorkoutManager: WorkoutServiceIos {
                 currentElapsedTime = elapsedTime.timeInterval
             }
             elapsedTimeInterval = currentElapsedTime
-            updateElapsedTimeInterval(to: currentElapsedTime)
-            delegate?.didUpdateElapsedTimeInterval(currentElapsedTime)
+            updateElapsedTimeInterval(to: elapsedTimeInterval)
+            delegate?.didUpdateElapsedTimeInterval(elapsedTimeInterval)
         } else if let statisticsArray = try NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: HKStatistics.self, from: data) {
             for statistics in statisticsArray {
                 updateForStatistics(statistics)
@@ -90,11 +90,23 @@ extension WorkoutManager: WCSessionDelegate{
                 self.updateRemainingTime(to: remaining)
                 self.delegate?.didUpdateRemainingTime(remaining)
             }
-        } else if let toDo = message["toDo"] as? TimingState {
+        } else if let toDo = message["toDoWalk"] as? String {
             DispatchQueue.main.async {
-                self.whatToDo = toDo
-                self.updateWhatToDo(to: toDo)
-                self.delegate?.didUpdateWhatToDo(toDo)
+                self.whatToDo = .timeToWalk
+                self.updateWhatToDo(to: self.whatToDo)
+                self.delegate?.didUpdateWhatToDo(self.whatToDo)
+            }
+        } else if let elapsed = message["elapsed"] as? TimeInterval {
+            DispatchQueue.main.async {
+                self.elapsedTimeInterval = elapsed
+                self.updateElapsedTimeInterval(to: elapsed)
+                self.delegate?.didUpdateElapsedTimeInterval(elapsed)
+            }
+        }else if let toDo = message["toDoRest"] as? String {
+            DispatchQueue.main.async {
+                self.whatToDo = .timeToRest
+                self.updateWhatToDo(to: self.whatToDo)
+                self.delegate?.didUpdateWhatToDo(self.whatToDo)
             }
         }
     }

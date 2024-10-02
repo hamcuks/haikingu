@@ -39,6 +39,7 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS{
         /**
          Start mirroring the session to the companion device.
          */
+        session?.prepare()
         try await session?.startMirroringToCompanionDevice()
         /**
          Start the workout session activity.
@@ -124,7 +125,8 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
 }
 
 
-extension WorkoutManager{
+extension WorkoutManager {
+    
     func sendRemainingTimeToiPhone() {
         if WCSession.default.isReachable {
             let message = [
@@ -136,13 +138,35 @@ extension WorkoutManager{
         }
     }
     
-    func sendWhatToDoToiPhone() {
+    func sendWhatToDoWalkToiPhone() {
         if WCSession.default.isReachable {
             let message = [
-                "toDo": whatToDo,
+                "toDoWalk": "walkTrigger",
             ] as [String : Any]
             WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
-                print("Error sending timer data: \(error.localizedDescription)")
+                print("Error sending todo data: \(error.localizedDescription)")
+            })
+        }
+    }
+    
+    func sendWhatToDoRestToiPhone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "toDoRest": "restTrigger",
+            ] as [String : Any]
+            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
+                print("Error sending todo data: \(error.localizedDescription)")
+            })
+        }
+    }
+    
+    func sendElapsedTimeToIphone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "elapsed": elapsedTimeInterval,
+            ] as [String : Any]
+            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
+                print("Error sending elapsed data: \(error.localizedDescription)")
             })
         }
     }
