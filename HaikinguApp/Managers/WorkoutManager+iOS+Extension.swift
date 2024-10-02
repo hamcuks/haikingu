@@ -48,6 +48,8 @@ extension WorkoutManager: WorkoutServiceIos {
                 currentElapsedTime = elapsedTime.timeInterval
             }
             elapsedTimeInterval = currentElapsedTime
+            updateElapsedTimeInterval(to: currentElapsedTime)
+            delegate?.didUpdateElapsedTimeInterval(currentElapsedTime)
         } else if let statisticsArray = try NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: HKStatistics.self, from: data) {
             for statistics in statisticsArray {
                 updateForStatistics(statistics)

@@ -17,6 +17,8 @@ protocol WorkoutDelegate: AnyObject{
     func didUpdateDistance(_ distance: Double)
     func didUpdateSpeed(_ speed: Double)
     func didUpdateRemainingTime(_ remainingTime: TimeInterval)
+    func didUpdateWhatToDo(_ whatToDo: TimingState)
+    func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval)
 }
 
 enum TimingState{
@@ -45,7 +47,11 @@ class WorkoutManager: NSObject, ObservableObject {
     var endTime: Date?
     var isPaused = false
     var pausedTime: TimeInterval = 0
-    @Published var whatToDo: TimingState = .timeToWalk
+    @Published var whatToDo: TimingState = .timeToWalk {
+        didSet {
+            delegate?.didUpdateWhatToDo(whatToDo)
+        }
+    }
     @Published var sessionState: HKWorkoutSessionState = .notStarted
     var age: DateComponents?
     var maxHeartRate: Int?
@@ -73,7 +79,11 @@ class WorkoutManager: NSObject, ObservableObject {
             print("\(distance) meter")
         }
     }
-    @Published var elapsedTimeInterval: TimeInterval = 0
+    @Published var elapsedTimeInterval: TimeInterval = 0 {
+        didSet {
+            delegate?.didUpdateElapsedTimeInterval(elapsedTimeInterval)
+        }
+    }
     @Published var workout: HKWorkout?
 
     let typesToShare: Set = [HKQuantityType.workoutType()]
@@ -204,11 +214,15 @@ class WorkoutManager: NSObject, ObservableObject {
             timer?.invalidate()
             timer = nil
             whatToDo = .timeToRest
+            updateWhatToDo(to: whatToDo)
+            delegate?.didUpdateWhatToDo(whatToDo)
             startTimer(with: 600, startDate: Date())
         } else if remainingTime == 0 && whatToDo == .timeToRest{
             timer?.invalidate()
             timer = nil
             whatToDo = .timeToWalk
+            updateWhatToDo(to: whatToDo)
+            delegate?.didUpdateWhatToDo(whatToDo)
             startTimer(with: 1500, startDate: Date())
         }
     }
@@ -255,6 +269,16 @@ class WorkoutManager: NSObject, ObservableObject {
     func updateRemainingTime(to newRemainingTime: Double) {
         remainingTime = newRemainingTime
         self.delegate?.didUpdateRemainingTime(remainingTime)
+        }
+    
+    func updateWhatToDo(to newWhatToDo: TimingState) {
+        whatToDo = newWhatToDo
+        self.delegate?.didUpdateWhatToDo(whatToDo)
+        }
+    
+    func updateElapsedTimeInterval(to newElapsedTimeInterval: TimeInterval) {
+        elapsedTimeInterval = newElapsedTimeInterval
+        self.delegate?.didUpdateElapsedTimeInterval(elapsedTimeInterval)
         }
 }
 
