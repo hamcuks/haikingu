@@ -131,6 +131,8 @@ class TeamsView: UIView {
         
         self.hikers = hikers
         
+        yourTeamLabel.text = "Your team (\(self.hikers.count)/5)"
+        
         /// Update the datasource in main thread
         DispatchQueue.main.async {
             self.datasource.apply(snapshot, animatingDifferences: true)
