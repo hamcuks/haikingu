@@ -19,7 +19,6 @@ extension Container {
     
         container.register(WorkoutServiceWatchOS.self) { resolver in WorkoutManager.shared }
         
-        
         /// ViewModel
         container.register(HomeVM.self) { resolver in
             let workoutManagerFunc = resolver.resolve(WorkoutServiceWatchOS.self)

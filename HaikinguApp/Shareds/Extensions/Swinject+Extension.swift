@@ -24,7 +24,7 @@ extension Container {
         }
         
         container.register(NotificationService.self) { _ in NotificationManager() }
-        container.register(WorkoutServiceIos.self) { _ in WorkoutManager() }
+        container.register(WorkoutServiceIos.self) { _ in WorkoutManager.shared }
         container.register(UserDefaultService.self) { _ in UserDefaultManager() }
         
         /// ViewControllers
