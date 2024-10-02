@@ -11,6 +11,9 @@ import Swinject
 
 protocol HikingSessionVCDelegate: AnyObject {
     func didReceivedHikingState(_ state: HikingStateEnum)
+    func didUpdateEstTime(_ time: TimeInterval)
+    func didUpdateDistance(_ distance: Double)
+    func didUpdateRestTaken(_ restCount: Int)
 }
 
 class HikingSessionVC: UIViewController {
@@ -70,7 +73,6 @@ class HikingSessionVC: UIViewController {
         view.backgroundColor = .white
         
         footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
-        
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
@@ -199,6 +201,15 @@ class HikingSessionVC: UIViewController {
 }
 
 extension HikingSessionVC: HikingSessionVCDelegate {
+    func didUpdateEstTime(_ time: TimeInterval) {
+        print("didUpdateEstTime: ", time)
+        self.footerView.updateEstTime("\(time)")
+    }
+    
+    func didUpdateRestTaken(_ restCount: Int) {
+        
+    }
+    
     func didReceivedHikingState(_ state: HikingStateEnum) {
         /// Update label based on state
         print("Current Hiking State: \(state.rawValue)")

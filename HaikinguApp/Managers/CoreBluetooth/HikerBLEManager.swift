@@ -194,10 +194,78 @@ extension HikerBLEManager: CentralBLEService {
         
         guard let data else { return }
         
+        print(self.discoveredPeripherals)
+        
         for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
             for service in peripheral.services ?? [] where service.isPlanService {
                 
                 for characteristic in service.characteristics ?? [] where characteristic.isHikingState {
+                    peripheral
+                        .writeValue(
+                            data,
+                            for: characteristic,
+                            type: .withoutResponse
+                        )
+                }
+            }
+        }
+    }
+    
+    func updateEstTime(_ time: TimeInterval) {
+        os_log(
+            "Central updateHikingState: Update Est Time: \(time)"
+        )
+        
+        let data = withUnsafeBytes(of: time) { Data($0) }
+        
+        for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
+            for service in peripheral.services ?? [] where service.isPlanService {
+                
+                for characteristic in service.characteristics ?? [] where characteristic.isEstTime {
+                    peripheral
+                        .writeValue(
+                            data,
+                            for: characteristic,
+                            type: .withoutResponse
+                        )
+                }
+            }
+        }
+    }
+    
+    func updateRestTaken(_ restCount: Int) {
+        os_log(
+            "Central updateHikingState: Update Rest Taken: \(restCount)"
+        )
+        
+        let data = withUnsafeBytes(of: restCount) { Data($0) }
+        
+        for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
+            for service in peripheral.services ?? [] where service.isPlanService {
+                
+                for characteristic in service.characteristics ?? [] where characteristic.isRestTaken {
+                    peripheral
+                        .writeValue(
+                            data,
+                            for: characteristic,
+                            type: .withoutResponse
+                        )
+                }
+            }
+        }
+    }
+    
+    func updateDistance(_ distance: Double) {
+        os_log(
+            "Central updateHikingState: Update Distance: \(distance)"
+        )
+        
+        let data = withUnsafeBytes(of: distance) { Data($0) }
+        
+        for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
+            for service in peripheral.services ?? [] where service.isPlanService {
+                
+                for characteristic in service.characteristics ?? [] where characteristic.isDistance {
                     peripheral
                         .writeValue(
                             data,

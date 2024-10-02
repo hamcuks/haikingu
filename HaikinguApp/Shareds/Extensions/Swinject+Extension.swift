@@ -18,12 +18,12 @@ extension Container {
         container.register(CentralBLEService.self) { resolver in
             let userDefaultManager = resolver.resolve(UserDefaultService.self)
             return HikerBLEManager(centralManager: nil, userDefaultManager: userDefaultManager)
-        }
+        }.inObjectScope(.container)
         
         container.register(PeripheralBLEService.self) { resolver in
             let userDefaultManager = resolver.resolve(UserDefaultService.self)
             return HikerBLEManager(peripheralManager: nil, userDefaultManager: userDefaultManager)
-        }
+        }.inObjectScope(.container)
         
         container.register(NotificationService.self) { _ in NotificationManager() }
         container.register(WorkoutServiceIos.self) { _ in WorkoutManager.shared }

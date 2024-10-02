@@ -73,9 +73,30 @@ extension HikerBLEManager: PeripheralBLEService {
             permissions: [.writeable]
         )
         
+        let estTimeCharacteristic = createCharacteristic(
+            uuid: .estTime,
+            properties: [.writeWithoutResponse, .notify],
+            value: nil,
+            permissions: [.writeable]
+        )
+        
+        let restTakenCharacteristic = createCharacteristic(
+            uuid: .restTaken,
+            properties: [.writeWithoutResponse, .notify],
+            value: nil,
+            permissions: [.writeable]
+        )
+        
+        let distanceCharacteristic = createCharacteristic(
+            uuid: .distance,
+            properties: [.writeWithoutResponse, .notify],
+            value: nil,
+            permissions: [.writeable]
+        )
+        
         let planService = createService(
             uuid: .plan,
-            characteristics: [planCharacteristic, hikingStateCharacteristic]
+            characteristics: [planCharacteristic, hikingStateCharacteristic, estTimeCharacteristic, restTakenCharacteristic, distanceCharacteristic]
         )
         peripheralManager.add(planService)
         
@@ -317,6 +338,36 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
                 self.peripheralDelegate?.peripheralBLEManager(didUpdateHikingState: state)
             }
             
+            if request.characteristic.isEstTime {
+                let decodedData = data.withUnsafeBytes {
+                    $0.load(as: TimeInterval.self)
+                }
+                
+                os_log("PeripheralManager: Received Est Time: \(decodedData)")
+                
+                self.peripheralDelegate?.peripheralBLEManager(didUpdateEstTime: decodedData)
+            }
+            
+            if request.characteristic.isRestTaken {
+                let decodedData = data.withUnsafeBytes {
+                    $0.load(as: Int.self)
+                }
+                
+                os_log("PeripheralManager: Received Rest Taken: \(decodedData)")
+                
+                self.peripheralDelegate?.peripheralBLEManager(didUpdateRestTaken: decodedData)
+            }
+            
+            if request.characteristic.isDistance {
+                let decodedData = data.withUnsafeBytes {
+                    $0.load(as: Double.self)
+                }
+                
+                os_log("PeripheralManager: Received Rest Taken: \(decodedData)")
+                
+                self.peripheralDelegate?.peripheralBLEManager(didUpdateDistance: decodedData)
+            }
+            
         }
         
     }
@@ -354,6 +405,15 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
         
         if let hiker = invitor {
             self.peripheralDelegate?.peripheralBLEManager(didDisconnect: hiker)
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
+        os_log("PeripheralManager: didModifyServices")
+        
+        if !invalidatedServices.isEmpty {
+            print("Rediscovering services...")
+            peripheral.discoverServices(invalidatedServices.map { $0.uuid })
         }
     }
     
