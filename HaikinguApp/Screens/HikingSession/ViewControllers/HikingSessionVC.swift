@@ -228,11 +228,15 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 
 extension HikingSessionVC: WorkoutDelegate {
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
-        // untuk nentunin komponen mana yang muncul di hiking session
+      
+        headerView.configureValueState(whatToDo)
+        
+        print("this what to do \(whatToDo)")
     }
     
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval) {
         // tampilin di stopwatch maju
+        timeElapsed.updateLabel(elapsedTimeInterval)
     }
     
     func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
@@ -250,11 +254,9 @@ extension HikingSessionVC: WorkoutDelegate {
     }
     
     func didUpdateDistance(_ distance: Double) {
-        
         if Double(destinationDetail.trackLength) == workoutManager?.distance {
             checkDistance()
         }
-        
     }
     
     func didUpdateSpeed(_ speed: Double) {

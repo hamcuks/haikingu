@@ -50,6 +50,7 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var whatToDo: TimingState = .timeToWalk {
         didSet {
             delegate?.didUpdateWhatToDo(whatToDo)
+            print("ini to do: \(whatToDo)")
         }
     }
     @Published var sessionState: HKWorkoutSessionState = .notStarted
@@ -213,16 +214,20 @@ class WorkoutManager: NSObject, ObservableObject {
         if remainingTime == 0 && whatToDo == .timeToWalk {
             timer?.invalidate()
             timer = nil
-            whatToDo = .timeToRest
-            updateWhatToDo(to: whatToDo)
+            updateWhatToDo(to: .timeToRest)
             delegate?.didUpdateWhatToDo(whatToDo)
+#if os(watchOS)
+            sendWhatToDoToiPhone()
+#endif
             startTimer(with: 600, startDate: Date())
         } else if remainingTime == 0 && whatToDo == .timeToRest {
             timer?.invalidate()
             timer = nil
-            whatToDo = .timeToWalk
-            updateWhatToDo(to: whatToDo)
+            updateWhatToDo(to: .timeToWalk)
             delegate?.didUpdateWhatToDo(whatToDo)
+#if os(watchOS)
+            sendWhatToDoToiPhone()
+#endif
             startTimer(with: 1500, startDate: Date())
         }
     }

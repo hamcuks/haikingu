@@ -84,7 +84,7 @@ class TimeElapsedView: UIView {
 //        timer?.invalidate()
 //    }
     
-    private func updateLabel(_ value: TimeInterval) {
+    func updateLabel(_ value: TimeInterval) {
         // Memformat waktu sebagai hh.mm.ss,SS (jam, menit, detik, ratusan detik)
         let hours = Int(value) / 3600
         let minutes = (Int(value) % 3600) / 60

@@ -90,6 +90,12 @@ extension WorkoutManager: WCSessionDelegate{
                 self.updateRemainingTime(to: remaining)
                 self.delegate?.didUpdateRemainingTime(remaining)
             }
+        } else if let toDo = message["toDo"] as? TimingState {
+            DispatchQueue.main.async {
+                self.whatToDo = toDo
+                self.updateWhatToDo(to: toDo)
+                self.delegate?.didUpdateWhatToDo(toDo)
+            }
         }
     }
 }

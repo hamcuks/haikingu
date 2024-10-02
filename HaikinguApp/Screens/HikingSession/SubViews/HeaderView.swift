@@ -56,6 +56,7 @@ class HeaderView: UIView {
         super.init(frame: .zero)
     
         configureValueRemaining(value)
+        configureValueState(status)
         
         self.configureUI()
     }
@@ -95,7 +96,6 @@ class HeaderView: UIView {
         
         switch state {
         case .timeToRest:
-            
             statusLabel.text = "Rest Time!"
             subtitleLabel.text = "Take a rest for a while, drink your water"
             roundedRectangleView.backgroundColor = .clear
