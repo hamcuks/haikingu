@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol HikingSessionVCDelegate: AnyObject {
+    func didReceivedHikingState(_ state: HikingStateEnum)
+}
+
 class HikingSessionVC: UIViewController {
     
     var headerView: HeaderView!
@@ -58,7 +62,7 @@ class HikingSessionVC: UIViewController {
         
         view.backgroundColor = .white
         
-//        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
+        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
         
         // Disable swipe gesture for back
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -180,5 +184,14 @@ class HikingSessionVC: UIViewController {
 //        guard let finishVC = Container.shared.resolve(CongratsVC().self) else { return }
 //        navigationController?.pushViewController(finishVC, animated: true)
     }
+    
+}
+
+extension HikingSessionVC: HikingSessionVCDelegate {
+    func didReceivedHikingState(_ state: HikingStateEnum) {
+        /// Update label based on state
+        print("Current Hiking State: \(state.rawValue)")
+    }
+    
     
 }

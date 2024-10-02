@@ -100,7 +100,7 @@ class DetailDestinationVC: UIViewController {
         locationManager.requestWhenInUseAuthorization() // Minta izin akses lokasi
         locationManager.startUpdatingLocation()
         
-        teamView = TeamsView(action: #selector(teamAction))
+        teamView = TeamsView(frame: self.view.bounds, action: #selector(teamAction))
         
         assetsImage.image = UIImage(named: "\(selectedDestination.image)")
         
@@ -136,7 +136,6 @@ class DetailDestinationVC: UIViewController {
         horizontalStack.addArrangedSubview(elevationDetail)
         horizontalStack.addArrangedSubview(trackDetail)
         
-        teamView = TeamsView(action: #selector(teamAction))
         teamView.isHidden = self.role == .member
         
         let stack = UIStackView(arrangedSubviews: [horizontalStack, teamView, assetsImage])
@@ -204,16 +203,14 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
 //            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
 //            hikingSessionVC.destinationDetail = selectedDestination
 //            navigationController?.pushViewController(hikingSessionVC, animated: true)
-//            print("Disctance is less than maximum distance: \(rangeDistance)")
-//        } else {
-////            alertNotRange.showAlert(on: self)
-//            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
-//            hikingSessionVC.destinationDetail = selectedDestination
-//            navigationController?.pushViewController(hikingSessionVC, animated: true)
 //            print("Distance is greater than maximum distance: \(rangeDistance)")
+//            
+//            self.centralManager?.updateHikingState(for: .started)
+//        } else {
+//            alertNotRange.showAlert(on: self)
+//           
 //        }
         self.centralManager?.updateHikingState(for: .started)
-        
     }
     
     private func checkInRangeDestination(currentLocation: CLLocation) -> CLLocationDistance {
