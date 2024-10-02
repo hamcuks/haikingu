@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct HaikinguWatchAppApp: App {
+    @WKApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @Inject var homeVM : HomeVM
     @Inject var metricsVM : MetricsVM
     @StateObject var userServices = UserServices()
-    var body: some Scene {
+    
+    @SceneBuilder var body: some Scene {
         WindowGroup {
             HomeScreen()
                 .environmentObject(NavigationServices())
