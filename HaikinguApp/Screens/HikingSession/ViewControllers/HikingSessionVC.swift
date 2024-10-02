@@ -219,7 +219,7 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 
 extension HikingSessionVC: WorkoutDelegate {
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
-        // untuk nentunin komponen mana yang muncul di hiking session
+        print("perubahan state hiking: \(whatToDo)")
     }
     
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval) {

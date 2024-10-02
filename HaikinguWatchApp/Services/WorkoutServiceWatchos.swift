@@ -28,4 +28,7 @@ protocol WorkoutServiceWatchOS{
     func requestAuthorization()
     func startPedometerUpdates()
     func startWorkout(workoutConfiguration: HKWorkoutConfiguration) async throws
+    func pauseTimer()
+    func resumeTimer()
+    func stopTimer()
 }

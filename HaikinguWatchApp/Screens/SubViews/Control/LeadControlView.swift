@@ -26,6 +26,7 @@ struct LeadControlView: View {
                             imageColor: .black,
                             buttonColor: .orange) {
                                 metricsVM.isLeadPausedTapped = true
+                                metricsVM.workoutManager?.pauseTimer()
                                 print("Paused Tapped")
                             }
                         
@@ -65,6 +66,7 @@ struct LeadControlView: View {
                                 imageColor: .black,
                                 buttonColor: .orange) {
                                     metricsVM.isLeadPausedTapped = false
+                                    metricsVM.workoutManager?.resumeTimer()
                                     print("Play Tapped")
                                 }
                             Text("Continue")
