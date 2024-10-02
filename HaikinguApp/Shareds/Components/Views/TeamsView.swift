@@ -19,6 +19,12 @@ class TeamsView: UIView {
     
     var addFriendsButton = TextIconButton(icon: "person.2.fill", title: "Add Friends", color: .systemBrown)
     
+    typealias Datasource = UICollectionViewDiffableDataSource<Int, Hiker>
+    
+    var collectionView: UICollectionView!
+    var datasource: Datasource!
+    var hikers: [Hiker] = []
+    
     var roundedRectangleView: UIView = {
         var view = UIView()
         view.layer.cornerRadius = 20.0
@@ -47,17 +53,10 @@ class TeamsView: UIView {
         return vertical
     }()
     
-    private var horizontalPersonStack: UIStackView = {
-        let horizontal = UIStackView()
-        horizontal.axis = .horizontal
-        horizontal.spacing = 5
-        horizontal.distribution = .fillProportionally
-        horizontal.alignment = .leading
-        return horizontal
-    }()
+    var items: [Hiker] = []
     
-    init(action: Selector) {
-        super.init(frame: .zero)
+    init(frame: CGRect, action: Selector?) {
+        super.init(frame: frame)
         configure(action: action)
     }
     
@@ -65,14 +64,11 @@ class TeamsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure(action: Selector) {
+    private func configure(action: Selector?) {
         
-        yourTeamLabel.text = "Your team (1/5)"
+        yourTeamLabel.text = "Your team (0/5)"
         
         addSubview(verticalStack)
-        
-//        verticalStack.layer.borderColor = UIColor.black.cgColor
-//        verticalStack.layer.borderWidth = 1
         
         horizontalStack.addArrangedSubview(yourTeamLabel)
         horizontalStack.addArrangedSubview(addFriendsButton)
@@ -80,9 +76,9 @@ class TeamsView: UIView {
         verticalStack.addArrangedSubview(horizontalStack)
         verticalStack.addArrangedSubview(roundedRectangleView)
         
-        addFriendsButton.addTarget(nil, action: action, for: .touchUpInside)
-        
-        setupProfileStack()
+        if let action {
+            addFriendsButton.addTarget(nil, action: action, for: .touchUpInside)
+        }
         
         verticalStack.snp.makeConstraints { make in
             make.edges.equalToSuperview() // Add padding around verticalStack
@@ -93,32 +89,54 @@ class TeamsView: UIView {
             make.width.equalToSuperview()
         }
         
-        roundedRectangleView.addSubview(horizontalPersonStack)
+//        roundedRectangleView.addSubview(horizontalPersonStack)
         
-        horizontalPersonStack.snp.makeConstraints { make in
-            make.leading.equalTo(roundedRectangleView.snp.leading).inset(8)
-            make.trailing.equalTo(roundedRectangleView.snp.trailing).offset(-8)
-            make.top.equalTo(roundedRectangleView.snp.top).inset(12)
-            make.bottom.equalTo(roundedRectangleView.snp.bottom).offset(-12)
-        }
-        
-//        horizontalPersonStack.layer.borderColor = UIColor.red.cgColor
-//        horizontalPersonStack.layer.borderWidth = 1
-                
+        configureCollectionView()
     }
     
-    func setupProfileStack() {
-//        let person1: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 1")
-//        let person2: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 2")
-//        let person3: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 3")
-//        let person4: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 4")
-//        let person5: PersonImageView = PersonImageView(imagePerson: "Bidadari", namePerson: "Person 5")
-//        
-//        horizontalPersonStack.addArrangedSubview(person1)
-//        horizontalPersonStack.addArrangedSubview(person2)
-//        horizontalPersonStack.addArrangedSubview(person3)
-//        horizontalPersonStack.addArrangedSubview(person4)
-//        horizontalPersonStack.addArrangedSubview(person5)
+    func configureCollectionView() {
+        collectionView = UICollectionView(frame: bounds, collectionViewLayout: UIHelper.createColumnThreeLayout(in: self))
+        
+        roundedRectangleView.addSubview(collectionView)
+        
+        collectionView.backgroundColor = .clear
+        
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        collectionView.register(YourTeamCell.self, forCellWithReuseIdentifier: YourTeamCell.reuseIdentifier)
+        
+        self.configureDatasource()
+    }
+    
+    func configureDatasource() {
+        datasource = Datasource(collectionView: collectionView, cellProvider: { collectionView, indexPath, hiker in
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YourTeamCell.reuseIdentifier, for: indexPath) as? YourTeamCell
+            
+            guard let cell else { return UICollectionViewCell() }
+            
+            cell.setData(with: hiker)
+            
+            return cell
+        })
+    }
+    
+    func updateData(on hikers: [Hiker]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Hiker>()
+        
+        snapshot.appendSections([0])
+        snapshot.appendItems(hikers)
+        
+        self.hikers = hikers
+        
+        yourTeamLabel.text = "Your team (\(self.hikers.count)/5)"
+        
+        /// Update the datasource in main thread
+        DispatchQueue.main.async {
+            self.datasource.apply(snapshot, animatingDifferences: true)
+        }
     }
 
 }

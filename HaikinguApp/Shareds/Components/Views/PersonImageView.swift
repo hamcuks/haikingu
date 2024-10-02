@@ -61,10 +61,10 @@ class PersonImageView: UIView {
         configure()
     }
     
-    func setData(image: String, name: String, state: HikerStateEnum) {
+    func setData(image: String, name: String, state: HikerStateEnum?) {
         nameLabel.text = name
         
-        if state != .notJoined {
+        if let state, state != .notJoined {
             stateLabel.text = state.rawValue
         }
     }

@@ -9,27 +9,57 @@ import Foundation
 import Swinject
 
 extension HomeVC: PeripheralBLEManagerDelegate {
+    func peripheralBLEManager(didUpdateHikingState state: HikingStateEnum) {
+        
+        guard let viewController = Container.shared.resolve(HikingSessionVC.self) else {
+            return
+        }
+        
+        self.hikingSessionDelegate = viewController
+        
+        if state == .started {
+            guard let plan else {
+                return
+            }
+            
+            viewController.destinationDetail = plan.destinationSelected
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
+        self.hikingSessionDelegate?.didReceivedHikingState(state)
+        
+    }
+    
     func peripheralBLEManagerDidReceiveInvitation(from invitor: Hiker, plan: String) {
         self.showInvitationSheet(from: invitor)
         
     }
     
-    func peripheralBLEManager(didReceivePlanData planId: Int) {
-        print("receive plan id: ", planId)
+    func peripheralBLEManager(didReceivePlanData plan: String) {
+        print("receive plan id: ", plan)
         
-        guard let viewController = Container.shared.resolve(DestinationListVC.self) else {
+        guard let viewController = Container.shared.resolve(DetailDestinationVC.self) else {
             return
         }
+        
+        self.plan = DestinationList(rawValue: plan)
+        
+        guard let plan = self.plan else { return }
+        
+        viewController.selectedDestination = plan.destinationSelected
+        viewController.selectedPlan = plan
+        viewController.role = .member
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func peripheralBLEManager(didDisconnect hiker: Hiker) {
+        self.navigationController?.popToRootViewController(animated: true)
+        #warning("implement show alert when disconnected from leader")
     }
     
-#warning("tambahin didNewHikerJoined")
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum) {
-        #warning("implement rest req with json data")
         self.notificationManager?.requestRest(for: type, name: nil)
     }
     

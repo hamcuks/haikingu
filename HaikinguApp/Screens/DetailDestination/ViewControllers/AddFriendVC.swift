@@ -22,6 +22,7 @@ class AddFriendVC: UIViewController {
     var header = HeaderAddFriendView()
     var yourTeam: HikerGridView!
     var nearbyPerson: HikerGridView!
+    var selectedPlan: DestinationList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +43,7 @@ class AddFriendVC: UIViewController {
         }
         
         yourTeam = HikerGridView(frame: view.bounds, title: "Your Team")
-//        view.addSubview(yourTeam)
-//        yourTeam.snp.makeConstraints { make in
-//            make.top.equalTo(header.snp.bottom).offset(20)
-//            make.leading.trailing.equalToSuperview().inset(16)
-//        }
-        
         nearbyPerson = HikerGridView(frame: view.bounds, title: "Nearby Hikers")
-//        view.addSubview(nearbyPerson)
-//        nearbyPerson.snp.makeConstraints { make in
-//            make.top.equalTo(yourTeam.snp.bottom).offset(20)
-//            make.leading.trailing.bottom.equalToSuperview().inset(16)
-//        }
-        
-        nearbyPerson.updateData(on: [Hiker(id: UUID(), name: "Test")])
         nearbyPerson.delegate = self
         
         let stack = UIStackView(arrangedSubviews: [yourTeam, nearbyPerson])
@@ -84,15 +72,24 @@ extension AddFriendVC: AddFriendVCDelegate {
     func didReceiveNearbyHikers(_ hikers: Set<Hiker>) {
         print("didReceiveNearbyHikers: \n\(hikers)")
         
-        self.nearbyPerson.updateData(on: Array(hikers))
+        let notJoinedHiker: Set<Hiker> = hikers.filter { $0.state != .joined }
+        self.nearbyPerson.updateData(on: Array(notJoinedHiker))
+        
+        let joinedHikers: Set<Hiker> = hikers.filter { $0.state == .joined }
+        self.yourTeam.updateData(on: Array(joinedHikers))
     }
 }
 
 extension AddFriendVC: HikerGridViewDelegate {
-    func didSelectHiker(_ hiker: Hiker) {
-        self.manager?.connect(to: hiker, plan: "")
+    func didDisconnectHiker(_ hiker: Hiker) {
+        print("didDisconnectHiker")
+        self.manager?.disconnect(to: hiker)
     }
     
+    func didConnectHiker(_ hiker: Hiker) {
+        guard let selectedPlan else { return }
+        self.manager?.connect(to: hiker, plan: selectedPlan.rawValue)
+    }
     
 }
 

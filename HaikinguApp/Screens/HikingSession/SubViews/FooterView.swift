@@ -28,20 +28,11 @@ class FooterView: UIView {
         return horizontal
     }()
     
-    private var estTimeView: HikingMetricsIconTextView = {
-        let view = HikingMetricsIconTextView(icon: "clock", value: "00:00:00", title: "Estimated Time")
-        return view
-    }()
+    private var estTimeView: HikingMetricsIconTextView!
     
-    private var distanceView: HikingMetricsIconTextView = {
-        let view = HikingMetricsIconTextView(icon: "point.topleft.filled.down.to.point.bottomright.curvepath", value: "1000 m", title: "Distance")
-        return view
-    }()
+    private var distanceView: HikingMetricsIconTextView!
     
-    private var restTakenView: HikingMetricsIconTextView = {
-        let view = HikingMetricsIconTextView(icon: "figure.mind.and.body", value: "2x", title: "Rest Taken")
-        return view
-    }()
+    private var restTakenView: HikingMetricsIconTextView!
     
     private var deviderTopView: UIView = {
         let view = UIView()
@@ -69,15 +60,20 @@ class FooterView: UIView {
         return label
     }()
     
-//    init(icon: String, value: String, title: String) {
-//        super.init(frame: .zero)
-//        
-//        setup()
-//    }
-    override init(frame: CGRect) {
+    init(destination: DestinationModel, estValue: String, restValue: String) {
         super.init(frame: .zero)
+        
+        estTimeView = HikingMetricsIconTextView(icon: "clock", value: "\(estValue)", title: "Estimated Time")
+        distanceView = HikingMetricsIconTextView(icon: "point.topleft.filled.down.to.point.bottomright.curvepath", value: "\(destination.trackLength) m", title: "Distance")
+        restTakenView = HikingMetricsIconTextView(icon: "figure.mind.and.body", value: "\(restValue)x", title: "Rest Taken")
+        
         setup()
     }
+
+//    override init(frame: CGRect) {
+//        super.init(frame: .zero)
+//        setup()
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -18,6 +18,7 @@ protocol WorkoutServiceIos {
     var distance: Double { get set }
     var elapsedTimeInterval: TimeInterval { get set }
     var workout: HKWorkout? { get set }
+    var delegate: WorkoutDelegate? { get set }
     
     func requestMotionPermission()
     func requestHealthAccess()

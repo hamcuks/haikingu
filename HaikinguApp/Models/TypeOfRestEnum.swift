@@ -16,6 +16,13 @@ enum TypeOfRestEnum: String {
     
 }
 
+enum HikingStateEnum: String {
+    case paused = "paused"
+    case notStarted = "notStarted"
+    case started = "started"
+    
+}
+
 extension TypeOfRestEnum {
     func getTitle(for name: String?) -> String {
         switch self {
