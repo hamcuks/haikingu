@@ -70,29 +70,26 @@ class HikingSessionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.workoutManager?.setDelegate(self)
         view.backgroundColor = .white
         
-        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
-        
+        headerView = HeaderView(status: workoutManager.whatToDo, value: workoutManager!.remainingTime)
         timeElapsed = TimeElapsedView(workoutManager: workoutManager)
-        
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        navigationItem.hidesBackButton = true
-        
-        headerView = HeaderView(status: "Keep Moving", value: workoutManager!.remainingTime, backgroundColor: .clear)
         bodyView = BodyView(backgroundCircleColor: .clear)
+        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
+    
         actionButton = IconButton(imageIcon: "\(iconButton)")
-        
-        self.workoutManager?.setDelegate(self)
-        
-        configureUI()
-        
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         endButton.addTarget(self, action: #selector(endActionTapped), for: .touchUpInside)
+        
+        configureUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationItem.hidesBackButton = true
         
         naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: workoutManager!.speed)
         
@@ -231,7 +228,7 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 
 extension HikingSessionVC: WorkoutDelegate {
     func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
-        //
+        headerView.configureValueRemaining(remainingTime)
     }
     
     func didUpdateHeartRate(_ heartRate: Double) {

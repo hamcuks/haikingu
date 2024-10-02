@@ -48,17 +48,14 @@ class HeaderView: UIView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .regular)
         label.textColor = .black
-        label.text = "Hiking time for 1670 m"
         label.textAlignment = .center
         return label
     }()
     
-    init(status: String, value: TimeInterval, backgroundColor: UIColor) {
+    init(status: TimingState, value: TimeInterval) {
         super.init(frame: .zero)
-        
-        statusLabel.text = status
+    
         configureValueRemaining(value)
-        roundedRectangleView.backgroundColor = backgroundColor
         
         self.configureUI()
     }
@@ -94,14 +91,31 @@ class HeaderView: UIView {
         
     }
     
-    private func configureValueRemaining(_ value: TimeInterval){
+    func configureValueState(_ state: TimingState) {
+        
+        switch state {
+        case .timeToRest:
+            
+            statusLabel.text = "Rest Time!"
+            subtitleLabel.text = "Take a rest for a while, drink your water"
+            roundedRectangleView.backgroundColor = .clear
+        case .timeToWalk:
+            statusLabel.text = "Keep Moving!"
+            subtitleLabel.text = "Hiking time for 1670 m"
+            roundedRectangleView.backgroundColor = .clear
+//        case default:
+//            statusLabel.text = "Stop!"
+//            titleLabel.text = formattedTime
+//            subtitleLabel.text = "Check your friends doing!"
+//            roundedRectangleView.backgroundColor = .systemOrange
+        }
+    }
+    
+    func configureValueRemaining(_ value: TimeInterval) {
         let minutes = Int(value) / 60
         let seconds = Int(value) % 60
         let formattedTime = String(format: "%02d.%02d", minutes, seconds)
         titleLabel.text = formattedTime
-        
-        print("value countdown : \(value)")
-        print("value formatted : \(formattedTime)")
     }
 
 }

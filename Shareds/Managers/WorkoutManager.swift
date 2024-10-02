@@ -12,14 +12,14 @@ import CoreMotion
 import WatchConnectivity
 import Combine
 
-protocol WorkoutDelegate: AnyObject{
+protocol WorkoutDelegate: AnyObject {
     func didUpdateHeartRate(_ heartRate: Double)
     func didUpdateDistance(_ distance: Double)
     func didUpdateSpeed(_ speed: Double)
     func didUpdateRemainingTime(_ remainingTime: TimeInterval)
 }
 
-enum TimingState{
+enum TimingState {
     case timeToWalk
     case timeToRest
 }
@@ -36,7 +36,7 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
-    @Published var remainingTime: TimeInterval = 0{
+    @Published var remainingTime: TimeInterval = 0 {
         didSet{
             delegate?.didUpdateRemainingTime(remainingTime)
         }
@@ -200,12 +200,12 @@ class WorkoutManager: NSObject, ObservableObject {
     func updateRemainingTime() {
         guard let endTime = endTime else { return }
         remainingTime = max(endTime.timeIntervalSinceNow, 0)
-        if remainingTime == 0 && whatToDo == .timeToWalk{
+        if remainingTime == 0 && whatToDo == .timeToWalk {
             timer?.invalidate()
             timer = nil
             whatToDo = .timeToRest
             startTimer(with: 600, startDate: Date())
-        } else if remainingTime == 0 && whatToDo == .timeToRest{
+        } else if remainingTime == 0 && whatToDo == .timeToRest {
             timer?.invalidate()
             timer = nil
             whatToDo = .timeToWalk
@@ -367,7 +367,3 @@ extension HKWorkoutSessionState {
         self != .notStarted && self != .ended
     }
 }
-
-
-
-
