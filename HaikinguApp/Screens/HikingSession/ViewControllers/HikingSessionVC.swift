@@ -96,9 +96,6 @@ class HikingSessionVC: UIViewController {
         
         horizontalStack.addArrangedSubview(actionButton)
         
-        horizontalStack.layer.borderColor = UIColor.black.cgColor
-        horizontalStack.layer.borderWidth = 1
-        
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(20)
@@ -197,6 +194,5 @@ extension HikingSessionVC: HikingSessionVCDelegate {
         /// Update label based on state
         print("Current Hiking State: \(state.rawValue)")
     }
-    
-    
+
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import Swinject
 
 class DestinationListVC: UIViewController {
@@ -23,7 +24,6 @@ class DestinationListVC: UIViewController {
         tableView.separatorStyle = .none
         tableView.layer.cornerRadius = 20
         tableView.clipsToBounds = true
-        
         return tableView
     }()
     
@@ -45,13 +45,18 @@ class DestinationListVC: UIViewController {
         view.addSubview(selectButton)
         view.bringSubviewToFront(selectButton)
         
+        tableView.layer.borderColor = UIColor.lightGray.cgColor
+        tableView.layer.borderWidth = 1
+        
+        tableView.isScrollEnabled = false
+        
         selectButton.isEnabled = false
         selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview().inset(30)
-            make.bottom.equalTo(selectButton.snp.top).inset(-50)
+            make.height.equalTo(500)
         }
         
         selectButton.snp.makeConstraints { make in

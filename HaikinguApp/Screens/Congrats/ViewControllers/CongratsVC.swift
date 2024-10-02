@@ -108,7 +108,8 @@ class CongratsVC: UIViewController {
         tableView.dataSource = self
         
         setReminderButton.isEnabled = false
-        shareButton.isEnabled = false
+//        shareButton.isEnabled = false
+        shareButton.isHidden = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
         profileImageView.addGestureRecognizer(tapGesture)
@@ -271,7 +272,7 @@ extension CongratsVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             backgroundImageView.image = editedImage
-            shareButton.isEnabled = true
+            shareButton.isEnabled = false // MARK: Kalau sudah selesai develop share, di true
             
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             shareButton.isEnabled = false

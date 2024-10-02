@@ -32,10 +32,9 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     
     lazy var tipsLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.text = "“Lorem ipsum sit amet dolor Lorem ipsum sit amet dolorLorem ipsum sit amet dolorLorem ipsum sit” -Fitra Muh"
         label.numberOfLines = 0
         
         return label
@@ -136,10 +135,6 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         
         self.configureTipsLabel()
         contentStack.addArrangedSubview(tipsLabel)
-        tipsLabel.isHidden = true
-        
-        self.configureBackToHomeMessageView()
-        contentStack.addArrangedSubview(backToHomeMessageView)
         
         self.configureImageView()
         contentStack.addArrangedSubview(imageView)
@@ -154,7 +149,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     }
 
     private func configureTipsLabel() {
-        
+        tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
     }
     
     private func configureImageView() {
@@ -166,10 +161,6 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         imageView.snp.makeConstraints { make in
             make.height.equalTo(264)
         }
-    }
-    
-    private func configureBackToHomeMessageView() {
-        
     }
     
     private func configureButtonStartHiking() {
@@ -189,6 +180,12 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     }
     
     @objc private func onHikingModeControlValueChanged(_ sender: HikingModeControlView) {
+        if sender.selectedSegmentIndex == 0 {
+            tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
+        } else {
+            tipsLabel.text = "Hiking with friends? Great choice! Enjoy the journey together. We track your group’s progress and sends reminders to take rests and stay energized along the way."
+        }
+        
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")
     }
     
