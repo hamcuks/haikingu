@@ -1307,11 +1307,12 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = F44CLK4937;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use to capture your profile and moments";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use to analyze your tiredness level";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use to share calculate result of BPM";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
@@ -1326,7 +1327,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bayu.Haikingu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1348,11 +1349,12 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = F44CLK4937;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HaikinguApp/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app needs access to use bluetooth to send and receive data";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use to capture your profile and moments";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Use to analyze your tiredness level";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Use to share calculate result of BPM";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Use to get BPM Value to determine your tiredness level";
@@ -1367,7 +1369,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bayu.Haikingu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1390,7 +1392,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HaikinguWatchApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = F44CLK4937;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
@@ -1401,13 +1403,13 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Use to get your walking speed";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.bayu.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bayu.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1429,7 +1431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HaikinguWatchApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 57BYB3NG56;
+				DEVELOPMENT_TEAM = F44CLK4937;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Haikingu;
@@ -1440,13 +1442,13 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use to know your current location to track your location";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Use to get your walking speed";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.almond.Haikingu;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.bayu.Haikingu;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.almond.Haikingu.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bayu.Haikingu.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;

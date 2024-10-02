@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Swinject
 
 protocol HikingSessionVCDelegate: AnyObject {
     func didReceivedHikingState(_ state: HikingStateEnum)
@@ -25,6 +26,7 @@ class HikingSessionVC: UIViewController {
     /// Managers
     var peripheralManager: PeripheralBLEService?
     var centralManager: CentralBLEService?
+    var userDefaultManager: UserDefaultService?
     
     var naismithTime: Double?
     var iconButton: String = {
@@ -42,7 +44,6 @@ class HikingSessionVC: UIViewController {
     
     /// managers
     var workoutManager: WorkoutServiceIos?
-    var userDefaultManager: UserDefaultService?
     
     init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?) {
         super.init(nibName: nil, bundle: nil)
@@ -64,10 +65,7 @@ class HikingSessionVC: UIViewController {
         
         footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
         
-        // Disable swipe gesture for back
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
-        // Hide back button on navigation bar
         navigationItem.hidesBackButton = true
         
         headerView = HeaderView(status: "Keep Moving", title: "00.00", subtitle: "Hiking time for 1670 m", backgroundColor: .clear)
@@ -75,9 +73,12 @@ class HikingSessionVC: UIViewController {
         timeElapsed = TimeElapsedView(value: "00.32.31,59")
         actionButton = IconButton(imageIcon: "\(iconButton)")
         
+        self.workoutManager?.setDelegate(self)
+        
         configureUI()
         
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        endButton.addTarget(self, action: #selector(endActionTapped), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -119,9 +120,18 @@ class HikingSessionVC: UIViewController {
         }
         
         horizontalStack.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(24)
-            make.width.height.equalTo(60)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(10)
+            make.top.equalTo(footerView.snp.bottom).offset(10)
+//            make.width.height.equalTo(120)
             make.centerX.equalTo(footerView)
+        }
+        
+        actionButton.snp.makeConstraints { make in
+            make.width.height.equalTo(77)
+        }
+        
+        endButton.snp.makeConstraints { make in
+            make.width.height.equalTo(77)
         }
         
     }
@@ -158,20 +168,13 @@ class HikingSessionVC: UIViewController {
             if iconButton == "play.fill" {
                 print("play button leader tapped")
                 iconButton = "pause.fill"
-                // Menambahkan endButton ke stack hanya jika belum ada
-                if !horizontalStack.arrangedSubviews.contains(endButton) {
-                    horizontalStack.addArrangedSubview(endButton)
-                }
+                horizontalStack.addArrangedSubview(endButton)
                 
             } else if iconButton == "pause.fill" {
                 print("paused button leader tapped")
                 iconButton = "play.fill"
                 horizontalStack.removeArrangedSubview(endButton)
-                // Menghapus endButton dari stack
-                if horizontalStack.arrangedSubviews.contains(endButton) {
-                    horizontalStack.removeArrangedSubview(endButton)
-                    endButton.removeFromSuperview() // Pastikan untuk menghapus dari superview juga
-                }
+                endButton.removeFromSuperview()
             }
             
             actionButton.setImage(UIImage(systemName: iconButton), for: .normal)
@@ -180,9 +183,10 @@ class HikingSessionVC: UIViewController {
     }
     
     @objc
-    func endActionTapped(){
-//        guard let finishVC = Container.shared.resolve(CongratsVC().self) else { return }
-//        navigationController?.pushViewController(finishVC, animated: true)
+    func endActionTapped() {
+        guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
+        finishVC.destinationDetail = destinationDetail
+        navigationController?.pushViewController(finishVC, animated: true)
     }
     
 }
@@ -192,6 +196,41 @@ extension HikingSessionVC: HikingSessionVCDelegate {
         /// Update label based on state
         print("Current Hiking State: \(state.rawValue)")
     }
+
+}
+
+extension HikingSessionVC: WorkoutDelegate {
+    func didUpdateHeartRate(_ heartRate: Double) {
+        print("heart rate")
+        
+        if workoutManager?.isPersonTired() ?? false {
+            self.peripheralManager?.requestRest(for: .abnormalBpm)
+        } else {
+            self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
+        }
+    }
     
+    func didUpdateDistance(_ distance: Double) {
+        
+        if Double(destinationDetail.trackLength) == workoutManager?.distance {
+            // MARK: Logic stop workout manager then go to congrats vc
+        }
+        
+    }
+    
+    func didUpdateSpeed(_ speed: Double) {
+        naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: speed)
+        
+        guard speed < 0.2 else { return }
+        
+        guard let userData = userDefaultManager?.getUserData() else { return }
+        
+        if userData.role == .leader {
+            centralManager?.requestRest(for: .notMoving, exclude: nil)
+        } else {
+            peripheralManager?.requestRest(for: .notMoving)
+        }
+        
+    }
     
 }

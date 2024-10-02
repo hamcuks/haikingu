@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 import Swinject
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, HomeHeaderViewDelegate {
+    
     /// Managers
     var peripheralManager: PeripheralBLEService?
     var notificationManager: NotificationService?
@@ -31,10 +32,9 @@ class HomeVC: UIViewController {
     
     lazy var tipsLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.text = "“Lorem ipsum sit amet dolor Lorem ipsum sit amet dolorLorem ipsum sit amet dolorLorem ipsum sit” -Fitra Muh"
         label.numberOfLines = 0
         
         return label
@@ -46,12 +46,12 @@ class HomeVC: UIViewController {
     lazy var startButton: PrimaryButton = PrimaryButton(label: "Start Hiking")
     
     /// Constructors
-    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDeafultManager: UserDefaultService?) {
+    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDefaultManager: UserDefaultService?) {
         super.init(nibName: nil, bundle: nil)
         
         self.peripheralManager = peripheralManager
         self.notificationManager = notificationManager
-        self.userDefaultManager = userDeafultManager
+        self.userDefaultManager = userDefaultManager
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +61,8 @@ class HomeVC: UIViewController {
     /// Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        headerView.delegate = self
 
         self.configureVC()
         self.configureHeaderView()
@@ -80,6 +82,12 @@ class HomeVC: UIViewController {
         }
         
         self.notificationManager?.requestPermission()
+    }
+    
+    // Implementasi delegate method
+    func didTapAvatar() {
+        guard let editProfileVC = Container.shared.resolve(EditProfileVC.self) else { return }
+        navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     private func updateUserInterface(with user: User) {
@@ -127,10 +135,6 @@ class HomeVC: UIViewController {
         
         self.configureTipsLabel()
         contentStack.addArrangedSubview(tipsLabel)
-        tipsLabel.isHidden = true
-        
-        self.configureBackToHomeMessageView()
-        contentStack.addArrangedSubview(backToHomeMessageView)
         
         self.configureImageView()
         contentStack.addArrangedSubview(imageView)
@@ -145,7 +149,7 @@ class HomeVC: UIViewController {
     }
 
     private func configureTipsLabel() {
-        
+        tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
     }
     
     private func configureImageView() {
@@ -157,10 +161,6 @@ class HomeVC: UIViewController {
         imageView.snp.makeConstraints { make in
             make.height.equalTo(264)
         }
-    }
-    
-    private func configureBackToHomeMessageView() {
-        
     }
     
     private func configureButtonStartHiking() {
@@ -180,6 +180,12 @@ class HomeVC: UIViewController {
     }
     
     @objc private func onHikingModeControlValueChanged(_ sender: HikingModeControlView) {
+        if sender.selectedSegmentIndex == 0 {
+            tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
+        } else {
+            tipsLabel.text = "Hiking with friends? Great choice! Enjoy the journey together. We track your group’s progress and sends reminders to take rests and stay energized along the way."
+        }
+        
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")
     }
     

@@ -12,7 +12,7 @@ extension HomeVC: PeripheralBLEManagerDelegate {
     func peripheralBLEManager(didUpdateHikingState state: HikingStateEnum) {
         
         guard let viewController = Container.shared.resolve(HikingSessionVC.self) else {
-            return
+            return print("Error occured")
         }
         
         self.hikingSessionDelegate = viewController

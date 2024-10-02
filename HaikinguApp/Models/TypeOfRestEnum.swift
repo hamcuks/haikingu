@@ -13,6 +13,7 @@ enum TypeOfRestEnum: String {
     case timeToBreak = "Time to Break"
     case timeToWalk = "Time to Walk"
     case bpmAlreadyNormal = "BPM Already Normal"
+    case notMoving = "Not Moving"
     
 }
 
@@ -49,6 +50,12 @@ extension TypeOfRestEnum {
             }
             
             return "Your BPM is Already Normal"
+        case .notMoving:
+            if let name {
+                return "\(name) is detected not moving"
+            }
+            
+            return "You are detected not moving"
         }
     }
     
@@ -73,6 +80,12 @@ extension TypeOfRestEnum {
             }
             
             return "Continue your journey and keep your heart rate safe"
+        case .notMoving:
+            if name != nil {
+                return "Check your friends"
+            }
+            
+            return "Do you need a rest or can you keep moving?"
         }
     }
 }

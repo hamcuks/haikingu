@@ -40,5 +40,24 @@ class NotificationManager: NotificationService {
     
     func createReminder(for title: String, body: String, date: Date, reminder: TimeInterval) {
         
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+        
+        // Buat trigger untuk notifikasi
+        let triggerDate = date.addingTimeInterval(-reminder)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: triggerDate), repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        notificationCenter.add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error)")
+            } else {
+                print("Notification scheduled successfully for \(triggerDate)")
+            }
+        }
+        
     }
 }

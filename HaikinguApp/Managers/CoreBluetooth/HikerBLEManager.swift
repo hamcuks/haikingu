@@ -185,7 +185,6 @@ extension HikerBLEManager: CentralBLEService {
         }
     }
     
-    
     func updateHikingState(for type: HikingStateEnum) {
         os_log(
             "Central updateHikingState: Update hiking state to: \(type.rawValue)"
