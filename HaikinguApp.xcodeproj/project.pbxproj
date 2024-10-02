@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		035DA5672CAC935C0044BF26 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DA5662CAC935C0044BF26 /* SplashScreen.swift */; };
+		035DA5692CAD1DAC0044BF26 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DA5682CAD1DA40044BF26 /* UserDefaultService.swift */; };
+		035DA56B2CAD215D0044BF26 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DA56A2CAD21570044BF26 /* UserDefaultManager.swift */; };
 		8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */; };
 		8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAD2CAC638B006CF73B /* Inject.swift */; };
 		8AF3B9892CAAF5ED008C5891 /* WorkoutServiceWatchos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */; };
@@ -83,7 +85,6 @@
 		E73E7F922CAC7FE400C51B9D /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F362CAC7FE400C51B9D /* SampleLabel.swift */; };
 		E73E7F932CAC7FE400C51B9D /* HikingMetricsIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3D2CAC7FE400C51B9D /* HikingMetricsIconTextView.swift */; };
 		E73E7F942CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E73E7EEA2CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx */; };
-		E73E7F952CAC7FE400C51B9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73E7F492CAC7FE400C51B9D /* LaunchScreen.storyboard */; };
 		E73E7F962CAC7FE400C51B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73E7EEC2CAC7FE400C51B9D /* Assets.xcassets */; };
 		E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */; };
 		E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D42CAB8EF0004A3223 /* Logger.swift */; };
@@ -141,6 +142,8 @@
 		034CF6912CAC59D50006CE6F /* HaikinguApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HaikinguApp.entitlements; sourceTree = "<group>"; };
 		034CF6922CAC59E00006CE6F /* Haikingu Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Haikingu Watch App.entitlements"; sourceTree = "<group>"; };
 		035DA5662CAC935C0044BF26 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		035DA5682CAD1DA40044BF26 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
+		035DA56A2CAD21570044BF26 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectWatchos+extension.swift"; sourceTree = "<group>"; };
 		8A994CAD2CAC638B006CF73B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		8AF3B9882CAAF5ED008C5891 /* WorkoutServiceWatchos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchos.swift; sourceTree = "<group>"; };
@@ -217,9 +220,7 @@
 		E73E7F432CAC7FE400C51B9D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		E73E7F442CAC7FE400C51B9D /* Swinject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extension.swift"; sourceTree = "<group>"; };
 		E73E7F472CAC7FE400C51B9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E73E7F482CAC7FE400C51B9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E73E7F4A2CAC7FE400C51B9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E73E7F4B2CAC7FE400C51B9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E78015E12CAA932B00E658A1 /* HikingInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikingInvitationVC.swift; sourceTree = "<group>"; };
 		E78015E32CAA983100E658A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E78015E52CAA9B7500E658A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
@@ -327,6 +328,7 @@
 		E73E7EE22CAC7FE400C51B9D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				035DA56A2CAD21570044BF26 /* UserDefaultManager.swift */,
 				E73E7EDE2CAC7FE400C51B9D /* CoreBluetooth */,
 				E73E7EDF2CAC7FE400C51B9D /* HealthManager.swift */,
 				E73E7EE02CAC7FE400C51B9D /* NotificationManager.swift */,
@@ -603,6 +605,7 @@
 		E73E7F2F2CAC7FE400C51B9D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				035DA5682CAD1DA40044BF26 /* UserDefaultService.swift */,
 				E73E7F2B2CAC7FE400C51B9D /* CoreBluetooth */,
 				E73E7F2C2CAC7FE400C51B9D /* HealthService.swift */,
 				E73E7F2D2CAC7FE400C51B9D /* NotificationService.swift */,
@@ -694,9 +697,7 @@
 			children = (
 				035DA5662CAC935C0044BF26 /* SplashScreen.swift */,
 				E73E7F472CAC7FE400C51B9D /* AppDelegate.swift */,
-				E73E7F492CAC7FE400C51B9D /* LaunchScreen.storyboard */,
 				E73E7F4A2CAC7FE400C51B9D /* SceneDelegate.swift */,
-				E73E7F4B2CAC7FE400C51B9D /* ViewController.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -1007,7 +1008,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E73E7F942CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx in Resources */,
-				E73E7F952CAC7FE400C51B9D /* LaunchScreen.storyboard in Resources */,
 				E73E7F962CAC7FE400C51B9D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1094,6 +1094,7 @@
 				E73E7F782CAC7FE400C51B9D /* HikerBLEManager.swift in Sources */,
 				E73E7F792CAC7FE400C51B9D /* HikingSessionVC.swift in Sources */,
 				E73E7F7A2CAC7FE400C51B9D /* OnboardingExtension.swift in Sources */,
+				035DA5692CAD1DAC0044BF26 /* UserDefaultService.swift in Sources */,
 				E73E7F7B2CAC7FE400C51B9D /* WorkoutServiceIos.swift in Sources */,
 				E73E7F7C2CAC7FE400C51B9D /* AppDelegate.swift in Sources */,
 				E73E7F7D2CAC7FE400C51B9D /* HomeVC+BLE+Extension.swift in Sources */,
@@ -1101,6 +1102,7 @@
 				E73E7F7F2CAC7FE400C51B9D /* HealthService.swift in Sources */,
 				E73E7F802CAC7FE400C51B9D /* Hiker.swift in Sources */,
 				E73E7F812CAC7FE400C51B9D /* DestinationModel.swift in Sources */,
+				035DA56B2CAD215D0044BF26 /* UserDefaultManager.swift in Sources */,
 				E73E7F822CAC7FE400C51B9D /* HikingInvitationVC.swift in Sources */,
 				E73E7F832CAC7FE400C51B9D /* TypeOfRestEnum.swift in Sources */,
 				E73E7F842CAC7FE400C51B9D /* HikingModeControlView.swift in Sources */,
@@ -1162,17 +1164,6 @@
 			targetProxy = E7D0BA552C9839CC00324E3D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E73E7F492CAC7FE400C51B9D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E73E7F482CAC7FE400C51B9D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E7D0BA412C9839AF00324E3D /* Debug */ = {

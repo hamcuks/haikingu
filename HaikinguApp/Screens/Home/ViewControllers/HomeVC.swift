@@ -13,6 +13,7 @@ class HomeVC: UIViewController {
     /// Managers
     var peripheralManager: PeripheralBLEService?
     var notificationManager: NotificationService?
+    var userDefaultManager: UserDefaultService?
     
     /// SubViews
     let headerView: HomeHeaderView = HomeHeaderView()
@@ -40,11 +41,12 @@ class HomeVC: UIViewController {
     lazy var startButton: PrimaryButton = PrimaryButton(label: "Start Hiking")
     
     /// Constructors
-    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?) {
+    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDeafultManager: UserDefaultService?) {
         super.init(nibName: nil, bundle: nil)
         
         self.peripheralManager = peripheralManager
         self.notificationManager = notificationManager
+        self.userDefaultManager = userDeafultManager
     }
     
     required init?(coder: NSCoder) {
@@ -67,9 +69,27 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if let userData = userDefaultManager?.getUserData() {
+                // Perbarui UI berdasarkan data user
+                updateUserInterface(with: userData)
+        }
+        
         self.notificationManager?.requestPermission()
     }
     
+    private func updateUserInterface(with user: User) {
+        // Perbarui nama pada header view (misalnya jika ada label nama di header)
+    
+        // Perbarui gambar profil pada imageView
+        if let imageData = Data(base64Encoded: user.image), let userImage = UIImage(data: imageData) {
+            headerView.setUserName(user.name, userImage)
+        } else {
+            // Gambar default jika tidak ada gambar
+            let defaultImage = UIImage(systemName: "person.circle")
+            headerView.setUserName(user.name, defaultImage)
+        }
+    }
+
     /// Private Functions
     private func configureVC() {
         self.view.backgroundColor = .systemBackground
@@ -124,7 +144,7 @@ class HomeVC: UIViewController {
     }
     
     private func configureImageView() {
-        
+//        MARK: Ganti image dengan hasil dari onboarding
         imageView.image = UIImage(systemName: "photo.fill")
         imageView.tintColor = .label
         imageView.backgroundColor = .secondarySystemBackground

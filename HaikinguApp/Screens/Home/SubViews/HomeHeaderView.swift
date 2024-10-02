@@ -27,8 +27,8 @@ class HomeHeaderView: UIStackView {
     
     let avatarView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "person.circle")
-        
+        view.layer.cornerRadius = 27
+        view.layer.masksToBounds = true
         return view
     }()
 
@@ -54,6 +54,11 @@ class HomeHeaderView: UIStackView {
         avatarView.snp.makeConstraints { make in
             make.width.height.equalTo(54)
         }
+    }
+    
+    func setUserName(_ name: String, _ photo: UIImage?) {
+        nameLabel.text = name
+        avatarView.image = photo
     }
     
 }
