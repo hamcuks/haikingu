@@ -197,6 +197,8 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     @objc
     private func actionButton() {
         
+        startHikingOnWatch()
+        
         guard let userLocation = userLocation else { return print("User Location is Unavailable")}
         let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
         let maximumDistance = 500.0
@@ -237,6 +239,16 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Err: \(error.localizedDescription)")
+    }
+    
+    func startHikingOnWatch() {
+        Task {
+            do {
+                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
+            } catch {
+                print("gagal start watch workout")
+            }
+        }
     }
     
 }
