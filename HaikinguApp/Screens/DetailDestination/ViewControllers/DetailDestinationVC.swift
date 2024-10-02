@@ -233,7 +233,7 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let currentLocation = locations.last {
             self.userLocation = currentLocation
-            print("Lokasi terkini diperbarui: \(currentLocation)")
+//            print("Lokasi terkini diperbarui: \(currentLocation)")
         }
     }
     

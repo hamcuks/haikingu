@@ -52,13 +52,11 @@ class HeaderView: UIView {
         return label
     }()
     
-    init(status: String, title: String, subtitle: String, backgroundColor: UIColor) {
+    init(status: TimingState, value: TimeInterval) {
         super.init(frame: .zero)
-        
-        statusLabel.text = status
-        titleLabel.text = title
-        subtitleLabel.text = subtitle
-        roundedRectangleView.backgroundColor = backgroundColor
+    
+        configureValueRemaining(value)
+        configureValueState(status)
         
         self.configureUI()
     }
@@ -92,6 +90,32 @@ class HeaderView: UIView {
             make.centerX.centerY.equalTo(roundedRectangleView)
         }
         
+    }
+    
+    func configureValueState(_ state: TimingState) {
+        
+        switch state {
+        case .timeToRest:
+            statusLabel.text = "Rest Time!"
+            subtitleLabel.text = "Take a rest for a while, drink your water"
+            roundedRectangleView.backgroundColor = .clear
+        case .timeToWalk:
+            statusLabel.text = "Keep Moving!"
+            subtitleLabel.text = "Hiking time for 1670 m"
+            roundedRectangleView.backgroundColor = .clear
+//        case default:
+//            statusLabel.text = "Stop!"
+//            titleLabel.text = formattedTime
+//            subtitleLabel.text = "Check your friends doing!"
+//            roundedRectangleView.backgroundColor = .systemOrange
+        }
+    }
+    
+    func configureValueRemaining(_ value: TimeInterval) {
+        let minutes = Int(value) / 60
+        let seconds = Int(value) % 60
+        let formattedTime = String(format: "%02d.%02d", minutes, seconds)
+        titleLabel.text = formattedTime
     }
 
 }

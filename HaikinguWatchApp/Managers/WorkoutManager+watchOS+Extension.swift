@@ -135,6 +135,17 @@ extension WorkoutManager{
             })
         }
     }
+    
+    func sendWhatToDoToiPhone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "toDo": whatToDo,
+            ] as [String : Any]
+            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
+                print("Error sending timer data: \(error.localizedDescription)")
+            })
+        }
+    }
 
 
 }

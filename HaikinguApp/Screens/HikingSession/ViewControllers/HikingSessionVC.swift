@@ -30,10 +30,11 @@ class HikingSessionVC: UIViewController {
     var peripheralManager: PeripheralBLEService?
     var centralManager: CentralBLEService?
     var userDefaultManager: UserDefaultService?
+    var notificationManager: NotificationService?
     
     var naismithTime: Double?
     var iconButton: String = {
-        let icon: String = "play.fill"
+        let icon: String = "pause.fill"
         return icon
     }()
     private var horizontalStack: UIStackView = {
@@ -46,15 +47,16 @@ class HikingSessionVC: UIViewController {
     }()
     
     /// managers
-    var workoutManager: WorkoutServiceIos?
+    var workoutManager: WorkoutServiceIos!
     
-    init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?) {
+    init(workoutManager: WorkoutServiceIos?, userDefaultManager: UserDefaultService?, centralManager: CentralBLEService?, peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?) {
         super.init(nibName: nil, bundle: nil)
         
         self.workoutManager = workoutManager
         self.userDefaultManager = userDefaultManager
         self.peripheralManager = peripheralManager
         self.centralManager = centralManager
+        self.notificationManager = notificationManager
     }
     
     required init?(coder: NSCoder) {
@@ -70,28 +72,26 @@ class HikingSessionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.workoutManager?.setDelegate(self)
         view.backgroundColor = .white
         
-        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
-        
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        navigationItem.hidesBackButton = true
-        
-        headerView = HeaderView(status: "Keep Moving", title: "00.00", subtitle: "Hiking time for 1670 m", backgroundColor: .clear)
+        headerView = HeaderView(status: workoutManager.whatToDo, value: workoutManager!.remainingTime)
+        timeElapsed = TimeElapsedView(workoutManager: workoutManager)
         bodyView = BodyView(backgroundCircleColor: .clear)
-        timeElapsed = TimeElapsedView(value: "00.32.31,59")
+        footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
+    
         actionButton = IconButton(imageIcon: "\(iconButton)")
-        
-        self.workoutManager?.setDelegate(self)
-        
-        configureUI()
-        
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         endButton.addTarget(self, action: #selector(endActionTapped), for: .touchUpInside)
+        
+        configureUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationItem.hidesBackButton = true
         
         naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: workoutManager!.speed)
         
@@ -106,6 +106,9 @@ class HikingSessionVC: UIViewController {
         view.addSubview(horizontalStack)
         
         horizontalStack.addArrangedSubview(actionButton)
+        
+        timeElapsed.layer.borderColor = UIColor.black.cgColor
+        timeElapsed.layer.borderWidth = 1
         
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
@@ -131,7 +134,7 @@ class HikingSessionVC: UIViewController {
         horizontalStack.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(10)
             make.top.equalTo(footerView.snp.bottom).offset(10)
-//            make.width.height.equalTo(120)
+            //            make.width.height.equalTo(120)
             make.centerX.equalTo(footerView)
         }
         
@@ -174,14 +177,14 @@ class HikingSessionVC: UIViewController {
             
         case .leader:
             
-            if iconButton == "play.fill" {
+            if iconButton == "pause.fill" {
                 print("play button leader tapped")
-                iconButton = "pause.fill"
+                iconButton = "play.fill"
                 horizontalStack.addArrangedSubview(endButton)
                 
-            } else if iconButton == "pause.fill" {
+            } else if iconButton == "play.fill" {
                 print("paused button leader tapped")
-                iconButton = "play.fill"
+                iconButton = "pause.fill"
                 horizontalStack.removeArrangedSubview(endButton)
                 endButton.removeFromSuperview()
             }
@@ -198,6 +201,14 @@ class HikingSessionVC: UIViewController {
         navigationController?.pushViewController(finishVC, animated: true)
     }
     
+    func checkDistance() {
+        if Double(destinationDetail.trackLength) == workoutManager?.distance {
+//            timeElapsed.stopStopwatch()
+            // MARK: Pause Timer 
+        }
+        
+    }
+    
 }
 
 extension HikingSessionVC: HikingSessionVCDelegate {
@@ -207,27 +218,31 @@ extension HikingSessionVC: HikingSessionVCDelegate {
     }
     
     func didUpdateRestTaken(_ restCount: Int) {
-        
+        self.footerView.updateRestTaken("\(restCount)x")
     }
     
     func didReceivedHikingState(_ state: HikingStateEnum) {
         /// Update label based on state
         print("Current Hiking State: \(state.rawValue)")
     }
-
+    
 }
 
 extension HikingSessionVC: WorkoutDelegate {
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
-        print("perubahan state hiking: \(whatToDo)")
+      
+        headerView.configureValueState(whatToDo)
+        
+        print("this what to do \(whatToDo)")
     }
     
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval) {
         // tampilin di stopwatch maju
+        timeElapsed.updateLabel(elapsedTimeInterval)
     }
     
     func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
-        //
+        headerView.configureValueRemaining(remainingTime)
     }
     
     func didUpdateHeartRate(_ heartRate: Double) {
@@ -241,9 +256,18 @@ extension HikingSessionVC: WorkoutDelegate {
     }
     
     func didUpdateDistance(_ distance: Double) {
-        
         if Double(destinationDetail.trackLength) == workoutManager?.distance {
-            // MARK: Logic stop workout manager then go to congrats vc
+            checkDistance()
+        }
+        
+        /// From CoreBluetooth
+        self.footerView.updateDistance("\(distance) m")
+        
+        guard let userData = userDefaultManager?.getUserData() else { return }
+        
+        /// Broadcast to other member if any update distance
+        if userData.role == .leader {
+            self.centralManager?.updateDistance(distance)
         }
         
     }
@@ -258,8 +282,13 @@ extension HikingSessionVC: WorkoutDelegate {
         guard let userData = userDefaultManager?.getUserData() else { return }
         
         if userData.role == .leader {
-            centralManager?.requestRest(for: .notMoving, exclude: nil)
+            notificationManager?.requestRest(for: .notMoving, name: nil)
+            
+            /// Broadcast to other member if any update est time
+            centralManager?.updateEstTime(naismithTime ?? 0)
+            
         } else {
+            /// Tell central if member not moving
             peripheralManager?.requestRest(for: .notMoving)
         }
         

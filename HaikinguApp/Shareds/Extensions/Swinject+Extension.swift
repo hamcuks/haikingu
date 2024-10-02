@@ -77,8 +77,9 @@ extension Container {
             let userDefaultManager = resolver.resolve(UserDefaultService.self)
             let centralManager = resolver.resolve(CentralBLEService.self)
             let peripheralManager = resolver.resolve(PeripheralBLEService.self)
+            let notifManager = resolver.resolve(NotificationService.self)
             
-            let viewController = HikingSessionVC(workoutManager: workoutManager, userDefaultManager: userDefaultManager, centralManager: centralManager, peripheralManager: peripheralManager
+            let viewController = HikingSessionVC(workoutManager: workoutManager, userDefaultManager: userDefaultManager, centralManager: centralManager, peripheralManager: peripheralManager, notificationManager: notifManager
             )
             return viewController
         }
