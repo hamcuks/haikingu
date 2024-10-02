@@ -227,6 +227,14 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
+    func didUpdateWhatToDo(_ whatToDo: TimingState) {
+        // untuk nentunin komponen mana yang muncul di hiking session
+    }
+    
+    func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval) {
+        // tampilin di stopwatch maju
+    }
+    
     func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
         headerView.configureValueRemaining(remainingTime)
     }
