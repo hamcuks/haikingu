@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 import Swinject
 
+protocol HikingSessionVCDelegate: AnyObject {
+    func didReceivedHikingState(_ state: HikingStateEnum)
+}
+
 class HikingSessionVC: UIViewController {
     
     var headerView: HeaderView!
@@ -185,5 +189,14 @@ class HikingSessionVC: UIViewController {
         finishVC.destinationDetail = destinationDetail
         navigationController?.pushViewController(finishVC, animated: true)
     }
+    
+}
+
+extension HikingSessionVC: HikingSessionVCDelegate {
+    func didReceivedHikingState(_ state: HikingStateEnum) {
+        /// Update label based on state
+        print("Current Hiking State: \(state.rawValue)")
+    }
+    
     
 }

@@ -16,6 +16,11 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     var notificationManager: NotificationService?
     var userDefaultManager: UserDefaultService?
     
+    /// Delegates
+    var hikingSessionDelegate: HikingSessionVCDelegate?
+    
+    var plan: DestinationList?
+    
     /// SubViews
     let headerView: HomeHeaderView = HomeHeaderView()
     lazy var hikingModeControlView: HikingModeControlView = {

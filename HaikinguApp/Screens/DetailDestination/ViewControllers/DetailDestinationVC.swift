@@ -99,7 +99,7 @@ class DetailDestinationVC: UIViewController {
         locationManager.requestWhenInUseAuthorization() // Minta izin akses lokasi
         locationManager.startUpdatingLocation()
         
-        teamView = TeamsView(action: #selector(teamAction))
+        teamView = TeamsView(frame: self.view.bounds, action: #selector(teamAction))
         
         assetsImage.image = UIImage(named: "\(selectedDestination.image)")
         
@@ -135,7 +135,6 @@ class DetailDestinationVC: UIViewController {
         horizontalStack.addArrangedSubview(elevationDetail)
         horizontalStack.addArrangedSubview(trackDetail)
         
-        teamView = TeamsView(action: #selector(teamAction))
         teamView.isHidden = self.role == .member
         
         let stack = UIStackView(arrangedSubviews: [horizontalStack, teamView, assetsImage])
