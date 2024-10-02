@@ -30,6 +30,7 @@ extension HomeVC: PeripheralBLEManagerDelegate {
     }
     
     func peripheralBLEManager(didDisconnect hiker: Hiker) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum) {
