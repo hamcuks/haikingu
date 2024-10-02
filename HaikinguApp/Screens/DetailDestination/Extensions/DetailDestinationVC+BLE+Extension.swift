@@ -17,11 +17,11 @@ extension DetailDestinationVC: CentralBLEManagerDelegate {
     }
     
     func centralBLEManager(didConnect hiker: Hiker) {
-        
+        print("DetailDestinationVC didConnect: ", hiker.name)
     }
     
     func centralBLEManager(didDisconnect hiker: Hiker) {
-        
+        print("DetailDestinationVC didDisconnect: ", hiker.name)
     }
     
     func centralBLEManager(didReceiveRequestForRest restType: TypeOfRestEnum, from hiker: Hiker) {
@@ -31,6 +31,5 @@ extension DetailDestinationVC: CentralBLEManagerDelegate {
     func centralBLEManager(didReceiveInvitationResponse response: HaikinguRequestResponseEnum, from hiker: Hiker) {
         
     }
-    
     
 }

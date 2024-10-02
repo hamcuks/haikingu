@@ -14,12 +14,17 @@ extension HomeVC: PeripheralBLEManagerDelegate {
         
     }
     
-    func peripheralBLEManager(didReceivePlanData planId: Int) {
-        print("receive plan id: ", planId)
+    func peripheralBLEManager(didReceivePlanData plan: String) {
+        print("receive plan id: ", plan)
         
-        guard let viewController = Container.shared.resolve(DestinationListVC.self) else {
+        guard let viewController = Container.shared.resolve(DetailDestinationVC.self) else {
             return
         }
+        
+        guard let plan = DestinationList(rawValue: plan) else { return }
+        
+        viewController.selectedDestination = plan.destinationSelected
+        viewController.role = .member
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -27,9 +32,7 @@ extension HomeVC: PeripheralBLEManagerDelegate {
     func peripheralBLEManager(didDisconnect hiker: Hiker) {
     }
     
-#warning("tambahin didNewHikerJoined")
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum) {
-        #warning("implement rest req with json data")
         self.notificationManager?.requestRest(for: type, name: nil)
     }
     

@@ -9,6 +9,11 @@ import UIKit
 import CoreLocation
 import Swinject
 
+enum UserType {
+    case leader
+    case member
+}
+
 class DetailDestinationVC: UIViewController {
     
     /// Managers
@@ -17,6 +22,7 @@ class DetailDestinationVC: UIViewController {
     /// Delegates
     internal var addFriendDelegate: AddFriendVCDelegate?
     
+    var destinationId: Int!
     var selectedDestination: DestinationModel!
     var teamView: TeamsView!
     var alertNotRange: AlertRangeView = AlertRangeView()
@@ -27,6 +33,7 @@ class DetailDestinationVC: UIViewController {
         return locationManager
     }()
     var userLocation: CLLocation?
+    var role: UserType = .leader
     
     private var horizontalStack: UIStackView = {
         let horizontal = UIStackView()
@@ -80,6 +87,8 @@ class DetailDestinationVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.centralManager?.setDelegate(self)
+        
+        
     }
     
     override func viewDidLoad() {
@@ -104,16 +113,6 @@ class DetailDestinationVC: UIViewController {
     }
 
     private func setupUI() {
-//        view.addSubview(titleDestination)
-        view.addSubview(horizontalStack)
-        view.addSubview(teamView)
-        view.addSubview(assetPreview)
-        view.addSubview(selectButton)
-        view.bringSubviewToFront(selectButton)
-        
-        selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
-        assetPreview.addSubview(assetsImage)
-//        titleDestination.text = destinationSelected?.name ?? "Bidadari Lake"
         
         let estTimeDetail = DetailDestinationView(
             icon: "clock",
@@ -136,28 +135,46 @@ class DetailDestinationVC: UIViewController {
         horizontalStack.addArrangedSubview(estTimeDetail)
         horizontalStack.addArrangedSubview(elevationDetail)
         horizontalStack.addArrangedSubview(trackDetail)
-        view.addSubview(horizontalStack)
+//        view.addSubview(horizontalStack)
+//        
+//        horizontalStack.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            make.leading.trailing.equalToSuperview().inset(16)
+//        }
         
-        horizontalStack.snp.makeConstraints { make in
+        teamView = TeamsView(action: #selector(teamAction))
+        teamView.isHidden = self.role == .member
+//        view.addSubview(teamView)
+//        
+//        teamView.snp.makeConstraints { make in
+//            make.top.equalTo(horizontalStack.snp.bottom).offset(12)
+//            make.leading.trailing.equalTo(horizontalStack)
+//        }
+        
+//        view.addSubview(assetsImage)
+//        assetsImage.snp.makeConstraints { make in
+//            make.top.equalTo(teamView.snp.bottom).offset(24)
+//            make.leading.trailing.equalTo(horizontalStack)
+//        }
+        
+        let stack = UIStackView(arrangedSubviews: [horizontalStack, teamView, assetsImage])
+        stack.axis = .vertical
+        stack.spacing = 24
+        view.addSubview(stack)
+        
+        stack.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
-        teamView = TeamsView(action: #selector(teamAction))
-        view.addSubview(teamView)
-        
-        teamView.snp.makeConstraints { make in
-            make.top.equalTo(horizontalStack.snp.bottom).offset(12)
-            make.leading.trailing.equalTo(horizontalStack)
-        }
-        
-        view.addSubview(assetsImage)
-        assetsImage.snp.makeConstraints { make in
-            make.top.equalTo(teamView.snp.bottom).offset(24)
-            make.leading.trailing.equalTo(horizontalStack)
-        }
-        
         view.addSubview(selectButton)
+        selectButton.isEnabled = self.role == .leader
+        selectButton.backgroundColor = self.role == .member ? .lightGray : selectButton.backgroundColor
+        
+        if role == .member {
+            selectButton.setTitle("Waiting for others to join", for: .normal)
+        }
+        
         selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
 
         selectButton.snp.makeConstraints { make in

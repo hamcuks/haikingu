@@ -84,7 +84,11 @@ extension AddFriendVC: AddFriendVCDelegate {
     func didReceiveNearbyHikers(_ hikers: Set<Hiker>) {
         print("didReceiveNearbyHikers: \n\(hikers)")
         
-        self.nearbyPerson.updateData(on: Array(hikers))
+        let notJoinedHiker: Set<Hiker> = hikers.filter { $0.state != .joined }
+        self.nearbyPerson.updateData(on: Array(notJoinedHiker))
+        
+        let joinedHikers: Set<Hiker> = hikers.filter { $0.state == .joined }
+        self.yourTeam.updateData(on: Array(joinedHikers))
     }
 }
 
@@ -92,7 +96,6 @@ extension AddFriendVC: HikerGridViewDelegate {
     func didSelectHiker(_ hiker: Hiker) {
         self.manager?.connect(to: hiker, plan: "")
     }
-    
     
 }
 

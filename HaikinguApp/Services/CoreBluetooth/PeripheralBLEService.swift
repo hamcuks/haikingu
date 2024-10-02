@@ -19,7 +19,7 @@ protocol PeripheralBLEService {
 
 protocol PeripheralBLEManagerDelegate {
     func peripheralBLEManagerDidReceiveInvitation(from invitor: Hiker, plan: String)
-    func peripheralBLEManager(didReceivePlanData planId: Int)
+    func peripheralBLEManager(didReceivePlanData plan: String)
     func peripheralBLEManager(didDisconnect hiker: Hiker)
     func peripheralBLEManager(didReceiveRequestForRest type: TypeOfRestEnum)
     func peripheralBLEManager(_ restType: TypeOfRestEnum, didReceive response: HaikinguRequestResponseEnum)
