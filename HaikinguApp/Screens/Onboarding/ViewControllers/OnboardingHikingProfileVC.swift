@@ -143,7 +143,7 @@ class OnboardingHikingProfileVC: UIViewController, UIImagePickerControllerDelega
         let imageBase64String = imageData.base64EncodedString()
         
         // Create User object
-        let user = User(name: name, image: imageBase64String, role: .member)
+        let user = User(name: name, image: imageBase64String, role: .leader)
         
         // Gunakan UserDefaultsManager untuk menyimpan data user
         userDefaultManager?.saveuserData(user: user)

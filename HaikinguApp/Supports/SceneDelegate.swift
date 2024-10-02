@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     var isReturningUser: Bool {
-        return UserDefaults.standard.bool(forKey: "isFirstUser")
+        return UserDefaults.standard.bool(forKey: "isReturningUser")
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
+        window.overrideUserInterfaceStyle = .light
         
         if isReturningUser {
             guard let homeVC = Container.shared.resolve(HomeVC.self) else { return }
@@ -46,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func markFirstUserComplete() {
-        UserDefaults.standard.set(false, forKey: "isFirstUser")
+        UserDefaults.standard.set(true, forKey: "isReturningUser")
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
