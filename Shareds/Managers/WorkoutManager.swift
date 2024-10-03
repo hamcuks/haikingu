@@ -83,6 +83,8 @@ class WorkoutManager: NSObject, ObservableObject {
             delegate?.didUpdateElapsedTimeInterval(elapsedTimeInterval)
         }
     }
+    var currentElapsedTime : TimeInterval = 0
+    var timerElapsed : Timer?
     @Published var workout: HKWorkout?
 
     let typesToShare: Set = [HKQuantityType.workoutType()]
@@ -146,6 +148,7 @@ class WorkoutManager: NSObject, ObservableObject {
         } else {
             return false
         }
+        
     }
 
     func consumeSessionStateChange(_ change: SessionStateChange) async {
@@ -154,13 +157,14 @@ class WorkoutManager: NSObject, ObservableObject {
         }
 
 #if os(watchOS)
+        updateElapsedTimeInterval(to: self.session?.associatedWorkoutBuilder().elapsedTime(at: change.date) ?? 0)
+        
         let elapsedTimeInterval = session?.associatedWorkoutBuilder().elapsedTime(at: change.date) ?? 0
         let elapsedTime = WorkoutElapsedTime(timeInterval: elapsedTimeInterval, date: change.date)
         if let elapsedTimeData = try? JSONEncoder().encode(elapsedTime) {
             await sendData(elapsedTimeData)
-            sendElapsedTimeToIphone()
         }
-
+        
         guard change.newState == .stopped, let builder else {
             return
         }
@@ -246,6 +250,24 @@ class WorkoutManager: NSObject, ObservableObject {
         stopTimer()
         remainingTime = 0
         endTime = nil
+    }
+    
+    // Start observe elapsep
+    func startObserving() {
+        DispatchQueue.main.async {
+            self.timerElapsed = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+#if os(watchOS)
+                self?.checkElapsedTime()
+                self?.sendElapsedTimeToIphone()
+#endif
+            }
+            
+        }
+    }
+    
+    // Stop observing
+    func stopObserving() {
+        timerElapsed?.invalidate()
     }
     
     func updateHeartRate(to newRate: Double) {
@@ -348,8 +370,12 @@ extension WorkoutManager {
 extension WorkoutManager: HKWorkoutSessionDelegate {
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         Logger.shared.log("Session state changed from \(fromState.rawValue) to \(toState.rawValue)")
-        let sessionStateChange = SessionStateChange(newState: toState, date: date)
-        asyncStreamTuple.continuation.yield(sessionStateChange)
+        /**
+         Yield the new state change to the async stream synchronously.
+         asynStreamTuple is a constant, so it's nonisolated.
+         */
+        let sessionSateChange = SessionStateChange(newState: toState, date: date)
+        asyncStreamTuple.continuation.yield(sessionSateChange)
     }
 
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {

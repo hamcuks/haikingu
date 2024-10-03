@@ -95,7 +95,7 @@ class DetailDestinationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        workoutManager?.retrieveRemoteSession()
         view.backgroundColor = .white
         
         locationManager.delegate = self
@@ -197,6 +197,16 @@ class DetailDestinationVC: UIViewController {
             present(addFriendVC, animated: true)
         }
     }
+    
+    func startHikingOnWatch() {
+        Task {
+            do {
+                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
+            } catch {
+                print("gagal start watch workout")
+            }
+        }
+    }
 
 }
 
@@ -205,11 +215,10 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     @objc
     private func actionButton() {
         
-        startHikingOnWatch()
-        
         guard let userLocation = userLocation else { return print("User Location is Unavailable")}
         let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
         let maximumDistance = 500.0
+        startHikingOnWatch()
         
         if rangeDistance < maximumDistance {
             guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
@@ -225,6 +234,7 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
             print("Distance is greater than maximum distance: \(rangeDistance)")
             self.centralManager?.updateHikingState(for: .started)
         }
+        
         
     }
     
@@ -249,14 +259,6 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
         print("Err: \(error.localizedDescription)")
     }
     
-    func startHikingOnWatch() {
-        Task {
-            do {
-                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
-            } catch {
-                print("gagal start watch workout")
-            }
-        }
-    }
+    
     
 }

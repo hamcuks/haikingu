@@ -79,7 +79,6 @@ class HikingSessionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        workoutManager?.retrieveRemoteSession()
         
         self.workoutManager?.setDelegate(self)
         view.backgroundColor = .white
