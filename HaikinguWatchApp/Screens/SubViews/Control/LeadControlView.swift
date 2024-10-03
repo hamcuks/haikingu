@@ -49,6 +49,13 @@ struct LeadControlView: View {
                             buttonColor: .gray) {
                                 metricsVM.workoutManager?.session?.stopActivity(with: .now)
                                 metricsVM.isLeadEndTapped = true
+                                if let workout = metricsVM.workoutManager?.workout {
+                                    print("Total Time: \(workout.totalTime)") // Pastikan data sudah diisi
+                                    print("Total Distance: \(workout.totalWalkingDistance)")
+                                    print("Average Heart Rate: \(workout.averageHeartRate)")
+                                } else {
+                                    print("Workout data is nil. Make sure it is initialized properly.")
+                                }
                                 print("End Tapped")
                                 navigationServices.path.append("summary")
                             }

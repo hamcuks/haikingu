@@ -23,21 +23,18 @@ extension Container {
         container.register(HomeVM.self) { resolver in
             let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
             
-            let vm = HomeVM(workoutManager: workoutManager)
+            let homeVm = HomeVM(workoutManager: workoutManager)
             
-            return vm
+            return homeVm
         }
         
         container.register(MetricsVM.self) { resolver in
             let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
             
-            let vm = MetricsVM(workoutManager: workoutManager)
+            let metricsVm = MetricsVM(workoutManager: workoutManager)
             
-            return vm
+            return metricsVm
         }
-        
-        
-       
         
         return container
     }()

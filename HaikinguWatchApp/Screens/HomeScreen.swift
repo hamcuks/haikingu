@@ -37,13 +37,19 @@ struct HomeScreen: View {
                     if destini == "metrics" {
                         MetricsScreen()
                     } else if destini == "summary" {
-                        //                Container.shared.resolve(SummaryScreen.self)
+                        SummaryScreen()
+                            .onAppear {
+                                homeVM.isHasContent = false
+                            }
+//                        Container.shared.resolve(SummaryScreen.self)
                     } else if destini == "reminder" {
                         //                    ReminderScreen()
                     }
                 }
-                .onAppear() {
+                .onAppear {
                     homeVM.workoutManager?.requestAuthorization()
+                    homeVM.isHasContent = false
+                    homeVM.isReturnHome = false
                 }
         }
     }
