@@ -11,6 +11,7 @@ import Swinject
 struct MetricsScreen: View {
     @EnvironmentObject var userServices: UserServices
     @EnvironmentObject var metricsVM: MetricsVM
+    @State var isPaused: Bool = false
 
     var body: some View {
         ZStack {
@@ -20,13 +21,20 @@ struct MetricsScreen: View {
                     MemberControlView()
                         .tag(0)
                 } else if userServices.userType == .leader {
-                    LeadControlView()
+                    LeadControlView(isPaused: $isPaused)
                         .tag(0)
                 }
            
                 MetricsView()
                     .tag(1)
                 
+            }
+            .onChange(of: metricsVM.workoutManager!.isWorkoutPaused) { _, paused in
+                if paused {
+                    isPaused = true
+                } else {
+                    isPaused = false
+                }
             }
             .tabViewStyle(.page)
             
