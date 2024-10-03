@@ -8,7 +8,6 @@
 import Foundation
 import HealthKit
 
-
 protocol WorkoutServiceIos {
     var sessionState: HKWorkoutSessionState { get set }
     var remainingTime: TimeInterval { get set }
@@ -27,4 +26,7 @@ protocol WorkoutServiceIos {
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws
     func retrieveRemoteSession()
     func isPersonTired() -> Bool
+    func pauseTimer()
+    func resumeTimer()
+    func stopTimer()
 }

@@ -20,7 +20,7 @@ class HikingSessionVC: UIViewController {
     
     var headerView: HeaderView = HeaderView()
     var bodyView: BodyView!
-    var timeElapsed: TimeElapsedView = TimeElapsedView()
+    var timeElapsed: TimeElapsedView!
     var footerView: FooterView!
     var actionButton: IconButton!
     var endButton: IconButton = IconButton(imageIcon: "stop.fill")
@@ -34,6 +34,8 @@ class HikingSessionVC: UIViewController {
     var workoutManager: WorkoutServiceIos?
     
     var naismithTime: Double?
+//    var restTakenCount: Int = 0
+    
     var iconButton: String = {
         let icon: String = "pause.fill"
         return icon
@@ -66,6 +68,7 @@ class HikingSessionVC: UIViewController {
         
         workoutManager?.retrieveRemoteSession()
         headerView.configureValueState(workoutManager!.whatToDo)
+        timeElapsed.updateLabel(workoutManager!.elapsedTimeInterval)
     }
     
     override func viewDidLoad() {
@@ -76,6 +79,7 @@ class HikingSessionVC: UIViewController {
         self.workoutManager?.setDelegate(self)
         view.backgroundColor = .white
         
+        timeElapsed = TimeElapsedView(workoutManager: workoutManager!)
         bodyView = BodyView(backgroundCircleColor: .clear)
         footerView = FooterView(destination: destinationDetail, estValue: "\(String(describing: naismithTime))", restValue: "0")
     
@@ -105,8 +109,10 @@ class HikingSessionVC: UIViewController {
         view.addSubview(footerView)
         view.addSubview(horizontalStack)
         
+        horizontalStack.addArrangedSubview(endButton)
         horizontalStack.addArrangedSubview(actionButton)
         
+        horizontalStack.subviews.first?.isHidden = true
         timeElapsed.layer.borderColor = UIColor.black.cgColor
         timeElapsed.layer.borderWidth = 1
         
@@ -149,15 +155,10 @@ class HikingSessionVC: UIViewController {
     }
     
     func calculateHikingTime(distance: Double, elevationGain: Double, speed: Double) -> Double {
-        // Implementasi Naismith's Rule
-        // distance dalam meter
-        // speed dalam m/s maka dikali 3600
-        let timeForDistance = distance / (speed * 3600) // perkiraan waktu tenpa elevasi dimana speed itu didapet dari current pace dan idealnya 4000m/jam
-        let timeForElevation = elevationGain / 600 // menambahkan 1 jam setiap 600 meter elevasi
-        
-        // Total waktu dalam jam
+        let timeForDistance = distance / (speed * 3600)
+        let timeForElevation = elevationGain / 600
         let totalTime = timeForDistance + timeForElevation
-        return totalTime // dalam jam
+        return totalTime
     }
     
     @objc
@@ -167,7 +168,7 @@ class HikingSessionVC: UIViewController {
         switch user.role {
         case .member:
             
-            if iconButton == "play.fill" {
+            if iconButton == "pause.fill" {
                 print("paused button member tapped")
                 iconButton = "clock.fill"
                 actionButton.isEnabled = false
@@ -180,13 +181,20 @@ class HikingSessionVC: UIViewController {
             if iconButton == "pause.fill" {
                 print("play button leader tapped")
                 iconButton = "play.fill"
-                horizontalStack.addArrangedSubview(endButton)
+//                horizontalStack.addArrangedSubview(endButton)
+                horizontalStack.subviews.first?.isHidden = false
+                workoutManager?.pauseTimer()
+                workoutManager?.sessionState = .paused
                 
             } else if iconButton == "play.fill" {
                 print("paused button leader tapped")
                 iconButton = "pause.fill"
-                horizontalStack.removeArrangedSubview(endButton)
-                endButton.removeFromSuperview()
+//                horizontalStack.removeArrangedSubview(endButton)
+//                endButton.removeFromSuperview()
+                horizontalStack.subviews.first?.isHidden = true
+                workoutManager?.resumeTimer()
+                workoutManager?.sessionState = .running
+                
             }
             
             actionButton.setImage(UIImage(systemName: iconButton), for: .normal)
@@ -196,6 +204,8 @@ class HikingSessionVC: UIViewController {
     
     @objc
     func endActionTapped() {
+        workoutManager?.stopTimer()
+        workoutManager?.sessionState = .ended
         guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
         finishVC.destinationDetail = destinationDetail
         navigationController?.pushViewController(finishVC, animated: true)
@@ -203,10 +213,12 @@ class HikingSessionVC: UIViewController {
     
     func checkDistance() {
         if Double(destinationDetail.trackLength) == workoutManager?.distance {
-//            timeElapsed.stopStopwatch()
-            // MARK: Pause Timer 
+            workoutManager?.stopTimer()
+            workoutManager?.sessionState = .ended
+            guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
+            finishVC.destinationDetail = destinationDetail
+            navigationController?.pushViewController(finishVC, animated: true)
         }
-        
     }
     
 }
@@ -218,7 +230,12 @@ extension HikingSessionVC: HikingSessionVCDelegate {
     }
     
     func didUpdateRestTaken(_ restCount: Int) {
+//        restTakenCount += 1
+//        print("Ini rest count : \(restCount)")
+//        restTakken += restCount
+//        print("Ini rest takken before : \(restTakenCount)")
         self.footerView.updateRestTaken("\(restCount)x")
+        
     }
     
     func didReceivedHikingState(_ state: HikingStateEnum) {
@@ -229,32 +246,57 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
+    func didPausedWorkout(_ isPaused: Bool) {
+        if isPaused {
+            workoutManager?.pauseTimer()
+            horizontalStack.subviews.first?.isHidden = false
+        } else {
+            workoutManager?.resumeTimer()
+            horizontalStack.subviews.first?.isHidden = true
+        }
+    }
     
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
-           headerView.configureValueState(whatToDo)
+        print("Current whatToDo: \(whatToDo)")
+        if whatToDo == .timeToRest {
+            horizontalStack.subviews.first?.isHidden = false
+            
+            if workoutManager?.sessionState == .paused {
+                didUpdateRestTaken(1)
+            }
+        } else {
+            horizontalStack.subviews.first?.isHidden = true
+        }
+
+        headerView.configureValueState(whatToDo)
         print("this what to do \(whatToDo)")
     }
     
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval) {
         // tampilin di stopwatch maju
-       print("nilai elapsed time \(elapsedTimeInterval)")
-        
+        print("nilai elapsed time \(elapsedTimeInterval)")
         timeElapsed.updateLabel(elapsedTimeInterval)
-        
     }
     
     func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
-        headerView.configureValueRemaining(remainingTime)
+//        if workoutManager?.isPersonTired() == false {
+            headerView.configureValueRemaining(remainingTime)
+//        }
     }
     
     func didUpdateHeartRate(_ heartRate: Double) {
         print("heart rate")
         
         if workoutManager?.isPersonTired() ?? false {
+            workoutManager?.stopTimer()
+            headerView.bpmHigh()
             self.peripheralManager?.requestRest(for: .abnormalBpm)
         } else {
+            headerView.personNormal()
+            workoutManager?.resumeTimer()
             self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
         }
+        
     }
     
     func didUpdateDistance(_ distance: Double) {
@@ -275,29 +317,35 @@ extension HikingSessionVC: WorkoutDelegate {
     }
     
     func didUpdateSpeed(_ speed: Double) {
+        
         naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: speed) * 60
         
         guard let naismithTime = naismithTime else { return }
         if naismithTime.isNaN || naismithTime.isInfinite {
-            footerView.updateEstTime("calculating")
+            footerView.updateEstTime("calculate")
         } else {
             let naismithTimeInt = Int(naismithTime)
             footerView.updateEstTime("\(naismithTimeInt) min")
         }
 
-        guard speed < 0.2 else { return }
-        
-        guard let userData = userDefaultManager?.getUserData() else { return }
-        
-        if userData.role == .leader {
-            notificationManager?.requestRest(for: .notMoving, name: nil)
+        if speed < 1 {
+            headerView.personNotmove()
+            workoutManager?.stopTimer()
             
-            /// Broadcast to other member if any update est time
-            centralManager?.updateEstTime(naismithTime ?? 0)
+            guard let userData = userDefaultManager?.getUserData() else { return }
+            
+            if userData.role == .leader {
+                notificationManager?.requestRest(for: .notMoving, name: nil)
+                /// Broadcast to other member if any update est time
+                centralManager?.updateEstTime(naismithTime)
+                
+            } else {
+                /// Tell central if member not moving
+                peripheralManager?.requestRest(for: .notMoving)
+            }
             
         } else {
-            /// Tell central if member not moving
-            peripheralManager?.requestRest(for: .notMoving)
+            headerView.personNormal()
         }
         
     }

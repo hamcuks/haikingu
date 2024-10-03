@@ -14,8 +14,8 @@ import WatchConnectivity
 // MARK: - Workout session management
 //
 
-extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS{
-
+extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
+    
     /**
      Use healthStore.requestAuthorization to request authorization in watchOS when
      healthDataAccessRequest isn't available yet.
@@ -66,17 +66,22 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS{
             
             DispatchQueue.main.async {
                 // Update speed with current walking/running pace (speed in m/s)
-                if let currentPace = data?.currentPace {
+                if data?.currentPace == nil || data?.distance == 0  {
+                    self.speed = 0
+                } else {
                     // Convert speed from m/s to km/h
-                    self.speed = currentPace.doubleValue * 3.6
-                    let message = [
-                        "speed": self.speed,
-                    ] as [String : Any]
-                    WCSession.default.sendMessage(message, replyHandler: nil){ error in
-                        print("Error sending message: \(error.localizedDescription)")
-                    }
-                    print("Current walking speed: \(self.speed) km/h")
+                    self.speed = (data?.currentPace?.doubleValue)! * 3.6
                 }
+                
+                let message = ["speed": self.speed] as [String : Any]
+                WCSession.default.sendMessage(
+                    message, replyHandler: nil){
+                        error in
+                        print("Error sending message: \(error.localizedDescription)")
+                }
+                
+                print("Current walking speed: \(self.speed) km/h")
+                
             }
         }
     }
@@ -85,6 +90,12 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS{
         guard let decodedQuantity = try NSKeyedUnarchiver.unarchivedObject(ofClass: HKQuantity.self, from: data) else {
             return
         }
+    }
+    
+    func updateElapsedTime() {
+        guard let builder = builder else { return }
+        elapsedTimeInterval = builder.elapsedTime
+        print("Elapsed Time Interval: \(elapsedTimeInterval)")
     }
     
 }
@@ -124,14 +135,13 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
     }
 }
 
-
 extension WorkoutManager {
     
     func sendRemainingTimeToiPhone() {
         if WCSession.default.isReachable {
             let message = [
-                "timerStart": remainingTime,
-            ] as [String : Any]
+                "timerStart": remainingTime
+            ] as [String: Any]
             WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
                 print("Error sending timer data: \(error.localizedDescription)")
             })
@@ -141,8 +151,8 @@ extension WorkoutManager {
     func sendWhatToDoWalkToiPhone() {
         if WCSession.default.isReachable {
             let message = [
-                "toDoWalk": "walkTrigger",
-            ] as [String : Any]
+                "toDoWalk": "walkTrigger"
+            ] as [String: Any]
             WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
                 print("Error sending todo data: \(error.localizedDescription)")
             })
@@ -152,8 +162,8 @@ extension WorkoutManager {
     func sendWhatToDoRestToiPhone() {
         if WCSession.default.isReachable {
             let message = [
-                "toDoRest": "restTrigger",
-            ] as [String : Any]
+                "toDoRest": "restTrigger"
+            ] as [String: Any]
             WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
                 print("Error sending todo data: \(error.localizedDescription)")
             })
@@ -163,8 +173,8 @@ extension WorkoutManager {
     func sendElapsedTimeToIphone() {
         if WCSession.default.isReachable {
             let message = [
-                "elapsed": elapsedTimeInterval,
-            ] as [String : Any]
+                "elapsed": elapsedTimeInterval
+            ] as [String: Any]
             WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
                 print("Error sending elapsed data: \(error.localizedDescription)")
             })

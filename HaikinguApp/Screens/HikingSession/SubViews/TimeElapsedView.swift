@@ -93,12 +93,12 @@ class TimeElapsedView: UIView {
         let seconds = Int(value) % 60
         let hundredths = Int((value - floor(value)) * 100) // Mendapatkan nilai ratusan detik
         
-//        DispatchQueue.main.async {
-        let sesuatu = String(format: "%02d.%02d.%02d,%02d", hours, minutes, seconds, hundredths)
-        valueElapsed.text = sesuatu
-            
+        let formattedTime = String(format: "%02d.%02d.%02d,%02d", hours, minutes, seconds, hundredths)
+        DispatchQueue.main.async {
+            self.valueElapsed.text = formattedTime
             print("value elapsed : \(self.valueElapsed.text!)")
-//        }
+        }
+        
     }
     
 //    deinit {
