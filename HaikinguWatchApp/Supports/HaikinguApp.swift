@@ -10,8 +10,8 @@ import SwiftUI
 @main
 struct HaikinguWatchAppApp: App {
     @WKApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-    @Inject var homeVM : HomeVM
-    @Inject var metricsVM : MetricsVM
+    @Inject var homeVM: HomeVM
+    @Inject var metricsVM: MetricsVM
     @StateObject var userServices = UserServices()
     
     @SceneBuilder var body: some Scene {

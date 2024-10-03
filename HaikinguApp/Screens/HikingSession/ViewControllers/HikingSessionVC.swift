@@ -36,6 +36,7 @@ class HikingSessionVC: UIViewController {
     var userData: User?
     
     var naismithTime: Double?
+    var naismithDefault: Double?
 //    var restTakenCount: Int = 0
     
     var iconButton: String = {
@@ -69,7 +70,7 @@ class HikingSessionVC: UIViewController {
         super.viewWillAppear(true)
         
         workoutManager?.retrieveRemoteSession()
-        headerView.configureValueState(workoutManager!.whatToDo)
+        headerView.configureValueState(workoutManager?.whatToDo ?? .timeToRest)
         timeElapsed.updateLabel(workoutManager!.elapsedTimeInterval)
         
         userData = userDefaultManager?.getUserData()
@@ -102,6 +103,8 @@ class HikingSessionVC: UIViewController {
         navigationItem.hidesBackButton = true
         
         naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: workoutManager!.speed)
+        
+        naismithDefault = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: 1.2) * 60
         
     }
     
@@ -261,37 +264,51 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
-    func didPausedWorkout(_ isPaused: Bool) {
-        if isPaused {
-            workoutManager?.pauseTimer()
-            horizontalStack.subviews.first?.isHidden = false
-            
-            if let userData, userData.role == .leader {
-                self.centralManager?.updateHikingState(for: .paused)
-            }
-        } else {
-            workoutManager?.resumeTimer()
-            horizontalStack.subviews.first?.isHidden = true
-            
-            if let userData, userData.role == .leader {
-                self.centralManager?.updateHikingState(for: .started)
-            }
-        }
-    }
+//    func didPausedWorkout(_ isPaused: Bool) {
+//        if isPaused {
+//            workoutManager?.pauseTimer()
+//            horizontalStack.subviews.first?.isHidden = false
+//            
+//            if let userData, userData.role == .leader {
+//            }
+//        } else {
+//            workoutManager?.resumeTimer()
+//            horizontalStack.subviews.first?.isHidden = true
+//            
+//            if let userData, userData.role == .leader {
+//                self.centralManager?.updateHikingState(for: .started)
+//            }
+//        }
+//    }
     
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
         print("Current whatToDo: \(whatToDo)")
+        
+        guard let speed = workoutManager?.speed else {
+            if workoutManager?.speed == nil {
+                print("speed nil")
+            } else {
+                print("value speed : \((workoutManager?.speed)!)")
+            }
+            return
+        }
+        
         if whatToDo == .timeToRest {
             horizontalStack.subviews.first?.isHidden = false
+            self.centralManager?.updateHikingState(for: .paused)
+            headerView.configureValueState(whatToDo)
             
             if workoutManager?.sessionState == .paused {
                 didUpdateRestTaken(1)
             }
-        } else {
+            
+        } else if whatToDo == .timeToWalk {
             horizontalStack.subviews.first?.isHidden = true
+            self.centralManager?.updateHikingState(for: .started)
+            headerView.configureValueState(whatToDo)
         }
-
-        headerView.configureValueState(whatToDo)
+        
+        didUpdateSpeed(speed)
         print("this what to do \(whatToDo)")
     }
     
@@ -302,21 +319,28 @@ extension HikingSessionVC: WorkoutDelegate {
     }
     
     func didUpdateRemainingTime(_ remainingTime: TimeInterval) {
-//        if workoutManager?.isPersonTired() == false {
-            headerView.configureValueRemaining(remainingTime)
-//        }
+        headerView.configureValueRemaining(remainingTime)
+        guard let speed = workoutManager?.speed else {
+            if workoutManager?.speed == nil {
+                print("speed nil")
+            } else {
+                print("value speed : \((workoutManager?.speed)!)")
+            }
+            return
+        }
+        didUpdateSpeed(speed)
     }
     
     func didUpdateHeartRate(_ heartRate: Double) {
         print("heart rate")
         
         if workoutManager?.isPersonTired() ?? false {
-            workoutManager?.stopTimer()
+            workoutManager?.pauseTimer()
             headerView.bpmHigh()
             self.peripheralManager?.requestRest(for: .abnormalBpm)
-        } else {
-            headerView.personNormal()
-            workoutManager?.resumeTimer()
+        } else if workoutManager?.isPersonTired() == false {
+//            headerView.personNormal()
+//            workoutManager?.resumeTimer()
             self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
         }
         
@@ -344,16 +368,18 @@ extension HikingSessionVC: WorkoutDelegate {
         naismithTime = calculateHikingTime(distance: Double(destinationDetail.trackLength), elevationGain: Double(destinationDetail.maxElevation), speed: speed) * 60
         
         guard let naismithTime = naismithTime else { return }
+        
         if naismithTime.isNaN || naismithTime.isInfinite {
-            footerView.updateEstTime("calculate")
+            footerView.updateEstTime("\(Int(naismithDefault ?? 0)) min")
         } else {
             let naismithTimeInt = Int(naismithTime)
             footerView.updateEstTime("\(naismithTimeInt) min")
         }
 
-        if speed < 1 {
+        if speed < 0.3 && workoutManager?.whatToDo == .timeToWalk {
+            
+            print("speed == \(speed) | \(workoutManager!.whatToDo) | not moving")
             headerView.personNotmove()
-            workoutManager?.stopTimer()
             
             guard let userData = self.userData else { return }
             
@@ -367,8 +393,15 @@ extension HikingSessionVC: WorkoutDelegate {
                 peripheralManager?.requestRest(for: .notMoving)
             }
             
+            workoutManager?.pauseTimer()
+            
+        } else if speed >= 0.3 && workoutManager?.whatToDo == .timeToWalk {
+            print("header : normal time")
+            headerView.configureValueState(workoutManager?.whatToDo ?? .timeToRest)
+            
         } else {
-            headerView.personNormal()
+            headerView.configureValueState(workoutManager?.whatToDo ?? .timeToRest)
+            print("what to do : \(workoutManager?.whatToDo ?? .timeToRest)")
         }
         
     }

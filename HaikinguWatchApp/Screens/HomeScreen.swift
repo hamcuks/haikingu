@@ -48,7 +48,7 @@ struct HomeScreen: View {
                 }
                 .onAppear {
                     homeVM.workoutManager?.requestAuthorization()
-                    homeVM.isHasContent = false
+                    homeVM.isHasContent = true
                     homeVM.isReturnHome = false
                 }
         }

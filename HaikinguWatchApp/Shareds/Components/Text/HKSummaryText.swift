@@ -77,7 +77,6 @@ struct HKSummaryElevationText: View {
     }
 }
 
-
 #Preview {
     HKSummaryElevationText(highEle: 95, downEle: 65)
 }

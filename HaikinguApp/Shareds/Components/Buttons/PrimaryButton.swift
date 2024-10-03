@@ -31,6 +31,7 @@ class PrimaryButton: UIButton {
         self.configuration?.baseBackgroundColor = .systemOrange
         self.setTitleColor(.black, for: .normal)
         self.configuration?.background.cornerRadius = 16
+        self.configuration?.titleAlignment = .center
     }
 
 }

@@ -253,7 +253,7 @@ extension HikerBLEManager: CBPeripheralManagerDelegate {
         }
     }
     
-    func peripheralManager(
+    func peripheralManager (
         _ peripheral: CBPeripheralManager,
         didReceiveWrite requests: [CBATTRequest]
     ) {

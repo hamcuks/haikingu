@@ -165,7 +165,6 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         cleanup()
     }
     
-    
     /// Peripheral
     func peripheral(
         _ peripheral: CBPeripheral,

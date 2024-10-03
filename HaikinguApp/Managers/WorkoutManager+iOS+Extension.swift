@@ -68,7 +68,7 @@ extension WorkoutManager: WorkoutServiceIos {
     }
 }
 
-extension WorkoutManager: WCSessionDelegate{
+extension WorkoutManager: WCSessionDelegate {
     nonisolated func sessionDidBecomeInactive(_ session: WCSession) {
         //
     }
@@ -77,7 +77,7 @@ extension WorkoutManager: WCSessionDelegate{
         //
     }
     
-    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         if let speed = message["speed"] as? Double {
             DispatchQueue.main.async {
                 self.speed = speed
@@ -111,4 +111,3 @@ extension WorkoutManager: WCSessionDelegate{
         }
     }
 }
-
