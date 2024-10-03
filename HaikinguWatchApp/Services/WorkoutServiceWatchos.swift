@@ -8,8 +8,6 @@
 import Foundation
 import HealthKit
 
-
-
 protocol WorkoutServiceWatchOS{
     var sessionState: HKWorkoutSessionState { get set }
     var remainingTime: TimeInterval { get set }

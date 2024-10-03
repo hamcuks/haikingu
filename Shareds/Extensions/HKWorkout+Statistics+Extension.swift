@@ -5,7 +5,6 @@
 //  Created by I Gusti Ngurah Surya Ardika Dinataputra on 03/10/24.
 //
 
-
 import Foundation
 import HealthKit
 
@@ -16,6 +15,7 @@ extension HKWorkout {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second]
         formatter.zeroFormattingBehavior = .pad
+        print("Ini value duration : \(formatter)")
         return formatter.string(from: duration) ?? ""
     }
     
@@ -27,10 +27,10 @@ extension HKWorkout {
         }
         let measurement = Measurement(value: value, unit: UnitSpeed.kilometersPerHour)
         let numberStyle = FloatingPointFormatStyle<Double>.number.precision(.fractionLength(0))
+        print("Ini value walking speed : \(measurement)")
         return measurement.formatted(.measurement(width: .abbreviated, usage: .asProvided, numberFormatStyle: numberStyle))
     }
 
-    
     var totalWalkingDistance: String {
         var value: Double = 0
         if let statistics = statistics(for: HKQuantityType(.distanceWalkingRunning)),
@@ -39,6 +39,7 @@ extension HKWorkout {
         }
         let measurement = Measurement(value: value, unit: UnitLength.meters)
         let numberStyle: FloatingPointFormatStyle<Double> = .number.precision(.fractionLength(2))
+        print("Ini value distance : \(measurement)")
         return measurement.formatted(.measurement(width: .abbreviated, usage: .road, numberFormatStyle: numberStyle))
     }
     
@@ -56,10 +57,11 @@ extension HKWorkout {
     var averageHeartRate: String {
         var value: Double = 0
         if let statistics = statistics(for: HKQuantityType(.heartRate)),
-           let average = statistics.mostRecentQuantity()  {
+           let average = statistics.mostRecentQuantity() {
             let heartRateUnit = HKUnit.count().unitDivided(by: .minute())
             value = average.doubleValue(for: heartRateUnit)
         }
+        print("ini value average heart rate: \(value)")
         return value.formatted(.number.precision(.fractionLength(0))) + " bpm"
     }
 }

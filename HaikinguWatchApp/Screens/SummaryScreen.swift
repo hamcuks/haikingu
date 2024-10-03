@@ -23,9 +23,9 @@ struct SummaryScreen: View {
                         subtitleText: "\(isBackHome ? "See you on the next journey! 👋🏻👋🏻👋🏻" : "Take your iPhone and capture your moment! It’s a memory you'll want to keep from your amazing hike! 📸")")
                     Divider()
                     SummarySecondView()
-                    Divider()
-                    Text("\(isBackHome ? "" : "Just keep in mind to set a time to head back and try to get home before it gets too late!")")
-                        .font(Font.system(size: 12, weight: .light))
+//                    Divider()
+//                    Text("\(isBackHome ? "" : "Just keep in mind to set a time to head back and try to get home before it gets too late!")")
+//                        .font(Font.system(size: 12, weight: .light))
                     
                     HKTextButton(
                         titleButton: "\(isBackHome ? "Return Home" : (userServices.userType == .leader ? "Request to leader" : "Set a reminder"))",
@@ -47,6 +47,7 @@ struct SummaryScreen: View {
             .navigationTitle("Summary")
             .toolbarForegroundStyle(.orange, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             
         }
 //    }
@@ -87,4 +88,5 @@ struct SummarySecondView: View {
 
 #Preview {
     SummaryScreen()
+        .environmentObject(MetricsVM(workoutManager: WorkoutManager()))
 }

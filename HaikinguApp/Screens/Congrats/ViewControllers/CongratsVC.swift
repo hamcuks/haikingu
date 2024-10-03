@@ -53,7 +53,7 @@ class CongratsVC: UIViewController {
     
     lazy private var reminderTitleView = ReminderTitleView()
     
-    lazy private var setReminderButton: PrimaryButton = PrimaryButton(label: "Set Reminder")
+    lazy private var setReminderButton: PrimaryButton = PrimaryButton(label: "Back Home")
     
     lazy private var shareButton: IconButton = IconButton(imageIcon: "square.and.arrow.up")
     
@@ -107,8 +107,9 @@ class CongratsVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        setReminderButton.isEnabled = false
-//        shareButton.isEnabled = false
+        reminderTitleView.isHidden = true
+        tableView.isHidden = true
+        setReminderButton.isEnabled = true
         shareButton.isHidden = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
@@ -208,26 +209,26 @@ class CongratsVC: UIViewController {
     
     @objc
     func setReminderTapped() {
-        // Dapatkan waktu pengingat dan waktu alert
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        if let reminderTime = formatter.date(from: selectedTime) {
-            
-            let alertIntervals: [String: TimeInterval] = [
-                "None": 0,
-                "At time of activity": 0,
-                "15 minutes before": 15 * 60,
-                "30 minutes before": 30 * 60
-            ]
-            
-            let alertInterval = alertIntervals[selectedAlert] ?? 0
-            
-            let notificationManager = NotificationManager()
-            notificationManager.createReminder(for: "Reminder", body: "Your hike is starting soon!", date: reminderTime, reminder: alertInterval)
-            
-            // Pindah ke root (HomeVC)
-            navigationController?.popToRootViewController(animated: true)
-        }
+//        // Dapatkan waktu pengingat dan waktu alert
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "HH:mm"
+//        if let reminderTime = formatter.date(from: selectedTime) {
+//            
+//            let alertIntervals: [String: TimeInterval] = [
+//                "None": 0,
+//                "At time of activity": 0,
+//                "15 minutes before": 15 * 60,
+//                "30 minutes before": 30 * 60
+//            ]
+//            
+//            let alertInterval = alertIntervals[selectedAlert] ?? 0
+//            
+//            let notificationManager = NotificationManager()
+//            notificationManager.createReminder(for: "Reminder", body: "Your hike is starting soon!", date: reminderTime, reminder: alertInterval)
+//            
+//            // Pindah ke root (HomeVC)
+//            navigationController?.popToRootViewController(animated: true)
+//        }
         navigationController?.popToRootViewController(animated: true)
     }
     
