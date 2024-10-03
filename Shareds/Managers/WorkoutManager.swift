@@ -209,7 +209,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.sendWhatToDoRestToiPhone()
             }
 #endif
-            startTimer(with: 600, startDate: Date())
+            startTimer(with: 10, startDate: Date())
         } else if remainingTime == 0 && whatToDo == .timeToRest {
             timer?.invalidate()
             timer = nil
@@ -220,7 +220,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.sendWhatToDoWalkToiPhone()
             }
 #endif
-            startTimer(with: 1500, startDate: Date())
+            startTimer(with: 50, startDate: Date())
         }
     }
 

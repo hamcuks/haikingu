@@ -18,7 +18,7 @@ struct HKCircleButton: View {
     var action: () -> Void
     
     var body: some View {
-        Button{
+        Button {
             action()
         }label: {
             Image(systemName: "\(imageButton)")

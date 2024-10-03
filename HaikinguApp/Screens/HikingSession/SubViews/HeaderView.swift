@@ -108,24 +108,14 @@ class HeaderView: UIView {
     func configureValueState(_ state: TimingState) {
         
         switch state {
-            
         case .timeToRest:
-            //            DispatchQueue.main.async {
             self.statusLabel.text = "Rest Time!"
             self.subtitleLabel.text = "Take a rest for a while, drink your water"
-            //            }
-            roundedRectangleView.backgroundColor = .clear
+            self.roundedRectangleView.backgroundColor = .clear
         case .timeToWalk:
-            //            DispatchQueue.main.async {
             self.statusLabel.text = "Keep Moving!"
             self.subtitleLabel.text = "Hiking time for 1670 m"
-            //            }
-            roundedRectangleView.backgroundColor = .clear
-            //        case default:
-            //            statusLabel.text = "Stop!"
-            //            titleLabel.text = formattedTime
-            //            subtitleLabel.text = "Check your friends doing!"
-            //            roundedRectangleView.backgroundColor = .systemOrange
+            self.roundedRectangleView.backgroundColor = .clear
         }
     }
     
@@ -139,7 +129,6 @@ class HeaderView: UIView {
     func personNotmove() {
         roundedRectangleView.backgroundColor = .systemOrange
         statusLabel.text = "Not Moving!"
-        //        titleLabel.text = "Not Moving!"
         subtitleLabel.text = "Check your friends doing!"
         
     }
@@ -160,7 +149,7 @@ class HeaderView: UIView {
         
     }
     
-    func personNormal(){
+    func personNormal() {
         roundedRectangleView.backgroundColor = .clear
         statusLabel.text = "Keep Moving!"
         subtitleLabel.text = "Hiking time for 1670 m"

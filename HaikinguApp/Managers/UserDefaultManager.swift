@@ -38,6 +38,5 @@ class UserDefaultManager: UserDefaultService {
         // Return nil jika tidak ada data yang tersimpan
         return nil
     }
-    
-    
+
 }
