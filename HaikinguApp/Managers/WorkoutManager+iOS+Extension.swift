@@ -13,10 +13,10 @@ import WatchConnectivity
 // MARK: - Workout session management
 //
 extension WorkoutManager: WorkoutServiceIos {
+    
     func setDelegate(_ delegate: any WorkoutDelegate) {
         self.delegate = delegate
     }
-    
     
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws {
         let configuration = HKWorkoutConfiguration()

@@ -55,14 +55,14 @@ class HeaderView: UIView {
         return label
     }()
     
-//    init(status: TimingState, value: TimeInterval) {
-//        super.init(frame: .zero)
-//    
-////        configureValueRemaining(value)
-////        configureValueState(status)
-//        
-//        configureUI()
-//    }
+    //    init(status: TimingState, value: TimeInterval) {
+    //        super.init(frame: .zero)
+    //
+    ////        configureValueRemaining(value)
+    ////        configureValueState(status)
+    //
+    //        configureUI()
+    //    }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -84,7 +84,7 @@ class HeaderView: UIView {
         
         statusLabel.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-//            make.height.equalTo(40)
+            //            make.height.equalTo(40)
         }
         
         roundedRectangleView.snp.makeConstraints { make in
@@ -100,7 +100,7 @@ class HeaderView: UIView {
         
         subtitleLabel.snp.makeConstraints { make in
             make.width.equalTo(329)
-//            make.height.equalTo(60)
+            //            make.height.equalTo(60)
         }
         
     }
@@ -110,22 +110,22 @@ class HeaderView: UIView {
         switch state {
             
         case .timeToRest:
-//            DispatchQueue.main.async {
+            //            DispatchQueue.main.async {
             self.statusLabel.text = "Rest Time!"
             self.subtitleLabel.text = "Take a rest for a while, drink your water"
-//            }
+            //            }
             roundedRectangleView.backgroundColor = .clear
         case .timeToWalk:
-//            DispatchQueue.main.async {
+            //            DispatchQueue.main.async {
             self.statusLabel.text = "Keep Moving!"
             self.subtitleLabel.text = "Hiking time for 1670 m"
-//            }
+            //            }
             roundedRectangleView.backgroundColor = .clear
-//        case default:
-//            statusLabel.text = "Stop!"
-//            titleLabel.text = formattedTime
-//            subtitleLabel.text = "Check your friends doing!"
-//            roundedRectangleView.backgroundColor = .systemOrange
+            //        case default:
+            //            statusLabel.text = "Stop!"
+            //            titleLabel.text = formattedTime
+            //            subtitleLabel.text = "Check your friends doing!"
+            //            roundedRectangleView.backgroundColor = .systemOrange
         }
     }
     
@@ -136,28 +136,34 @@ class HeaderView: UIView {
         titleLabel.text = formattedTime
     }
     
-    func isPersonTired(_ condition: Bool?) {
+    func personNotmove() {
         roundedRectangleView.backgroundColor = .systemOrange
-        statusLabel.text = "STOP!"
-        titleLabel.text = "Not Moving!"
+        statusLabel.text = "Not Moving!"
+        //        titleLabel.text = "Not Moving!"
         subtitleLabel.text = "Check your friends doing!"
         
     }
     
-    func isPersonLost(_ condition: Bool?) {
+    func personLost() {
         roundedRectangleView.backgroundColor = .systemOrange
-        statusLabel.text = "STOP!"
-        titleLabel.text = "Lost Friend!"
+        statusLabel.text = "Lost Friend!"
+        //        titleLabel.text = "Lost Friend!"
         subtitleLabel.text = "Re-check your friend!"
         
     }
     
-    func isBPMHigh(_ condition: Bool?) {
+    func bpmHigh() {
         roundedRectangleView.backgroundColor = .systemOrange
-        statusLabel.text = "STOP!"
-        titleLabel.text = "BPM Alert!!!"
+        statusLabel.text = "BPM Alert!!!"
+//        titleLabel.text = "BPM Alert!!!"
         subtitleLabel.text = "Your friends BPM is high. Take a rest immediately!"
         
     }
-
+    
+    func personNormal(){
+        roundedRectangleView.backgroundColor = .clear
+        statusLabel.text = "Keep Moving!"
+        subtitleLabel.text = "Hiking time for 1670 m"
+    }
+    
 }
