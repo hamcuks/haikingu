@@ -33,6 +33,8 @@ class HikingSessionVC: UIViewController {
     var notificationManager: NotificationService?
     var workoutManager: WorkoutServiceIos?
     
+    var userData: User?
+    
     var naismithTime: Double?
 //    var restTakenCount: Int = 0
     
@@ -69,6 +71,8 @@ class HikingSessionVC: UIViewController {
         workoutManager?.retrieveRemoteSession()
         headerView.configureValueState(workoutManager!.whatToDo)
         timeElapsed.updateLabel(workoutManager!.elapsedTimeInterval)
+        
+        userData = userDefaultManager?.getUserData()
     }
     
     override func viewDidLoad() {
@@ -163,7 +167,7 @@ class HikingSessionVC: UIViewController {
     
     @objc
     func actionButtonTapped() {
-        guard let user = userDefaultManager?.getUserData() else { return }
+        guard let user = userData else { return }
         
         switch user.role {
         case .member:
@@ -223,6 +227,7 @@ class HikingSessionVC: UIViewController {
     
 }
 
+/// This extension used for CoreBluetooth Peripheral (Hiking Member)
 extension HikingSessionVC: HikingSessionVCDelegate {
     func didUpdateEstTime(_ time: TimeInterval) {
         print("didUpdateEstTime: ", time)
@@ -239,8 +244,18 @@ extension HikingSessionVC: HikingSessionVCDelegate {
     }
     
     func didReceivedHikingState(_ state: HikingStateEnum) {
-        /// Update label based on state
+        /// Update hiking member component based on hiking state
         print("Current Hiking State: \(state.rawValue)")
+        
+//        switch state {
+//            
+//        case .paused:
+//            
+//        case .notStarted:
+//            
+//        case .started:
+//            
+//        }
     }
     
 }
@@ -250,9 +265,17 @@ extension HikingSessionVC: WorkoutDelegate {
         if isPaused {
             workoutManager?.pauseTimer()
             horizontalStack.subviews.first?.isHidden = false
+            
+            if let userData, userData.role == .leader {
+                self.centralManager?.updateHikingState(for: .paused)
+            }
         } else {
             workoutManager?.resumeTimer()
             horizontalStack.subviews.first?.isHidden = true
+            
+            if let userData, userData.role == .leader {
+                self.centralManager?.updateHikingState(for: .started)
+            }
         }
     }
     
@@ -307,7 +330,7 @@ extension HikingSessionVC: WorkoutDelegate {
         /// From CoreBluetooth
         self.footerView.updateDistance("\(Int(distance)) m")
         
-        guard let userData = userDefaultManager?.getUserData() else { return }
+        guard let userData = self.userData else { return }
         
         /// Broadcast to other member if any update distance
         if userData.role == .leader {
@@ -332,7 +355,7 @@ extension HikingSessionVC: WorkoutDelegate {
             headerView.personNotmove()
             workoutManager?.stopTimer()
             
-            guard let userData = userDefaultManager?.getUserData() else { return }
+            guard let userData = self.userData else { return }
             
             if userData.role == .leader {
                 notificationManager?.requestRest(for: .notMoving, name: nil)
