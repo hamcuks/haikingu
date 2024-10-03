@@ -138,5 +138,11 @@ class TeamsView: UIView {
             self.datasource.apply(snapshot, animatingDifferences: true)
         }
     }
+    
+    func removeData(on hiker: Hiker) {
+        self.hikers.removeAll(where: { $0.id == hiker.id || $0.name == hiker.name })
+        
+        updateData(on: self.hikers)
+    }
 
 }

@@ -24,7 +24,7 @@ extension DetailDestinationVC: CentralBLEManagerDelegate {
     
     func centralBLEManager(didDisconnect hiker: Hiker) {
         print("DetailDestinationVC didDisconnect: ", hiker.name)
-//        self.teamView?.removeHiker(hiker: hiker)
+        self.teamView?.removeData(on: hiker)
     }
     
     func centralBLEManager(didReceiveRequestForRest restType: TypeOfRestEnum, from hiker: Hiker) {
