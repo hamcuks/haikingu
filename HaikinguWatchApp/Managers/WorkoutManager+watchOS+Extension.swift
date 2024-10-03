@@ -48,6 +48,7 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         session?.startActivity(with: startDate)
         try await builder?.beginCollection(at: startDate)
         startTimer(with: 10, startDate: startDate)
+        startObserving()
         startPedometerUpdates()
         
     }
@@ -74,10 +75,10 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
                 }
                 
                 let message = ["speed": self.speed] as [String : Any]
-                WCSession.default.sendMessage(
-                    message, replyHandler: nil){
-                        error in
-                        print("Error sending message: \(error.localizedDescription)")
+                do{
+                    try WCSession.default.updateApplicationContext(message)
+                }catch{
+                    print("error sending data remaining via app context: \(error.localizedDescription)")
                 }
                 
                 print("Current walking speed: \(self.speed) km/h")
@@ -92,10 +93,16 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         }
     }
     
-    func updateElapsedTime() {
-        guard let builder = builder else { return }
-        elapsedTimeInterval = builder.elapsedTime
-        print("Elapsed Time Interval: \(elapsedTimeInterval)")
+
+    // Check the elapsed time and notify delegate if it changes
+    func checkElapsedTime() {
+        guard let session = session else { return }
+        let newElapsedTime = builder?.elapsedTime
+        
+        if newElapsedTime != currentElapsedTime {
+            currentElapsedTime = newElapsedTime!
+            updateElapsedTimeInterval(to: newElapsedTime!)
+        }
     }
     
 }
@@ -104,6 +111,7 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
 // so the methods need to be nonisolated explicitly.
 //
 extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
+    
     nonisolated func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
         /**
          HealthKit calls this method on an anonymous serial background queue.
@@ -127,9 +135,11 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
             /**
              Send a Data object to the connected remote workout session.
              */
-            await sendData(archivedData)
+            //                sendElapsedTimeToIphone()
         }
+        //            self.elapsedTimeInterval = builder?.elapsedTime ?? 0
     }
+    
     
     nonisolated func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
     }
@@ -142,31 +152,42 @@ extension WorkoutManager {
             let message = [
                 "timerStart": remainingTime
             ] as [String: Any]
-            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
-                print("Error sending timer data: \(error.localizedDescription)")
-            })
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data remaining via app context: \(error.localizedDescription)")
+            }
+            
         }
     }
     
     func sendWhatToDoWalkToiPhone() {
+        var state : Int = 0
         if WCSession.default.isReachable {
             let message = [
-                "toDoWalk": "walkTrigger"
+                "toDoWalk": state
             ] as [String: Any]
-            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
-                print("Error sending todo data: \(error.localizedDescription)")
-            })
+            do{
+                try WCSession.default.updateApplicationContext(message)
+                state += 1
+            }catch{
+                print("error sending data walk reminder via app context: \(error.localizedDescription)")
+            }
         }
     }
     
     func sendWhatToDoRestToiPhone() {
+        var state : Int = 0
         if WCSession.default.isReachable {
             let message = [
-                "toDoRest": "restTrigger"
+                "toDoRest": state
             ] as [String: Any]
-            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
-                print("Error sending todo data: \(error.localizedDescription)")
-            })
+            do{
+                try WCSession.default.updateApplicationContext(message)
+                state += 1
+            }catch{
+                print("error sending data rest reminder via app context: \(error.localizedDescription)")
+            }
         }
     }
     
@@ -175,11 +196,14 @@ extension WorkoutManager {
             let message = [
                 "elapsed": elapsedTimeInterval
             ] as [String: Any]
-            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: { error in
-                print("Error sending elapsed data: \(error.localizedDescription)")
-            })
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data elapsed via app context: \(error.localizedDescription)")
+            }
+            
         }
     }
-
-
+    
+    
 }
