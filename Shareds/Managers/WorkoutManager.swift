@@ -19,6 +19,8 @@ protocol WorkoutDelegate: AnyObject {
     func didUpdateRemainingTime(_ remainingTime: TimeInterval)
     func didUpdateWhatToDo(_ whatToDo: TimingState)
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval)
+    func didUpdateRestAmount(_ restTaken: Int)
+    func didWorkoutPaused(_ isWorkoutPaused: Bool)
 }
 
 enum TimingState {
@@ -36,6 +38,19 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
+    @Published var isWorkoutPaused: Bool = false {
+        didSet{
+            delegate?.didWorkoutPaused(isWorkoutPaused)
+#if os(watchOS)
+            sendPausedStateToIphone()
+#endif
+        }
+    }
+    @Published var restTaken: Int = 0 {
+        didSet{
+            delegate?.didUpdateRestAmount(restTaken)
+        }
+    }
     @Published var remainingTime: TimeInterval = 0 {
         didSet {
             delegate?.didUpdateRemainingTime(remainingTime)
@@ -217,14 +232,18 @@ class WorkoutManager: NSObject, ObservableObject {
         } else if remainingTime == 0 && whatToDo == .timeToRest {
             timer?.invalidate()
             timer = nil
+            updateRestAmount(to: restTaken + 1)
+            delegate?.didUpdateRestAmount(restTaken)
             updateWhatToDo(to: .timeToWalk)
             delegate?.didUpdateWhatToDo(whatToDo)
+            
 #if os(watchOS)
             DispatchQueue.main.async {
                 self.sendWhatToDoWalkToiPhone()
+                self.sendRestTakenToIphone()
             }
 #endif
-            startTimer(with: 50, startDate: Date())
+            startTimer(with: 10, startDate: Date())
         }
     }
 
@@ -299,6 +318,12 @@ class WorkoutManager: NSObject, ObservableObject {
         elapsedTimeInterval = newElapsedTimeInterval
         self.delegate?.didUpdateElapsedTimeInterval(elapsedTimeInterval)
         }
+    
+    func updateRestAmount(to newRestTaken: Int) {
+        restTaken = newRestTaken
+        self.delegate?.didUpdateRestAmount(restTaken)
+    }
+    
 }
 
 // MARK: - Workout session management
@@ -337,6 +362,7 @@ extension WorkoutManager {
                 let heartRateUnit = HKUnit.count().unitDivided(by: .minute())
                 self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.updateHeartRate(to: statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0)
+                self.delegate?.didUpdateHeartRate(self.heartRate)
                 
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
@@ -346,7 +372,7 @@ extension WorkoutManager {
                 let meterUnit = HKUnit.meter()
                 self.distance = statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0
                 self.updateDistance(to: statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0)
-                
+                self.delegate?.didUpdateDistance(self.distance)
             default:
                 return
             }

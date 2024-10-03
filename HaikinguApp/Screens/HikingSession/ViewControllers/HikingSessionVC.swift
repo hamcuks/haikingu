@@ -37,7 +37,7 @@ class HikingSessionVC: UIViewController {
     
     var naismithTime: Double?
     var naismithDefault: Double?
-//    var restTakenCount: Int = 0
+    var restTakenCount: Int = 0
     
     var iconButton: String = {
         let icon: String = "pause.fill"
@@ -60,6 +60,7 @@ class HikingSessionVC: UIViewController {
         self.peripheralManager = peripheralManager
         self.centralManager = centralManager
         self.notificationManager = notificationManager
+        
     }
     
     required init?(coder: NSCoder) {
@@ -188,8 +189,9 @@ class HikingSessionVC: UIViewController {
                 iconButton = "play.fill"
 //                horizontalStack.addArrangedSubview(endButton)
                 horizontalStack.subviews.first?.isHidden = false
-                workoutManager?.pauseTimer()
-                workoutManager?.sessionState = .paused
+                workoutManager?.sendPausedToWatch()
+                
+             
                 
             } else if iconButton == "play.fill" {
                 print("paused button leader tapped")
@@ -197,8 +199,8 @@ class HikingSessionVC: UIViewController {
 //                horizontalStack.removeArrangedSubview(endButton)
 //                endButton.removeFromSuperview()
                 horizontalStack.subviews.first?.isHidden = true
-                workoutManager?.resumeTimer()
-                workoutManager?.sessionState = .running
+                workoutManager?.sendResumedToWatch()
+                
                 
             }
             
@@ -240,6 +242,8 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 //        print("Ini rest count : \(restCount)")
 //        restTakken += restCount
 //        print("Ini rest takken before : \(restTakenCount)")
+//        didUpdateRestAmount(restCount)
+//        restCount = restTakenCount
         self.footerView.updateRestTaken("\(restCount)x")
         
     }
@@ -262,6 +266,19 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
+    func didWorkoutPaused(_ isWorkoutPaused: Bool) {
+        if isWorkoutPaused {
+            horizontalStack.subviews.first?.isHidden = false
+        } else {
+            horizontalStack.subviews.first?.isHidden = true
+        }
+    }
+    
+    func didUpdateRestAmount(_ restTaken: Int) {
+        self.footerView.updateRestTaken("\(restTaken)x")
+        restTakenCount = restTaken
+        print("Rest Takken : \(restTaken)")
+    }
     
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
         print("Current whatToDo: \(whatToDo)")
@@ -280,10 +297,6 @@ extension HikingSessionVC: WorkoutDelegate {
             self.centralManager?.updateHikingState(for: .paused)
             headerView.configureValueState(whatToDo)
             
-            if workoutManager?.sessionState == .paused {
-                didUpdateRestTaken(1)
-            }
-            
         } else if whatToDo == .timeToWalk {
             horizontalStack.subviews.first?.isHidden = true
             self.centralManager?.updateHikingState(for: .started)
@@ -296,7 +309,7 @@ extension HikingSessionVC: WorkoutDelegate {
     
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval) {
         // tampilin di stopwatch maju
-        print("nilai elapsed time \(elapsedTimeInterval)")
+//        print("nilai elapsed time \(elapsedTimeInterval)")
         timeElapsed.updateLabel(elapsedTimeInterval)
     }
     
@@ -343,6 +356,7 @@ extension HikingSessionVC: WorkoutDelegate {
             self.centralManager?.updateDistance(distance)
         }
         
+        print("Ini distance : \(distance)")
     }
     
     func didUpdateSpeed(_ speed: Double) {

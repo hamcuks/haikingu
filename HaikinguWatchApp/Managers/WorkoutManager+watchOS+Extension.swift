@@ -104,6 +104,25 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         }
     }
     
+    func updateIsWorkoutPaused(to newIsWorkoutPaused: Bool) {
+        isWorkoutPaused = newIsWorkoutPaused
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        if let paused = applicationContext["triggerPaused"] as? String {
+            DispatchQueue.main.async {
+                self.isWorkoutPaused = true
+                self.pauseTimer()
+            }
+            
+        } else if let resume = applicationContext["triggerResume"] as? String {
+            DispatchQueue.main.async {
+                self.isWorkoutPaused = false
+                self.resumeTimer()
+            }
+        }
+    }
+    
 }
 // MARK: - HKLiveWorkoutBuilderDelegate
 // HealthKit calls the delegate methods on an anonymous serial background queue,
@@ -137,6 +156,7 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
             //                sendElapsedTimeToIphone()
         }
         //            self.elapsedTimeInterval = builder?.elapsedTime ?? 0
+                self.sendDistanceToIphone()
     }
     
     nonisolated func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
@@ -203,4 +223,42 @@ extension WorkoutManager {
         }
     }
     
+    func sendRestTakenToIphone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "restTaken": restTaken
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func sendDistanceToIphone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "distance": distance
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func sendPausedStateToIphone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "isWorkoutPaused": isWorkoutPaused
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
 }

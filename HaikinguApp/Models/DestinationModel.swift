@@ -67,7 +67,7 @@ enum DestinationList: String, CaseIterable {
                     latitude: 1.06809,
                     longitude: 104.01358
                 ),
-                trackLength: 2168,
+                trackLength: 30, //1268
                 estimatedTime: 0,
                 minElevation: 24,
                 maxElevation: 92
