@@ -39,7 +39,7 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     @Published var isWorkoutPaused: Bool = false {
-        didSet{
+        didSet {
             delegate?.didWorkoutPaused(isWorkoutPaused)
 #if os(watchOS)
             sendPausedStateToIphone()
@@ -47,7 +47,7 @@ class WorkoutManager: NSObject, ObservableObject {
         }
     }
     @Published var restTaken: Int = 0 {
-        didSet{
+        didSet {
             delegate?.didUpdateRestAmount(restTaken)
         }
     }

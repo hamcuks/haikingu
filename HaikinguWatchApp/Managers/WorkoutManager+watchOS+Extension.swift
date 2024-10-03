@@ -241,9 +241,9 @@ extension WorkoutManager {
             let message = [
                 "distance": distance
             ] as [String: Any]
-            do{
+            do {
                 try WCSession.default.updateApplicationContext(message)
-            }catch{
+            } catch {
                 print("error sending data rest taken via app context: \(error.localizedDescription)")
             }
         }
@@ -254,9 +254,9 @@ extension WorkoutManager {
             let message = [
                 "isWorkoutPaused": isWorkoutPaused
             ] as [String: Any]
-            do{
+            do {
                 try WCSession.default.updateApplicationContext(message)
-            }catch{
+            } catch {
                 print("error sending data rest taken via app context: \(error.localizedDescription)")
             }
         }
