@@ -18,12 +18,11 @@ class AppDelegate: NSObject, WKApplicationDelegate {
 //        self.workoutManager = workoutManager
 //    }
     
-    
     func handle(_ workoutConfiguration: HKWorkoutConfiguration) {
         Task {
             do {
-                WorkoutManager.shared.resetWorkout() //workoutManager?.resetWorkout()
-                try await WorkoutManager.shared.startWorkout(workoutConfiguration: workoutConfiguration) //workoutManager?.startWorkout(workoutConfiguration: workoutConfiguration)
+                WorkoutManager.shared.resetWorkout() // workoutManager?.resetWorkout()
+                try await WorkoutManager.shared.startWorkout(workoutConfiguration: workoutConfiguration) // workoutManager?.startWorkout(workoutConfiguration: workoutConfiguration)
                 Logger.shared.log("Successfully started workout")
             } catch {
                 Logger.shared.log("Failed started workout")

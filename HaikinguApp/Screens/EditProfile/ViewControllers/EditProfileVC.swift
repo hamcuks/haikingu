@@ -52,7 +52,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
-    private func updateUserData(with user: User){
+    private func updateUserData(with user: User) {
         nameTextField.text = user.name
         
         if let imageData = Data(base64Encoded: user.image), let userImage = UIImage(data: imageData) {

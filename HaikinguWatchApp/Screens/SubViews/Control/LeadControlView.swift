@@ -13,7 +13,7 @@ struct LeadControlView: View {
     @EnvironmentObject var navigationServices: NavigationServices
     
     var body: some View {
-        NavigationStack(path: $navigationServices.path){
+        NavigationStack(path: $navigationServices.path) {
             
         VStack(alignment: .center) {
             
@@ -100,8 +100,8 @@ struct LeadControlView: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    LeadControlView()
 //        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
 //        .environmentObject(NavigationServices())
-//}
+// }

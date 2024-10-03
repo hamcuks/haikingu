@@ -79,7 +79,6 @@ class HikingSessionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.workoutManager?.setDelegate(self)
         view.backgroundColor = .white
         
@@ -263,22 +262,6 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
-//    func didPausedWorkout(_ isPaused: Bool) {
-//        if isPaused {
-//            workoutManager?.pauseTimer()
-//            horizontalStack.subviews.first?.isHidden = false
-//            
-//            if let userData, userData.role == .leader {
-//            }
-//        } else {
-//            workoutManager?.resumeTimer()
-//            horizontalStack.subviews.first?.isHidden = true
-//            
-//            if let userData, userData.role == .leader {
-//                self.centralManager?.updateHikingState(for: .started)
-//            }
-//        }
-//    }
     
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
         print("Current whatToDo: \(whatToDo)")

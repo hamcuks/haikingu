@@ -19,7 +19,7 @@ class OnboardingHealthAccessVC: UIViewController {
     let allowButton = UIButton()
 
     // HealthKit store for requesting health data
-    var workoutManager : WorkoutServiceIos?
+    var workoutManager: WorkoutServiceIos?
     
     init(workoutManager: WorkoutServiceIos?) {
         super.init(nibName: nil, bundle: nil)
