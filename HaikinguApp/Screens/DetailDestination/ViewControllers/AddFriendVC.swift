@@ -43,6 +43,7 @@ class AddFriendVC: UIViewController {
         }
         
         yourTeam = HikerGridView(frame: view.bounds, title: "Your Team")
+        yourTeam.delegate = self
         nearbyPerson = HikerGridView(frame: view.bounds, title: "Nearby Hikers")
         nearbyPerson.delegate = self
         

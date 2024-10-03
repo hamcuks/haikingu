@@ -14,7 +14,7 @@ struct HKTextButton: View {
     var action: () -> Void
     
     var body: some View {
-        Button{
+        Button {
             action()
         }label: {
             Text("\(titleButton)")

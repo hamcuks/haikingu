@@ -67,7 +67,7 @@ extension WorkoutManager: WorkoutServiceIos {
     }
 }
 
-extension WorkoutManager: WCSessionDelegate{
+extension WorkoutManager: WCSessionDelegate {
     nonisolated func sessionDidBecomeInactive(_ session: WCSession) {
         //
     }
@@ -112,4 +112,3 @@ extension WorkoutManager: WCSessionDelegate{
         }
     }
 }
-

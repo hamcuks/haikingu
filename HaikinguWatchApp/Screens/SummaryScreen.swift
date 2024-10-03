@@ -31,7 +31,7 @@ struct SummaryScreen: View {
                         titleButton: "\(isBackHome ? "Return Home" : (userServices.userType == .leader ? "Request to leader" : "Set a reminder"))",
                         widthButton: 173, heightButton: 54) {
                             
-                        //MARK: TODO Navigate / add path into Another Screen
+                        // MARK: Navigate / add path into Another Screen
                             if isBackHome {
                                 navigationServices.path.removeLast(navigationServices.path.count)
                             } else {
@@ -52,7 +52,6 @@ struct SummaryScreen: View {
         }
 //    }
 }
-
 
 struct SummaryFirstView: View {
     @EnvironmentObject var metricVM: MetricsVM

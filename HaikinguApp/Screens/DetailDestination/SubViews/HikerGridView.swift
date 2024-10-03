@@ -129,7 +129,6 @@ extension HikerGridView: UICollectionViewDelegate {
             self.delegate?.didConnectHiker(item)
         }
         
-        print(item.state)
         if item.state == .joined {
             self.delegate?.didDisconnectHiker(item)
         }
