@@ -10,7 +10,7 @@ import CoreBluetooth
 import os
 
 extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
-    private func cleanup() {
+    func cleanup() {
         os_log("HikerBLEManager: Cleaning Up!")
         for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
             for service in peripheral.services ?? [] {

@@ -113,6 +113,14 @@ class DetailDestinationVC: UIViewController {
         setupUI()
 
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if self.isMovingFromParent {
+            centralManager?.stopScanning()
+        }
+    }
 
     private func setupUI() {
         

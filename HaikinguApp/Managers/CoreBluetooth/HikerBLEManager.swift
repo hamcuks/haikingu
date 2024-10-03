@@ -74,6 +74,7 @@ extension HikerBLEManager: CentralBLEService {
         os_log("Central HikerBLEManager: stopScanning")
         
         self.centralManager.stopScan()
+        self.cleanup()
         
     }
     
