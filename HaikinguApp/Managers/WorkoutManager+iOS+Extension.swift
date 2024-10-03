@@ -65,6 +65,32 @@ extension WorkoutManager: WorkoutServiceIos {
             }
         }
     }
+    
+    func sendPausedToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "triggerPaused": "paused"
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func sendResumedToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "triggerResume": "resume"
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
 extension WorkoutManager: WCSessionDelegate {
@@ -108,6 +134,22 @@ extension WorkoutManager: WCSessionDelegate {
                 self.speed = speed
                 self.updateSpeed(to: speed)
                 self.delegate?.didUpdateSpeed(speed)
+            }
+        } else if let restTaken = applicationContext["restTaken"] as? Int {
+            DispatchQueue.main.async {
+                self.restTaken = restTaken
+                self.updateRestAmount(to: restTaken)
+                self.delegate?.didUpdateRestAmount(restTaken)
+            }
+        } else if let distance = applicationContext["distance"] as? Double {
+            DispatchQueue.main.async {
+                self.distance = distance
+                self.delegate?.didUpdateDistance(distance)
+            }
+        }
+        else if let isWorkoutPaused = applicationContext["isWorkoutPaused"] as? Bool {
+            DispatchQueue.main.async {
+                self.isWorkoutPaused = isWorkoutPaused
             }
         }
     }

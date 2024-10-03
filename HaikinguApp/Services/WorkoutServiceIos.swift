@@ -29,4 +29,6 @@ protocol WorkoutServiceIos {
     func pauseTimer()
     func resumeTimer()
     func stopTimer()
+    func sendPausedToWatch()
+    func sendResumedToWatch()
 }

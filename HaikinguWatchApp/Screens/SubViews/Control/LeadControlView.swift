@@ -11,13 +11,14 @@ import Swinject
 struct LeadControlView: View {
     @EnvironmentObject var metricsVM: MetricsVM
     @EnvironmentObject var navigationServices: NavigationServices
+    @Binding var isPaused: Bool
     
     var body: some View {
         NavigationStack(path: $navigationServices.path){
             
         VStack(alignment: .center) {
             
-            if !metricsVM.isLeadPausedTapped {
+            if metricsVM.workoutManager!.isWorkoutPaused == false {
                 VStack(alignment: .center, spacing: 16) {
                     HKCircleButton(
                         imageButton: "pause.fill",
@@ -26,6 +27,7 @@ struct LeadControlView: View {
                         padding: 0,
                         imageColor: .black,
                         buttonColor: .orange) {
+                            metricsVM.workoutManager?.updateIsWorkoutPaused(to: true)
                             metricsVM.isLeadPausedTapped = true
                             metricsVM.workoutManager?.pauseTimer()
                             print("Paused Tapped")
@@ -73,6 +75,7 @@ struct LeadControlView: View {
                             padding: 8,
                             imageColor: .black,
                             buttonColor: .orange) {
+                                metricsVM.workoutManager?.updateIsWorkoutPaused(to: false)
                                 metricsVM.isLeadPausedTapped = false
                                 metricsVM.workoutManager?.resumeTimer()
                                 print("Play Tapped")
