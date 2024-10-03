@@ -10,7 +10,7 @@ import CoreBluetooth
 import os
 
 extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
-    private func cleanup() {
+    func cleanup() {
         os_log("HikerBLEManager: Cleaning Up!")
         for peripheral in self.discoveredPeripherals where peripheral.state == .connected {
             for service in peripheral.services ?? [] {
@@ -48,6 +48,8 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
             if central.isScanning {
                 self.stopScanning()
             }
+            
+            cleanup()
             
             state = false
         case .poweredOn:
@@ -107,12 +109,12 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
                 [ notificationServiceId, usernameServiceId, planServiceId ]
             )
         
-        if var hiker = self.discoveredHikers.first(
-            where: { $0.id == peripheral.identifier
-            }) {
+        let hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier || $0.name == peripheral.name })
+        
+        if var hiker {
             hiker.state = .waiting
-            
             self.discoveredHikers.update(with: hiker)
+            
             self.centralDelegate?
                 .centralBLEManager(didDiscover: self.discoveredHikers)
         }
@@ -134,11 +136,17 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
         
         self.discoveredPeripherals.remove(peripheral)
         
-        if let hiker = self.discoveredHikers.first(
-            where: { $0.id == peripheral.identifier
-            }) {
+        let hiker = self.discoveredHikers.first(where: { $0.id == peripheral.identifier || $0.name == peripheral.name })
+        
+        if var hiker {
+            hiker.state = .notJoined
+            self.discoveredHikers.update(with: hiker)
             self.centralDelegate?.centralBLEManager(didDisconnect: hiker)
+            
+            self.centralDelegate?
+                .centralBLEManager(didDiscover: self.discoveredHikers)
         }
+        
     }
     
     func centralManager(
@@ -148,9 +156,15 @@ extension HikerBLEManager: CBCentralManagerDelegate, CBPeripheralDelegate {
     ) {
         os_log("CentralManager: didFailToConnect")
         os_log("CentralManager: Failed to connect to: \(peripheral.name ?? "No Name") - \(peripheral.identifier)")
+        if let error {
+            os_log("Peripheral: ", error.localizedDescription)
+            cleanup()
+            return
+        }
         
         cleanup()
     }
+    
     
     /// Peripheral
     func peripheral(

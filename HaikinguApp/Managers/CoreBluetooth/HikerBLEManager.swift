@@ -74,6 +74,7 @@ extension HikerBLEManager: CentralBLEService {
         os_log("Central HikerBLEManager: stopScanning")
         
         self.centralManager.stopScan()
+        self.cleanup()
         
     }
     
@@ -120,7 +121,7 @@ extension HikerBLEManager: CentralBLEService {
             where: { $0.identifier == hiker.id
             }) {
             os_log(
-                "Central HikerBLEManager: Attempt to connect to: \(hiker.name)"
+                "Central HikerBLEManager: Attempt to disconnect to: \(hiker.name)"
             )
             
             self.centralManager.cancelPeripheralConnection(peripheral)
