@@ -43,7 +43,7 @@ struct MetricsScreen: View {
             }
             .navigationBarBackButtonHidden(true)
         }
-        .onChange(of: metricsVM.workoutManager?.isWorkoutEnded) { _, ended in
+        .onChange(of: metricsVM.isWorkoutEnded) { _, ended in
             navigationServices.path.append("summary")
         }
         .navigationDestination(for: String.self) { destini in
