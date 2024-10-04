@@ -26,6 +26,7 @@ protocol WorkoutServiceWatchOS {
     var selectedDestinationName: String { get set }
     var selectedDestinationElevMax: Int { get set }
     var selectedDestinationElevMin: Int { get set }
+    var restTaken: Int { get set }
     func setDelegateVMHome(_ delegate: WorkoutVMHomeDelegate)
     func setDelegateVMMetrics(_ delegate: WorkoutVMMetricsDelegate)
     

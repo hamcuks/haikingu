@@ -52,7 +52,7 @@ struct MetricsView: View {
                     
     //                .border(.red)
                     
-                    HKMetricBiggerText(intvalue: metricsVM.restAmount, intMeasure: "x", intDesc: "Rest taken")
+                    HKMetricBiggerText(intvalue: metricsVM.workoutManager?.restTaken ?? 0, intMeasure: "x", intDesc: "Rest taken")
     //                    .border(.green)
                     HKMetricBiggerText(intvalue: Int(metricsVM.workoutManager!.distance), intMeasure: "M", intDesc: "Distance")
     //                    .border(.yellow)
