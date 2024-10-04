@@ -20,6 +20,7 @@
 		8A994CBC2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CBB2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift */; };
 		8A994CBD2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CBB2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
+		BA2E8AB82CAFD836009E7DD1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2E8AB72CAFD81C009E7DD1 /* UIView+Extension.swift */; };
 		E73E7F4D2CAC7FE400C51B9D /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3F2CAC7FE400C51B9D /* SampleItemView.swift */; };
 		E73E7F4E2CAC7FE400C51B9D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F192CAC7FE400C51B9D /* HomeVC.swift */; };
 		E73E7F4F2CAC7FE400C51B9D /* HikingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EF02CAC7FE400C51B9D /* HikingSummaryView.swift */; };
@@ -160,6 +161,7 @@
 		8A994CBB2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKWorkout+Statistics+Extension.swift"; sourceTree = "<group>"; };
 		8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutManager+watchOS+Extension.swift"; sourceTree = "<group>"; };
 		BA1F53682CAA9F0500A9A9F2 /* OnboardingHealthAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHealthAccessVC.swift; sourceTree = "<group>"; };
+		BA2E8AB72CAFD81C009E7DD1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E73E7ED82CAC7FE400C51B9D /* SampleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDB.swift; sourceTree = "<group>"; };
 		E73E7EDA2CAC7FE400C51B9D /* HikerBLEManager+Central+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Central+Extension.swift"; sourceTree = "<group>"; };
 		E73E7EDB2CAC7FE400C51B9D /* HikerBLEManager+Peripheral+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HikerBLEManager+Peripheral+Extension.swift"; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 		E73E7F452CAC7FE400C51B9D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BA2E8AB72CAFD81C009E7DD1 /* UIView+Extension.swift */,
 				E73E7F432CAC7FE400C51B9D /* Date+Extension.swift */,
 				E73E7F442CAC7FE400C51B9D /* Swinject+Extension.swift */,
 			);
@@ -1094,6 +1097,7 @@
 				E73E7F5F2CAC7FE400C51B9D /* OnboardingHealthAccessVC.swift in Sources */,
 				E73E7F602CAC7FE400C51B9D /* DetailDestinationView.swift in Sources */,
 				E73E7F612CAC7FE400C51B9D /* HaikinguServiceBLEUUID.swift in Sources */,
+				BA2E8AB82CAFD836009E7DD1 /* UIView+Extension.swift in Sources */,
 				E73E7F622CAC7FE400C51B9D /* HeaderView.swift in Sources */,
 				E73E7F632CAC7FE400C51B9D /* HikerBLEManager+Peripheral+Extension.swift in Sources */,
 				E73E7F642CAC7FE400C51B9D /* HeaderCongratsView.swift in Sources */,
