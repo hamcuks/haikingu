@@ -23,6 +23,7 @@ protocol WorkoutServiceWatchOS {
     var whatToDo: TimingState { get set }
     var isWorkoutPaused: Bool { get set }
     var isWorkoutEnded: Bool { get set }
+    func setDelegateVM(_ delegate: WorkoutVMDelegate)
     
     func resetWorkout()
     func requestAuthorization()
