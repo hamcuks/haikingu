@@ -10,8 +10,6 @@ import SnapKit
 
 class HomeHeaderView: UIStackView {
     
-    weak var delegate: HomeHeaderViewDelegate?
-    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Hi, Ivan!"
@@ -55,10 +53,6 @@ class HomeHeaderView: UIStackView {
         self.addArrangedSubview(stack)
         self.addArrangedSubview(avatarView)
         
-        // Tambahkan gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
-        avatarView.addGestureRecognizer(tapGesture)
-        
         avatarView.snp.makeConstraints { make in
             make.width.height.equalTo(54)
         }
@@ -69,12 +63,5 @@ class HomeHeaderView: UIStackView {
         avatarView.image = photo
     }
     
-    @objc private func avatarTapped() {
-        delegate?.didTapAvatar()
-    }
-    
 }
 
-protocol HomeHeaderViewDelegate: AnyObject {
-    func didTapAvatar()
-}

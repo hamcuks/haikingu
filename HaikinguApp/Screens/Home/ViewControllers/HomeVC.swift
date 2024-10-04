@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Swinject
 
-class HomeVC: UIViewController, HomeHeaderViewDelegate {
+class HomeVC: UIViewController {
     
     /// Managers
     var peripheralManager: PeripheralBLEService?
@@ -63,7 +63,8 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedAvatar))
+        headerView.avatarView.addGestureRecognizer(tapGesture)
         
         self.configureVC()
         self.configureHeaderView()
@@ -77,33 +78,25 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        headerView.delegate = self
-        
         if let userData = userDefaultManager?.getUserData() {
             // Perbarui UI berdasarkan data user
             updateUserInterface(with: userData)
         }
-        
         self.notificationManager?.requestPermission()
-        
-        print(headerView.avatarView.gestureRecognizers!) // Pastikan tidak nil
         view.bringSubviewToFront(headerView.avatarView)
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        headerView.avatarView.isUserInteractionEnabled = true
         let point = headerView.avatarView.center
         let viewAtPoint = view.hitTest(point, with: nil)
-        print("View at point: \(viewAtPoint)")
-        print(headerView.isUserInteractionEnabled) // Harus true
-        print(headerView.avatarView.isUserInteractionEnabled) // Harus true
 
     }
     
-    // Implementasi delegate method
-    func didTapAvatar() {
+    @objc
+    func tappedAvatar() {
         guard let editProfileVC = Container.shared.resolve(EditProfileVC.self) else { return }
         navigationController?.pushViewController(editProfileVC, animated: true)
     }
