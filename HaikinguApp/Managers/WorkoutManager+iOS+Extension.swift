@@ -91,6 +91,19 @@ extension WorkoutManager: WorkoutServiceIos {
             }
         }
     }
+    
+    func sendEndedToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "triggerEnded": "ended"
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
 extension WorkoutManager: WCSessionDelegate {
@@ -146,10 +159,13 @@ extension WorkoutManager: WCSessionDelegate {
                 self.distance = distance
                 self.delegate?.didUpdateDistance(distance)
             }
-        }
-        else if let isWorkoutPaused = applicationContext["isWorkoutPaused"] as? Bool {
+        } else if let isWorkoutPaused = applicationContext["isWorkoutPaused"] as? Bool {
             DispatchQueue.main.async {
                 self.isWorkoutPaused = isWorkoutPaused
+            }
+        } else if let isWorkoutEnded = applicationContext["isWorkoutEnded"] as? Bool {
+            DispatchQueue.main.async {
+                self.isWorkoutEnded = isWorkoutEnded
             }
         }
     }

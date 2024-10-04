@@ -108,6 +108,10 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         isWorkoutPaused = newIsWorkoutPaused
     }
     
+    func updateIsWorkoutEnded(to newIsWorkoutEnded: Bool) {
+        isWorkoutEnded = newIsWorkoutEnded
+    }
+    
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let paused = applicationContext["triggerPaused"] as? String {
             DispatchQueue.main.async {
@@ -253,6 +257,19 @@ extension WorkoutManager {
         if WCSession.default.isReachable {
             let message = [
                 "isWorkoutPaused": isWorkoutPaused
+            ] as [String: Any]
+            do {
+                try WCSession.default.updateApplicationContext(message)
+            } catch {
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func sendEndedStateToIphone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "isWorkoutEnded": isWorkoutEnded
             ] as [String: Any]
             do {
                 try WCSession.default.updateApplicationContext(message)
