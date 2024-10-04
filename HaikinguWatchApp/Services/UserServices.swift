@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum UserType : String, CaseIterable {
+enum UserType: String, CaseIterable {
     case leader
     case member
 }

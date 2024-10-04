@@ -5,7 +5,6 @@
 //  Created by I Gusti Ngurah Surya Ardika Dinataputra on 02/10/24.
 //
 
-
 import Foundation
 import Swinject
 
@@ -13,7 +12,7 @@ import Swinject
 struct Inject<T> {
     private let container: Container
     private var storedValue: T?
-    private var name: String? = nil
+    private var name: String?
     
     init(name: String? = nil, container: Container = Container.shared) {
         self.container = container

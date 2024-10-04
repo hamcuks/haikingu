@@ -22,7 +22,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     var plan: DestinationList?
     
     /// SubViews
-    let headerView: HomeHeaderView = HomeHeaderView()
+    var headerView: HomeHeaderView = HomeHeaderView()
     lazy var hikingModeControlView: HikingModeControlView = {
         let control = HikingModeControlView(items: ["Solo", "Group"])
         control.selectedSegmentIndex = 0
@@ -44,6 +44,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     lazy var imageView: UIImageView = UIImageView()
     lazy var backToHomeMessageView: BackToHomeMessageView = BackToHomeMessageView()
     lazy var startButton: PrimaryButton = PrimaryButton(label: "Start Hiking")
+    var isSoloMode: Bool = true
     
     /// Constructors
     init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDefaultManager: UserDefaultService?) {
@@ -63,7 +64,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         super.viewDidLoad()
         
         headerView.delegate = self
-
+        
         self.configureVC()
         self.configureHeaderView()
         self.configureHikingModeControlView()
@@ -77,8 +78,8 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         super.viewWillAppear(animated)
         
         if let userData = userDefaultManager?.getUserData() {
-                // Perbarui UI berdasarkan data user
-                updateUserInterface(with: userData)
+            // Perbarui UI berdasarkan data user
+            updateUserInterface(with: userData)
         }
         
         self.notificationManager?.requestPermission()
@@ -92,7 +93,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     
     private func updateUserInterface(with user: User) {
         // Perbarui nama pada header view (misalnya jika ada label nama di header)
-    
+        
         // Perbarui gambar profil pada imageView
         if let imageData = Data(base64Encoded: user.image), let userImage = UIImage(data: imageData) {
             headerView.setUserName(user.name, userImage)
@@ -102,7 +103,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
             headerView.setUserName(user.name, defaultImage)
         }
     }
-
+    
     /// Private Functions
     private func configureVC() {
         self.view.backgroundColor = .systemBackground
@@ -123,7 +124,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         hikingModeControlView.addTarget(self, action: #selector(onHikingModeControlValueChanged), for: .valueChanged)
         
         hikingModeControlView.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.bottom).offset(24)
+            make.top.equalTo((headerView.snp.bottom)).offset(24)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalTo(46)
@@ -147,13 +148,13 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
             make.top.equalTo(hikingModeControlView.snp.bottom).offset(16)
         }
     }
-
+    
     private func configureTipsLabel() {
         tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
     }
     
     private func configureImageView() {
-//        MARK: Ganti image dengan hasil dari onboarding
+        // MARK: Ganti image dengan hasil dari onboarding
         imageView.image = UIImage(systemName: "photo.fill")
         imageView.tintColor = .label
         imageView.backgroundColor = .secondarySystemBackground
@@ -176,14 +177,17 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     @objc
     private func actionStartHiking() {
         let destinationList = DestinationListVC()
+        destinationList.isSoloHiker = isSoloMode
         navigationController?.pushViewController(destinationList, animated: true)
     }
     
     @objc private func onHikingModeControlValueChanged(_ sender: HikingModeControlView) {
         if sender.selectedSegmentIndex == 0 {
             tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
+            isSoloMode = true
         } else {
             tipsLabel.text = "Hiking with friends? Great choice! Enjoy the journey together. We track your group’s progress and sends reminders to take rests and stay energized along the way."
+            isSoloMode = false
         }
         
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")
@@ -200,7 +204,3 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
         self.present(navVC, animated: true)
     }
 }
-
-//#Preview(traits: .defaultLayout, body: {
-//    Container.shared.resolve(HomeVC.self) ?? SplashScreen()
-//})

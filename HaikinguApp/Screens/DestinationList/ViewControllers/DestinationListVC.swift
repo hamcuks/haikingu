@@ -28,6 +28,7 @@ class DestinationListVC: UIViewController {
     }()
     
     var selectedDestination: DestinationModel?
+    var isSoloHiker: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,7 @@ class DestinationListVC: UIViewController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview().inset(30)
-            make.height.equalTo(500)
+            make.bottom.equalTo(selectButton.snp.top).inset(-100)
         }
         
         selectButton.snp.makeConstraints { make in
@@ -78,6 +79,7 @@ class DestinationListVC: UIViewController {
         guard let destinationDetailVC = Container.shared.resolve(DetailDestinationVC.self) else { return }
         destinationDetailVC.selectedDestination = selectedDestination
         destinationDetailVC.selectedPlan = selectedPlan
+        destinationDetailVC.isSoloHiker = isSoloHiker!
         navigationController?.pushViewController(destinationDetailVC, animated: true)
     }
 

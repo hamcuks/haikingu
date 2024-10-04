@@ -13,10 +13,10 @@ import WatchConnectivity
 // MARK: - Workout session management
 //
 extension WorkoutManager: WorkoutServiceIos {
+    
     func setDelegate(_ delegate: any WorkoutDelegate) {
         self.delegate = delegate
     }
-    
     
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws {
         let configuration = HKWorkoutConfiguration()
@@ -48,8 +48,7 @@ extension WorkoutManager: WorkoutServiceIos {
                 currentElapsedTime = elapsedTime.timeInterval
             }
             elapsedTimeInterval = currentElapsedTime
-            updateElapsedTimeInterval(to: currentElapsedTime)
-            delegate?.didUpdateElapsedTimeInterval(currentElapsedTime)
+            updateElapsedTimeInterval(to: elapsedTimeInterval)
         } else if let statisticsArray = try NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: HKStatistics.self, from: data) {
             for statistics in statisticsArray {
                 updateForStatistics(statistics)
@@ -66,9 +65,48 @@ extension WorkoutManager: WorkoutServiceIos {
             }
         }
     }
+    
+    func sendPausedToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "triggerPaused": "paused"
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func sendResumedToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "triggerResume": "resume"
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func sendEndedToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "triggerEnded": "ended"
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
-extension WorkoutManager: WCSessionDelegate{
+extension WorkoutManager: WCSessionDelegate {
     nonisolated func sessionDidBecomeInactive(_ session: WCSession) {
         //
     }
@@ -77,20 +115,58 @@ extension WorkoutManager: WCSessionDelegate{
         //
     }
     
-    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        if let speed = message["speed"] as? Double {
+    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+       
+    }
+    
+    nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+        if let remaining = applicationContext["timerStart"] as? TimeInterval {
+            DispatchQueue.main.async {
+                self.remainingTime = remaining
+            }
+            
+        } else if let elapsed = applicationContext["elapsed"] as? TimeInterval {
+            DispatchQueue.main.async {
+                self.elapsedTimeInterval = elapsed
+                self.delegate?.didUpdateElapsedTimeInterval(elapsed)
+            }
+        } else if let walk = applicationContext["toDoWalk"] as? Int {
+            DispatchQueue.main.async {
+                self.whatToDo = .timeToWalk
+                self.updateWhatToDo(to: self.whatToDo)
+                self.delegate?.didUpdateWhatToDo(self.whatToDo)
+            }
+        } else if let toDo = applicationContext["toDoRest"] as? Int {
+            DispatchQueue.main.async {
+                self.whatToDo = .timeToRest
+                self.updateWhatToDo(to: self.whatToDo)
+                self.delegate?.didUpdateWhatToDo(self.whatToDo)
+            }
+        } else if let speed = applicationContext["speed"] as? Double {
             DispatchQueue.main.async {
                 self.speed = speed
                 self.updateSpeed(to: speed)
                 self.delegate?.didUpdateSpeed(speed)
             }
-        } else if let remaining = message["timerStart"] as? TimeInterval {
+        } else if let restTaken = applicationContext["restTaken"] as? Int {
             DispatchQueue.main.async {
-                self.remainingTime = remaining
-                self.updateRemainingTime(to: remaining)
-                self.delegate?.didUpdateRemainingTime(remaining)
+                self.restTaken = restTaken
+                self.updateRestAmount(to: restTaken)
+                self.delegate?.didUpdateRestAmount(restTaken)
+            }
+        } else if let distance = applicationContext["distance"] as? Double {
+            DispatchQueue.main.async {
+                self.distance = distance
+                self.delegate?.didUpdateDistance(distance)
+            }
+        } else if let isWorkoutPaused = applicationContext["isWorkoutPaused"] as? Bool {
+            DispatchQueue.main.async {
+                self.isWorkoutPaused = isWorkoutPaused
+            }
+        } else if let isWorkoutEnded = applicationContext["isWorkoutEnded"] as? Bool {
+            DispatchQueue.main.async {
+                self.isWorkoutEnded = isWorkoutEnded
             }
         }
     }
 }
-

@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-class MetricsVM: ObservableObject {
+class MetricsVM: ObservableObject, WorkoutVMDelegate {
+    
     
     
     @Published var heartRate: Double = 0
@@ -16,7 +17,7 @@ class MetricsVM: ObservableObject {
     
 //    @Inject var workoutManagerBehind: WorkoutServiceWatchos
     
-    //Metric Stuff
+    // Metric Stuff
     @Published var stopwatchTimer: Timer = Timer()
     @Published var timer: String = "24.59"
     @Published var timerDistance: Int = 1670
@@ -24,15 +25,19 @@ class MetricsVM: ObservableObject {
     @Published var restAmount: Int = 1
     @Published var leftLength: Int = 4270
     
+    // Control Stuff
+    @Published var pageNumber = 1 // Number of TabView Selection
+    @Published var isLeadPausedTapped: Bool = false // For Leader
+    @Published var isLeadEndTapped: Bool = false // For Leader
+    @Published var isMemberRequestRest: Bool = false // For Member
+    @Published var isWorkoutEnded: Bool = false
     
-    
-    //Control Stuff
-    @Published var pageNumber = 1 //Number of TabView Selection
-    @Published var isLeadPausedTapped: Bool = false //For Leader
-    @Published var isLeadEndTapped: Bool = false //For Leader
-    @Published var isMemberRequestRest: Bool = false //For Member
-    
-    init (workoutManager: WorkoutServiceWatchOS?){
+    init (workoutManager: WorkoutServiceWatchOS?) {
         self.workoutManager = workoutManager
+        self.workoutManager?.setDelegateVM(self)
+    }
+    
+    func didWorkoutEnded(_ isWorkoutEnded: Bool) {
+        self.isWorkoutEnded = isWorkoutEnded
     }
 }

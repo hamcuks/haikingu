@@ -28,7 +28,7 @@ class TimeElapsedView: UIView {
         return label
     }()
     
-    let valueLabel: UILabel = {
+    let valueElapsed: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 48, weight: .bold)
         label.textColor = .black
@@ -36,12 +36,19 @@ class TimeElapsedView: UIView {
         return label
     }()
     
-    init(value: String) {
+    private var timer: Timer?
+    private var elapsedTime: Double = 0.0
+    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        configureUI()
+//    }
+    
+    init(workoutManager: WorkoutServiceIos) {
         super.init(frame: .zero)
+        updateLabel(workoutManager.elapsedTimeInterval)
         
-        valueLabel.text = value
-        
-        self.configureUI()
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -52,12 +59,50 @@ class TimeElapsedView: UIView {
         addSubview(verticalStack)
         
         verticalStack.addArrangedSubview(titleLabel)
-        verticalStack.addArrangedSubview(valueLabel)
+        verticalStack.addArrangedSubview(valueElapsed)
         
         verticalStack.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
     }
-
+    
+//    func startStopwatch() {
+//        timer?.invalidate()
+//        elapsedTime = 0.0
+////        updateLabel()
+//        
+//        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+//        
+//    }
+    
+//    @objc
+//    private func updateCountdown() {
+//        elapsedTime += 0.1
+////        updateLabel()
+//    }
+//    
+//    func stopStopwatch() {
+//        timer?.invalidate()
+//    }
+    
+    func updateLabel(_ value: TimeInterval) {
+        // Memformat waktu sebagai hh.mm.ss,SS (jam, menit, detik, ratusan detik)
+        let hours = Int(value) / 3600
+        let minutes = (Int(value) % 3600) / 60
+        let seconds = Int(value) % 60
+        let hundredths = Int((value - floor(value)) * 100) // Mendapatkan nilai ratusan detik
+        
+        let formattedTime = String(format: "%02d.%02d.%02d,%02d", hours, minutes, seconds, hundredths)
+        DispatchQueue.main.async {
+            self.valueElapsed.text = formattedTime
+            print("value elapsed : \(self.valueElapsed.text!)")
+        }
+        
+    }
+    
+//    deinit {
+//        timer?.invalidate()
+//    }
+    
 }

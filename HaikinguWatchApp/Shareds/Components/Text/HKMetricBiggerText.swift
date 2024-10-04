@@ -13,7 +13,6 @@ struct HKMetricBiggerText: View {
     var intMeasure: String
     var intDesc: String
     
-    
     var body: some View {
 //        GeometryReader { geo in
             HStack(spacing: 4) {

@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import Swinject
+import SnapKit
 
 enum UserType {
     case leader
@@ -35,6 +36,7 @@ class DetailDestinationVC: UIViewController {
     }()
     var userLocation: CLLocation?
     var role: UserType = .leader
+    var isSoloHiker: Bool = false
     
     private var horizontalStack: UIStackView = {
         let horizontal = UIStackView()
@@ -90,19 +92,18 @@ class DetailDestinationVC: UIViewController {
         
         self.centralManager?.setDelegate(self)
         
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        workoutManager?.retrieveRemoteSession()
         view.backgroundColor = .white
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization() // Minta izin akses lokasi
         locationManager.startUpdatingLocation()
         
-        teamView = TeamsView(frame: self.view.bounds, action: #selector(teamAction))
+        teamView = TeamsView(frame: self.view.bounds, action: #selector(teamAction), isSolo: isSoloHiker)
         
         assetsImage.image = UIImage(named: "\(selectedDestination.image)")
         
@@ -112,6 +113,14 @@ class DetailDestinationVC: UIViewController {
         
         setupUI()
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if self.isMovingFromParent {
+            centralManager?.stopScanning()
+        }
     }
 
     private func setupUI() {
@@ -145,6 +154,12 @@ class DetailDestinationVC: UIViewController {
         stack.spacing = 24
         view.addSubview(stack)
         
+        if isSoloHiker {
+            stack.subviews.indices.forEach { if stack.subviews[$0] == teamView {
+                stack.subviews[$0].isHidden = true
+            } }
+        }
+        
         stack.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview().inset(16)
@@ -164,6 +179,10 @@ class DetailDestinationVC: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
             make.leading.trailing.equalTo(horizontalStack)
             make.height.equalTo(50)
+        }
+        
+        assetsImage.snp.makeConstraints { make in
+            make.height.equalTo(320)
         }
     }
     
@@ -189,6 +208,16 @@ class DetailDestinationVC: UIViewController {
             present(addFriendVC, animated: true)
         }
     }
+    
+    func startHikingOnWatch() {
+        Task {
+            do {
+                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
+            } catch {
+                print("gagal start watch workout")
+            }
+        }
+    }
 
 }
 
@@ -197,11 +226,10 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     @objc
     private func actionButton() {
         
-        startHikingOnWatch()
-        
         guard let userLocation = userLocation else { return print("User Location is Unavailable")}
         let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
         let maximumDistance = 500.0
+        startHikingOnWatch()
         
         if rangeDistance < maximumDistance {
             guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
@@ -233,22 +261,12 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let currentLocation = locations.last {
             self.userLocation = currentLocation
-            print("Lokasi terkini diperbarui: \(currentLocation)")
+//            print("Lokasi terkini diperbarui: \(currentLocation)")
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Err: \(error.localizedDescription)")
-    }
-    
-    func startHikingOnWatch() {
-        Task {
-            do {
-                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
-            } catch {
-                print("gagal start watch workout")
-            }
-        }
     }
     
 }

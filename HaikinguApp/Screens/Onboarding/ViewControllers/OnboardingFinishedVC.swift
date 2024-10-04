@@ -11,7 +11,7 @@ import HealthKit
 
 class OnboardingFinishedVC: UIViewController {
     
-    ///managers
+    /// managers
     var userDefaultManager: UserDefaultService?
 
     // UI Components

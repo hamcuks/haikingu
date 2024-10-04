@@ -12,25 +12,31 @@ import CoreMotion
 import WatchConnectivity
 import Combine
 
-protocol WorkoutDelegate: AnyObject{
+protocol WorkoutDelegate: AnyObject {
     func didUpdateHeartRate(_ heartRate: Double)
     func didUpdateDistance(_ distance: Double)
     func didUpdateSpeed(_ speed: Double)
     func didUpdateRemainingTime(_ remainingTime: TimeInterval)
     func didUpdateWhatToDo(_ whatToDo: TimingState)
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval)
+    func didUpdateRestAmount(_ restTaken: Int)
+    func didWorkoutPaused(_ isWorkoutPaused: Bool)
+    func didWorkoutEnded(_ isWorkoutEnded: Bool)
 }
 
-enum TimingState{
+protocol WorkoutVMDelegate: AnyObject {
+    func didWorkoutEnded(_ isWorkoutEnded: Bool)
+}
+
+enum TimingState {
     case timeToWalk
     case timeToRest
 }
 
 class WorkoutManager: NSObject, ObservableObject {
     
-    
-    
-    weak var delegate: WorkoutDelegate?
+    var delegate: WorkoutDelegate?
+    var delegateVM: WorkoutVMDelegate?
     let pedometerManager = CMPedometer()
     
     struct SessionStateChange {
@@ -38,8 +44,30 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
-    @Published var remainingTime: TimeInterval = 0{
-        didSet{
+    @Published var isWorkoutPaused: Bool = false {
+        didSet {
+            delegate?.didWorkoutPaused(isWorkoutPaused)
+#if os(watchOS)
+            sendPausedStateToIphone()
+#endif
+        }
+    }
+    @Published var isWorkoutEnded: Bool = false {
+        didSet {
+            delegate?.didWorkoutEnded(isWorkoutEnded)
+            delegateVM?.didWorkoutEnded(isWorkoutEnded)
+#if os(watchOS)
+            sendEndedStateToIphone()
+#endif
+        }
+    }
+    @Published var restTaken: Int = 0 {
+        didSet {
+            delegate?.didUpdateRestAmount(restTaken)
+        }
+    }
+    @Published var remainingTime: TimeInterval = 0 {
+        didSet {
             delegate?.didUpdateRemainingTime(remainingTime)
         }
     }
@@ -50,6 +78,7 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var whatToDo: TimingState = .timeToWalk {
         didSet {
             delegate?.didUpdateWhatToDo(whatToDo)
+            print("ini to do: \(whatToDo)")
         }
     }
     @Published var sessionState: HKWorkoutSessionState = .notStarted
@@ -84,6 +113,8 @@ class WorkoutManager: NSObject, ObservableObject {
             delegate?.didUpdateElapsedTimeInterval(elapsedTimeInterval)
         }
     }
+    var currentElapsedTime: TimeInterval = 0
+    var timerElapsed: Timer?
     @Published var workout: HKWorkout?
 
     let typesToShare: Set = [HKQuantityType.workoutType()]
@@ -147,6 +178,7 @@ class WorkoutManager: NSObject, ObservableObject {
         } else {
             return false
         }
+        
     }
 
     func consumeSessionStateChange(_ change: SessionStateChange) async {
@@ -154,21 +186,15 @@ class WorkoutManager: NSObject, ObservableObject {
             self.sessionState = change.newState
         }
 
-        if change.newState == .paused {
-            pauseTimer()
-        }
-
-        if change.newState == .running {
-            resumeTimer()
-        }
-
 #if os(watchOS)
+        updateElapsedTimeInterval(to: self.session?.associatedWorkoutBuilder().elapsedTime(at: change.date) ?? 0)
+        
         let elapsedTimeInterval = session?.associatedWorkoutBuilder().elapsedTime(at: change.date) ?? 0
         let elapsedTime = WorkoutElapsedTime(timeInterval: elapsedTimeInterval, date: change.date)
         if let elapsedTimeData = try? JSONEncoder().encode(elapsedTime) {
             await sendData(elapsedTimeData)
         }
-
+        
         guard change.newState == .stopped, let builder else {
             return
         }
@@ -187,9 +213,6 @@ class WorkoutManager: NSObject, ObservableObject {
             self.workout = finishedWorkout
         }
 #endif
-        if change.newState == .stopped {
-//            stopTimer()
-        }
     }
     
     func startTimer(with duration: TimeInterval, startDate date: Date) {
@@ -210,20 +233,32 @@ class WorkoutManager: NSObject, ObservableObject {
     func updateRemainingTime() {
         guard let endTime = endTime else { return }
         remainingTime = max(endTime.timeIntervalSinceNow, 0)
-        if remainingTime == 0 && whatToDo == .timeToWalk{
+        if remainingTime == 0 && whatToDo == .timeToWalk {
             timer?.invalidate()
             timer = nil
-            whatToDo = .timeToRest
-            updateWhatToDo(to: whatToDo)
+            updateWhatToDo(to: .timeToRest)
             delegate?.didUpdateWhatToDo(whatToDo)
-            startTimer(with: 600, startDate: Date())
-        } else if remainingTime == 0 && whatToDo == .timeToRest{
+#if os(watchOS)
+            DispatchQueue.main.async {
+                self.sendWhatToDoRestToiPhone()
+            }
+#endif
+            startTimer(with: 10, startDate: Date())
+        } else if remainingTime == 0 && whatToDo == .timeToRest {
             timer?.invalidate()
             timer = nil
-            whatToDo = .timeToWalk
-            updateWhatToDo(to: whatToDo)
+            updateRestAmount(to: restTaken + 1)
+            delegate?.didUpdateRestAmount(restTaken)
+            updateWhatToDo(to: .timeToWalk)
             delegate?.didUpdateWhatToDo(whatToDo)
-            startTimer(with: 1500, startDate: Date())
+            
+#if os(watchOS)
+            DispatchQueue.main.async {
+                self.sendWhatToDoWalkToiPhone()
+                self.sendRestTakenToIphone()
+            }
+#endif
+            startTimer(with: 10, startDate: Date())
         }
     }
 
@@ -249,6 +284,24 @@ class WorkoutManager: NSObject, ObservableObject {
         stopTimer()
         remainingTime = 0
         endTime = nil
+    }
+    
+    // Start observe elapsep
+    func startObserving() {
+        DispatchQueue.main.async {
+            self.timerElapsed = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+#if os(watchOS)
+                self?.checkElapsedTime()
+                self?.sendElapsedTimeToIphone()
+#endif
+            }
+            
+        }
+    }
+    
+    // Stop observing
+    func stopObserving() {
+        timerElapsed?.invalidate()
     }
     
     func updateHeartRate(to newRate: Double) {
@@ -280,6 +333,12 @@ class WorkoutManager: NSObject, ObservableObject {
         elapsedTimeInterval = newElapsedTimeInterval
         self.delegate?.didUpdateElapsedTimeInterval(elapsedTimeInterval)
         }
+    
+    func updateRestAmount(to newRestTaken: Int) {
+        restTaken = newRestTaken
+        self.delegate?.didUpdateRestAmount(restTaken)
+    }
+    
 }
 
 // MARK: - Workout session management
@@ -318,6 +377,7 @@ extension WorkoutManager {
                 let heartRateUnit = HKUnit.count().unitDivided(by: .minute())
                 self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.updateHeartRate(to: statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0)
+                self.delegate?.didUpdateHeartRate(self.heartRate)
                 
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
@@ -327,7 +387,7 @@ extension WorkoutManager {
                 let meterUnit = HKUnit.meter()
                 self.distance = statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0
                 self.updateDistance(to: statistics.sumQuantity()?.doubleValue(for: meterUnit) ?? 0)
-                
+                self.delegate?.didUpdateDistance(self.distance)
             default:
                 return
             }
@@ -351,8 +411,12 @@ extension WorkoutManager {
 extension WorkoutManager: HKWorkoutSessionDelegate {
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         Logger.shared.log("Session state changed from \(fromState.rawValue) to \(toState.rawValue)")
-        let sessionStateChange = SessionStateChange(newState: toState, date: date)
-        asyncStreamTuple.continuation.yield(sessionStateChange)
+        /**
+         Yield the new state change to the async stream synchronously.
+         asynStreamTuple is a constant, so it's nonisolated.
+         */
+        let sessionSateChange = SessionStateChange(newState: toState, date: date)
+        asyncStreamTuple.continuation.yield(sessionSateChange)
     }
 
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
@@ -391,7 +455,3 @@ extension HKWorkoutSessionState {
         self != .notStarted && self != .ended
     }
 }
-
-
-
-

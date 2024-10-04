@@ -5,7 +5,6 @@
 //  Created by I Gusti Ngurah Surya Ardika Dinataputra on 02/10/24.
 //
 
-
 import Swinject
 
 extension Container {
@@ -17,28 +16,33 @@ extension Container {
         
         /// Managers
     
-        container.register(WorkoutServiceWatchOS.self) { resolver in WorkoutManager.shared }
+        container.register(WorkoutServiceWatchOS.self) { _ in WorkoutManager.shared }
         
         /// ViewModel
         container.register(HomeVM.self) { resolver in
-            let workoutManagerFunc = resolver.resolve(WorkoutServiceWatchOS.self)
+            let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
             
-            let vm = HomeVM(workoutManagerFunc: workoutManagerFunc)
+            let homeVm = HomeVM(workoutManager: workoutManager)
             
-            return vm
+            return homeVm
         }
         
         container.register(MetricsVM.self) { resolver in
             let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
             
-            let vm = MetricsVM(workoutManager: workoutManager)
+            let metricsVm = MetricsVM(workoutManager: workoutManager)
             
-            return vm
+            return metricsVm
         }
         
-        
-       
-        
+//        container.register(AppDelegate.self) { resolver in
+//            let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
+//            
+//            let appdelegate = AppDelegate(workoutManager: workoutManager)
+//            
+//            return appdelegate
+//        }
+//        
         return container
     }()
 }

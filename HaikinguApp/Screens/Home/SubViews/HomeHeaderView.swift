@@ -78,4 +78,3 @@ class HomeHeaderView: UIStackView {
 protocol HomeHeaderViewDelegate: AnyObject {
     func didTapAvatar()
 }
-

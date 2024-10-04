@@ -11,6 +11,7 @@ struct SummaryScreen: View {
     
     @EnvironmentObject var userServices: UserServices
     @EnvironmentObject var navigationServices: NavigationServices
+    @EnvironmentObject var metricVM: MetricsVM
     @State var isBackHome: Bool = true
     
     var body: some View {
@@ -22,15 +23,15 @@ struct SummaryScreen: View {
                         subtitleText: "\(isBackHome ? "See you on the next journey! 👋🏻👋🏻👋🏻" : "Take your iPhone and capture your moment! It’s a memory you'll want to keep from your amazing hike! 📸")")
                     Divider()
                     SummarySecondView()
-                    Divider()
-                    Text("\(isBackHome ? "" : "Just keep in mind to set a time to head back and try to get home before it gets too late!")")
-                        .font(Font.system(size: 12, weight: .light))
+//                    Divider()
+//                    Text("\(isBackHome ? "" : "Just keep in mind to set a time to head back and try to get home before it gets too late!")")
+//                        .font(Font.system(size: 12, weight: .light))
                     
                     HKTextButton(
                         titleButton: "\(isBackHome ? "Return Home" : (userServices.userType == .leader ? "Request to leader" : "Set a reminder"))",
                         widthButton: 173, heightButton: 54) {
                             
-                        //MARK: TODO Navigate / add path into Another Screen
+                        // MARK: Navigate / add path into Another Screen
                             if isBackHome {
                                 navigationServices.path.removeLast(navigationServices.path.count)
                             } else {
@@ -46,13 +47,14 @@ struct SummaryScreen: View {
             .navigationTitle("Summary")
             .toolbarForegroundStyle(.orange, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             
         }
 //    }
 }
 
-
 struct SummaryFirstView: View {
+    @EnvironmentObject var metricVM: MetricsVM
     
     var titleText: String
     var subtitleText: String
@@ -69,19 +71,21 @@ struct SummaryFirstView: View {
 }
     
 struct SummarySecondView: View {
+    @EnvironmentObject var metricVM: MetricsVM
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HKSummaryText(imageSymbol: "stopwatch", titleSymbol: "Duration", valueSymbol: "1.25.30", unitSymbol: "", colorSymbol: .white)
+            HKSummaryText(imageSymbol: "stopwatch", titleSymbol: "Duration", valueSymbol: metricVM.workoutManager?.workout?.totalTime ?? "00:00:00", unitSymbol: "", colorSymbol: .white)
             
-            HKSummaryText(imageSymbol: "point.topleft.down.to.point.bottomright.curvepath.fill", titleSymbol: "Total Lenght", valueSymbol: "4350", unitSymbol: "M", colorSymbol: .white)
+            HKSummaryText(imageSymbol: "point.topleft.down.to.point.bottomright.curvepath.fill", titleSymbol: "Total Length", valueSymbol: metricVM.workoutManager?.workout?.totalWalkingDistance ?? "0", unitSymbol: "M", colorSymbol: .white)
             
             HKSummaryElevationText(highEle: 120, downEle: 80)
             
-            HKSummaryText(imageSymbol: "heart.fill", titleSymbol: "Avg. Heart Rate", valueSymbol: "120", unitSymbol: "", colorSymbol: .red)
+            HKSummaryText(imageSymbol: "heart.fill", titleSymbol: "Avg. Heart Rate", valueSymbol: metricVM.workoutManager?.workout?.averageHeartRate ?? "0", unitSymbol: "", colorSymbol: .red)
         }
     }
 }
 
 #Preview {
     SummaryScreen()
+        .environmentObject(MetricsVM(workoutManager: WorkoutManager()))
 }

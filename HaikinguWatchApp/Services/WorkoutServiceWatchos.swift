@@ -8,9 +8,7 @@
 import Foundation
 import HealthKit
 
-
-
-protocol WorkoutServiceWatchOS{
+protocol WorkoutServiceWatchOS {
     var sessionState: HKWorkoutSessionState { get set }
     var remainingTime: TimeInterval { get set }
     var heartRate: Double { get set }
@@ -23,9 +21,17 @@ protocol WorkoutServiceWatchOS{
     var builder: HKLiveWorkoutBuilder? { get set }
     var session: HKWorkoutSession? { get set }
     var whatToDo: TimingState { get set }
+    var isWorkoutPaused: Bool { get set }
+    var isWorkoutEnded: Bool { get set }
+    func setDelegateVM(_ delegate: WorkoutVMDelegate)
     
     func resetWorkout()
     func requestAuthorization()
     func startPedometerUpdates()
     func startWorkout(workoutConfiguration: HKWorkoutConfiguration) async throws
+    func pauseTimer()
+    func resumeTimer()
+    func stopTimer()
+    func updateIsWorkoutPaused(to newIsWorkoutPaused: Bool)
+    func updateIsWorkoutEnded(to newIsWorkoutEnded: Bool)
 }

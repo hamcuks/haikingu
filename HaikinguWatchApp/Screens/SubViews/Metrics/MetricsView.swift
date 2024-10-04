@@ -24,20 +24,17 @@ struct MetricsView: View {
                         RemainingTimeView(remainingTime: remainingTime(with: context.date), showSubseconds: context.cadence == .live)
                             .foregroundStyle(.orange)
                     }
-                    
-                    
-                    if metricsVM.workoutManager?.whatToDo == .timeToWalk{
+                     
+                    if metricsVM.workoutManager?.whatToDo == .timeToWalk {
                         Text("Hike Time for \(metricsVM.timerDistance) M")
                             .lineLimit(5)
                             .multilineTextAlignment(.leading)
                             .font(Font.system(size: 14, weight: .medium))
-                            .border(.blue)
-                    }else {
+                    } else {
                         Text("Rest Time")
                             .lineLimit(5)
                             .multilineTextAlignment(.leading)
                             .font(Font.system(size: 14, weight: .medium))
-                            .border(.blue)
                     }
                     
                 }
@@ -75,7 +72,7 @@ struct MetricsView: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    MetricsView()
 //        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
-//}
+// }

@@ -37,13 +37,19 @@ struct HomeScreen: View {
                     if destini == "metrics" {
                         MetricsScreen()
                     } else if destini == "summary" {
-                        //                Container.shared.resolve(SummaryScreen.self)
+                        SummaryScreen()
+                            .onAppear {
+                                homeVM.isHasContent = false
+                            }
+//                        Container.shared.resolve(SummaryScreen.self)
                     } else if destini == "reminder" {
                         //                    ReminderScreen()
                     }
                 }
-                .onAppear() {
-                    homeVM.workoutManagerFunc?.requestAuthorization()
+                .onAppear {
+                    homeVM.workoutManager?.requestAuthorization()
+                    homeVM.isHasContent = true
+                    homeVM.isReturnHome = false
                 }
         }
     }
@@ -105,7 +111,7 @@ struct ContentOpeningScreen: View {
                 let configuration = HKWorkoutConfiguration()
                 configuration.activityType = .hiking
                 configuration.locationType = .outdoor
-                try await homeVM.workoutManagerFunc?.startWorkout(workoutConfiguration: configuration)
+                try await homeVM.workoutManager?.startWorkout(workoutConfiguration: configuration)
             } catch {
                 print("error bang gagal")
             }
