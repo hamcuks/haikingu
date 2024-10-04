@@ -59,10 +59,16 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         let startDate = Date()
         session?.startActivity(with: startDate)
         try await builder?.beginCollection(at: startDate)
-        startTimer(with: 10, startDate: startDate)
+        startTimer(with: 1500, startDate: startDate)
         startObserving()
         startPedometerUpdates()
         
+    }
+    
+    func reqMotionAccess() {
+        guard CMPedometer.isPaceAvailable() else {
+            return
+        }
     }
     
     func startPedometerUpdates() {
