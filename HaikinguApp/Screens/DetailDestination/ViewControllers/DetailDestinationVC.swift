@@ -110,6 +110,7 @@ class DetailDestinationVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
         navigationItem.title = selectedDestination?.name
+        navigationController?.navigationBar.tintColor = .brown
         
         setupUI()
 
@@ -228,7 +229,7 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
         
         guard let userLocation = userLocation else { return print("User Location is Unavailable")}
         let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
-        let maximumDistance = 500.0
+        let maximumDistance = 1000.0
         startHikingOnWatch()
         
         if rangeDistance < maximumDistance {
@@ -238,12 +239,12 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
             print("Disctance is less than maximum distance: \(rangeDistance)")
             self.centralManager?.updateHikingState(for: .started)
         } else {
-//            alertNotRange.showAlert(on: self)
-            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
-            hikingSessionVC.destinationDetail = selectedDestination
-            navigationController?.pushViewController(hikingSessionVC, animated: true)
-            print("Distance is greater than maximum distance: \(rangeDistance)")
-            self.centralManager?.updateHikingState(for: .started)
+            alertNotRange.showAlert(on: self)
+//            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+//            hikingSessionVC.destinationDetail = selectedDestination
+//            navigationController?.pushViewController(hikingSessionVC, animated: true)
+//            print("Distance is greater than maximum distance: \(rangeDistance)")
+//            self.centralManager?.updateHikingState(for: .started)
         }
         
     }

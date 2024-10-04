@@ -27,6 +27,8 @@ enum DestinationList: String, CaseIterable {
     case pongkarWaterfall
     case seiLadiForestTrack
     case senimbaHill
+    case academyApple
+    case rusunBPJS
     
     var destinationSelected: DestinationModel {
         switch self {
@@ -141,6 +143,34 @@ enum DestinationList: String, CaseIterable {
                 estimatedTime: 0,
                 minElevation: 24,
                 maxElevation: 147
+            )
+        case .academyApple:
+            return DestinationModel(
+                name: "Bukit Infinite (Demo)",
+                image: "Infinite",
+                location: "Batam, ID",
+                locationPoint: CLLocation(
+                    latitude: 1.185107,
+                    longitude: 104.102528
+                ),
+                trackLength: 2380,
+                estimatedTime: 0,
+                minElevation: 61,
+                maxElevation: 65
+            )
+        case .rusunBPJS:
+            return DestinationModel(
+                name: "Apart BPJS Kabil (Demo)",
+                image: "Kabil",
+                location: "Batam, ID",
+                locationPoint: CLLocation(
+                    latitude: 1.104021,
+                    longitude: 104.129760
+                ),
+                trackLength: 1020,
+                estimatedTime: 0,
+                minElevation: 15,
+                maxElevation: 15
             )
         }
     }

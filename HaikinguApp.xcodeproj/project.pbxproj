@@ -91,7 +91,6 @@
 		E73E7F912CAC7FE400C51B9D /* DetailDestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F032CAC7FE400C51B9D /* DetailDestinationVC.swift */; };
 		E73E7F922CAC7FE400C51B9D /* SampleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F362CAC7FE400C51B9D /* SampleLabel.swift */; };
 		E73E7F932CAC7FE400C51B9D /* HikingMetricsIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3D2CAC7FE400C51B9D /* HikingMetricsIconTextView.swift */; };
-		E73E7F942CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E73E7EEA2CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx */; };
 		E73E7F962CAC7FE400C51B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73E7EEC2CAC7FE400C51B9D /* Assets.xcassets */; };
 		E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D22CAB8EF0004A3223 /* WorkoutManager.swift */; };
 		E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE22D42CAB8EF0004A3223 /* Logger.swift */; };
@@ -174,7 +173,6 @@
 		E73E7EE62CAC7FE400C51B9D /* Hiker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiker.swift; sourceTree = "<group>"; };
 		E73E7EE72CAC7FE400C51B9D /* TypeOfRestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRestEnum.swift; sourceTree = "<group>"; };
 		E73E7EE82CAC7FE400C51B9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E73E7EEA2CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Telaga Bidadari Batam.gpx"; sourceTree = "<group>"; };
 		E73E7EEC2CAC7FE400C51B9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E73E7EEE2CAC7FE400C51B9D /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		E73E7EEF2CAC7FE400C51B9D /* HeaderCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCongratsView.swift; sourceTree = "<group>"; };
@@ -370,18 +368,9 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E73E7EEB2CAC7FE400C51B9D /* GPXAssets */ = {
-			isa = PBXGroup;
-			children = (
-				E73E7EEA2CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx */,
-			);
-			path = GPXAssets;
-			sourceTree = "<group>";
-		};
 		E73E7EED2CAC7FE400C51B9D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E73E7EEB2CAC7FE400C51B9D /* GPXAssets */,
 				E73E7EEC2CAC7FE400C51B9D /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -1032,7 +1021,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E73E7F942CAC7FE400C51B9D /* Telaga Bidadari Batam.gpx in Resources */,
 				E73E7F962CAC7FE400C51B9D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

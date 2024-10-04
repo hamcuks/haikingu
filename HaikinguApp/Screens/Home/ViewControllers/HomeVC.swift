@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Swinject
 
-class HomeVC: UIViewController, HomeHeaderViewDelegate {
+class HomeVC: UIViewController {
     
     /// Managers
     var peripheralManager: PeripheralBLEService?
@@ -63,7 +63,8 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedAvatar))
+        headerView.avatarView.addGestureRecognizer(tapGesture)
         
         self.configureVC()
         self.configureHeaderView()
@@ -81,12 +82,21 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
             // Perbarui UI berdasarkan data user
             updateUserInterface(with: userData)
         }
-        
         self.notificationManager?.requestPermission()
+        view.bringSubviewToFront(headerView.avatarView)
+
     }
     
-    // Implementasi delegate method
-    func didTapAvatar() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        headerView.avatarView.isUserInteractionEnabled = true
+        let point = headerView.avatarView.center
+        let viewAtPoint = view.hitTest(point, with: nil)
+
+    }
+    
+    @objc
+    func tappedAvatar() {
         guard let editProfileVC = Container.shared.resolve(EditProfileVC.self) else { return }
         navigationController?.pushViewController(editProfileVC, animated: true)
     }
