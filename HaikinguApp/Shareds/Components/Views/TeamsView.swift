@@ -55,18 +55,16 @@ class TeamsView: UIView {
     
     var items: [Hiker] = []
     
-    init(frame: CGRect, action: Selector?) {
+    init(frame: CGRect, action: Selector?, isSolo: Bool?) {
         super.init(frame: frame)
-        configure(action: action)
+        configure(action: action, isSolo: isSolo)
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure(action: Selector?) {
-        
-        yourTeamLabel.text = "Your team (0/5)"
+    private func configure(action: Selector?, isSolo: Bool?) {
         
         addSubview(verticalStack)
         
@@ -75,6 +73,13 @@ class TeamsView: UIView {
         
         verticalStack.addArrangedSubview(horizontalStack)
         verticalStack.addArrangedSubview(roundedRectangleView)
+        
+        if isSolo == true {
+            verticalStack.isHidden = true
+        } else {
+            verticalStack.isHidden = false
+            yourTeamLabel.text = "Your team (0/5)"
+        }
         
         if let action {
             addFriendsButton.addTarget(nil, action: action, for: .touchUpInside)
