@@ -39,6 +39,13 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
+    struct SelectedDestinationWatch {
+        var name: String?
+        var elevMax: Int?
+        var elevMin: Int?
+    }
+    
+    @Published var destinationWatch: SelectedDestinationWatch? 
     @Published var isWorkoutPaused: Bool = false {
         didSet {
             delegate?.didWorkoutPaused(isWorkoutPaused)

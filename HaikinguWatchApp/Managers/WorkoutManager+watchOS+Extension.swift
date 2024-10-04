@@ -124,6 +124,24 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
                 self.isWorkoutPaused = false
                 self.resumeTimer()
             }
+        } else if let ended = applicationContext["triggerEnded"] as? String {
+            DispatchQueue.main.async {
+                self.isWorkoutEnded = true
+                self.stopTimer()
+                self.stopObserving()
+            }
+        } else if let destination = applicationContext["destination"] as? String {
+            DispatchQueue.main.async {
+                self.destinationWatch?.name = destination
+            }
+        } else if let elevmax = applicationContext["elevmax"] as? Int {
+            DispatchQueue.main.async {
+                self.destinationWatch?.elevMax = elevmax
+            }
+        } else if let elevmin = applicationContext["elevmin"] as? Int {
+            DispatchQueue.main.async {
+                self.destinationWatch?.elevMin = elevmin
+            }
         }
     }
     

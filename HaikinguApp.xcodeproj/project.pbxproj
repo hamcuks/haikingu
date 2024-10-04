@@ -19,6 +19,7 @@
 		8A994CB92CADA4C9006CF73B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CB82CADA4C9006CF73B /* AppDelegate.swift */; };
 		8A994CBC2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CBB2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift */; };
 		8A994CBD2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CBB2CADD190006CF73B /* HKWorkout+Statistics+Extension.swift */; };
+		8AA599852CB00DA5004C154A /* DestinationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7EE32CAC7FE400C51B9D /* DestinationModel.swift */; };
 		8AF3B98C2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3B98B2CAAF620008C5891 /* WorkoutManager+watchOS+Extension.swift */; };
 		E73E7F4D2CAC7FE400C51B9D /* SampleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F3F2CAC7FE400C51B9D /* SampleItemView.swift */; };
 		E73E7F4E2CAC7FE400C51B9D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73E7F192CAC7FE400C51B9D /* HomeVC.swift */; };
@@ -1175,6 +1176,7 @@
 				E7EDAB062CAAEE5E006F3ED0 /* HKMetricBiggerText.swift in Sources */,
 				E7CE22D72CAB8EF0004A3223 /* WorkoutManager.swift in Sources */,
 				8A994CB52CAD4747006CF73B /* ElapsedTimeView.swift in Sources */,
+				8AA599852CB00DA5004C154A /* DestinationModel.swift in Sources */,
 				E7CE22D82CAB8EF0004A3223 /* Logger.swift in Sources */,
 				8A994CB12CAD0F29006CF73B /* WorkoutServiceWatchOS.swift in Sources */,
 				8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */,

@@ -48,7 +48,7 @@ struct HomeScreen: View {
                 }
                 .onAppear {
                     homeVM.workoutManager?.requestAuthorization()
-                    homeVM.isHasContent = true
+                    homeVM.isHasContent = false
                     homeVM.isReturnHome = false
                 }
         }
@@ -120,8 +120,8 @@ struct ContentOpeningScreen: View {
     
 }
 
-#Preview {
-    HomeScreen()
-        .environmentObject(Container.shared.resolve(HomeVM.self)!)
-        .environmentObject(NavigationServices())
-}
+//#Preview {
+//    HomeScreen()
+//        .environmentObject(Container.shared.resolve(HomeVM.self)!)
+//        .environmentObject(NavigationServices())
+//}

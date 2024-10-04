@@ -13,6 +13,7 @@ class DestinationListVC: UIViewController {
     
     private var destinationArray = DestinationList.allCases
     private var selectedPlan: DestinationList?
+    var workoutManager: WorkoutServiceIos?
     
     private var selectButton: PrimaryButton = PrimaryButton(label: "Select Destination")
     
@@ -28,6 +29,17 @@ class DestinationListVC: UIViewController {
     }()
     
     var selectedDestination: DestinationModel?
+    
+    
+    init(workoutManager: WorkoutServiceIos?) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.workoutManager = workoutManager
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +87,7 @@ class DestinationListVC: UIViewController {
             return print("Selected Destination is Empty")
         }
         print("Select Destination is \(selectedDestination)")
+        workoutManager?.sendDestinationToWatch(destination: selectedDestination.name, elevmax: selectedDestination.maxElevation, elevmin: selectedDestination.minElevation)
         guard let destinationDetailVC = Container.shared.resolve(DetailDestinationVC.self) else { return }
         destinationDetailVC.selectedDestination = selectedDestination
         destinationDetailVC.selectedPlan = selectedPlan
