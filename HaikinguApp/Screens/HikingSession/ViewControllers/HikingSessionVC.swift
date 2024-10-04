@@ -226,6 +226,10 @@ class HikingSessionVC: UIViewController {
         guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
         finishVC.destinationDetail = destinationDetail
         navigationController?.pushViewController(finishVC, animated: true)
+        
+        if let userData = self.userData, userData.role == .leader {
+            self.centralManager?.updateHikingState(for: .finished)
+        }
     }
     
     func checkDistance() {
@@ -234,7 +238,11 @@ class HikingSessionVC: UIViewController {
             workoutManager?.sessionState = .ended
             guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
             finishVC.destinationDetail = destinationDetail
-            navigationController?.pushViewController(finishVC, animated: true)
+            
+            if let userData = self.userData, userData.role == .leader {
+                navigationController?.pushViewController(finishVC, animated: true)
+                self.centralManager?.updateHikingState(for: .finished)
+            }
         }
     }
     
@@ -285,6 +293,11 @@ extension HikingSessionVC: HikingSessionVCDelegate {
             print("current state is not started")
         case .started:
             centralManager?.requestRest(for: .timeToWalk, exclude: nil)
+        
+        case .finished:
+            if let viewController = Container.shared.resolve(CongratsVC.self) {
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
             
         }
     }
