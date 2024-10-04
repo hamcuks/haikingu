@@ -49,6 +49,7 @@ struct LeadControlView: View {
                             padding: 0,
                             imageColor: .black,
                             buttonColor: .gray) {
+                                metricsVM.workoutManager?.updateIsWorkoutEnded(to: true)
                                 metricsVM.workoutManager?.session?.stopActivity(with: .now)
                                 metricsVM.isLeadEndTapped = true
                                 if let workout = metricsVM.workoutManager?.workout {

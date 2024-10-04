@@ -222,7 +222,7 @@ class HikingSessionVC: UIViewController {
     @objc
     func endActionTapped() {
         workoutManager?.stopTimer()
-        workoutManager?.sessionState = .ended
+        workoutManager?.sendEndedToWatch()
         guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
         finishVC.destinationDetail = destinationDetail
         navigationController?.pushViewController(finishVC, animated: true)
@@ -292,6 +292,15 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
+    func didWorkoutEnded(_ isWorkoutEnded: Bool) {
+        if isWorkoutEnded {
+            workoutManager?.stopTimer()
+            guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
+            finishVC.destinationDetail = destinationDetail
+            navigationController?.pushViewController(finishVC, animated: true)
+        }
+    }
+    
     
     func didWorkoutPaused(_ isWorkoutPaused: Bool) {
         if isWorkoutPaused {

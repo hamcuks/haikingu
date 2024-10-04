@@ -21,6 +21,7 @@ protocol WorkoutDelegate: AnyObject {
     func didUpdateElapsedTimeInterval(_ elapsedTimeInterval: TimeInterval)
     func didUpdateRestAmount(_ restTaken: Int)
     func didWorkoutPaused(_ isWorkoutPaused: Bool)
+    func didWorkoutEnded(_ isWorkoutEnded: Bool)
 }
 
 enum TimingState {
@@ -43,6 +44,14 @@ class WorkoutManager: NSObject, ObservableObject {
             delegate?.didWorkoutPaused(isWorkoutPaused)
 #if os(watchOS)
             sendPausedStateToIphone()
+#endif
+        }
+    }
+    @Published var isWorkoutEnded: Bool = false {
+        didSet {
+            delegate?.didWorkoutEnded(isWorkoutEnded)
+#if os(watchOS)
+            sendEndedStateToIphone()
 #endif
         }
     }

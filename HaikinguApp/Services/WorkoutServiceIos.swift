@@ -31,4 +31,5 @@ protocol WorkoutServiceIos {
     func stopTimer()
     func sendPausedToWatch()
     func sendResumedToWatch()
+    func sendEndedToWatch()
 }

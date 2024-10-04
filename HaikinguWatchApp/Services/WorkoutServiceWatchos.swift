@@ -22,6 +22,7 @@ protocol WorkoutServiceWatchOS {
     var session: HKWorkoutSession? { get set }
     var whatToDo: TimingState { get set }
     var isWorkoutPaused: Bool { get set }
+    var isWorkoutEnded: Bool { get set }
     
     func resetWorkout()
     func requestAuthorization()
@@ -31,4 +32,5 @@ protocol WorkoutServiceWatchOS {
     func resumeTimer()
     func stopTimer()
     func updateIsWorkoutPaused(to newIsWorkoutPaused: Bool)
+    func updateIsWorkoutEnded(to newIsWorkoutEnded: Bool)
 }
