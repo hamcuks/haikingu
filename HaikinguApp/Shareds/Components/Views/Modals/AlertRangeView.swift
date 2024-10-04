@@ -35,7 +35,7 @@ class AlertRangeView: UIView {
         button.setTitle("Got it", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = .alert
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(gotItButtonTapped), for: .touchUpInside)
         return button

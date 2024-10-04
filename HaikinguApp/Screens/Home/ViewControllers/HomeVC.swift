@@ -77,12 +77,29 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        headerView.delegate = self
+        
         if let userData = userDefaultManager?.getUserData() {
             // Perbarui UI berdasarkan data user
             updateUserInterface(with: userData)
         }
         
         self.notificationManager?.requestPermission()
+        
+        print(headerView.avatarView.gestureRecognizers!) // Pastikan tidak nil
+        view.bringSubviewToFront(headerView.avatarView)
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let point = headerView.avatarView.center
+        let viewAtPoint = view.hitTest(point, with: nil)
+        print("View at point: \(viewAtPoint)")
+        print(headerView.isUserInteractionEnabled) // Harus true
+        print(headerView.avatarView.isUserInteractionEnabled) // Harus true
+
     }
     
     // Implementasi delegate method

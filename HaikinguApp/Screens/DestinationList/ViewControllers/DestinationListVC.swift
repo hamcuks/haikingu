@@ -35,6 +35,7 @@ class DestinationListVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
         navigationItem.title = "Choose Hiking Spot"
+        navigationController?.navigationBar.tintColor = .brown
         
         setupUI()
     }
