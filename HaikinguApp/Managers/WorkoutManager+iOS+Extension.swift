@@ -104,6 +104,21 @@ extension WorkoutManager: WorkoutServiceIos {
             }
         }
     }
+    
+    func sendDestinationToWatch(destination name: String, elevmax max: Int, elevmin min: Int) {
+        if WCSession.default.isReachable {
+            let message = [
+                "destination": name,
+                "elevmax": max,
+                "elevmin": min
+            ] as [String: Any]
+            do{
+                try WCSession.default.updateApplicationContext(message)
+            }catch{
+                print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
 extension WorkoutManager: WCSessionDelegate {
@@ -167,6 +182,6 @@ extension WorkoutManager: WCSessionDelegate {
             DispatchQueue.main.async {
                 self.isWorkoutEnded = isWorkoutEnded
             }
-        }
+        } 
     }
 }

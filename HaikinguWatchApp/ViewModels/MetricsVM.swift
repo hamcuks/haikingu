@@ -11,6 +11,8 @@ class MetricsVM: ObservableObject, WorkoutVMDelegate {
     
     
     
+    
+    
     @Published var heartRate: Double = 0
     @Published var distance: Double = 0
     @Published var workoutManager: WorkoutServiceWatchOS?
@@ -39,5 +41,9 @@ class MetricsVM: ObservableObject, WorkoutVMDelegate {
     
     func didWorkoutEnded(_ isWorkoutEnded: Bool) {
         self.isWorkoutEnded = isWorkoutEnded
+    }
+    
+    func didUpdateDestinationWatch(_ destinationWatch: SelectedDestinationWatch) {
+        //
     }
 }

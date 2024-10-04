@@ -96,6 +96,12 @@ extension Container {
             return viewController
         }
         
+        container.register(DestinationListVC.self) { resolver in
+            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
+            let viewController = DestinationListVC(workoutManager: workoutManager)
+            return viewController
+        }
+        
         return container
     }()
 }
