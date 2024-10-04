@@ -15,6 +15,7 @@ class HomeVC: UIViewController {
     var peripheralManager: PeripheralBLEService?
     var notificationManager: NotificationService?
     var userDefaultManager: UserDefaultService?
+    var workoutManager: WorkoutServiceIos?
     
     /// Delegates
     var hikingSessionDelegate: HikingSessionVCDelegate?
@@ -47,12 +48,13 @@ class HomeVC: UIViewController {
     var isSoloMode: Bool = true
     
     /// Constructors
-    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDefaultManager: UserDefaultService?) {
+    init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDefaultManager: UserDefaultService?, workoutManager: WorkoutServiceIos?) {
         super.init(nibName: nil, bundle: nil)
         
         self.peripheralManager = peripheralManager
         self.notificationManager = notificationManager
         self.userDefaultManager = userDefaultManager
+        self.workoutManager = workoutManager
     }
     
     required init?(coder: NSCoder) {

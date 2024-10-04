@@ -33,7 +33,6 @@ extension HomeVC: PeripheralBLEManagerDelegate {
             guard let plan else {
                 return
             }
-            
             viewController.destinationDetail = plan.destinationSelected
             
             self.navigationController?.pushViewController(viewController, animated: true)
@@ -62,7 +61,9 @@ extension HomeVC: PeripheralBLEManagerDelegate {
         viewController.selectedDestination = plan.destinationSelected
         viewController.selectedPlan = plan
         viewController.role = .member
-        
+        workoutManager?.sendDestinationNameToWatch(destination: plan.destinationSelected.name)
+        workoutManager?.sendDestinationElevMaxToWatch(elevMax: plan.destinationSelected.maxElevation)
+        workoutManager?.sendDestinationElevMinToWatch(elevMin: plan.destinationSelected.minElevation)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

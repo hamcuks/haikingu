@@ -14,6 +14,7 @@ class DestinationListVC: UIViewController {
     private var destinationArray = DestinationList.allCases
     private var selectedPlan: DestinationList?
     var workoutManager: WorkoutServiceIos?
+    var userManager: UserDefaultService?
     
     private var selectButton: PrimaryButton = PrimaryButton(label: "Select Destination")
     
@@ -32,10 +33,12 @@ class DestinationListVC: UIViewController {
     var isSoloHiker: Bool?
     
     
-    init(workoutManager: WorkoutServiceIos?) {
+    init(workoutManager: WorkoutServiceIos?, userManager: UserDefaultService?) {
         super.init(nibName: nil, bundle: nil)
         
         self.workoutManager = workoutManager
+        self.userManager = userManager
+      
     }
     
     required init?(coder: NSCoder) {
@@ -89,9 +92,14 @@ class DestinationListVC: UIViewController {
             return print("Selected Destination is Empty")
         }
         print("Select Destination is \(selectedDestination)")
-        workoutManager?.sendDestinationNameToWatch(destination: selectedDestination.name)
-        workoutManager?.sendDestinationElevMaxToWatch(elevMax: selectedDestination.maxElevation)
-        workoutManager?.sendDestinationElevMinToWatch(elevMin: selectedDestination.minElevation)
+        
+        guard let userData = userManager?.getUserData() else { return }
+        if userData.role == .leader {
+            workoutManager?.sendDestinationNameToWatch(destination: selectedDestination.name)
+            workoutManager?.sendDestinationElevMaxToWatch(elevMax: selectedDestination.maxElevation)
+            workoutManager?.sendDestinationElevMinToWatch(elevMin: selectedDestination.minElevation)
+        }
+
         guard let destinationDetailVC = Container.shared.resolve(DetailDestinationVC.self) else { return }
         destinationDetailVC.selectedDestination = selectedDestination
         destinationDetailVC.selectedPlan = selectedPlan

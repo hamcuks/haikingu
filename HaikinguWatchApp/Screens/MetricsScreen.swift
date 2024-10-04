@@ -13,7 +13,7 @@ struct MetricsScreen: View {
     @EnvironmentObject var metricsVM: MetricsVM
     @EnvironmentObject var navigationServices: NavigationServices
     @State var isPaused: Bool = false
-
+    
     var body: some View {
         NavigationStack(path: $navigationServices.path){
             ZStack {
@@ -26,7 +26,7 @@ struct MetricsScreen: View {
                         LeadControlView(isPaused: $isPaused)
                             .tag(0)
                     }
-               
+                    
                     MetricsView()
                         .tag(1)
                     
@@ -45,6 +45,12 @@ struct MetricsScreen: View {
         }
         .onChange(of: metricsVM.isWorkoutEnded) { _, ended in
             navigationServices.path.append("summary")
+            Task {
+                
+                await metricsVM.workoutManager?.stopWorkoutWatch()
+                
+                
+            }
         }
         .navigationDestination(for: String.self) { destini in
             if destini == "metrics" {
@@ -55,9 +61,7 @@ struct MetricsScreen: View {
                 //                    ReminderScreen()
             }
         }
-        
-        
-//            .background(DisableSwipeBackGesture())
+        //            .background(DisableSwipeBackGesture())
         
     }
     

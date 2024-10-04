@@ -35,8 +35,19 @@ extension Container {
             let peripheralManager = resolver.resolve(PeripheralBLEService.self)
             let notificationManager = resolver.resolve(NotificationService.self)
             let userDefaultManager = resolver.resolve(UserDefaultService.self)
+            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
             
-            let viewController = HomeVC(peripheralManager: peripheralManager, notificationManager: notificationManager, userDefaultManager: userDefaultManager)
+            let viewController = HomeVC(peripheralManager: peripheralManager, notificationManager: notificationManager, userDefaultManager: userDefaultManager, workoutManager: workoutManager)
+            
+            return viewController
+        }
+        
+        container.register(DestinationListVC.self) { resolver in
+            
+            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
+            let userDefaultManager = resolver.resolve(UserDefaultService.self)
+            
+            let viewController = DestinationListVC(workoutManager: workoutManager, userManager: userDefaultManager)
             
             return viewController
         }
@@ -95,12 +106,7 @@ extension Container {
             let viewController = EditProfileVC(userDefaultManager: userDefaultManager)
             return viewController
         }
-        
-        container.register(DestinationListVC.self) { resolver in
-            let workoutManager = resolver.resolve(WorkoutServiceIos.self)
-            let viewController = DestinationListVC(workoutManager: workoutManager)
-            return viewController
-        }
+    
         
         return container
     }()
