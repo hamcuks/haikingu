@@ -67,17 +67,17 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
             
             DispatchQueue.main.async {
                 // Update speed with current walking/running pace (speed in m/s)
-                if data?.currentPace == nil || data?.distance == 0  {
+                if data?.currentPace == nil || data?.distance == 0 {
                     self.speed = 0
                 } else {
                     // Convert speed from m/s to km/h
                     self.speed = (data?.currentPace?.doubleValue)! * 3.6
                 }
                 
-                let message = ["speed": self.speed] as [String : Any]
-                do{
+                let message = ["speed": self.speed] as [String: Any]
+                do {
                     try WCSession.default.updateApplicationContext(message)
-                }catch{
+                } catch {
                     print("error sending data remaining via app context: \(error.localizedDescription)")
                 }
                 
@@ -88,15 +88,14 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
     }
     
     func handleReceivedData(_ data: Data) throws {
-        guard let decodedQuantity = try NSKeyedUnarchiver.unarchivedObject(ofClass: HKQuantity.self, from: data) else {
+        guard (try NSKeyedUnarchiver.unarchivedObject(ofClass: HKQuantity.self, from: data)) != nil else {
             return
         }
     }
     
-
     // Check the elapsed time and notify delegate if it changes
     func checkElapsedTime() {
-        guard let session = session else { return }
+        
         let newElapsedTime = builder?.elapsedTime
         
         if newElapsedTime != currentElapsedTime {
@@ -160,7 +159,6 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
                 self.sendDistanceToIphone()
     }
     
-    
     nonisolated func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
     }
 }
@@ -172,9 +170,9 @@ extension WorkoutManager {
             let message = [
                 "timerStart": remainingTime
             ] as [String: Any]
-            do{
+            do {
                 try WCSession.default.updateApplicationContext(message)
-            }catch{
+            } catch {
                 print("error sending data remaining via app context: \(error.localizedDescription)")
             }
             
@@ -182,30 +180,30 @@ extension WorkoutManager {
     }
     
     func sendWhatToDoWalkToiPhone() {
-        var state : Int = 0
+        var state: Int = 0
         if WCSession.default.isReachable {
             let message = [
                 "toDoWalk": state
             ] as [String: Any]
-            do{
+            do {
                 try WCSession.default.updateApplicationContext(message)
                 state += 1
-            }catch{
+            } catch {
                 print("error sending data walk reminder via app context: \(error.localizedDescription)")
             }
         }
     }
     
     func sendWhatToDoRestToiPhone() {
-        var state : Int = 0
+        var state: Int = 0
         if WCSession.default.isReachable {
             let message = [
                 "toDoRest": state
             ] as [String: Any]
-            do{
+            do {
                 try WCSession.default.updateApplicationContext(message)
                 state += 1
-            }catch{
+            } catch {
                 print("error sending data rest reminder via app context: \(error.localizedDescription)")
             }
         }
@@ -216,9 +214,9 @@ extension WorkoutManager {
             let message = [
                 "elapsed": elapsedTimeInterval
             ] as [String: Any]
-            do{
+            do {
                 try WCSession.default.updateApplicationContext(message)
-            }catch{
+            } catch {
                 print("error sending data elapsed via app context: \(error.localizedDescription)")
             }
             
@@ -243,9 +241,9 @@ extension WorkoutManager {
             let message = [
                 "distance": distance
             ] as [String: Any]
-            do{
+            do {
                 try WCSession.default.updateApplicationContext(message)
-            }catch{
+            } catch {
                 print("error sending data rest taken via app context: \(error.localizedDescription)")
             }
         }
@@ -256,9 +254,9 @@ extension WorkoutManager {
             let message = [
                 "isWorkoutPaused": isWorkoutPaused
             ] as [String: Any]
-            do{
+            do {
                 try WCSession.default.updateApplicationContext(message)
-            }catch{
+            } catch {
                 print("error sending data rest taken via app context: \(error.localizedDescription)")
             }
         }

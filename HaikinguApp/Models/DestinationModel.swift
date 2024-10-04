@@ -146,4 +146,3 @@ enum DestinationList: String, CaseIterable {
     }
     
 }
-

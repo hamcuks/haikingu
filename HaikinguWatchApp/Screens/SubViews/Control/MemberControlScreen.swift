@@ -31,7 +31,7 @@ struct MemberControlView: View {
                         
                         HKCircleButton(imageButton: "clock.fill", imageWidth: 35, imageHeight: 35, padding: 0, imageColor: .black, buttonColor: .orange) {
                             
-                            //MARK: Another function triggered
+                            // MARK: Another function triggered
                             
                             metricsVM.isMemberRequestRest = false
                         }
@@ -39,7 +39,7 @@ struct MemberControlView: View {
                             .font(Font.system(.body, weight: .semibold))
                     }
                     .onAppear {
-                        //MARK: Something Triggered
+                        // MARK: Something Triggered
                     }
                 }
             }

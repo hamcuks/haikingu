@@ -10,7 +10,7 @@ import SnapKit
 
 class SplashScreen: UIViewController {
     
-    lazy private var splashLabel : UILabel = {
+    lazy private var splashLabel: UILabel = {
         let label = UILabel()
         label.text = "Haikingu"
         label.font = .systemFont(ofSize: .init(40))

@@ -171,4 +171,3 @@ class HeaderAddFriendView: UIView {
 #Preview(traits: .defaultLayout, body: {
     AddFriendVC()
 })
-

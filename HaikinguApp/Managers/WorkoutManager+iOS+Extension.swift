@@ -102,11 +102,11 @@ extension WorkoutManager: WCSessionDelegate {
         //
     }
     
-    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
        
     }
     
-    nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
         if let remaining = applicationContext["timerStart"] as? TimeInterval {
             DispatchQueue.main.async {
                 self.remainingTime = remaining

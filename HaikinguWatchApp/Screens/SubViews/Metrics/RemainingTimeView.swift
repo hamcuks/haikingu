@@ -5,7 +5,6 @@
 //  Created by I Gusti Ngurah Surya Ardika Dinataputra on 02/10/24.
 //
 
-
 import SwiftUI
 
 struct RemainingTimeView: View {
@@ -17,7 +16,7 @@ struct RemainingTimeView: View {
         Text(NSNumber(value: remainingTime), formatter: timeFormatter)
             .lineLimit(2)
             .font(Font.system(size: 34, weight: .bold))
-            .onChange(of: showSubseconds) { (oldValue, newValue) in
+            .onChange(of: showSubseconds) { (_, newValue) in
                 timeFormatter.showSubseconds = newValue
             }
     }

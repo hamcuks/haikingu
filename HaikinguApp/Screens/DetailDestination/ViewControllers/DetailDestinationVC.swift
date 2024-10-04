@@ -90,7 +90,6 @@ class DetailDestinationVC: UIViewController {
         
         self.centralManager?.setDelegate(self)
         
-        
     }
     
     override func viewDidLoad() {
@@ -235,7 +234,6 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
             self.centralManager?.updateHikingState(for: .started)
         }
         
-        
     }
     
     private func checkInRangeDestination(currentLocation: CLLocation) -> CLLocationDistance {
@@ -258,7 +256,5 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Err: \(error.localizedDescription)")
     }
-    
-    
     
 }

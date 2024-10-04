@@ -16,7 +16,7 @@ extension Container {
         
         /// Managers
     
-        container.register(WorkoutServiceWatchOS.self) { resolver in WorkoutManager.shared }
+        container.register(WorkoutServiceWatchOS.self) { _ in WorkoutManager.shared }
         
         /// ViewModel
         container.register(HomeVM.self) { resolver in
