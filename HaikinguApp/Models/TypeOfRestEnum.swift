@@ -21,6 +21,7 @@ enum HikingStateEnum: String {
     case paused
     case notStarted
     case started
+    case continued
     case finished
     
 }
