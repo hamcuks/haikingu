@@ -60,7 +60,7 @@ class HikingSummaryView: UIView {
     
     private var restTakenView: HikingMetricsIconTextView!
 
-    init(destinationDetail: DestinationModel, workoutManager: WorkoutServiceIos) {
+    init(destinationDetail: DestinationModel, workoutManager: WorkoutServiceIos, restTotal: Int) {
         super.init(frame: .zero)
         
         eleGainView = HikingMetricsIconTextView(icon: "arrow.up.right", value: "\(destinationDetail.maxElevation) m", title: "Elv. Gain")

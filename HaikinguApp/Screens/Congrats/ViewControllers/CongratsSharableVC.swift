@@ -10,6 +10,23 @@ import SnapKit
 
 class CongratsSharableVC: UIViewController {
     
+    init(workoutManager: WorkoutServiceIos?, destinationDetail: DestinationModel, restTakenTotal: Int) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.workoutManager = workoutManager
+        self.destinationDetail = destinationDetail
+        self.restTakenTotal = restTakenTotal
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    private var workoutManager: WorkoutServiceIos!
+    var destinationDetail: DestinationModel!
+    var restTakenTotal: Int!
+    
     // UI Components
     let haikinguLabel = UILabel()
     let titleLabel = UILabel()
@@ -31,6 +48,15 @@ class CongratsSharableVC: UIViewController {
     let hikeImageView = UIImageView()
     
     var selectedImage: UIImage?
+    
+    func shareScreenshot() -> CGRect {
+        print("Share button is hitted")
+        let targetArea = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: (self.view.bounds.height - 100))
+        
+        return targetArea
+    }
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,14 +81,17 @@ class CongratsSharableVC: UIViewController {
     
     private func setupTitleLabels() {
         // Title Label
-        titleLabel.text = "Great Job, Team!\nBidadari Lake Done in"
+        titleLabel.text = "Great Job, Team!\n\(destinationDetail.name) Done in"
         titleLabel.textColor = .black
         titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .regular)
         titleLabel.numberOfLines = 0
         view.addSubview(titleLabel)
         
         // Time Label
-        timeLabel.text = "1 Hour 25 Minutes"
+        var elapsedTimeInterval = workoutManager.elapsedTimeInterval
+        let hours = Int(elapsedTimeInterval) / 3600
+        let minutes = (Int(elapsedTimeInterval) % 3600) / 60
+        timeLabel.text = "\(hours) Hour \(minutes) Minutes"
         timeLabel.textColor = .black
         timeLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         view.addSubview(timeLabel)
@@ -74,7 +103,7 @@ class CongratsSharableVC: UIViewController {
         elevationArrowImageView.tintColor = .gray
         elevationArrowImageView.contentMode = .scaleAspectFit
         
-        elevationStatLabel.text = "97 m\nElv. Gain"
+        elevationStatLabel.text = "\(destinationDetail.maxElevation) m\nElv. Gain"
         elevationStatLabel.font = UIFont.systemFont(ofSize: 16)
         elevationStatLabel.textColor = .darkGray
         elevationStatLabel.textAlignment = .left
@@ -85,7 +114,7 @@ class CongratsSharableVC: UIViewController {
         distanceArrowImageView.tintColor = .gray
         distanceArrowImageView.contentMode = .scaleAspectFit
         
-        distanceStatLabel.text = "1800 m\nDistance"
+        distanceStatLabel.text = "\(Int(workoutManager.distance)) m\nDistance"
         distanceStatLabel.font = UIFont.systemFont(ofSize: 16)
         distanceStatLabel.textColor = .darkGray
         distanceStatLabel.textAlignment = .left
@@ -96,7 +125,7 @@ class CongratsSharableVC: UIViewController {
         restArrowImageView.tintColor = .gray
         restArrowImageView.contentMode = .scaleAspectFit
         
-        restStatLabel.text = "3x\nRest Taken"
+        restStatLabel.text = "\(restTakenTotal ?? 0)x\nRest Taken"
         restStatLabel.font = UIFont.systemFont(ofSize: 16)
         restStatLabel.textColor = .darkGray
         restStatLabel.textAlignment = .left
@@ -181,7 +210,3 @@ class CongratsSharableVC: UIViewController {
         }
     }
 }
-
-#Preview(traits: .defaultLayout, body: {
-    CongratsSharableVC()
-})

@@ -225,6 +225,7 @@ class HikingSessionVC: UIViewController {
         workoutManager?.sessionState = .ended
         guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
         finishVC.destinationDetail = destinationDetail
+        finishVC.restTakenTotal = restTakenCount
         navigationController?.pushViewController(finishVC, animated: true)
     }
     

@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class CongratsVC: UIViewController {
+    var restTakenTotal: Int!
     
     lazy private var backgroundView: UIView = {
         let view = UIView()
@@ -97,11 +98,15 @@ class CongratsVC: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
         
-        hikingSummaryView = HikingSummaryView(destinationDetail: destinationDetail, workoutManager: workoutManager)
+        hikingSummaryView = HikingSummaryView(destinationDetail: destinationDetail, workoutManager: workoutManager, restTotal: restTakenTotal)
+        
+        var elapsedTimeInterval = workoutManager.elapsedTimeInterval
+        let hours = Int(elapsedTimeInterval) / 3600
+        let minutes = (Int(elapsedTimeInterval) % 3600) / 60
         
         headerCongratsView = HeaderCongratsView(
             destinationTitle: "\(destinationDetail.name)",
-            destinationTime: "1 Hour 25 Minutes"
+            destinationTime: "\(hours) Hour \(minutes) Minutes"
         )
         
         tableView.delegate = self
@@ -110,7 +115,7 @@ class CongratsVC: UIViewController {
         reminderTitleView.isHidden = true
         tableView.isHidden = true
         setReminderButton.isEnabled = true
-        shareButton.isHidden = true
+        shareButton.isHidden = false
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageTapped))
         profileImageView.addGestureRecognizer(tapGesture)
@@ -234,9 +239,24 @@ class CongratsVC: UIViewController {
     
     @objc
     func shareTapped() {
-        let congratsShareVC = CongratsSharableVC()
+        let congratsShareVC = CongratsSharableVC(workoutManager: workoutManager, destinationDetail: destinationDetail, restTakenTotal: restTakenTotal)
         congratsShareVC.selectedImage = backgroundImageView.image
-        navigationController?.pushViewController(congratsShareVC, animated: true)
+        let targetArea: CGRect = congratsShareVC.shareScreenshot()
+        
+        if let screenshot = congratsShareVC.view.takeScreenshot(of: targetArea) {
+            let staticMessage = "Hey, let's check out for our hiking routes. Download Hikingu apps to stay connect in our during hiking session! Here's the link: https://www.google.com"
+            
+            let itemToShare: [Any] = [screenshot, staticMessage]
+            let activityViewController = UIActivityViewController(
+                activityItems: itemToShare,
+                applicationActivities: nil
+            )
+            activityViewController.excludedActivityTypes = [.print, .copyToPasteboard, .assignToContact, .saveToCameraRoll, .addToReadingList, .addToHomeScreen, .addToReadingList, .airDrop, .collaborationCopyLink, .openInIBooks, .collaborationInviteWithLink, .markupAsPDF, .sharePlay]
+            activityViewController.popoverPresentationController?.sourceView = view
+            activityViewController.popoverPresentationController?.sourceRect = view.bounds
+            present(activityViewController, animated: true, completion: nil)
+        }
+//        navigationController?.pushViewController(congratsShareVC, animated: true)
     }
     
     @objc func profileImageTapped() {
@@ -273,7 +293,7 @@ extension CongratsVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             backgroundImageView.image = editedImage
-            shareButton.isEnabled = false // MARK: Kalau sudah selesai develop share, di true
+            shareButton.isEnabled = true // MARK: Kalau sudah selesai develop share, di true
             
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             shareButton.isEnabled = false
