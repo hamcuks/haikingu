@@ -29,6 +29,7 @@ class DestinationListVC: UIViewController {
     }()
     
     var selectedDestination: DestinationModel?
+    var isSoloHiker: Bool?
     
     
     init(workoutManager: WorkoutServiceIos?) {
@@ -91,6 +92,7 @@ class DestinationListVC: UIViewController {
         guard let destinationDetailVC = Container.shared.resolve(DetailDestinationVC.self) else { return }
         destinationDetailVC.selectedDestination = selectedDestination
         destinationDetailVC.selectedPlan = selectedPlan
+        destinationDetailVC.isSoloHiker = isSoloHiker!
         navigationController?.pushViewController(destinationDetailVC, animated: true)
     }
 

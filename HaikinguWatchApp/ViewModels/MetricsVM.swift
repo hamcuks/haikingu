@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-class MetricsVM: ObservableObject {
+class MetricsVM: ObservableObject, WorkoutVMDelegate {
+    
+    
     
     @Published var heartRate: Double = 0
     @Published var distance: Double = 0
@@ -28,8 +30,14 @@ class MetricsVM: ObservableObject {
     @Published var isLeadPausedTapped: Bool = false // For Leader
     @Published var isLeadEndTapped: Bool = false // For Leader
     @Published var isMemberRequestRest: Bool = false // For Member
+    @Published var isWorkoutEnded: Bool = false
     
     init (workoutManager: WorkoutServiceWatchOS?) {
         self.workoutManager = workoutManager
+        self.workoutManager?.setDelegateVM(self)
+    }
+    
+    func didWorkoutEnded(_ isWorkoutEnded: Bool) {
+        self.isWorkoutEnded = isWorkoutEnded
     }
 }

@@ -24,6 +24,10 @@ protocol WorkoutDelegate: AnyObject {
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
 }
 
+protocol WorkoutVMDelegate: AnyObject {
+    func didWorkoutEnded(_ isWorkoutEnded: Bool)
+}
+
 enum TimingState {
     case timeToWalk
     case timeToRest
@@ -32,6 +36,7 @@ enum TimingState {
 class WorkoutManager: NSObject, ObservableObject {
     
     var delegate: WorkoutDelegate?
+    var delegateVM: WorkoutVMDelegate?
     let pedometerManager = CMPedometer()
     
     struct SessionStateChange {
@@ -57,6 +62,7 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var isWorkoutEnded: Bool = false {
         didSet {
             delegate?.didWorkoutEnded(isWorkoutEnded)
+            delegateVM?.didWorkoutEnded(isWorkoutEnded)
 #if os(watchOS)
             sendEndedStateToIphone()
 #endif

@@ -18,9 +18,10 @@ enum TypeOfRestEnum: String {
 }
 
 enum HikingStateEnum: String {
-    case paused = "paused"
-    case notStarted = "notStarted"
-    case started = "started"
+    case paused
+    case notStarted
+    case started
+    case finished
     
 }
 

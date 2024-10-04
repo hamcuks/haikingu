@@ -15,6 +15,11 @@ import WatchConnectivity
 //
 
 extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
+
+    func setDelegateVM(_ delegate: any WorkoutVMDelegate) {
+        self.delegateVM = delegate
+    }
+    
     
     /**
      Use healthStore.requestAuthorization to request authorization in watchOS when
