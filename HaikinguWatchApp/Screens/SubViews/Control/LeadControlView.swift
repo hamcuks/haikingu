@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Swinject
+import HealthKit
 
 struct LeadControlView: View {
     @EnvironmentObject var metricsVM: MetricsVM
@@ -51,6 +52,9 @@ struct LeadControlView: View {
                             buttonColor: .gray) {
                                 metricsVM.workoutManager?.updateIsWorkoutEnded(to: true)
                                 metricsVM.workoutManager?.session?.stopActivity(with: .now)
+                                Task {
+                                    await metricsVM.workoutManager?.stopWorkoutWatch()
+                                }
                                 metricsVM.isLeadEndTapped = true
                                 if let workout = metricsVM.workoutManager?.workout {
                                     print("Total Time: \(workout.totalTime)") // Pastikan data sudah diisi

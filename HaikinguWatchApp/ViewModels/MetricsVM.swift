@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-class MetricsVM: ObservableObject, WorkoutVMDelegate {
-    
-    
-    
+class MetricsVM: ObservableObject, WorkoutVMMetricsDelegate {
     
     
     @Published var heartRate: Double = 0
@@ -36,14 +33,21 @@ class MetricsVM: ObservableObject, WorkoutVMDelegate {
     
     init (workoutManager: WorkoutServiceWatchOS?) {
         self.workoutManager = workoutManager
-        self.workoutManager?.setDelegateVM(self)
+        self.workoutManager?.setDelegateVMMetrics(self)
     }
     
     func didWorkoutEnded(_ isWorkoutEnded: Bool) {
         self.isWorkoutEnded = isWorkoutEnded
     }
     
-    func didUpdateDestinationWatch(_ destinationWatch: SelectedDestinationWatch) {
-        //
+    func formatterTime(_ time: TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = (Int(time) % 3600) / 60
+        let seconds = Int(time) % 60
+        let hundredths = Int((time - floor(time)) * 100) // Mendapatkan nilai ratusan detik
+        
+        return String(format: "%02d.%02d.%02d,%02d", hours, minutes, seconds, hundredths)
     }
+    
+
 }

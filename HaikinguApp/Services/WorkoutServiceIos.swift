@@ -32,5 +32,7 @@ protocol WorkoutServiceIos {
     func sendPausedToWatch()
     func sendResumedToWatch()
     func sendEndedToWatch()
-    func sendDestinationToWatch(destination name: String, elevmax max: Int, elevmin min: Int)
+    func sendDestinationNameToWatch(destination name: String)
+    func sendDestinationElevMaxToWatch(elevMax: Int)
+    func sendDestinationElevMinToWatch(elevMin: Int)
 }

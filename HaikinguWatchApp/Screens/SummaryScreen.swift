@@ -12,14 +12,14 @@ struct SummaryScreen: View {
     @EnvironmentObject var userServices: UserServices
     @EnvironmentObject var navigationServices: NavigationServices
     @EnvironmentObject var metricVM: MetricsVM
-    @State var isBackHome: Bool = true
+    @State var isBackHome: Bool = false
     
     var body: some View {
 //        NavigationStack(path: navigationServices.$path) {
             ScrollView {
                 VStack(alignment: .center, spacing: 12) {
                     SummaryFirstView(
-                        titleText: "\(isBackHome ? "Great job! You made it back safely after the hike! ⛰️" : "What a great journey to Bidadari Lake! ⛰️")",
+                        titleText: "\(isBackHome ? "Great job! You made it back safely after the hike! ⛰️" : "What a great journey to \(String(metricVM.workoutManager?.selectedDestinationName ?? "Your Destination"))! ⛰️")",
                         subtitleText: "\(isBackHome ? "See you on the next journey! 👋🏻👋🏻👋🏻" : "Take your iPhone and capture your moment! It’s a memory you'll want to keep from your amazing hike! 📸")")
                     Divider()
                     SummarySecondView()
@@ -28,7 +28,7 @@ struct SummaryScreen: View {
 //                        .font(Font.system(size: 12, weight: .light))
                     
                     HKTextButton(
-                        titleButton: "\(isBackHome ? "Return Home" : (userServices.userType == .leader ? "Request to leader" : "Set a reminder"))",
+                        titleButton: "\(isBackHome ? "Return Home" : (userServices.userType == .member ? "Request to leader" : "Set a reminder"))",
                         widthButton: 173, heightButton: 54) {
                             
                         // MARK: Navigate / add path into Another Screen
@@ -74,13 +74,13 @@ struct SummarySecondView: View {
     @EnvironmentObject var metricVM: MetricsVM
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HKSummaryText(imageSymbol: "stopwatch", titleSymbol: "Duration", valueSymbol: metricVM.workoutManager?.workout?.totalTime ?? "00:00:00", unitSymbol: "", colorSymbol: .white)
+            HKSummaryText(imageSymbol: "stopwatch", titleSymbol: "Duration", valueSymbol:metricVM.formatterTime(metricVM.workoutManager!.elapsedTimeInterval), unitSymbol: "", colorSymbol: .white)
             
-            HKSummaryText(imageSymbol: "point.topleft.down.to.point.bottomright.curvepath.fill", titleSymbol: "Total Length", valueSymbol: metricVM.workoutManager?.workout?.totalWalkingDistance ?? "0", unitSymbol: "M", colorSymbol: .white)
+            HKSummaryText(imageSymbol: "point.topleft.down.to.point.bottomright.curvepath.fill", titleSymbol: "Total Length", valueSymbol: String(Int(metricVM.workoutManager!.distance)), unitSymbol: "M", colorSymbol: .white)
             
-            HKSummaryElevationText(highEle: 120, downEle: 80)
+            HKSummaryElevationText(highEle: metricVM.workoutManager?.selectedDestinationElevMax ?? 0, downEle: metricVM.workoutManager?.selectedDestinationElevMin ?? 0)
             
-            HKSummaryText(imageSymbol: "heart.fill", titleSymbol: "Avg. Heart Rate", valueSymbol: metricVM.workoutManager?.workout?.averageHeartRate ?? "0", unitSymbol: "", colorSymbol: .red)
+            HKSummaryText(imageSymbol: "heart.fill", titleSymbol: "Avg. Heart Rate", valueSymbol: String(metricVM.workoutManager?.heartRate ?? 0), unitSymbol: "", colorSymbol: .red)
         }
     }
 }
