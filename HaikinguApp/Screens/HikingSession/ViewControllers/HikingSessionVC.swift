@@ -287,17 +287,15 @@ extension HikingSessionVC: HikingSessionVCDelegate {
         switch state {
             
         case .paused:
-            centralManager?.requestRest(for: .timeToBreak, exclude: nil)
+            self.workoutManager?.sendPausedToWatch()
         case .notStarted:
             /// ini ngapain kak?
             print("current state is not started")
         case .started:
-            centralManager?.requestRest(for: .timeToWalk, exclude: nil)
+            print("state: \(state.rawValue)")
         
         case .finished:
-            if let viewController = Container.shared.resolve(CongratsVC.self) {
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
+            self.workoutManager?.sendEndedToWatch()
             
         }
     }
@@ -313,7 +311,6 @@ extension HikingSessionVC: WorkoutDelegate {
             navigationController?.pushViewController(finishVC, animated: true)
         }
     }
-    
     
     func didWorkoutPaused(_ isWorkoutPaused: Bool) {
         if isWorkoutPaused {
@@ -347,7 +344,6 @@ extension HikingSessionVC: WorkoutDelegate {
         if whatToDo == .timeToRest {
             if userData.role == .leader {
                 self.centralManager?.updateHikingState(for: .paused)
-                self.centralManager?.requestRest(for: .mandatoryBreak, exclude: nil)
                 self.centralManager?.requestRest(for: .timeToBreak, exclude: nil)
             }
             iconButton = "play.fill"
@@ -393,21 +389,26 @@ extension HikingSessionVC: WorkoutDelegate {
         if workoutManager?.isPersonTired() ?? false {
             workoutManager?.pauseTimer()
             headerView.bpmHigh()
-            if userData.role == .leader {
-                
-                /// Broadcast to other member if leader's bpm is abnormal
-                self.centralManager?.requestRest(for: .abnormalBpm, exclude: nil)
-            } else {
-                /// Tell central if member's bpm is abnormal
-                self.peripheralManager?.requestRest(for: .abnormalBpm)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                if userData.role == .leader {
+                    
+                    /// Broadcast to other member if leader's bpm is abnormal
+                    self.centralManager?.requestRest(for: .abnormalBpm, exclude: nil)
+                } else {
+                    /// Tell central if member's bpm is abnormal
+                    self.peripheralManager?.requestRest(for: .abnormalBpm)
+                }
             }
         } else {
-            if userData.role == .leader {
-                /// Broadcast to other member if leader's bpm is already normal
-                self.centralManager?.requestRest(for: .bpmAlreadyNormal, exclude: nil)
-            } else {
-                /// Tell central if member's bpm is already normal
-                self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                if userData.role == .leader {
+                    /// Broadcast to other member if leader's bpm is already normal
+                    self.centralManager?.requestRest(for: .bpmAlreadyNormal, exclude: nil)
+                } else {
+                    /// Tell central if member's bpm is already normal
+                    self.peripheralManager?.requestRest(for: .bpmAlreadyNormal)
+                }
             }
         }
         
@@ -458,6 +459,7 @@ extension HikingSessionVC: WorkoutDelegate {
             guard let userData = self.userData else { return }
             
             if userData.role == .leader {
+                /// Show notification for itself
                 notificationManager?.requestRest(for: .notMoving, name: nil)
                 /// Broadcast to other member if any update est time
                 centralManager?.updateEstTime(naismithTime)
