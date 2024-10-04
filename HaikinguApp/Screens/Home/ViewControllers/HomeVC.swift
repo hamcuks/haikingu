@@ -176,7 +176,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     
     @objc
     private func actionStartHiking() {
-        let destinationList = DestinationListVC()
+        guard let destinationList = Container.shared.resolve(DestinationListVC.self) else { return }
         destinationList.isSoloHiker = isSoloMode
         navigationController?.pushViewController(destinationList, animated: true)
     }

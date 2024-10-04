@@ -25,12 +25,19 @@ protocol WorkoutDelegate: AnyObject {
 }
 
 protocol WorkoutVMDelegate: AnyObject {
+    func didUpdateDestinationWatch(_ destinationWatch: SelectedDestinationWatch)
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
 }
 
 enum TimingState {
     case timeToWalk
     case timeToRest
+}
+
+struct SelectedDestinationWatch {
+    var name: String?
+    var elevMax: Int?
+    var elevMin: Int?
 }
 
 class WorkoutManager: NSObject, ObservableObject {
@@ -44,13 +51,11 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
-    struct SelectedDestinationWatch {
-        var name: String?
-        var elevMax: Int?
-        var elevMin: Int?
+    @Published var destinationWatch: SelectedDestinationWatch? {
+        didSet{
+            delegateVM?.didUpdateDestinationWatch(destinationWatch ?? SelectedDestinationWatch(name: "Your Choice", elevMax: 0, elevMin: 0))
+        }
     }
-    
-    @Published var destinationWatch: SelectedDestinationWatch? 
     @Published var isWorkoutPaused: Bool = false {
         didSet {
             delegate?.didWorkoutPaused(isWorkoutPaused)

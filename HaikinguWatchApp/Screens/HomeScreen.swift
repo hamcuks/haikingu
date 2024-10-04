@@ -48,8 +48,6 @@ struct HomeScreen: View {
                 }
                 .onAppear {
                     homeVM.workoutManager?.requestAuthorization()
-                    homeVM.isHasContent = false
-                    homeVM.isReturnHome = false
                 }
         }
     }
@@ -88,10 +86,14 @@ struct ContentOpeningScreen: View {
                             .font(Font.system(size: 13, weight: .light))
                         
                         HStack(spacing: 8) {
-                            Image(systemName: "clock")
-                                .resizable()
-                                .frame(width: 17, height: 17)
-                            Text("\(homeVM.valueDestination ?? "00:00:00 left")")
+                            if ((homeVM.titleDestination?.isEmpty) != nil) {
+                                
+                            }else {
+                                Image(systemName: "clock")
+                                    .resizable()
+                                    .frame(width: 17, height: 17)
+                            }
+                            Text("\(homeVM.valueDestination ?? "")")
                                 .font(Font.system(size: 15, weight: .light))
                         }
                     }
