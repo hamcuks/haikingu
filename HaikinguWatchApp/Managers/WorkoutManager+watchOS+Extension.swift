@@ -124,6 +124,11 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
                 self.isWorkoutPaused = false
                 self.resumeTimer()
             }
+        } else if let ended = applicationContext["triggerEnded"] as? String {
+            DispatchQueue.main.async {
+                self.isWorkoutEnded = true
+                self.stopTimer()
+            }
         }
     }
     
