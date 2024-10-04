@@ -44,6 +44,7 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     lazy var imageView: UIImageView = UIImageView()
     lazy var backToHomeMessageView: BackToHomeMessageView = BackToHomeMessageView()
     lazy var startButton: PrimaryButton = PrimaryButton(label: "Start Hiking")
+    var isSoloMode: Bool = true
     
     /// Constructors
     init(peripheralManager: PeripheralBLEService?, notificationManager: NotificationService?, userDefaultManager: UserDefaultService?) {
@@ -176,14 +177,17 @@ class HomeVC: UIViewController, HomeHeaderViewDelegate {
     @objc
     private func actionStartHiking() {
         let destinationList = DestinationListVC()
+        destinationList.isSoloHiker = isSoloMode
         navigationController?.pushViewController(destinationList, animated: true)
     }
     
     @objc private func onHikingModeControlValueChanged(_ sender: HikingModeControlView) {
         if sender.selectedSegmentIndex == 0 {
             tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
+            isSoloMode = true
         } else {
             tipsLabel.text = "Hiking with friends? Great choice! Enjoy the journey together. We track your group’s progress and sends reminders to take rests and stay energized along the way."
+            isSoloMode = false
         }
         
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")

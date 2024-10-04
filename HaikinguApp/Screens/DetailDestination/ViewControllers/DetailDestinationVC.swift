@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import Swinject
+import SnapKit
 
 enum UserType {
     case leader
@@ -35,6 +36,7 @@ class DetailDestinationVC: UIViewController {
     }()
     var userLocation: CLLocation?
     var role: UserType = .leader
+    var isSoloHiker: Bool = false
     
     private var horizontalStack: UIStackView = {
         let horizontal = UIStackView()
@@ -101,7 +103,7 @@ class DetailDestinationVC: UIViewController {
         locationManager.requestWhenInUseAuthorization() // Minta izin akses lokasi
         locationManager.startUpdatingLocation()
         
-        teamView = TeamsView(frame: self.view.bounds, action: #selector(teamAction))
+        teamView = TeamsView(frame: self.view.bounds, action: #selector(teamAction), isSolo: isSoloHiker)
         
         assetsImage.image = UIImage(named: "\(selectedDestination.image)")
         
@@ -152,6 +154,12 @@ class DetailDestinationVC: UIViewController {
         stack.spacing = 24
         view.addSubview(stack)
         
+        if isSoloHiker {
+            stack.subviews.indices.forEach { if stack.subviews[$0] == teamView {
+                stack.subviews[$0].isHidden = true
+            } }
+        }
+        
         stack.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview().inset(16)
@@ -171,6 +179,10 @@ class DetailDestinationVC: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
             make.leading.trailing.equalTo(horizontalStack)
             make.height.equalTo(50)
+        }
+        
+        assetsImage.snp.makeConstraints { make in
+            make.height.equalTo(320)
         }
     }
     
