@@ -47,6 +47,7 @@ class DestinationListVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
         navigationItem.title = "Choose Hiking Spot"
+        navigationController?.navigationBar.tintColor = .brown
         
         setupUI()
     }
@@ -69,7 +70,7 @@ class DestinationListVC: UIViewController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview().inset(30)
-            make.bottom.equalTo(selectButton.snp.top).inset(-100)
+            make.bottom.equalTo(selectButton.snp.top).inset(-20)
         }
         
         selectButton.snp.makeConstraints { make in
