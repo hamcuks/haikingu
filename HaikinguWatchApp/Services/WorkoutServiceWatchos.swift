@@ -23,7 +23,11 @@ protocol WorkoutServiceWatchOS {
     var whatToDo: TimingState { get set }
     var isWorkoutPaused: Bool { get set }
     var isWorkoutEnded: Bool { get set }
-    func setDelegateVM(_ delegate: WorkoutVMDelegate)
+    var selectedDestinationName: String { get set }
+    var selectedDestinationElevMax: Int { get set }
+    var selectedDestinationElevMin: Int { get set }
+    func setDelegateVMHome(_ delegate: WorkoutVMHomeDelegate)
+    func setDelegateVMMetrics(_ delegate: WorkoutVMMetricsDelegate)
     
     func resetWorkout()
     func requestAuthorization()
@@ -34,4 +38,5 @@ protocol WorkoutServiceWatchOS {
     func stopTimer()
     func updateIsWorkoutPaused(to newIsWorkoutPaused: Bool)
     func updateIsWorkoutEnded(to newIsWorkoutEnded: Bool)
+    func stopWorkoutWatch() async
 }

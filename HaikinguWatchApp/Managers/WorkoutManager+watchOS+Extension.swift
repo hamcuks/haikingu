@@ -15,10 +15,17 @@ import WatchConnectivity
 //
 
 extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
-
-    func setDelegateVM(_ delegate: any WorkoutVMDelegate) {
-        self.delegateVM = delegate
+    
+    
+    func setDelegateVMHome(_ delegate: any WorkoutVMHomeDelegate) {
+        self.delegateVMHome = delegate
     }
+    
+    func setDelegateVMMetrics(_ delegate: any WorkoutVMMetricsDelegate) {
+        self.delegateVMMetrics = delegate
+    }
+    
+
     
     
     /**
@@ -117,6 +124,22 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         isWorkoutEnded = newIsWorkoutEnded
     }
     
+    func stopWorkoutWatch() async {
+        let finishedWorkout: HKWorkout?
+        do {
+            try await builder?.endCollection(at: .now)
+            finishedWorkout = try await builder?.finishWorkout()
+            session?.end()
+        } catch {
+            print("gagal stop workout")
+            return
+        }
+        DispatchQueue.main.async {
+            self.workout = finishedWorkout
+            print(self.workout?.averageHeartRate)
+        }
+    }
+    
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let paused = applicationContext["triggerPaused"] as? String {
             DispatchQueue.main.async {
@@ -137,15 +160,16 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
             }
         } else if let destination = applicationContext["destination"] as? String {
             DispatchQueue.main.async {
-                self.destinationWatch?.name = destination
+                self.selectedDestinationName = destination
+                self.delegateVMHome?.didUpdateDestinationWatch(destination)
             }
-        } else if let elevmax = applicationContext["elevmax"] as? Int {
+        }  else if let elevmin = applicationContext["elevmin"] as? Int {
             DispatchQueue.main.async {
-                self.destinationWatch?.elevMax = elevmax
+                self.selectedDestinationElevMin = elevmin
             }
-        } else if let elevmin = applicationContext["elevmin"] as? Int {
+        } else if let maxelev = applicationContext["maxelev"] as? Int {
             DispatchQueue.main.async {
-                self.destinationWatch?.elevMin = elevmin
+                self.selectedDestinationElevMax = maxelev
             }
         }
     }

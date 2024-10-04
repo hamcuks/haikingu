@@ -7,8 +7,7 @@
 
 import Foundation
 
-class HomeVM: ObservableObject, WorkoutVMDelegate {
-    
+class HomeVM: ObservableObject, WorkoutVMHomeDelegate {
     
     
     @Published var workoutManager: WorkoutServiceWatchOS?
@@ -21,16 +20,13 @@ class HomeVM: ObservableObject, WorkoutVMDelegate {
     
     init(workoutManager: WorkoutServiceWatchOS?) {
         self.workoutManager = workoutManager
-        self.workoutManager?.setDelegateVM(self)
+        self.workoutManager?.setDelegateVMHome(self)
     }
     
-    func didUpdateDestinationWatch(_ destinationWatch: SelectedDestinationWatch) {
+    func didUpdateDestinationWatch(_ destinationWatch: String) {
         titleDestination = "Your Hiking Plan"
-        subtitleDestination = "You will hiking to \(destinationWatch.name)"
+        subtitleDestination = "You will be hiking to \(destinationWatch)"
         isHasContent = true
     }
     
-    func didWorkoutEnded(_ isWorkoutEnded: Bool) {
-        //
-    }
 }

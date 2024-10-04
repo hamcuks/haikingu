@@ -24,8 +24,11 @@ protocol WorkoutDelegate: AnyObject {
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
 }
 
-protocol WorkoutVMDelegate: AnyObject {
-    func didUpdateDestinationWatch(_ destinationWatch: SelectedDestinationWatch)
+protocol WorkoutVMHomeDelegate: AnyObject {
+    func didUpdateDestinationWatch(_ destinationWatch: String)
+}
+
+protocol WorkoutVMMetricsDelegate: AnyObject {
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
 }
 
@@ -34,16 +37,11 @@ enum TimingState {
     case timeToRest
 }
 
-struct SelectedDestinationWatch {
-    var name: String?
-    var elevMax: Int?
-    var elevMin: Int?
-}
 
 class WorkoutManager: NSObject, ObservableObject {
-    
     var delegate: WorkoutDelegate?
-    var delegateVM: WorkoutVMDelegate?
+    var delegateVMHome: WorkoutVMHomeDelegate?
+    var delegateVMMetrics: WorkoutVMMetricsDelegate?
     let pedometerManager = CMPedometer()
     
     struct SessionStateChange {
@@ -51,11 +49,14 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
-    @Published var destinationWatch: SelectedDestinationWatch? {
+    @Published var selectedDestinationName: String = "Your Destination"{
         didSet{
-            delegateVM?.didUpdateDestinationWatch(destinationWatch ?? SelectedDestinationWatch(name: "Your Choice", elevMax: 0, elevMin: 0))
+            delegateVMHome?.didUpdateDestinationWatch(selectedDestinationName)
         }
     }
+    @Published var selectedDestinationElevMax: Int = 1
+    @Published var selectedDestinationElevMin: Int = 0
+    
     @Published var isWorkoutPaused: Bool = false {
         didSet {
             delegate?.didWorkoutPaused(isWorkoutPaused)
@@ -67,7 +68,7 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var isWorkoutEnded: Bool = false {
         didSet {
             delegate?.didWorkoutEnded(isWorkoutEnded)
-            delegateVM?.didWorkoutEnded(isWorkoutEnded)
+            delegateVMMetrics?.didWorkoutEnded(isWorkoutEnded)
 #if os(watchOS)
             sendEndedStateToIphone()
 #endif
@@ -310,6 +311,7 @@ class WorkoutManager: NSObject, ObservableObject {
             
         }
     }
+    
     
     // Stop observing
     func stopObserving() {

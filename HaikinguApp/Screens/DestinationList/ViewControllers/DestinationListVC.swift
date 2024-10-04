@@ -88,7 +88,9 @@ class DestinationListVC: UIViewController {
             return print("Selected Destination is Empty")
         }
         print("Select Destination is \(selectedDestination)")
-        workoutManager?.sendDestinationToWatch(destination: selectedDestination.name, elevmax: selectedDestination.maxElevation, elevmin: selectedDestination.minElevation)
+        workoutManager?.sendDestinationNameToWatch(destination: selectedDestination.name)
+        workoutManager?.sendDestinationElevMaxToWatch(elevMax: selectedDestination.maxElevation)
+        workoutManager?.sendDestinationElevMinToWatch(elevMin: selectedDestination.minElevation)
         guard let destinationDetailVC = Container.shared.resolve(DetailDestinationVC.self) else { return }
         destinationDetailVC.selectedDestination = selectedDestination
         destinationDetailVC.selectedPlan = selectedPlan
