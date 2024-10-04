@@ -80,7 +80,7 @@ struct SummarySecondView: View {
             
             HKSummaryElevationText(highEle: metricVM.workoutManager?.selectedDestinationElevMax ?? 0, downEle: metricVM.workoutManager?.selectedDestinationElevMin ?? 0)
             
-            HKSummaryText(imageSymbol: "heart.fill", titleSymbol: "Avg. Heart Rate", valueSymbol: String(metricVM.workoutManager?.heartRate ?? 0), unitSymbol: "", colorSymbol: .red)
+            HKSummaryText(imageSymbol: "heart.fill", titleSymbol: "Avg. Heart Rate", valueSymbol: String(Int(metricVM.workoutManager?.heartRate ?? 0)), unitSymbol: "", colorSymbol: .red)
         }
     }
 }
