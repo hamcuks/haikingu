@@ -514,6 +514,7 @@
 		E73E7F132CAC7FE400C51B9D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E73E7F172CAC7FE400C51B9D /* SubViews */,
 				E73E7F112CAC7FE400C51B9D /* HomeVC+BLE+Extension.swift */,
 				E73E7F122CAC7FE400C51B9D /* HomeVC+HikingInvitation+Extension.swift */,
 			);
@@ -543,7 +544,6 @@
 			isa = PBXGroup;
 			children = (
 				E73E7F132CAC7FE400C51B9D /* Extensions */,
-				E73E7F172CAC7FE400C51B9D /* SubViews */,
 				E73E7F1A2CAC7FE400C51B9D /* ViewControllers */,
 			);
 			path = Home;

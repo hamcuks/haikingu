@@ -113,7 +113,6 @@ class DetailDestinationVC: UIViewController {
         navigationController?.navigationBar.tintColor = .brown
         
         setupUI()
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {

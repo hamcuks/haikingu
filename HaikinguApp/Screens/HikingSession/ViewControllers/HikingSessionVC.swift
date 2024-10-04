@@ -283,6 +283,7 @@ extension HikingSessionVC: HikingSessionVCDelegate {
     func didReceivedHikingState(_ state: HikingStateEnum) {
         /// Update hiking member component based on hiking state
         print("Current Hiking State: \(state.rawValue)")
+        guard let userData = userDefaultManager?.getUserData() else { return }
         
         switch state {
             
@@ -296,7 +297,7 @@ extension HikingSessionVC: HikingSessionVCDelegate {
         
         case .finished:
             self.workoutManager?.sendEndedToWatch()
-            
+            self.centralManager?.updateHikingState(for: .finished)
         }
     }
     
