@@ -48,6 +48,7 @@ struct HomeScreen: View {
                 }
                 .onAppear {
                     homeVM.workoutManager?.requestAuthorization()
+                    homeVM.workoutManager?.reqMotionAccess()
                 }
         }
     }
