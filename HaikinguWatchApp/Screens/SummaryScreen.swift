@@ -12,15 +12,17 @@ struct SummaryScreen: View {
     @EnvironmentObject var userServices: UserServices
     @EnvironmentObject var navigationServices: NavigationServices
     @EnvironmentObject var metricVM: MetricsVM
-    @State var isBackHome: Bool = false
+    @State var isBackHome: Bool = true
     
     var body: some View {
 //        NavigationStack(path: navigationServices.$path) {
             ScrollView {
                 VStack(alignment: .center, spacing: 12) {
                     SummaryFirstView(
-                        titleText: "\(isBackHome ? "Great job! You made it back safely after the hike! ⛰️" : "What a great journey to \(String(metricVM.workoutManager?.selectedDestinationName ?? "Your Destination"))! ⛰️")",
-                        subtitleText: "\(isBackHome ? "See you on the next journey! 👋🏻👋🏻👋🏻" : "Take your iPhone and capture your moment! It’s a memory you'll want to keep from your amazing hike! 📸")")
+                        // "Great job! You made it back safely after the hike! ⛰️"
+                        titleText: "\(isBackHome ? "What a great journey to \(String(metricVM.workoutManager?.selectedDestinationName ?? "Your Destination"))! ⛰️" : "What a great journey to \(String(metricVM.workoutManager?.selectedDestinationName ?? "Your Destination"))! ⛰️")",
+                        subtitleText: "\(isBackHome ? "Take your iPhone and capture your moment! It’s a memory you'll want to keep from your amazing hike! 📸" : "Take your iPhone and capture your moment! It’s a memory you'll want to keep from your amazing hike! 📸")")
+                    // "See you on the next journey! 👋🏻👋🏻👋🏻"
                     Divider()
                     SummarySecondView()
 //                    Divider()
@@ -74,7 +76,7 @@ struct SummarySecondView: View {
     @EnvironmentObject var metricVM: MetricsVM
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HKSummaryText(imageSymbol: "stopwatch", titleSymbol: "Duration", valueSymbol:metricVM.formatterTime(metricVM.workoutManager!.elapsedTimeInterval), unitSymbol: "", colorSymbol: .white)
+            HKSummaryText(imageSymbol: "stopwatch", titleSymbol: "Duration", valueSymbol: metricVM.formatterTime(metricVM.workoutManager!.elapsedTimeInterval), unitSymbol: "", colorSymbol: .white)
             
             HKSummaryText(imageSymbol: "point.topleft.down.to.point.bottomright.curvepath.fill", titleSymbol: "Total Length", valueSymbol: String(Int(metricVM.workoutManager!.distance)), unitSymbol: "M", colorSymbol: .white)
             
