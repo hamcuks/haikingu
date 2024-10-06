@@ -81,12 +81,12 @@ struct ContentOpeningScreen: View {
                         Text("\(homeVM.titleDestination ?? "Time to Go Home!")")
                             .multilineTextAlignment(.leading)
                             .font(Font.system(size: 15, weight: .medium))
-                            .lineLimit(2, reservesSpace: true)
+                            .lineLimit(2)
                         
                         Text("\(homeVM.subtitleDestination ?? "Don't forget to head back in time and keep your energy up!")")
                             .multilineTextAlignment(.leading)
                             .font(Font.system(size: 13, weight: .light))
-                            .lineLimit(4, reservesSpace: true)
+                            .lineLimit(4)
                         
 //                        HStack(spacing: 8) {
 //                            if ((homeVM.titleDestination?.isEmpty) != nil) {
