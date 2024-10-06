@@ -16,9 +16,9 @@ struct RemainingTimeView: View {
         Text(NSNumber(value: remainingTime), formatter: timeFormatter)
             .lineLimit(2)
             .font(Font.system(size: 34, weight: .bold))
-            .onChange(of: showSubseconds) { (_, newValue) in
-                timeFormatter.showSubseconds = newValue
-            }
+//            .onChange(of: showSubseconds) { (_, newValue) in
+//                timeFormatter.showSubseconds = newValue
+//            }
     }
 }
 

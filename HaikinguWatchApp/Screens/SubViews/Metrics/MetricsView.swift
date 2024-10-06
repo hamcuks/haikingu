@@ -21,7 +21,7 @@ struct MetricsView: View {
                         ElapsedTimeView(elapsedTime: elapsedTime(with: context.date), showSubseconds: context.cadence == .live)
                             .foregroundStyle(.white)
                         
-                        RemainingTimeView(remainingTime: remainingTime(with: context.date), showSubseconds: context.cadence == .live)
+                        RemainingTimeView(remainingTime: remainingTime(with: context.date)) //, showSubseconds: context.cadence == .live
                             .foregroundStyle(.orange)
                     }
                      
@@ -48,7 +48,7 @@ struct MetricsView: View {
                                 .foregroundStyle(.red)
                                 
                         }
-                        .font(Font.system(size: 24, weight: .semibold))
+                        .font(Font.system(size: 20, weight: .semibold))
                     
     //                .border(.red)
                     

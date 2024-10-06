@@ -18,7 +18,7 @@ struct HKSummaryText: View {
     var body: some View {
         HStack {
             Image(systemName: "\(imageSymbol)")
-                .font(Font.system(size: 32, weight: .semibold))
+                .font(Font.system(size: 28, weight: .semibold))
                 .foregroundStyle(colorSymbol)
             VStack(alignment: .leading) {
                 Text("\(titleSymbol)")
@@ -26,7 +26,7 @@ struct HKSummaryText: View {
                 
                 HStack(alignment: .bottom) {
                     Text("\(valueSymbol)")
-                        .font(Font.system(size: 32, weight: .semibold))
+                        .font(Font.system(size: 28, weight: .semibold))
                     Text("\(unitSymbol)")
                         .font(Font.system(size: 24, weight: .regular))
                 }

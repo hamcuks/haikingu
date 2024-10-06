@@ -24,8 +24,8 @@ class HomeVM: ObservableObject, WorkoutVMHomeDelegate {
     }
     
     func didUpdateDestinationWatch(_ destinationWatch: String) {
-        titleDestination = "Your Hiking Plan"
-        subtitleDestination = "You will be hiking to \(destinationWatch)"
+        titleDestination = "\(destinationWatch) Hiking"
+        subtitleDestination = "Take in the awesome views of \(destinationWatch). Ready for some fun?"
         isHasContent = true
     }
     
