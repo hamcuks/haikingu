@@ -38,7 +38,7 @@ struct MetricsView: View {
                     }
                     
                 }
-    //            .border(.red)
+
                 
                 VStack(alignment: .leading, spacing: 0) {
                         HStack {
@@ -58,6 +58,16 @@ struct MetricsView: View {
     //                    .border(.yellow)
                 }
     //            Spacer()
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    metricsVM.isPersonTiredVM = true
+                }
+            }
+            .alert("Your BPM is high goblok", isPresented: $metricsVM.isPersonTiredVM) {
+                Button("OK") {
+
+                }
             }
         }
         

@@ -390,7 +390,7 @@ extension HikingSessionVC: WorkoutDelegate {
         
         guard let userData = userDefaultManager?.getUserData() else { return }
         
-        if workoutManager?.isPersonTired() ?? false {
+        if workoutManager?.checkPersonTired() ?? false {
             workoutManager?.pauseTimer()
             headerView.bpmHigh()
             

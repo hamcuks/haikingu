@@ -30,6 +30,7 @@ protocol WorkoutVMHomeDelegate: AnyObject {
 
 protocol WorkoutVMMetricsDelegate: AnyObject {
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
+    func didUpdateIsTired(_ isPersonTired: Bool)
 }
 
 enum TimingState {
@@ -88,6 +89,7 @@ class WorkoutManager: NSObject, ObservableObject {
     var endTime: Date?
     var isPaused = false
     var pausedTime: TimeInterval = 0
+    var isPersonTired: Bool = false
     @Published var whatToDo: TimingState = .timeToWalk {
         didSet {
             delegate?.didUpdateWhatToDo(whatToDo)
@@ -100,10 +102,12 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var heartRate: Double = 0 {
         didSet {
             delegate?.didUpdateHeartRate(heartRate)
-            if isPersonTired() {
-                print("Ini orang sudah lelah, send notif")
+            if checkPersonTired() {
+                isPersonTired = true
+                delegateVMMetrics?.didUpdateIsTired(isPersonTired)
             } else {
-                print("Ini orang masih chill, lanjut jalan")
+                isPersonTired = false
+                delegateVMMetrics?.didUpdateIsTired(isPersonTired)
             }
         }
     }
@@ -185,13 +189,12 @@ class WorkoutManager: NSObject, ObservableObject {
         maxHeartRate = 220 - (age?.year ?? 23)
     }
 
-    func isPersonTired() -> Bool {
-        if heartRate > Double(maxHeartRate!) {
+    func checkPersonTired() -> Bool {
+        if heartRate > (0.75 * Double(maxHeartRate ?? 197)) {
             return true
         } else {
             return false
         }
-        
     }
 
     func consumeSessionStateChange(_ change: SessionStateChange) async {
