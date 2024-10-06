@@ -238,12 +238,12 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
             print("Disctance is less than maximum distance: \(rangeDistance)")
             self.centralManager?.updateHikingState(for: .started)
         } else {
-            alertNotRange.showAlert(on: self)
-//            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
-//            hikingSessionVC.destinationDetail = selectedDestination
-//            navigationController?.pushViewController(hikingSessionVC, animated: true)
-//            print("Distance is greater than maximum distance: \(rangeDistance)")
-//            self.centralManager?.updateHikingState(for: .started)
+//            alertNotRange.showAlert(on: self)
+            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+            hikingSessionVC.destinationDetail = selectedDestination
+            navigationController?.pushViewController(hikingSessionVC, animated: true)
+            print("Distance is greater than maximum distance: \(rangeDistance)")
+            self.centralManager?.updateHikingState(for: .started)
         }
         
     }
