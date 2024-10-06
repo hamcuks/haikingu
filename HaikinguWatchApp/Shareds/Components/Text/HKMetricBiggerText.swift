@@ -20,7 +20,7 @@ struct HKMetricBiggerText: View {
                     Text("\(intvalue)")
                         .font(Font.system(size: 24, weight: .semibold))
                     Text("\(intMeasure)")
-                        .font(Font.system(size: 20, weight: .regular))
+                        .font(Font.system(size: 17, weight: .regular))
                         .padding(.top, 3)
                 }
                 Text("\(intDesc)")
