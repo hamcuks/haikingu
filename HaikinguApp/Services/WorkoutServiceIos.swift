@@ -25,7 +25,7 @@ protocol WorkoutServiceIos {
     func stopPedometerUpdates()
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws
     func retrieveRemoteSession()
-    func isPersonTired() -> Bool
+    func checkPersonTired() -> Bool
     func pauseTimer()
     func resumeTimer()
     func stopTimer()

@@ -9,7 +9,6 @@ import SwiftUI
 
 class MetricsVM: ObservableObject, WorkoutVMMetricsDelegate {
     
-    
     @Published var heartRate: Double = 0
     @Published var distance: Double = 0
     @Published var workoutManager: WorkoutServiceWatchOS?
@@ -30,6 +29,7 @@ class MetricsVM: ObservableObject, WorkoutVMMetricsDelegate {
     @Published var isLeadEndTapped: Bool = false // For Leader
     @Published var isMemberRequestRest: Bool = false // For Member
     @Published var isWorkoutEnded: Bool = false
+    @Published var isPersonTiredVM: Bool = false
     
     init (workoutManager: WorkoutServiceWatchOS?) {
         self.workoutManager = workoutManager
@@ -48,4 +48,11 @@ class MetricsVM: ObservableObject, WorkoutVMMetricsDelegate {
         return String(format: "%02d.%02d.%02d", hours, minutes, seconds)
     }
     
+    func didUpdateIsTired(_ isPersonTired: Bool) {
+        if isPersonTired{
+            isPersonTiredVM = true
+        } else {
+            isPersonTiredVM = false
+        }
+    }
 }
