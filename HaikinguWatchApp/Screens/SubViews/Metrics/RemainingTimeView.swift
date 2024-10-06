@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RemainingTimeView: View {
     var remainingTime: TimeInterval = 0
-    var showSubseconds = true
+    var showSubseconds = false
     @State private var timeFormatter = RemainingTimeFormatter()
 
     var body: some View {
@@ -40,11 +40,6 @@ class RemainingTimeFormatter: Formatter {
             return nil
         }
 
-        if showSubseconds {
-            let hundredths = Int((time.truncatingRemainder(dividingBy: 1)) * 100)
-            let decimalSeparator = Locale.current.decimalSeparator ?? "."
-            return String(format: "%@%@%0.2d", formattedString, decimalSeparator, hundredths)
-        }
 
         return formattedString
     }

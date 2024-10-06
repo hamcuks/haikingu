@@ -18,7 +18,7 @@ struct MetricsView: View {
             VStack(alignment: .leading, spacing: 2) {
                 VStack(alignment: .leading, spacing: 0) {
                     VStack(alignment: .leading, spacing: 0) {
-                        ElapsedTimeView(elapsedTime: elapsedTime(with: context.date), showSubseconds: context.cadence == .live)
+                        ElapsedTimeView(elapsedTime: elapsedTime(with: context.date))
                             .foregroundStyle(.white)
                         
                         RemainingTimeView(remainingTime: remainingTime(with: context.date)) //, showSubseconds: context.cadence == .live
