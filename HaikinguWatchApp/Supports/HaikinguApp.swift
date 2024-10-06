@@ -6,21 +6,29 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct HaikinguWatchAppApp: App {
     @WKApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @Inject var homeVM: HomeVM
     @Inject var metricsVM: MetricsVM
+    @Inject var sumarryVM: SummaryVM
     @StateObject var userServices = UserServices()
+    @StateObject var appState = AppState()
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            ContentView()
                 .environmentObject(NavigationServices())
                 .environmentObject(homeVM)
                 .environmentObject(metricsVM)
                 .environmentObject(userServices)
+                .environmentObject(appState)
+                .onAppear {
+                    appDelegate.appState = appState
+                }
+                
         }
     }
 }

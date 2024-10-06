@@ -16,6 +16,8 @@ enum UserType {
 }
 
 class DetailDestinationVC: UIViewController {
+ 
+    
     
     /// Managers
     var centralManager: CentralBLEService?
@@ -81,6 +83,8 @@ class DetailDestinationVC: UIViewController {
         
         self.workoutManager = workoutManager
         self.centralManager = centralManager
+        
+        self.workoutManager?.setDelegateV2(self)
     }
     
     required init?(coder: NSCoder) {
@@ -96,7 +100,7 @@ class DetailDestinationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        workoutManager?.retrieveRemoteSession()
+        
         view.backgroundColor = .white
         
         locationManager.delegate = self
@@ -210,11 +214,13 @@ class DetailDestinationVC: UIViewController {
     }
     
     func startHikingOnWatch() {
-        Task {
-            do {
-                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
-            } catch {
-                print("gagal start watch workout")
+        DispatchQueue.main.async {
+            Task {
+                do {
+                    try await self.workoutManager?.startWatchWorkout(workoutType: .hiking)
+                } catch {
+                    print("gagal start watch workout")
+                }
             }
         }
     }
@@ -229,7 +235,12 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
         guard let userLocation = userLocation else { return print("User Location is Unavailable")}
         let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
         let maximumDistance = 1000.0
-        startHikingOnWatch()
+        if ((workoutManager?.isWatchAppOpen()) != nil){
+            DispatchQueue.main.async {
+                self.startHikingOnWatch()
+            }
+        }
+        self.workoutManager?.sendStartedToWatch()
         
         if rangeDistance < maximumDistance {
             guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
@@ -267,6 +278,19 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Err: \(error.localizedDescription)")
+    }
+    
+}
+
+extension DetailDestinationVC: WorkoutDelegateV2 {
+   
+    func didWorkoutStarted(_ isWorkoutStarted: Bool) {
+        if isWorkoutStarted {
+            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+            hikingSessionVC.destinationDetail = selectedDestination
+            navigationController?.pushViewController(hikingSessionVC, animated: true)
+            self.centralManager?.updateHikingState(for: .started)
+        }
     }
     
 }

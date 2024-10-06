@@ -92,6 +92,8 @@ class CongratsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        workoutManager.setDelegateV3(self)
+        
         view.backgroundColor = .white
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -209,6 +211,10 @@ class CongratsVC: UIViewController {
     
     @objc
     func setReminderTapped() {
+        DispatchQueue.main.async {
+            self.workoutManager.isWorkoutEnded = false
+        }
+        workoutManager.sendBackToHomeToWatch()
 //        // Dapatkan waktu pengingat dan waktu alert
 //        let formatter = DateFormatter()
 //        formatter.dateFormat = "HH:mm"
@@ -361,4 +367,12 @@ extension CongratsVC: UITableViewDelegate, UITableViewDataSource {
         
         self.present(alertPickerVC, animated: true, completion: nil)
     }
+}
+
+extension CongratsVC: WorkoutDelegateV3 {
+    func didBackToHome(_ isBackToHome: Bool) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
 }

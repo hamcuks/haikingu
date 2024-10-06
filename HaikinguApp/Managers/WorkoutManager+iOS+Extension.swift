@@ -18,11 +18,28 @@ extension WorkoutManager: WorkoutServiceIos {
         self.delegate = delegate
     }
     
-    func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws {
+    func setDelegateV2(_ delegate: any WorkoutDelegateV2) {
+        self.delegateV2 = delegate
+    }
+    
+    func setDelegateV3(_ delegate: any WorkoutDelegateV3) {
+        self.delegateV3 = delegate
+    }
+    
+    func startWatchWorkout(workoutType: HKWorkoutActivityType) throws {
+
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = workoutType
         configuration.locationType = .outdoor
-        try await healthStore.startWatchApp(toHandle: configuration)
+
+            Task {
+                do {
+                    try await self.healthStore.startWatchApp(toHandle: configuration)
+                } catch {
+                    print("Error starting watch workout: \(error)")
+                }
+            }
+        
     }
     
     func retrieveRemoteSession() {
@@ -53,6 +70,14 @@ extension WorkoutManager: WorkoutServiceIos {
             for statistics in statisticsArray {
                 updateForStatistics(statistics)
             }
+        }
+    }
+    
+    func isWatchAppOpen() -> Bool{
+        if WCSession.default.isReachable {
+            return true
+        }else{
+            return false
         }
     }
     
@@ -144,6 +169,22 @@ extension WorkoutManager: WorkoutServiceIos {
         }
     }
     
+    func sendStartedToWatch() {
+        if WCSession.default.isReachable {
+            let message = ["started": true] as [String: Any]
+                
+            WCSession.default.sendMessage(message, replyHandler: nil)
+        }
+    }
+    
+    func sendBackToHomeToWatch() {
+        if WCSession.default.isReachable {
+            let message = ["backToHome": true] as [String: Any]
+                
+            WCSession.default.sendMessage(message, replyHandler: nil)
+        }
+    }
+    
 }
 
 extension WorkoutManager: WCSessionDelegate {
@@ -156,7 +197,15 @@ extension WorkoutManager: WCSessionDelegate {
     }
     
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-       
+        if let start = message["isWorkoutStarted"] as? Bool {
+            DispatchQueue.main.async {
+                self.isWorkoutStart = start
+            }
+        } else if let backvalue = message["backToHome"] as? Bool {
+            DispatchQueue.main.async {
+                self.backToHome = backvalue
+            }
+        }
     }
     
     nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {

@@ -43,9 +43,6 @@ struct HomeScreen: View {
                             .onAppear {
                                 homeVM.isHasContent = false
                             }
-//                        Container.shared.resolve(SummaryScreen.self)
-                    } else if destini == "reminder" {
-                        //                    ReminderScreen()
                     }
                 }
                 .onAppear {
@@ -64,6 +61,20 @@ struct HomeScreen: View {
                 .font(Font.system(.footnote, weight: .light))
         }
     }
+    
+    private func startWorkout() {
+        Task {
+            do {
+                let configuration = HKWorkoutConfiguration()
+                configuration.activityType = .hiking
+                configuration.locationType = .outdoor
+                try await homeVM.workoutManager?.startWorkout(workoutConfiguration: configuration)
+            } catch {
+                print("error bang gagal")
+            }
+        }
+    }
+
 }
 
 struct ContentOpeningScreen: View {
@@ -101,12 +112,22 @@ struct ContentOpeningScreen: View {
 //                        }
                     }
                     HKTextButton(titleButton: "Go now!", widthButton: 148, heightButton: 40) {
-                        navigationServices.path.append("metrics")
+                        DispatchQueue.main.async {
+                            homeVM.workoutManager?.isWorkoutStart = true
+                        }
                         startWorkout()
+                        
+                        navigationServices.path.append("metrics")
+                        
                         print("button tappep")
                     }
                 }
                 .padding(.all, 8)
+            }
+            .onChange(of: homeVM.isWorkoutStartedNow) {
+                
+                navigationServices.path.append("metrics")
+                
             }
     }
     

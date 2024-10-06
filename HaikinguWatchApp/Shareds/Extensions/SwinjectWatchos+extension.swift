@@ -35,6 +35,14 @@ extension Container {
             return metricsVm
         }
         
+        container.register(SummaryVM.self) { resolver in
+            let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
+            
+            let summaryVM = SummaryVM(workoutManager: workoutManager)
+            
+            return summaryVM
+        }
+        
 //        container.register(AppDelegate.self) { resolver in
 //            let workoutManager = resolver.resolve(WorkoutServiceWatchOS.self)
 //            

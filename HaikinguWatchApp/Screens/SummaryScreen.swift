@@ -12,6 +12,7 @@ struct SummaryScreen: View {
     @EnvironmentObject var userServices: UserServices
     @EnvironmentObject var navigationServices: NavigationServices
     @EnvironmentObject var metricVM: MetricsVM
+    @EnvironmentObject var summaryVM: SummaryVM
     @State var isBackHome: Bool = true
     
     var body: some View {
@@ -36,10 +37,16 @@ struct SummaryScreen: View {
                         // MARK: Navigate / add path into Another Screen
                             if isBackHome {
                                 navigationServices.path.removeLast(navigationServices.path.count)
+                                DispatchQueue.main.async {
+                                    summaryVM.workoutManager?.backToHome = true
+                                }
                             } else {
                                 if userServices.userType == .leader {
                                     navigationServices.path.append("reminder")
                                 } else {
+                                    DispatchQueue.main.async {
+                                        metricVM.workoutManager?.backToHome = true
+                                    }
                                     navigationServices.path.removeLast(navigationServices.path.count)
                                 }
                             }
@@ -50,6 +57,9 @@ struct SummaryScreen: View {
             .toolbarForegroundStyle(.orange, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .onChange(of: summaryVM.isBackToHome){_, back in
+                navigationServices.path.removeLast(navigationServices.path.count)
+            }
             
         }
 //    }

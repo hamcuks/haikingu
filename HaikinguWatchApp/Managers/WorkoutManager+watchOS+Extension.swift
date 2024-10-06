@@ -25,6 +25,10 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         self.delegateVMMetrics = delegate
     }
     
+    func setDelegateVMSummary(_ delegate: any WorkoutVMSummaryDelegate) {
+        self.delegateVMSummary = delegate
+    }
+    
 
     
     
@@ -66,8 +70,10 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
     }
     
     func reqMotionAccess() {
-        guard CMPedometer.isPaceAvailable() else {
-            return
+        if CMPedometer.isPaceAvailable() {
+            pedometerManager.startUpdates(from: Date()) { data, error in
+                guard let data = data, error == nil else { return }
+            }
         }
     }
     
@@ -140,10 +146,21 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
             print("gagal stop workout")
             return
         }
-        DispatchQueue.main.async {
+      
             self.workout = finishedWorkout
-            print(self.workout?.averageHeartRate)
+           
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if let start = message["started"] as? Bool {
+            isWorkoutStart = start
+        } else if let backvalue = message["backToHome"] as? Bool {
+            DispatchQueue.main.async {
+                self.backToHome = backvalue
+            }
         }
+        
     }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
@@ -161,6 +178,7 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         } else if let ended = applicationContext["triggerEnded"] as? String {
             DispatchQueue.main.async {
                 self.isWorkoutEnded = true
+                self.isWorkoutStart = false
                 self.stopTimer()
                 self.stopObserving()
             }
@@ -328,6 +346,30 @@ extension WorkoutManager {
                 try WCSession.default.updateApplicationContext(message)
             } catch {
                 print("error sending data rest taken via app context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func sendStartedStateToIphone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "isWorkoutStarted": isWorkoutStart
+            ] as [String: Any]
+            
+            WCSession.default.sendMessage(message, replyHandler: nil){error in
+                print("error send start data to iphone")
+            }
+        }
+    }
+    
+    func sendBackToHomeToIphone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "backToHome": backToHome
+            ] as [String: Any]
+            
+            WCSession.default.sendMessage(message, replyHandler: nil){error in
+                print("error send start data to iphone")
             }
         }
     }

@@ -18,7 +18,12 @@ protocol WorkoutServiceIos {
     var elapsedTimeInterval: TimeInterval { get set }
     var workout: HKWorkout? { get set }
     var whatToDo: TimingState { get set }
+    var isWorkoutEnded: Bool { get set }
+    var session: HKWorkoutSession? { get set }
+    func isWatchAppOpen() -> Bool
     func setDelegate(_ delegate: WorkoutDelegate)
+    func setDelegateV2(_ delegate: WorkoutDelegateV2)
+    func setDelegateV3(_ delegate: WorkoutDelegateV3)
     
     func requestMotionPermission()
     func requestHealthAccess()
@@ -32,7 +37,9 @@ protocol WorkoutServiceIos {
     func sendPausedToWatch()
     func sendResumedToWatch()
     func sendEndedToWatch()
+    func sendStartedToWatch()
     func sendDestinationNameToWatch(destination name: String)
     func sendDestinationElevMaxToWatch(elevMax: Int)
     func sendDestinationElevMinToWatch(elevMin: Int)
+   func sendBackToHomeToWatch()
 }

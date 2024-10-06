@@ -67,8 +67,8 @@ class HikingSessionVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.workoutManager?.retrieveRemoteSession()
         
-        workoutManager?.retrieveRemoteSession()
         headerView.configureValueState(workoutManager?.whatToDo ?? .timeToRest)
         timeElapsed?.updateLabel(workoutManager!.elapsedTimeInterval)
         
@@ -94,7 +94,6 @@ class HikingSessionVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.workoutManager?.retrieveRemoteSession()
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
@@ -188,6 +187,8 @@ class HikingSessionVC: UIViewController {
                 //                horizontalStack.addArrangedSubview(endButton)
                 horizontalStack.subviews.first?.isHidden = false
                 workoutManager?.sendPausedToWatch()
+    
+                
                 
             } else if iconButton == "play.fill" {
                 print("paused button leader tapped")
@@ -196,6 +197,7 @@ class HikingSessionVC: UIViewController {
                 //                endButton.removeFromSuperview()
                 horizontalStack.subviews.first?.isHidden = true
                 workoutManager?.sendResumedToWatch()
+         
                 
                 //                // Modifikasi workoutManager menggunakan serial queue
                 DispatchQueue.main.async {
@@ -223,6 +225,7 @@ class HikingSessionVC: UIViewController {
     func endActionTapped() {
         workoutManager?.stopTimer()
         workoutManager?.sendEndedToWatch()
+        workoutManager?.session?.stopActivity(with: .now)
         guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
         finishVC.destinationDetail = destinationDetail
         navigationController?.pushViewController(finishVC, animated: true)
@@ -307,6 +310,10 @@ extension HikingSessionVC: HikingSessionVCDelegate {
 }
 
 extension HikingSessionVC: WorkoutDelegate {
+    func didWorkoutStarted(_ isWorkoutStarted: Bool) {
+        //
+    }
+    
     func didWorkoutEnded(_ isWorkoutEnded: Bool) {
         if isWorkoutEnded {
             workoutManager?.stopTimer()

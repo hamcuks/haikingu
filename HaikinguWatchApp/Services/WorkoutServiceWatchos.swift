@@ -23,12 +23,15 @@ protocol WorkoutServiceWatchOS {
     var whatToDo: TimingState { get set }
     var isWorkoutPaused: Bool { get set }
     var isWorkoutEnded: Bool { get set }
+    var isWorkoutStart: Bool { get set }
     var selectedDestinationName: String { get set }
     var selectedDestinationElevMax: Int { get set }
     var selectedDestinationElevMin: Int { get set }
     var restTaken: Int { get set }
+    var backToHome: Bool { get set }
     func setDelegateVMHome(_ delegate: WorkoutVMHomeDelegate)
     func setDelegateVMMetrics(_ delegate: WorkoutVMMetricsDelegate)
+    func setDelegateVMSummary(_ delegate: WorkoutVMSummaryDelegate)
     
     func resetWorkout()
     func requestAuthorization()

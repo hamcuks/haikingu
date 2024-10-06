@@ -18,12 +18,18 @@ class AppDelegate: NSObject, WKApplicationDelegate {
 //        self.workoutManager = workoutManager
 //    }
     
+    var appState: AppState? // Inject the app state
+    
+    
     func handle(_ workoutConfiguration: HKWorkoutConfiguration) {
         Task {
             do {
                 WorkoutManager.shared.resetWorkout() // workoutManager?.resetWorkout()
                 try await WorkoutManager.shared.startWorkout(workoutConfiguration: workoutConfiguration) // workoutManager?.startWorkout(workoutConfiguration: workoutConfiguration)
                 Logger.shared.log("Successfully started workout")
+                DispatchQueue.main.async {
+                                    self.appState?.showMetricsScreen = true
+                                }
             } catch {
                 Logger.shared.log("Failed started workout")
             }

@@ -24,8 +24,21 @@ protocol WorkoutDelegate: AnyObject {
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
 }
 
+protocol WorkoutDelegateV2: AnyObject {
+    func didWorkoutStarted(_ isWorkoutStarted: Bool)
+}
+
+protocol WorkoutDelegateV3: AnyObject {
+    func didBackToHome(_ isBackToHome: Bool)
+}
+
 protocol WorkoutVMHomeDelegate: AnyObject {
     func didUpdateDestinationWatch(_ destinationWatch: String)
+    func didUpdateWorkoutStarted(_ isWorkoutStarted: Bool)
+}
+
+protocol WorkoutVMSummaryDelegate: AnyObject {
+    func didBackToHome(_ backToHome: Bool)
 }
 
 protocol WorkoutVMMetricsDelegate: AnyObject {
@@ -43,6 +56,9 @@ class WorkoutManager: NSObject, ObservableObject {
     var delegate: WorkoutDelegate?
     var delegateVMHome: WorkoutVMHomeDelegate?
     var delegateVMMetrics: WorkoutVMMetricsDelegate?
+    var delegateV2: WorkoutDelegateV2?
+    var delegateV3: WorkoutDelegateV3?
+    var delegateVMSummary: WorkoutVMSummaryDelegate?
     let pedometerManager = CMPedometer()
     
     struct SessionStateChange {
@@ -58,6 +74,16 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var selectedDestinationElevMax: Int = 1
     @Published var selectedDestinationElevMin: Int = 0
     
+
+    @Published var backToHome: Bool = false {
+        didSet{
+            delegateV3?.didBackToHome(backToHome)
+            delegateVMSummary?.didBackToHome(backToHome)
+#if os(watchOS)
+            sendBackToHomeToIphone()
+#endif
+        }
+    }
     @Published var isWorkoutPaused: Bool = false {
         didSet {
             delegate?.didWorkoutPaused(isWorkoutPaused)
@@ -75,6 +101,17 @@ class WorkoutManager: NSObject, ObservableObject {
 #endif
         }
     }
+    
+    @Published var isWorkoutStart: Bool = false {
+        didSet {
+            delegateV2?.didWorkoutStarted(isWorkoutStart)
+            delegateVMHome?.didUpdateWorkoutStarted(isWorkoutStart)
+            #if os(watchOS)
+            sendStartedStateToIphone()
+            #endif
+        }
+    }
+    
     @Published var restTaken: Int = 0 {
         didSet {
             delegate?.didUpdateRestAmount(restTaken)

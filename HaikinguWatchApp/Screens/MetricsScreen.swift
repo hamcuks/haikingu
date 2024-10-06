@@ -15,34 +15,33 @@ struct MetricsScreen: View {
     @State var isPaused: Bool = false
     
     var body: some View {
-        NavigationStack(path: $navigationServices.path){
-            ZStack {
-                TabView(selection: $metricsVM.pageNumber) {
-                    
-                    if userServices.userType == .member {
-                        MemberControlView()
-                            .tag(0)
-                    } else if userServices.userType == .leader {
-                        LeadControlView(isPaused: $isPaused)
-                            .tag(0)
-                    }
-                    
-                    MetricsView()
-                        .tag(1)
-                    
+//    NavigationStack(path: $navigationServices.path){
+        ZStack {
+            TabView(selection: $metricsVM.pageNumber) {
+                
+                if userServices.userType == .member {
+                    MemberControlView()
+                        .tag(0)
+                } else if userServices.userType == .leader {
+                    LeadControlView(isPaused: $isPaused)
+                        .tag(0)
                 }
-                .onChange(of: metricsVM.workoutManager!.isWorkoutPaused) { _, paused in
-                    if paused {
-                        isPaused = true
-                    } else {
-                        isPaused = false
-                    }
-                }
-                .tabViewStyle(.page)
+                
+                MetricsView()
+                    .tag(1)
                 
             }
-            .navigationBarBackButtonHidden(true)
+            .onChange(of: metricsVM.workoutManager!.isWorkoutPaused) { _, paused in
+                if paused {
+                    isPaused = true
+                } else {
+                    isPaused = false
+                }
+            }
+            .tabViewStyle(.page)
+            
         }
+        .navigationBarBackButtonHidden(true)
         .onChange(of: metricsVM.isWorkoutEnded) { _, ended in
             navigationServices.path.append("summary")
             Task {
@@ -51,24 +50,27 @@ struct MetricsScreen: View {
                 
                 
             }
+//        }
+    }
         }
-        .navigationDestination(for: String.self) { destini in
-            if destini == "metrics" {
-                MetricsScreen()
-            } else if destini == "summary" {
-                SummaryScreen()
-            } else if destini == "reminder" {
-                //                    ReminderScreen()
-            }
-        }
+        
+//        .navigationDestination(for: String.self) { destini in
+//            if destini == "metrics" {
+//                MetricsScreen()
+//            } else if destini == "summary" {
+//                SummaryScreen()
+//            } else if destini == "reminder" {
+//                //                    ReminderScreen()
+//            }
+//        }
         //            .background(DisableSwipeBackGesture())
         
     }
     
-}
 
-#Preview {
-    MetricsScreen()
-        .environmentObject(UserServices())
-        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
-}
+
+//#Preview {
+//    MetricsScreen()
+//        .environmentObject(UserServices())
+//        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
+//}
