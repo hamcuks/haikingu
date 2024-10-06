@@ -9,16 +9,16 @@ import SwiftUI
 
 struct RemainingTimeView: View {
     var remainingTime: TimeInterval = 0
-    var showSubseconds = true
+    var showSubseconds = false
     @State private var timeFormatter = RemainingTimeFormatter()
 
     var body: some View {
         Text(NSNumber(value: remainingTime), formatter: timeFormatter)
             .lineLimit(2)
             .font(Font.system(size: 34, weight: .bold))
-            .onChange(of: showSubseconds) { (_, newValue) in
-                timeFormatter.showSubseconds = newValue
-            }
+//            .onChange(of: showSubseconds) { (_, newValue) in
+//                timeFormatter.showSubseconds = newValue
+//            }
     }
 }
 
@@ -40,11 +40,6 @@ class RemainingTimeFormatter: Formatter {
             return nil
         }
 
-        if showSubseconds {
-            let hundredths = Int((time.truncatingRemainder(dividingBy: 1)) * 100)
-            let decimalSeparator = Locale.current.decimalSeparator ?? "."
-            return String(format: "%@%@%0.2d", formattedString, decimalSeparator, hundredths)
-        }
 
         return formattedString
     }

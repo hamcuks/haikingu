@@ -17,12 +17,14 @@ struct HomeScreen: View {
                 VStack(alignment: .leading, spacing: 10) {
                     //            ScrollView {
                     if homeVM.isHasContent {
-                        if homeVM.isReturnHome {
-                            ContentOpeningScreen()
-                                .padding(.all, 10)
-                        } else {
-                            ContentOpeningScreen()
-                                .padding(.all, 10)
+                        ScrollView {
+                            if homeVM.isReturnHome {
+                                ContentOpeningScreen()
+                                    .padding(.all, 10)
+                            } else {
+                                ContentOpeningScreen()
+                                    .padding(.all, 10)
+                            }
                         }
                     } else {
                         emptyOpeningScreen
@@ -77,26 +79,26 @@ struct ContentOpeningScreen: View {
                 VStack(alignment: .center, spacing: 16) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("\(homeVM.titleDestination ?? "Time to Go Home!")")
-                            .lineLimit(2)
                             .multilineTextAlignment(.leading)
                             .font(Font.system(size: 15, weight: .medium))
+                            .lineLimit(2, reservesSpace: true)
                         
                         Text("\(homeVM.subtitleDestination ?? "Don't forget to head back in time and keep your energy up!")")
                             .multilineTextAlignment(.leading)
                             .font(Font.system(size: 13, weight: .light))
-                            .lineLimit(3, reservesSpace: true)
+                            .lineLimit(4, reservesSpace: true)
                         
-                        HStack(spacing: 8) {
-                            if ((homeVM.titleDestination?.isEmpty) != nil) {
-                                
-                            }else {
-                                Image(systemName: "clock")
-                                    .resizable()
-                                    .frame(width: 17, height: 17)
-                            }
-                            Text("\(homeVM.valueDestination ?? "")")
-                                .font(Font.system(size: 15, weight: .light))
-                        }
+//                        HStack(spacing: 8) {
+//                            if ((homeVM.titleDestination?.isEmpty) != nil) {
+//                                
+//                            }else {
+//                                Image(systemName: "clock")
+//                                    .resizable()
+//                                    .frame(width: 17, height: 17)
+//                            }
+//                            Text("\(homeVM.valueDestination ?? "")")
+//                                .font(Font.system(size: 15, weight: .light))
+//                        }
                     }
                     HKTextButton(titleButton: "Go now!", widthButton: 148, heightButton: 40) {
                         navigationServices.path.append("metrics")
