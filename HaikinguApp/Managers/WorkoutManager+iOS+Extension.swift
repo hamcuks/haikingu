@@ -18,6 +18,10 @@ extension WorkoutManager: WorkoutServiceIos {
         self.delegate = delegate
     }
     
+    func setDelegateV2(_ delegate: any WorkoutDelegateV2) {
+        self.delegateV2 = delegate
+    }
+    
     func startWatchWorkout(workoutType: HKWorkoutActivityType) async throws {
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = workoutType
@@ -176,7 +180,14 @@ extension WorkoutManager: WCSessionDelegate {
     }
     
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-       
+        if let start = message["isWorkoutStart"] as? Bool {
+            DispatchQueue.main.async {
+                if start {
+                    self.isWorkoutStarted = true
+                    self.delegateV2?.didUpdateIsWorkoutStarted(self.isWorkoutStarted)
+                }
+            }
+        }
     }
     
     nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {

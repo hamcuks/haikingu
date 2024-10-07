@@ -271,3 +271,32 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
     }
     
 }
+
+extension DetailDestinationVC: WorkoutDelegateV2{
+    func didUpdateIsWorkoutStarted(_ isWorkoutStarted: Bool) {
+        if isWorkoutStarted{
+            guard let userLocation = userLocation else { return print("User Location is Unavailable")}
+            let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
+            let maximumDistance = 1000.0
+            workoutManager?.sendStartToWatch()
+    //        startHikingOnWatch()
+            
+            if rangeDistance < maximumDistance {
+                guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+                hikingSessionVC.destinationDetail = selectedDestination
+                navigationController?.pushViewController(hikingSessionVC, animated: true)
+                print("Disctance is less than maximum distance: \(rangeDistance)")
+                self.centralManager?.updateHikingState(for: .started)
+            } else {
+                alertNotRange.showAlert(on: self)
+    //            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+    //            hikingSessionVC.destinationDetail = selectedDestination
+    //            navigationController?.pushViewController(hikingSessionVC, animated: true)
+    //            print("Distance is greater than maximum distance: \(rangeDistance)")
+    //            self.centralManager?.updateHikingState(for: .started)
+            }
+        }
+    }
+    
+    
+}

@@ -118,6 +118,7 @@ struct ContentOpeningScreen: View {
 //                        }
                     }
                     HKTextButton(titleButton: "Go now!", widthButton: 148, heightButton: 40) {
+                        homeVM.workoutManager?.updateStartedWorkout(to: true)
                         navigationServices.path.append("metrics")
                         startWorkout()
                         print("button tappep")

@@ -24,6 +24,10 @@ protocol WorkoutDelegate: AnyObject {
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
 }
 
+protocol WorkoutDelegateV2: AnyObject {
+    func didUpdateIsWorkoutStarted(_ isWorkoutStarted: Bool)
+}
+
 protocol WorkoutVMHomeDelegate: AnyObject {
     func didUpdateDestinationWatch(_ destinationWatch: String)
     func didWorkoutStarted(_ isWorkoutStarted: Bool)
@@ -49,6 +53,7 @@ class WorkoutManager: NSObject, ObservableObject {
     var delegateVMHome: WorkoutVMHomeDelegate?
     var delegateVMMetrics: WorkoutVMMetricsDelegate?
     var delegateVMSummary: WorkoutVMSummaryDelegate?
+    var delegateV2: WorkoutDelegateV2?
     let pedometerManager = CMPedometer()
     
     struct SessionStateChange {
@@ -364,6 +369,8 @@ class WorkoutManager: NSObject, ObservableObject {
         restTaken = newRestTaken
         self.delegate?.didUpdateRestAmount(restTaken)
     }
+    
+    
     
 }
 
