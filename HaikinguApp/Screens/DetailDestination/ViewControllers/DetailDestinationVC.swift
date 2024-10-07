@@ -231,11 +231,12 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
         guard let userLocation = userLocation else { return print("User Location is Unavailable")}
         let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
         let maximumDistance = 1000.0
-        workoutManager?.sendStartToWatch()
+        
 //        startHikingOnWatch()
         
         if rangeDistance < maximumDistance {
             guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+            workoutManager?.sendStartToWatch()
             hikingSessionVC.destinationDetail = selectedDestination
             hikingSessionVC.userRole = role
             navigationController?.pushViewController(hikingSessionVC, animated: true)

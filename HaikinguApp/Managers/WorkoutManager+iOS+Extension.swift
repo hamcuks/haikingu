@@ -168,6 +168,26 @@ extension WorkoutManager: WorkoutServiceIos {
         }
     }
     
+    func sendRoleLeaderToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "roleLeader": "leader"
+            ] as [String: Any]
+            
+            WCSession.default.sendMessage(message, replyHandler: nil)
+        }
+    }
+    
+    func sendRoleMemberToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "roleMember": "member"
+            ] as [String: Any]
+            
+            WCSession.default.sendMessage(message, replyHandler: nil)
+        }
+    }
+    
 }
 
 extension WorkoutManager: WCSessionDelegate {

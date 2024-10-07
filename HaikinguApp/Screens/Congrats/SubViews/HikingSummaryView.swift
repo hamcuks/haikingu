@@ -65,7 +65,7 @@ class HikingSummaryView: UIView {
         
         eleGainView = HikingMetricsIconTextView(icon: "arrow.up.right", value: "\(destinationDetail.maxElevation) m", title: "Elv. Gain")
         distanceView = HikingMetricsIconTextView(icon: "point.topleft.filled.down.to.point.bottomright.curvepath", value: "\(Int(workoutManager.distance)) m", title: "Distance Hiked")
-        restTakenView = HikingMetricsIconTextView(icon: "figure.mind.and.body", value: "0x", title: "Rest Taken")
+        restTakenView = HikingMetricsIconTextView(icon: "figure.mind.and.body", value: "\(Int(workoutManager.restTaken))x", title: "Rest Taken")
         
         self.configureUI()
     }

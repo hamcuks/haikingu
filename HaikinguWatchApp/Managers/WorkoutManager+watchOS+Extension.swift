@@ -200,6 +200,16 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
                     self.delegateVMSummary?.didBackToHome(self.isBackToHome)
                 }
             }
+        } else if let roleLeader = message["roleLeader"] as? String {
+            DispatchQueue.main.async {
+                self.role = .leader
+                self.delegateVMMetrics?.didRoleChanged(self.role)
+            }
+        } else if let roleMember = message["roleMember"] as? String {
+            DispatchQueue.main.async {
+                self.role = .member
+                self.delegateVMMetrics?.didRoleChanged(self.role)
+            }
         }
     }
     
