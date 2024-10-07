@@ -79,6 +79,7 @@ class DetailDestinationVC: UIViewController {
     init(centralManager: CentralBLEService?, workoutManager: WorkoutServiceIos?) {
         super.init(nibName: nil, bundle: nil)
         
+        
         self.workoutManager = workoutManager
         self.centralManager = centralManager
     }
@@ -96,6 +97,7 @@ class DetailDestinationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.workoutManager?.setDelegateV2(self)
         workoutManager?.retrieveRemoteSession()
         view.backgroundColor = .white
         
