@@ -105,6 +105,8 @@ class DetailDestinationVC: UIViewController {
         
         teamView = TeamsView(frame: self.view.bounds, action: #selector(teamAction), isSolo: isSoloHiker)
         
+        print("ini roleeee \(role)")
+        
         assetsImage.image = UIImage(named: "\(selectedDestination.image)")
         
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -235,9 +237,12 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
         if rangeDistance < maximumDistance {
             guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
             hikingSessionVC.destinationDetail = selectedDestination
+            hikingSessionVC.userRole = role
             navigationController?.pushViewController(hikingSessionVC, animated: true)
+            print("ini roleeh1: \(hikingSessionVC.userRole)")
             print("Disctance is less than maximum distance: \(rangeDistance)")
             self.centralManager?.updateHikingState(for: .started)
+            // change role base on role in this page
         } else {
             alertNotRange.showAlert(on: self)
 //            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
@@ -284,7 +289,9 @@ extension DetailDestinationVC: WorkoutDelegateV2{
             if rangeDistance < maximumDistance {
                 guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
                 hikingSessionVC.destinationDetail = selectedDestination
+                hikingSessionVC.userRole = role
                 navigationController?.pushViewController(hikingSessionVC, animated: true)
+                print("ini roleeh2: \(hikingSessionVC.userRole)")
                 print("Disctance is less than maximum distance: \(rangeDistance)")
                 self.centralManager?.updateHikingState(for: .started)
             } else {

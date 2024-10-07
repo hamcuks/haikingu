@@ -33,7 +33,7 @@ class HikingSessionVC: UIViewController {
     var notificationManager: NotificationService?
     var workoutManager: WorkoutServiceIos?
     
-    var userData: User?
+    var userRole: UserType = .leader
     
     var naismithTime: Double?
     var naismithDefault: Double?
@@ -72,11 +72,13 @@ class HikingSessionVC: UIViewController {
         headerView.configureValueState(workoutManager?.whatToDo ?? .timeToRest)
         timeElapsed?.updateLabel(workoutManager!.elapsedTimeInterval)
         
-        userData = userDefaultManager?.getUserData()
+//        userData = userDefaultManager?.getUserData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("ini role: \(userRole)")
         
         self.workoutManager?.setDelegate(self)
         view.backgroundColor = .white
@@ -117,8 +119,8 @@ class HikingSessionVC: UIViewController {
         horizontalStack.addArrangedSubview(actionButton)
         
         horizontalStack.subviews.first?.isHidden = true
-        timeElapsed?.layer.borderColor = UIColor.black.cgColor
-        timeElapsed?.layer.borderWidth = 1
+//        timeElapsed?.layer.borderColor = UIColor.black.cgColor
+//        timeElapsed?.layer.borderWidth = 1
         
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
@@ -167,9 +169,9 @@ class HikingSessionVC: UIViewController {
     
     @objc
     func actionButtonTapped() {
-        guard let user = userData else { return }
+//        guard let user = userData else { return }
         
-        switch user.role {
+        switch userRole {
         case .member:
             
             if iconButton == "pause.fill" {
@@ -177,6 +179,13 @@ class HikingSessionVC: UIViewController {
                 iconButton = "clock.fill"
                 actionButton.isEnabled = false
             }
+            
+            DispatchQueue.main.async {
+//                self.peripheralManager?.requestRest(for: .mandatoryBreak)
+                self.centralManager?.requestRest(for: .mandatoryBreak, exclude: nil)
+            }
+
+//            print("request rest for : \()")
             
             actionButton.setImage(UIImage(systemName: iconButton), for: .normal)
             
@@ -217,6 +226,7 @@ class HikingSessionVC: UIViewController {
             actionButton.setImage(UIImage(systemName: iconButton), for: .normal)
             
         }
+        
     }
     
     @objc
@@ -227,7 +237,7 @@ class HikingSessionVC: UIViewController {
         finishVC.destinationDetail = destinationDetail
         navigationController?.pushViewController(finishVC, animated: true)
         
-        if let userData = self.userData, userData.role == .leader {
+        if userRole == .leader {
             self.centralManager?.updateHikingState(for: .finished)
         }
     }
@@ -239,7 +249,7 @@ class HikingSessionVC: UIViewController {
             guard let finishVC = Container.shared.resolve(CongratsVC.self) else { return }
             finishVC.destinationDetail = destinationDetail
             
-            if let userData = self.userData, userData.role == .leader {
+            if userRole == .leader {
                 navigationController?.pushViewController(finishVC, animated: true)
                 self.centralManager?.updateHikingState(for: .finished)
             }
@@ -254,17 +264,17 @@ extension HikingSessionVC: HikingSessionVCDelegate {
     func didUpdateEstTime(_ time: TimeInterval) {
         print("didUpdateEstTime: ", time)
         guard let naismithTime = naismithTime else { return }
-        guard let userData = self.userData else { return }
+//        guard let userData = self.userData else { return }
         
         if naismithTime.isNaN || naismithTime.isInfinite {
             footerView?.updateEstTime("\(Int(naismithDefault ?? 0)) min")
-            if userData.role == .leader {
+            if userRole == .leader {
                 centralManager?.updateEstTime(naismithDefault ?? 0)
             }
         } else {
             let naismithTimeInt = Int(naismithTime)
             footerView?.updateEstTime("\(naismithTimeInt) min")
-            if userData.role == .leader {
+            if userRole == .leader {
                 centralManager?.updateEstTime(naismithTime)
             }
         }
@@ -272,8 +282,8 @@ extension HikingSessionVC: HikingSessionVCDelegate {
     }
     
     func didUpdateRestTaken(_ restCount: Int) {
-        guard let userData = self.userData else { return }
-        if userData.role == .leader {
+//        guard let userData = self.userData else { return }
+        if userRole == .leader {
             centralManager?.updateRestTaken(restTakenCount)
         }
         self.footerView?.updateRestTaken("\(restTakenCount)x")
@@ -283,7 +293,7 @@ extension HikingSessionVC: HikingSessionVCDelegate {
     func didReceivedHikingState(_ state: HikingStateEnum) {
         /// Update hiking member component based on hiking state
         print("Current Hiking State: \(state.rawValue)")
-        guard let userData = userDefaultManager?.getUserData() else { return }
+//        guard let userData = userDefaultManager?.getUserData() else { return }
         
         switch state {
             
@@ -297,6 +307,7 @@ extension HikingSessionVC: HikingSessionVCDelegate {
             
         case .continued:
             print("state: \(state.rawValue)")
+            self.workoutManager?.sendResumedToWatch()
         
         case .finished:
             self.workoutManager?.sendEndedToWatch()
@@ -331,8 +342,8 @@ extension HikingSessionVC: WorkoutDelegate {
     }
     
     func didUpdateRestAmount(_ restTaken: Int) {
-        guard let userData = self.userData else { return }
-        if userData.role == .leader {
+//        guard let userData = self.userData else { return }
+        if userRole == .leader {
             centralManager?.updateRestTaken(restTaken)
         }
         self.footerView?.updateRestTaken("\(restTaken)x")
@@ -343,10 +354,10 @@ extension HikingSessionVC: WorkoutDelegate {
     func didUpdateWhatToDo(_ whatToDo: TimingState) {
         print("Current whatToDo: \(whatToDo)")
         
-        guard let userData = self.userData else { return }
+//        guard let userData = self.userData else { return }
         
         if whatToDo == .timeToRest {
-            if userData.role == .leader {
+            if userRole == .leader {
                 self.centralManager?.updateHikingState(for: .paused)
                 self.centralManager?.requestRest(for: .timeToBreak, exclude: nil)
             }
@@ -354,7 +365,7 @@ extension HikingSessionVC: WorkoutDelegate {
             horizontalStack.subviews.first?.isHidden = false
             headerView.configureValueState(whatToDo)
         } else if whatToDo == .timeToWalk {
-            if userData.role == .leader {
+            if userRole == .leader {
                 self.centralManager?.updateHikingState(for: .continued)
                 self.centralManager?.requestRest(for: .timeToWalk, exclude: nil)
             }
@@ -425,10 +436,10 @@ extension HikingSessionVC: WorkoutDelegate {
         /// From CoreBl/uetooth
         self.footerView?.updateDistance("\(Int(distance)) m")
         
-        guard let userData = self.userData else { return }
+//        guard let userData = self.userData else { return }
         
         /// Broadcast to other member if any update distance
-        if userData.role == .leader {
+        if userRole == .leader {
             self.centralManager?.updateDistance(distance)
         }
         
@@ -440,17 +451,17 @@ extension HikingSessionVC: WorkoutDelegate {
         naismithTime = calculateHikingTime(distance: Double(destinationDetail?.trackLength ?? 0), elevationGain: Double(destinationDetail?.maxElevation ?? 0), speed: speed) * 60
         
         guard let naismithTime = naismithTime else { return }
-        guard let userData = self.userData else { return }
+//        guard let userData = self.userData else { return }
         
         if naismithTime.isNaN || naismithTime.isInfinite {
             footerView?.updateEstTime("\(Int(naismithDefault ?? 0)) min")
-            if userData.role == .leader {
+            if userRole == .leader {
                 centralManager?.updateEstTime(naismithDefault ?? 0)
             }
         } else {
             let naismithTimeInt = Int(naismithTime)
             footerView?.updateEstTime("\(naismithTimeInt) min")
-            if userData.role == .leader {
+            if userRole == .leader {
                 centralManager?.updateEstTime(naismithTime)
             }
         }
@@ -460,9 +471,9 @@ extension HikingSessionVC: WorkoutDelegate {
             print("speed == \(speed) | \(workoutManager!.whatToDo) | not moving")
             headerView.personNotmove()
             
-            guard let userData = self.userData else { return }
+//            guard let userData = self.userData else { return }
             
-            if userData.role == .leader {
+            if userRole == .leader {
                 /// Show notification for itself
                 notificationManager?.requestRest(for: .notMoving, name: nil)
                 /// Broadcast to other member if any update est time

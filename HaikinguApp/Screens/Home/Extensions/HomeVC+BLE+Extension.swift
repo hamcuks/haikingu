@@ -33,7 +33,11 @@ extension HomeVC: PeripheralBLEManagerDelegate {
             guard let plan else {
                 return
             }
+            workoutManager?.retrieveRemoteSession()
+            startHikingOnWatch()
+            workoutManager?.sendStartToWatch()
             viewController.destinationDetail = plan.destinationSelected
+            viewController.userRole = .member
             
             self.navigationController?.pushViewController(viewController, animated: true)
         }
@@ -65,6 +69,7 @@ extension HomeVC: PeripheralBLEManagerDelegate {
         workoutManager?.sendDestinationElevMaxToWatch(elevMax: plan.destinationSelected.maxElevation)
         workoutManager?.sendDestinationElevMinToWatch(elevMin: plan.destinationSelected.minElevation)
         self.navigationController?.pushViewController(viewController, animated: true)
+        print("ini roleeh: \(viewController.role)")
     }
     
     func peripheralBLEManager(didDisconnect hiker: Hiker) {
