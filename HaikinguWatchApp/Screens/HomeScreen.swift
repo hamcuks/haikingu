@@ -52,6 +52,10 @@ struct HomeScreen: View {
                     homeVM.workoutManager?.requestAuthorization()
                     homeVM.workoutManager?.reqMotionAccess()
                 }
+                .onChange(of: homeVM.isWorkoutStartedVM){_, start in
+                    navigationServices.path.append("metrics")
+                    startWorkout()
+                }
         }
     }
     private var emptyOpeningScreen: some View {
@@ -62,6 +66,19 @@ struct HomeScreen: View {
             Text("To start hiking, Open the Haikingu app on your iPhone to set up your hike.")
                 .multilineTextAlignment(.center)
                 .font(Font.system(.footnote, weight: .light))
+        }
+    }
+    
+    private func startWorkout() {
+        Task {
+            do {
+                let configuration = HKWorkoutConfiguration()
+                configuration.activityType = .hiking
+                configuration.locationType = .outdoor
+                try await homeVM.workoutManager?.startWorkout(workoutConfiguration: configuration)
+            } catch {
+                print("error bang gagal")
+            }
         }
     }
 }

@@ -15,8 +15,6 @@ struct LeadControlView: View {
     @Binding var isPaused: Bool
     
     var body: some View {
-        NavigationStack(path: $navigationServices.path) {
-            
         VStack(alignment: .center) {
             
             if metricsVM.workoutManager!.isWorkoutPaused == false {
@@ -95,16 +93,6 @@ struct LeadControlView: View {
         }
         .navigationTitle("Control")
         .navigationBarTitleDisplayMode(.large)
-        .navigationDestination(for: String.self) { destini in
-            if destini == "metrics" {
-                MetricsScreen()
-            } else if destini == "summary" {
-                SummaryScreen()
-            } else if destini == "reminder" {
-                //                    ReminderScreen()
-            }
-        }
-    }
     }
 }
 

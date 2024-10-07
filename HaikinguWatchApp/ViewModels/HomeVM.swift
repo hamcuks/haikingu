@@ -8,14 +8,13 @@
 import Foundation
 
 class HomeVM: ObservableObject, WorkoutVMHomeDelegate {
-    
-    
     @Published var workoutManager: WorkoutServiceWatchOS?
     @Published var isHasContent: Bool = false
     @Published var titleDestination: String?
     @Published var subtitleDestination: String?
     @Published var valueDestination: String?
     @Published var isReturnHome: Bool = false
+    @Published var isWorkoutStartedVM: Bool = false
     @Published var valueReturnHome: String = ""
     
     init(workoutManager: WorkoutServiceWatchOS?) {
@@ -29,4 +28,11 @@ class HomeVM: ObservableObject, WorkoutVMHomeDelegate {
         isHasContent = true
     }
     
+    func didWorkoutStarted(_ isWorkoutStarted: Bool) {
+        if isWorkoutStarted{
+            isWorkoutStartedVM = true
+        } else {
+            isWorkoutStartedVM = false
+        }
+    }
 }

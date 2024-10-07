@@ -180,6 +180,15 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         }
     }
     
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if let start = message["isStart"] as? Bool {
+            DispatchQueue.main.async {
+                self.isWorkoutStarted = start
+                self.delegateVMHome?.didWorkoutStarted(self.isWorkoutStarted)
+            }
+        }
+    }
+    
 }
 // MARK: - HKLiveWorkoutBuilderDelegate
 // HealthKit calls the delegate methods on an anonymous serial background queue,

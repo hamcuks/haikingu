@@ -26,6 +26,7 @@ protocol WorkoutDelegate: AnyObject {
 
 protocol WorkoutVMHomeDelegate: AnyObject {
     func didUpdateDestinationWatch(_ destinationWatch: String)
+    func didWorkoutStarted(_ isWorkoutStarted: Bool)
 }
 
 protocol WorkoutVMMetricsDelegate: AnyObject {
@@ -58,6 +59,8 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var selectedDestinationElevMax: Int = 1
     @Published var selectedDestinationElevMin: Int = 0
     
+    
+    @Published var isWorkoutStarted: Bool = false 
     @Published var isWorkoutPaused: Bool = false {
         didSet {
             delegate?.didWorkoutPaused(isWorkoutPaused)
