@@ -98,7 +98,7 @@ class DetailDestinationVC: UIViewController {
         super.viewDidLoad()
         workoutManager?.retrieveRemoteSession()
         view.backgroundColor = .white
-        
+        self.workoutManager?.setDelegateV2(self)
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization() // Minta izin akses lokasi
         locationManager.startUpdatingLocation()
