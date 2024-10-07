@@ -69,7 +69,7 @@ class DetailDestinationVC: UIViewController {
         image.contentMode = .scaleAspectFill
         image.backgroundColor = .blue
         image.layer.masksToBounds = true
-        image.layer.cornerRadius = 10
+        image.layer.cornerRadius = 20
         
         return image
     }()

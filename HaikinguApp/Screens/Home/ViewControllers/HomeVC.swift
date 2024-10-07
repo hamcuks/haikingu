@@ -44,7 +44,7 @@ class HomeVC: UIViewController {
     lazy var contentStack: UIStackView = UIStackView()
     lazy var imageView: UIImageView = UIImageView()
     lazy var backToHomeMessageView: BackToHomeMessageView = BackToHomeMessageView()
-    lazy var startButton: PrimaryButton = PrimaryButton(label: "Start Hiking")
+    lazy var startButton: PrimaryButton = PrimaryButton(label: " Start\nHiking")
     var isSoloMode: Bool = true
     
     /// Constructors
@@ -153,7 +153,7 @@ class HomeVC: UIViewController {
         self.configureImageView()
         contentStack.addArrangedSubview(imageView)
         
-        contentStack.spacing = 20
+        contentStack.spacing = 75
         contentStack.axis = .vertical
         
         contentStack.snp.makeConstraints { make in
@@ -168,7 +168,7 @@ class HomeVC: UIViewController {
     
     private func configureImageView() {
         // MARK: Ganti image dengan hasil dari onboarding
-        imageView.image = UIImage(systemName: "photo.fill")
+        imageView.image = UIImage(named: "solo")
         imageView.tintColor = .label
         imageView.backgroundColor = .secondarySystemBackground
         
@@ -180,9 +180,12 @@ class HomeVC: UIViewController {
     private func configureButtonStartHiking() {
         view.addSubview(startButton)
         startButton.addTarget(self, action: #selector(actionStartHiking), for: .touchUpInside)
+        startButton.configuration?.background.cornerRadius = 50
+        startButton.configuration?.titleAlignment = .center
+        startButton.titleLabel?.adjustsFontSizeToFitWidth = true
         startButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(20)
-            make.width.height.equalTo(105)
+            make.width.height.equalTo(100)
             make.centerX.equalToSuperview()
         }
     }
@@ -198,9 +201,11 @@ class HomeVC: UIViewController {
         if sender.selectedSegmentIndex == 0 {
             tipsLabel.text = "Going solo? No worries! Enjoy your solo adventure with confidence. We track your progress, and send gentle reminders to rest and recharge along the way."
             isSoloMode = true
+            imageView.image = UIImage(named: "solo")
         } else {
             tipsLabel.text = "Hiking with friends? Great choice! Enjoy the journey together. We track your group’s progress and sends reminders to take rests and stay energized along the way."
             isSoloMode = false
+            imageView.image = UIImage(named: "group")
         }
         
         print(sender.selectedSegmentIndex == 0 ? "Choosen: Solo" : "Choosen: Group")
