@@ -12,6 +12,7 @@ struct HaikinguWatchAppApp: App {
     @WKApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @Inject var homeVM: HomeVM
     @Inject var metricsVM: MetricsVM
+    @Inject var summaryVM: SummaryVM
     @StateObject var userServices = UserServices()
     
     @SceneBuilder var body: some Scene {
@@ -20,6 +21,7 @@ struct HaikinguWatchAppApp: App {
                 .environmentObject(NavigationServices())
                 .environmentObject(homeVM)
                 .environmentObject(metricsVM)
+                .environmentObject(summaryVM)
                 .environmentObject(userServices)
         }
     }

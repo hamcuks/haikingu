@@ -64,6 +64,7 @@ class HomeVC: UIViewController {
     /// Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.startHikingOnWatch()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedAvatar))
         headerView.avatarView.addGestureRecognizer(tapGesture)
@@ -214,5 +215,15 @@ class HomeVC: UIViewController {
         navVC.sheetPresentationController?.detents = [.medium()]
         
         self.present(navVC, animated: true)
+    }
+    
+    func startHikingOnWatch() {
+        Task {
+            do {
+                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
+            } catch {
+                print("gagal start watch workout")
+            }
+        }
     }
 }

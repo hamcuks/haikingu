@@ -15,7 +15,7 @@ struct MetricsScreen: View {
     @State var isPaused: Bool = false
     
     var body: some View {
-        NavigationStack(path: $navigationServices.path){
+//        NavigationStack(path: $navigationServices.path){
             ZStack {
                 TabView(selection: $metricsVM.pageNumber) {
                     
@@ -42,33 +42,25 @@ struct MetricsScreen: View {
                 
             }
             .navigationBarBackButtonHidden(true)
-        }
-        .onChange(of: metricsVM.isWorkoutEnded) { _, ended in
-            navigationServices.path.append("summary")
-            Task {
-                
-                await metricsVM.workoutManager?.stopWorkoutWatch()
-                
-                
+            .onChange(of: metricsVM.isWorkoutEnded) { _, ended in
+                navigationServices.path.append("summary")
+                Task {
+                    
+                    await metricsVM.workoutManager?.stopWorkoutWatch()
+                    
+                    
+                }
             }
-        }
-        .navigationDestination(for: String.self) { destini in
-            if destini == "metrics" {
-                MetricsScreen()
-            } else if destini == "summary" {
-                SummaryScreen()
-            } else if destini == "reminder" {
-                //                    ReminderScreen()
-            }
-        }
-        //            .background(DisableSwipeBackGesture())
+//        }
+        
+        
         
     }
     
 }
 
-#Preview {
-    MetricsScreen()
-        .environmentObject(UserServices())
-        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
-}
+//#Preview {
+//    MetricsScreen()
+//        .environmentObject(UserServices())
+//        .environmentObject(Container.shared.resolve(MetricsVM.self)!)
+//}

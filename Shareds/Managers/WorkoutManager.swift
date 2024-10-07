@@ -26,11 +26,16 @@ protocol WorkoutDelegate: AnyObject {
 
 protocol WorkoutVMHomeDelegate: AnyObject {
     func didUpdateDestinationWatch(_ destinationWatch: String)
+    func didWorkoutStarted(_ isWorkoutStarted: Bool)
 }
 
 protocol WorkoutVMMetricsDelegate: AnyObject {
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
     func didUpdateIsTired(_ isPersonTired: Bool)
+}
+
+protocol WorkoutVMSummaryDelegate: AnyObject {
+    func didBackToHome(_ isBackToHome: Bool)
 }
 
 enum TimingState {
@@ -43,6 +48,7 @@ class WorkoutManager: NSObject, ObservableObject {
     var delegate: WorkoutDelegate?
     var delegateVMHome: WorkoutVMHomeDelegate?
     var delegateVMMetrics: WorkoutVMMetricsDelegate?
+    var delegateVMSummary: WorkoutVMSummaryDelegate?
     let pedometerManager = CMPedometer()
     
     struct SessionStateChange {
@@ -58,6 +64,9 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var selectedDestinationElevMax: Int = 1
     @Published var selectedDestinationElevMin: Int = 0
     
+    
+    @Published var isBackToHome: Bool = false 
+    @Published var isWorkoutStarted: Bool = false
     @Published var isWorkoutPaused: Bool = false {
         didSet {
             delegate?.didWorkoutPaused(isWorkoutPaused)

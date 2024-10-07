@@ -209,15 +209,15 @@ class DetailDestinationVC: UIViewController {
         }
     }
     
-    func startHikingOnWatch() {
-        Task {
-            do {
-                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
-            } catch {
-                print("gagal start watch workout")
-            }
-        }
-    }
+//    func startHikingOnWatch() {
+//        Task {
+//            do {
+//                try await workoutManager?.startWatchWorkout(workoutType: .hiking)
+//            } catch {
+//                print("gagal start watch workout")
+//            }
+//        }
+//    }
 
 }
 
@@ -229,7 +229,8 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
         guard let userLocation = userLocation else { return print("User Location is Unavailable")}
         let rangeDistance = checkInRangeDestination(currentLocation: userLocation)
         let maximumDistance = 1000.0
-        startHikingOnWatch()
+        workoutManager?.sendStartToWatch()
+//        startHikingOnWatch()
         
         if rangeDistance < maximumDistance {
             guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
@@ -238,12 +239,12 @@ extension DetailDestinationVC: CLLocationManagerDelegate {
             print("Disctance is less than maximum distance: \(rangeDistance)")
             self.centralManager?.updateHikingState(for: .started)
         } else {
-//            alertNotRange.showAlert(on: self)
-            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
-            hikingSessionVC.destinationDetail = selectedDestination
-            navigationController?.pushViewController(hikingSessionVC, animated: true)
-            print("Distance is greater than maximum distance: \(rangeDistance)")
-            self.centralManager?.updateHikingState(for: .started)
+            alertNotRange.showAlert(on: self)
+//            guard let hikingSessionVC = Container.shared.resolve(HikingSessionVC.self) else { return }
+//            hikingSessionVC.destinationDetail = selectedDestination
+//            navigationController?.pushViewController(hikingSessionVC, animated: true)
+//            print("Distance is greater than maximum distance: \(rangeDistance)")
+//            self.centralManager?.updateHikingState(for: .started)
         }
         
     }

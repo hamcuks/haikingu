@@ -25,7 +25,9 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         self.delegateVMMetrics = delegate
     }
     
-
+    func setDelegateVMSummary(_ delegate: any WorkoutVMSummaryDelegate) {
+        self.delegateVMSummary = delegate
+    }
     
     
     /**
@@ -176,6 +178,22 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         } else if let maxelev = applicationContext["maxelev"] as? Int {
             DispatchQueue.main.async {
                 self.selectedDestinationElevMax = maxelev
+            }
+        }
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if let start = message["isStart"] as? Bool {
+            DispatchQueue.main.async {
+                self.isWorkoutStarted = start
+                self.delegateVMHome?.didWorkoutStarted(self.isWorkoutStarted)
+            }
+        }else if let back = message["isBackToHome"] as? Bool {
+            DispatchQueue.main.async {
+                if back {
+                    self.isBackToHome = true
+                    self.delegateVMSummary?.didBackToHome(self.isBackToHome)
+                }
             }
         }
     }
