@@ -275,7 +275,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.sendWhatToDoRestToiPhone()
             }
 #endif
-            startTimer(with: 600, startDate: Date())
+            startTimer(with: 300, startDate: Date())
         } else if remainingTime == 0 && whatToDo == .timeToRest {
             timer?.invalidate()
             timer = nil
