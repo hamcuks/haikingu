@@ -65,6 +65,7 @@ extension HomeVC: PeripheralBLEManagerDelegate {
         viewController.selectedDestination = plan.destinationSelected
         viewController.selectedPlan = plan
         viewController.role = .member
+        workoutManager?.sendRoleMemberToWatch()
         workoutManager?.sendDestinationNameToWatch(destination: plan.destinationSelected.name)
         workoutManager?.sendDestinationElevMaxToWatch(elevMax: plan.destinationSelected.maxElevation)
         workoutManager?.sendDestinationElevMinToWatch(elevMin: plan.destinationSelected.minElevation)

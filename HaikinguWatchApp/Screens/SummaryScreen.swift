@@ -38,6 +38,7 @@ struct SummaryScreen: View {
                         // MARK: Navigate / add path into Another Screen
                             if isBackHome {
                                 homeVM.isWorkoutStartedVM = false
+                                metricVM.workoutManager?.role = .leader
                                 metricVM.workoutManager?.isWorkoutPaused = false
                                 metricVM.workoutManager?.isWorkoutEnded = false
                                 navigationServices.path.removeLast(navigationServices.path.count)

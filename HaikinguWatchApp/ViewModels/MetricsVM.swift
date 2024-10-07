@@ -12,6 +12,7 @@ class MetricsVM: ObservableObject, WorkoutVMMetricsDelegate {
     @Published var heartRate: Double = 0
     @Published var distance: Double = 0
     @Published var workoutManager: WorkoutServiceWatchOS?
+    @Published var roleVM: UserType = .leader
     
 //    @Inject var workoutManagerBehind: WorkoutServiceWatchos
     
@@ -53,6 +54,14 @@ class MetricsVM: ObservableObject, WorkoutVMMetricsDelegate {
             isPersonTiredVM = true
         } else {
             isPersonTiredVM = false
+        }
+    }
+    
+    func didRoleChanged(_ role: UserType) {
+        if role == .leader {
+            roleVM = .leader
+        } else if role == .member {
+            roleVM = .member
         }
     }
 }

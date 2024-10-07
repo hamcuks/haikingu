@@ -101,7 +101,7 @@ class CongratsVC: UIViewController {
         
         headerCongratsView = HeaderCongratsView(
             destinationTitle: "\(destinationDetail.name)",
-            destinationTime: "1 Hour 25 Minutes"
+            destinationTime: "\(workoutManager.elapsedTimeInterval / 60) Minutes"
         )
         
         tableView.delegate = self

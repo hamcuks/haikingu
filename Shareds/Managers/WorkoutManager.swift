@@ -36,6 +36,7 @@ protocol WorkoutVMHomeDelegate: AnyObject {
 protocol WorkoutVMMetricsDelegate: AnyObject {
     func didWorkoutEnded(_ isWorkoutEnded: Bool)
     func didUpdateIsTired(_ isPersonTired: Bool)
+    func didRoleChanged(_ role: UserType)
 }
 
 protocol WorkoutVMSummaryDelegate: AnyObject {
@@ -61,6 +62,7 @@ class WorkoutManager: NSObject, ObservableObject {
         let date: Date
     }
     
+    @Published var role: UserType = .leader
     @Published var selectedDestinationName: String = "Your Destination"{
         didSet{
             delegateVMHome?.didUpdateDestinationWatch(selectedDestinationName)

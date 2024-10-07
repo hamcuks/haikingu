@@ -28,6 +28,7 @@ protocol WorkoutServiceWatchOS {
     var selectedDestinationElevMin: Int { get set }
     var restTaken: Int { get set }
     var isBackToHome: Bool { get set }
+    var role: UserType { get set }
     func setDelegateVMHome(_ delegate: WorkoutVMHomeDelegate)
     func setDelegateVMMetrics(_ delegate: WorkoutVMMetricsDelegate)
     func setDelegateVMSummary(_ delegate: WorkoutVMSummaryDelegate)

@@ -19,10 +19,10 @@ struct MetricsScreen: View {
             ZStack {
                 TabView(selection: $metricsVM.pageNumber) {
                     
-                    if userServices.userType == .member {
+                    if metricsVM.roleVM == .member {
                         MemberControlView()
                             .tag(0)
-                    } else if userServices.userType == .leader {
+                    } else if metricsVM.roleVM == .leader {
                         LeadControlView(isPaused: $isPaused)
                             .tag(0)
                     }
