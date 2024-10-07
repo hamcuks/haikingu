@@ -154,6 +154,16 @@ extension WorkoutManager: WorkoutServiceIos {
         }
     }
     
+    func sendToHomeToWatch() {
+        if WCSession.default.isReachable {
+            let message = [
+                "isBackToHome": true
+            ] as [String: Any]
+            
+            WCSession.default.sendMessage(message, replyHandler: nil)
+        }
+    }
+    
 }
 
 extension WorkoutManager: WCSessionDelegate {

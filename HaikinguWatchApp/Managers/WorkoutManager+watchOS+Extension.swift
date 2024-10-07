@@ -25,7 +25,9 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         self.delegateVMMetrics = delegate
     }
     
-
+    func setDelegateVMSummary(_ delegate: any WorkoutVMSummaryDelegate) {
+        self.delegateVMSummary = delegate
+    }
     
     
     /**
@@ -185,6 +187,13 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
             DispatchQueue.main.async {
                 self.isWorkoutStarted = start
                 self.delegateVMHome?.didWorkoutStarted(self.isWorkoutStarted)
+            }
+        }else if let back = message["isBackToHome"] as? Bool {
+            DispatchQueue.main.async {
+                if back {
+                    self.isBackToHome = true
+                    self.delegateVMSummary?.didBackToHome(self.isBackToHome)
+                }
             }
         }
     }

@@ -209,6 +209,7 @@ class CongratsVC: UIViewController {
     
     @objc
     func setReminderTapped() {
+        workoutManager.sendToHomeToWatch()
 //        // Dapatkan waktu pengingat dan waktu alert
 //        let formatter = DateFormatter()
 //        formatter.dateFormat = "HH:mm"

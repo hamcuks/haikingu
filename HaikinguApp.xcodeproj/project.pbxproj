@@ -10,6 +10,7 @@
 		035DA5672CAC935C0044BF26 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DA5662CAC935C0044BF26 /* SplashScreen.swift */; };
 		035DA5692CAD1DAC0044BF26 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DA5682CAD1DA40044BF26 /* UserDefaultService.swift */; };
 		035DA56B2CAD215D0044BF26 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DA56A2CAD21570044BF26 /* UserDefaultManager.swift */; };
+		8A2508562CB3D08A00812577 /* SummaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2508552CB3D08A00812577 /* SummaryVM.swift */; };
 		8A994CAC2CAC62E3006CF73B /* SwinjectWatchos+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */; };
 		8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CAD2CAC638B006CF73B /* Inject.swift */; };
 		8A994CB12CAD0F29006CF73B /* WorkoutServiceWatchOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A994CB02CAD0F29006CF73B /* WorkoutServiceWatchOS.swift */; };
@@ -151,6 +152,7 @@
 		035DA5682CAD1DA40044BF26 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 		035DA56A2CAD21570044BF26 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		8A1691642CB3C115002EFB5E /* Haikingu-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Haikingu-Watch-App-Info.plist"; sourceTree = "<group>"; };
+		8A2508552CB3D08A00812577 /* SummaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVM.swift; sourceTree = "<group>"; };
 		8A994CAB2CAC62E3006CF73B /* SwinjectWatchos+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectWatchos+extension.swift"; sourceTree = "<group>"; };
 		8A994CAD2CAC638B006CF73B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		8A994CB02CAD0F29006CF73B /* WorkoutServiceWatchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutServiceWatchOS.swift; sourceTree = "<group>"; };
@@ -874,6 +876,7 @@
 			children = (
 				E7EDAAFF2CAAEE5E006F3ED0 /* HomeVM.swift */,
 				E7EDAB002CAAEE5E006F3ED0 /* MetricsVM.swift */,
+				8A2508552CB3D08A00812577 /* SummaryVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1150,6 +1153,7 @@
 				E7EDAB032CAAEE5E006F3ED0 /* HomeVM.swift in Sources */,
 				8A994CB32CAD4072006CF73B /* MetricsTimelineSchedule.swift in Sources */,
 				E7EDAB042CAAEE5E006F3ED0 /* HKCircleButton.swift in Sources */,
+				8A2508562CB3D08A00812577 /* SummaryVM.swift in Sources */,
 				E7EDAB172CAAEE6A006F3ED0 /* ContentView.swift in Sources */,
 				E7EDAB182CAAEE6A006F3ED0 /* MemberControlScreen.swift in Sources */,
 				8A994CAE2CAC638B006CF73B /* Inject.swift in Sources */,

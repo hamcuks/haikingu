@@ -12,6 +12,8 @@ struct SummaryScreen: View {
     @EnvironmentObject var userServices: UserServices
     @EnvironmentObject var navigationServices: NavigationServices
     @EnvironmentObject var metricVM: MetricsVM
+    @EnvironmentObject var summaryVM: SummaryVM
+    @EnvironmentObject var homeVM: HomeVM
     @State var isBackHome: Bool = true
     
     var body: some View {
@@ -35,6 +37,9 @@ struct SummaryScreen: View {
                             
                         // MARK: Navigate / add path into Another Screen
                             if isBackHome {
+                                homeVM.isWorkoutStartedVM = false
+                                metricVM.workoutManager?.isWorkoutPaused = false
+                                metricVM.workoutManager?.isWorkoutEnded = false
                                 navigationServices.path.removeLast(navigationServices.path.count)
                             } else {
                                 if userServices.userType == .leader {
@@ -50,6 +55,11 @@ struct SummaryScreen: View {
             .toolbarForegroundStyle(.orange, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .onChange(of: summaryVM.isBackToHomeVM){_, back in
+                if back {
+                    navigationServices.path.removeLast(navigationServices.path.count)
+                }
+            }
             
         }
 //    }
