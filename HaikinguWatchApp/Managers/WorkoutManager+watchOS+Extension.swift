@@ -113,6 +113,11 @@ extension WorkoutManager: WCSessionDelegate, WorkoutServiceWatchOS {
         }
     }
     
+    func updateStartedWorkout(to newIsWorkoutStarted: Bool) {
+        isWorkoutStarted = newIsWorkoutStarted
+        sendStartToIphone()
+    }
+    
     // Check the elapsed time and notify delegate if it changes
     func checkElapsedTime() {
         
@@ -347,6 +352,15 @@ extension WorkoutManager {
             } catch {
                 print("error sending data rest taken via app context: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func sendStartToIphone() {
+        if WCSession.default.isReachable {
+            let message = [
+                "isWorkoutStart": isWorkoutStarted
+            ] as [String: Any]
+            WCSession.default.sendMessage(message, replyHandler: nil)
         }
     }
 }

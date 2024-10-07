@@ -43,4 +43,5 @@ protocol WorkoutServiceWatchOS {
     func updateIsWorkoutPaused(to newIsWorkoutPaused: Bool)
     func updateIsWorkoutEnded(to newIsWorkoutEnded: Bool)
     func stopWorkoutWatch() async
+    func updateStartedWorkout(to newIsWorkoutStarted: Bool)
 }

@@ -19,6 +19,7 @@ protocol WorkoutServiceIos {
     var workout: HKWorkout? { get set }
     var whatToDo: TimingState { get set }
     func setDelegate(_ delegate: WorkoutDelegate)
+    func setDelegateV2(_ delegate: WorkoutDelegateV2)
     
     func requestMotionPermission()
     func requestHealthAccess()
