@@ -51,7 +51,7 @@ class HikingModeControlView: UISegmentedControl {
         let selectedMode = numberOfSegments
         
         if let mode = subviews[selectedMode] as? UIImageView {
-            mode.backgroundColor = .gray
+            mode.backgroundColor = .orange
             mode.image = nil
             mode.layer.cornerRadius = self.radius - segmentInset + 4
             mode.layer.masksToBounds = true
