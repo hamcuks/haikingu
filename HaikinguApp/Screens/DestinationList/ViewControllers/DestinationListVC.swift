@@ -65,7 +65,7 @@ class DestinationListVC: UIViewController {
         tableView.layer.borderColor = UIColor.lightGray.cgColor
         tableView.layer.borderWidth = 1
         
-        tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = true
         
         selectButton.isEnabled = false
         selectButton.addTarget(self, action: #selector(actionButton), for: .touchDown)
